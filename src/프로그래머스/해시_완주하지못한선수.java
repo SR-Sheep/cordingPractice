@@ -2,7 +2,7 @@ package 프로그래머스;
 
 import java.util.HashMap;
 
-public class 해쉬_완주하지못한선수 {
+public class 해시_완주하지못한선수 {
     /*
      * 마라토너 수 : 1~100,000
      * completion+1=participant (한명만 완주 못함)
