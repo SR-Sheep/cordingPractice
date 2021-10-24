@@ -1,7 +1,5 @@
 package 프로그래머스;
 
-import java.util.HashMap;
-
 public class 깊이너비우선탐색_타겟넘버 {
 	/*
 	n개의 음이 아닌 정수가 있습니다. 이 수를 적절히 더하거나 빼서 타겟 넘버를 만들려고 합니다.
