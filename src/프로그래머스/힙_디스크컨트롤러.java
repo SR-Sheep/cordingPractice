@@ -1,6 +1,7 @@
 package 프로그래머스;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class 힙_디스크컨트롤러 {
@@ -17,53 +18,51 @@ public class 힙_디스크컨트롤러 {
 	각 작업에 대해 작업의 소요시간은 1 이상 1,000 이하입니다.
 	하드디스크가 작업을 수행하고 있지 않을 때에는 먼저 요청이 들어온 작업부터 처리합니다.
 	 */
-	public static int time(int start,int end) {
-		return end-start;
-	}
 	
+	/*
+	 * 전략
+	 * 
+	 * 작업 수행중이면 수행 시간이 짧은 걸 먼저 수행
+	 * 작업 수행이 아니라면 순서대로 수행
+	 */
     public static int solution(int[][] jobs) {
-        int answer = 0;
-        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((x,y)->(x[1]-y[1]));
-        Arrays.sort(jobs, (x,y)->(x[0]-y[0])); //시작 시간이 빠른 것 부터 정렬
-        
-        int end = jobs[0][0]+jobs[0][1];
-        answer+=end;
-        for(int i=1;i<jobs.length;i++) {
-        	int request = jobs[i][0];
-        	//겹치면 q에 넣기
-        	if(request<end) {
-        		pq.add(jobs[i]);
-        		continue;
-        	}
-        	
-        	//지금 친구 정산
-        	if(pq.isEmpty()) {
-	    		end+=jobs[i][1];
-	    		answer+=end-jobs[i][0];
-        		continue;
-        	}
-        	
-        	//안겹침
-        	//이전 애들 정산
-        	while(!pq.isEmpty()) {
-        		int[] overlay=pq.poll();
-        		end+=overlay[1];
-        		answer+=end-overlay[0];
-        	}
-        	i--;//다시 해보기
-        }
-        while(!pq.isEmpty()) {
-    		int[] overlay=pq.poll();
-    		end+=overlay[1];
-    		answer+=end-overlay[0];
+    	//시작 시간 빠른 순 정렬
+    	Arrays.sort(jobs,(x,y)->(x[0]-y[0]));
+    	//실행시간 적은 순 정렬
+    	PriorityQueue<int[]> pq = new PriorityQueue<int[]>((x,y)->(x[1]-y[1]));
+    	//시간, 인덱스, 답 초기화
+    	int time =0, idx=0, answer=0;
+    	//인덱스가 범위내에 있거나, pq가 비어있지 않다면 while진행
+    	while(idx<jobs.length||!pq.isEmpty()) {
+    		//인덱스가 범위내에 있고, 시작시간이 시간 이내라면 pq에 집어넣기
+    		while(idx<jobs.length&&jobs[idx][0]<=time) {
+    			pq.add(jobs[idx++]);
+    		}
+    		
+    		//pq가 비어있다면 (시간 이내에 시작하는 task가 없다면)
+    		if(pq.isEmpty()) {
+    			//해당 시작 시간을 time으로 지정
+    			time=jobs[idx][0];
+    			continue;
+    		}
+    		//pq가 비어있지 않다면
+    		//시간에 pq에 들어간 작은 수행시간을 더함
+    		int[] job = pq.poll();
+    		time+=job[1];
+    		//종료 시간 - 시작시간
+    		answer += time-job[0];
     	}
-        return answer/jobs.length;
-    }
-	
+    	//평균시간이므로 jobs의 길이로 나눠줌
+    	return answer/jobs.length;
+    }	
 	
 	public static void main(String[] args) {
-		int[][] job= {{0,3},{1,9},{2,6}};
+		int[][] job= {{0,3},{1,9},{2,6}};//28
 		System.out.println(solution(job));
+		int[][] job2= {{24, 10}, {28, 39}, {43, 20}, {37, 5}, {47, 22}, {20, 47}, {15, 34}, {15, 2}, {35, 43}, {26, 1}};//72
+		//System.out.println(solution(job2));
+		int[][] job3= {{24, 10}, {28, 39}, {43, 20}, {37, 5}, {47, 22}, {20, 47}, {15, 2}, {15, 34}, {35, 43}, {26, 1}};//72
+		//System.out.println(solution(job3));
 	}
 
 }
