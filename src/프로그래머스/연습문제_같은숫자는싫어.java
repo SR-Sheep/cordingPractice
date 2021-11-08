@@ -23,11 +23,11 @@ public class 연습문제_같은숫자는싫어 {
 	
     public List<Integer> solution(int []arr) {
         List<Integer> answer= new ArrayList<>();
-        int before = -1;
+        int before = -1; //이전 값
         for(int i:arr){
-            if(before!=i){
-                before=i;
-                answer.add(i);
+            if(before!=i){ //이전값과 다르면
+                before=i; //이전값 = 현재값
+                answer.add(i); //리스트에 삽입
             } 
         }
         return answer;
