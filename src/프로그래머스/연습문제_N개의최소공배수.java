@@ -32,6 +32,7 @@ public class 연습문제_N개의최소공배수 {
     public static void main(String[] args) {
 		int n=2;
 		int[][] arr = {{2,6,8,14},{1,2,3}}; //168, 6
+		
 		for(int i=0;i<n;i++) {
 			System.out.println(solution(arr[i]));
 		}
