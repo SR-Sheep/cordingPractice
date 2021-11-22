@@ -33,33 +33,34 @@ public class 카카오_단체사진찍기 {
 		boolean pass=true;
 		for(int[] condition:Conditions) {
 			if(!pass) break;
-			int a=condition[0];
-			int b=condition[1];
-			int sign = condition[2];
-			int num = condition[3];
+			int a=condition[0]; //수 1
+			int b=condition[1]; //수 2
+			int sign = condition[2]; //기호
+			int num = condition[3]; //거리
 			
 			int aIdx=-1, bIdx=-1;
 			for(int i=0;i<8;i++) {
-				if(a==s.charAt(i)-'0') aIdx=i; 
-				else if(b==s.charAt(i)-'0') bIdx=i;
+				if(a==s.charAt(i)-'0') aIdx=i; //수 1의 idx
+				else if(b==s.charAt(i)-'0') bIdx=i; //수 2의 idx
 			}
-			int interval =Math.abs(aIdx-bIdx)-1;
+			int interval =Math.abs(aIdx-bIdx)-1; //수 1과 2의 거리
 			//=
 			if(sign==61) {
-				if(interval!=num) pass=false; 
+				if(interval!=num) pass=false; //거리가 num과 같지 않으면 false 리턴
 			//<	
 			}else if(sign==60) {
-				if(interval>=num) pass=false;
+				if(interval>=num) pass=false; //거리가 num 이상이면 false 리턴
 			//>	
 			}else if(sign==62) {
-				if(interval<=num) pass=false;
+				if(interval<=num) pass=false; //거리가 num 이하이면 false 리턴
 			}
 		}
-		if(pass) Answer++;
+		if(pass) Answer++; //통과시 답 증가
 	}
 	
-	
+	//수열 생성
 	public static void permutation(String s) {
+		//수열의 길이가 8
 		if(s.length()==8) {
 			isOk(s);
 			return;
@@ -81,15 +82,15 @@ public class 카카오_단체사진찍기 {
     	Conditions=new ArrayList<>();
         for(String d:data) {
         	int a=-1,b=-1;
-        	int sign=d.charAt(3)+0;
-        	int num=d.charAt(4)-'0';
-        	
+        	int sign=d.charAt(3)+0; //부호
+        	int num=d.charAt(4)-'0'; //숫자
+        	//프랜드 배열 탐색하여 숫자로 변환
         	for(int i=0;i<8;i++) {
         		char friend =friends[i];
-        		if(friend==d.charAt(0)) a=i;
-        		else if(friend==d.charAt(2)) b=i;
+        		if(friend==d.charAt(0)) a=i; //첫번째 친구
+        		else if(friend==d.charAt(2)) b=i; //두번째 친구
         	}
-        	Conditions.add(new int[] {a,b,sign,num});
+        	Conditions.add(new int[] {a,b,sign,num}); //변환하여 번호1, 번호2, 부호, 숫자 입력
         }
         permutation("");
         return Answer;
