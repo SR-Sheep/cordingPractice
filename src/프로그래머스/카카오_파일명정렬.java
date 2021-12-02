@@ -1,12 +1,11 @@
 package 프로그래머스;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class 카카오_파일명정렬 {
+	//https://programmers.co.kr/learn/courses/30/lessons/17686
+	
     static class Name implements Comparable<Name>{
     	private String name,head,tail;
     	private int number;
