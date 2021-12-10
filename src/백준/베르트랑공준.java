@@ -1,7 +1,6 @@
 package 백준;
 
 import java.io.*;
-import java.util.StringTokenizer;
 
 public class 베르트랑공준 {
 	
