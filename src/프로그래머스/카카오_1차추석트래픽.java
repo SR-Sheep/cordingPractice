@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class 카카오_1차추석트래픽 {
-	
+	//https://programmers.co.kr/learn/courses/30/lessons/17676
 	static class Log{
 		private long start, end;
 		
