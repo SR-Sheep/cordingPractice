@@ -1,10 +1,8 @@
 package 백준;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class 내리막길 {
@@ -33,7 +31,6 @@ public class 내리막길 {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st=new StringTokenizer(br.readLine());
 		int m=Integer.parseInt(st.nextToken());
 		int n=Integer.parseInt(st.nextToken());
@@ -54,15 +51,8 @@ public class 내리막길 {
 				downhill(i, j);
 			}
 		}
-//		for(int i=0;i<m;i++) {
-//			for(int j=0;j<n;j++) {
-//				System.out.print(Dp[i][j]+" ");
-//			}
-//			System.out.println();
-//		}
-		
-		bw.append(Dp[m-1][n-1]+"\n");
+
+		System.out.println(Dp[m-1][n-1]+"\n");
 		br.close();
-		bw.close();
 	}
 }
