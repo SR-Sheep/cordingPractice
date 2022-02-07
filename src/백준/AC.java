@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -28,34 +28,34 @@ public class AC {
 			try {
 				boolean isBackward = false;
 				for(char c:cmds) {
-					//RÀÏ °æ¿ì, ¹æÇâ ÀüÈ¯
+					//Rì¼ ê²½ìš°, ë°©í–¥ ì „í™˜
 					if(c=='R') {
 						isBackward=!isBackward;
-					//¿ª¹æÇâÀÏ°æ¿ì
+					//ì—­ë°©í–¥ì¼ê²½ìš°
 					}else if(isBackward){
-						dq.removeLast(); //µÚ¿¡¼­ Á¦°Å
-					//Á¤¹æÇâÀÏ°æ¿ì
+						dq.removeLast(); //ë’¤ì—ì„œ ì œê±°
+					//ì •ë°©í–¥ì¼ê²½ìš°
 					}else {
-						dq.removeFirst(); //¾Õ¿¡¼­ Á¦°Å
+						dq.removeFirst(); //ì•žì—ì„œ ì œê±°
 					}
 				}
 				StringBuilder sb = new StringBuilder("[");
-				//ÃÖÁ¾ ¿ª¹æÇâÀÏ °æ¿ì
+				//ìµœì¢… ì—­ë°©í–¥ì¼ ê²½ìš°
 				if(isBackward) {
 					while(!dq.isEmpty()) {
 						sb.append(dq.pollLast()).append(",");
 					}
-				//ÃÖÁ¾ Á¤¹æÇâÀÏ °æ¿ì	
+				//ìµœì¢… ì •ë°©í–¥ì¼ ê²½ìš°	
 				}else {
 					while(!dq.isEmpty()) {
 						sb.append(dq.pollFirst()).append(",");
 					}
 				}
 				if(sb.length()>1) sb.deleteCharAt(sb.length()-1);
-				sb.append("]\n"); //¸¶Áö¸· ÄÞ¸¶ Á¦°ÅÈÄ ´ë°ýÈ£ ´Ý±â
+				sb.append("]\n"); //ë§ˆì§€ë§‰ ì½¤ë§ˆ ì œê±°í›„ ëŒ€ê´„í˜¸ ë‹«ê¸°
 				bw.append(sb);
 			} catch (Exception e) {
-				bw.append("error\n"); //¿¡·¯¸é ¿¡·¯ Ç¥½Ã
+				bw.append("error\n");
 			}
 		}
 		br.close();
