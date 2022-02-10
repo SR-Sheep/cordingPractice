@@ -1,4 +1,4 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,25 +7,26 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ACM»£≈⁄ {
+public class ACMÌò∏ÌÖî {
 	public static void main(String[] args) throws IOException {
-		
-		//https://www.acmicpc.net/problem/10250
-		
+
+		// https://www.acmicpc.net/problem/10250
+
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine()); //ø√∂Û∞°±‚
+		int n = Integer.parseInt(br.readLine()); // Ïò¨ÎùºÍ∞ÄÍ∏∞
 		StringTokenizer st;
-		for(int i=0;i<n;i++) {
+		for (int i = 0; i < n; i++) {
 			st = new StringTokenizer(br.readLine());
-			int height = Integer.parseInt(st.nextToken()); //√˛
-			int width = Integer.parseInt(st.nextToken()); //πÊ ºˆ
-			int num = Integer.parseInt(st.nextToken()); //π¯¬∞
-			
-			int floor = num%height; //√˛ºˆ
-			if(floor==0) floor = height; //≥™∏”¡ˆ∞° 0¿Ã∏È √÷ªÛ√˛
-			bw.append(floor+"");
-			bw.append(String.format("%02d", (int)Math.ceil((double)num/(double)height))+"\n");
+			int height = Integer.parseInt(st.nextToken()); // Ï∏µ
+			int width = Integer.parseInt(st.nextToken()); // Î∞© Ïàò
+			int num = Integer.parseInt(st.nextToken()); // Î≤àÏß∏
+
+			int floor = num % height; // Ï∏µÏàò
+			if (floor == 0)
+				floor = height; // ÎÇòÎ®∏ÏßÄÍ∞Ä 0Ïù¥Î©¥ ÏµúÏÉÅÏ∏µ
+			bw.append(floor + "");
+			bw.append(String.format("%02d", (int) Math.ceil((double) num / (double) height)) + "\n");
 		}
 		br.close();
 		bw.close();
