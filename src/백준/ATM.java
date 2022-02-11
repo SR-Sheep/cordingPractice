@@ -1,4 +1,4 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.*;
 import java.util.*;
@@ -17,9 +17,12 @@ public class ATM {
 		for(int i=0;i<n;i++) {
 			withdraw[i]=Integer.parseInt(st.nextToken());
 		}
-		Arrays.sort(withdraw); //¿€¿∫ ºˆ ¡§∑ƒ
+		
+		//Í∞ÄÏû• ÏãúÍ∞ÑÏù¥ Ï†ÅÍ≤å Í±∏Î¶¨Îäî ÏÇ¨Îûå Î®ºÏ†Ä Ïù∏Ï∂úÌïòÏó¨Ïïº ÏµúÏÜåÌïúÏùò ÏãúÍ∞ÑÏúºÎ°ú Ïù∏Ï∂úÌï®
+		
+		Arrays.sort(withdraw); //ÏûëÏùÄ Ïàò Ï†ïÎ†¨
 		for(int w:withdraw) {
-			time+=w*n--; //º˝¿⁄ * (¿¸√º ºˆ - nπ¯¬∞)∏¶ ¥ı«‘
+			time+=w*n--; //Ïà´Ïûê * (Ï†ÑÏ≤¥ Ïàò - nÎ≤àÏß∏)Î•º ÎçîÌï®
 		}
 		bw.append(time+"\n");
 		br.close();
