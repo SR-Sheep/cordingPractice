@@ -59,7 +59,7 @@ public class DFS와BFS {
 			Graph[a][b]=Graph[b][a]=1;
 		}
 		Visited=new boolean[n+1];
-		dps(v);
+		dfs(v);
 		Bw.append("\n");
 		Bw.flush();
 		
