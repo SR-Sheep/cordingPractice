@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class DFS¿ÍBFS {
+public class DFSì™€BFS {
 	//https://www.acmicpc.net/problem/1260
 	static BufferedReader Br;
 	static BufferedWriter Bw;
@@ -47,9 +47,9 @@ public class DFS¿ÍBFS {
 		Br = new BufferedReader(new InputStreamReader(System.in));
 		Bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st=new StringTokenizer(Br.readLine());
-		int n=Integer.parseInt(st.nextToken()); //Á¤Á¡ °³¼ö
-		int m=Integer.parseInt(st.nextToken()); //°£¼± °³¼ö
-		int v=Integer.parseInt(st.nextToken()); //½ÃÀÛ Á¤Á¡
+		int n=Integer.parseInt(st.nextToken()); //ì •ì  ê°œìˆ˜
+		int m=Integer.parseInt(st.nextToken()); //ê°„ì„  ê°œìˆ˜
+		int v=Integer.parseInt(st.nextToken()); //ì‹œì‘ ì •ì 
 		
 		Graph=new int[n+1][n+1];
 		for(int i=0;i<m;i++) {
@@ -59,7 +59,7 @@ public class DFS¿ÍBFS {
 			Graph[a][b]=Graph[b][a]=1;
 		}
 		Visited=new boolean[n+1];
-		dfs(v);
+		dps(v);
 		Bw.append("\n");
 		Bw.flush();
 		
