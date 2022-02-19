@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,17 +21,18 @@ public class Fly_me_to_the_Alpha_Centauri {
 			
 			long start = Long.parseLong(st.nextToken());
 			long end = Long.parseLong(st.nextToken());
-			long gap = end-start; //Â÷ÀÌ
-			long count=0; //Á¡ÇÁ È½¼ö
-			long sum = 0; //ÇÕ
-			long dis = 1; //ÀÌµ¿ °Å¸®
+			long gap = end-start; //ì´ë™ê±°ë¦¬
+			long count=0; //ì´ë™ íšŸìˆ˜
+			long sum = 0; //í•©ê³„
+			long dis = 1; //ì´ë™ ê±°ë¦¬
+			//1 2 3 4 3 2 1 ì´ëŸ° ì‹ìœ¼ë¡œ ì´ë™, ì–‘ ëì—ì„œ 1ì”© ë”í•˜ë‚˜ê°€ëŠ” ë°©ì‹ìœ¼ë¡œ ì´ ê±°ë¦¬ ê³„ì‚°
 			while(sum<gap) {
 				for(int j=0;j<2;j++) {
 					sum+=dis;
 					count++;
 					if(sum>=gap) break;
 				}
-				dis++; //ÀÌµ¿ °Å¸® Áõ°¡
+				dis++; //ì´ë™ ê±°ë¦¬ ì¦ê°€
 			}
 			
 			bw.append(count+"\n");
