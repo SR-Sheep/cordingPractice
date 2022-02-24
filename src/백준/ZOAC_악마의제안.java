@@ -1,11 +1,11 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class ZOAC_¾Ç¸¶ÀÇÁ¦¾È {
+public class ZOAC_ì•…ë§ˆì˜ì œì•ˆ {
 	//https://www.acmicpc.net/problem/23972
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
