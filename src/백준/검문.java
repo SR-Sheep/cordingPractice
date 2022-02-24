@@ -58,7 +58,7 @@ public class 검문 {
 			nums[i]=Integer.parseInt(br.readLine());
 		}
 		Arrays.sort(nums);
-		
+		//최대 공배수
 		int gcd = nums[1]-nums[0];
 		for(int i=2;i<n;i++) {
 			gcd=gcd(gcd, nums[i]-nums[i-1]);
