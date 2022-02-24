@@ -1,16 +1,16 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class K¹øÂ°¼ö {
+public class Kë²ˆì§¸ìˆ˜ {
 	//https://www.acmicpc.net/problem/1300
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		long n = Long.parseLong(br.readLine());
 		long k = Long.parseLong(br.readLine());
-		//ÀÌºĞÅ½»ö
+		//ì´ë¶„íƒìƒ‰
 		long left = 1, right = n*n, mid = -1;
 		long answer = 0;
 		while(left<=right) {
@@ -19,10 +19,10 @@ public class K¹øÂ°¼ö {
 			for(int i=1;i<=n;i++) {
 				sum+=mid/i>n?n:mid/i;
 			}
-			//mid ÀÌÇÏÀÇ ¼öÀÇ ¼ö°¡ kº¸´Ù ÀÛÀ¸¸é ´äÀÌ µÇÁö ¾ÊÀ½
+			//mid ì´í•˜ì˜ ìˆ˜ì˜ ìˆ˜ê°€ kë³´ë‹¤ ì‘ìœ¼ë©´ ë‹µì´ ë˜ì§€ ì•ŠìŒ
 			if(sum<k) {
 				left = mid+1;
-			//mid ÀÌÇÏÀÇ ¼öÀÇ ¼ö°¡ k¿Í °°°Å³ª ´õ Å©´Ù¸é ´äÀÌ °¡´É
+			//mid ì´í•˜ì˜ ìˆ˜ì˜ ìˆ˜ê°€ kì™€ ê°™ê±°ë‚˜ ë” í¬ë‹¤ë©´ ë‹µì´ ê°€ëŠ¥
 			}else {
 				answer = mid;
 				right=mid-1;
