@@ -1,10 +1,10 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.*;
 import java.util.*;
 
 public class N_Queen {
-	
+	//https://www.acmicpc.net/problem/9663
 	static int N,Answer;
 	static boolean[] VisitedRow;
 	static boolean[] VisitedRU;
