@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,12 +10,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class °Ë¹® {
+public class ê²€ë¬¸ {
 	//https://www.acmicpc.net/problem/2981
 	
-	//Ãâ·Â
+	//ì¶œë ¥
 	static BufferedWriter bw;
-	//¾à¼ö Ãâ·Â
+	//ì•½ìˆ˜ ì¶œë ¥
 	public static void divisor(int n) throws IOException {
 		List<Integer> list = new ArrayList<Integer>();
 		list.add(n);
@@ -26,14 +26,14 @@ public class °Ë¹® {
 				list.add(n/i);
 			}
 		}
-		if(n%i==0) list.add(i);
+		if(i*i==n) list.add(i);
 		Collections.sort(list);
 		for(int num:list) {
 			bw.append(num+" ");
 		}
 	}
 	
-	//À¯Å¬¸®µå È£Á¦¹ı
+	//ìœ í´ë¦¬ë“œ í˜¸ì œë²•
 	public static int gcd(int a, int b) {
 		int tmp=0;
 		if(a<b) {
@@ -42,7 +42,7 @@ public class °Ë¹® {
 			b=tmp;
 		}
 		while(b!=0) {
-			tmp=a;
+            tmp=a;
 			a=b;
 			b=tmp%b;
 		}
