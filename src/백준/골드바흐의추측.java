@@ -1,10 +1,10 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class °ñµå¹ÙÈåÀÇÃßÃø {
-	
+public class ê³¨ë“œë°”íì˜ì¶”ì¸¡ {
+	//https://www.acmicpc.net/problem/9020
 	public static boolean isPrime(int num) {
 		if(num==1) return false;
 		for(int i=2;i*i<=num;i++) {
@@ -21,6 +21,8 @@ public class °ñµå¹ÙÈåÀÇÃßÃø {
 			int num=Integer.parseInt(br.readLine());
 			int a = num/2;
 			int b = a;
+			//ëª¨ë“  ìˆ˜ëŠ” ì§ìˆ˜ì„ìœ¼ë¡œ a+b= num
+			//aë‚˜ bê°€ ì†Œìˆ˜ê°€ ì•„ë‹ˆë©´ ì†Œìˆ˜ê°€ ë‚˜ì˜¬ ë•Œê¹Œì§€ aëŠ” ê°ì†Œ, bëŠ” ì¦ê°€
 			while(!isPrime(a)||!isPrime(b)) {
 				a--;
 				b++;
