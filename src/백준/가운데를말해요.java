@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,33 +7,33 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.PriorityQueue;
 
-public class °¡¿îµ¥¸¦¸»ÇØ¿ä {
+public class ê°€ìš´ë°ë¥¼ë§í•´ìš” {
 	//https://www.acmicpc.net/problem/1655
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
-		PriorityQueue<Integer> smalls = new PriorityQueue<Integer>((x,y)->(y-x)); //ÀÛÀº¼ö ¸ğÀ½ Áß Å« ¼ö ¿ì¼±
-		PriorityQueue<Integer> larges = new PriorityQueue<Integer>(); //Å« ¼ö ¸ğÀ½ Áß ÀÛÀº¼ö ¿ì¼±
+		PriorityQueue<Integer> smalls = new PriorityQueue<Integer>((x,y)->(y-x)); //ì‘ì€ìˆ˜ ëª¨ìŒ ì¤‘ í° ìˆ˜ ìš°ì„ 
+		PriorityQueue<Integer> larges = new PriorityQueue<Integer>(); //í° ìˆ˜ ëª¨ìŒ ì¤‘ ì‘ì€ìˆ˜ ìš°ì„ 
 		
 		for(int i=0;i<n;i++) {
 			int num=Integer.parseInt(br.readLine());
-			//µÎ pqÀÇ Å©±â°¡ °°À¸¸é small¿¡ ³Ö±â
+			//ë‘ pqì˜ í¬ê¸°ê°€ ê°™ìœ¼ë©´ smallì— ë„£ê¸°
 			if(smalls.size()==larges.size()) {
-				//lagreÀÇ ÃÖ¼Ò°ª º¸´Ù ÇöÀç °ªÀÌ Å©´Ù¸é
+				//lagreì˜ ìµœì†Œê°’ ë³´ë‹¤ í˜„ì¬ ê°’ì´ í¬ë‹¤ë©´
 				if(!larges.isEmpty()&&larges.peek()<num) {
-					smalls.add(larges.poll()); //largeÀÇ ÃÖ¼Ò°ªÀ» small¿¡ ³Ö°í
-					larges.add(num); //large¿¡ ÇöÀç °ª ³Ö±â
+					smalls.add(larges.poll()); //largeì˜ ìµœì†Œê°’ì„ smallì— ë„£ê³ 
+					larges.add(num); //largeì— í˜„ì¬ ê°’ ë„£ê¸°
 				}else {
 					smalls.add(num);
 				}
-			//µÎ pqÀÇ Å©±â°¡ ´Ù¸£¸é large¿¡ ³Ö±â
+			//ë‘ pqì˜ í¬ê¸°ê°€ ë‹¤ë¥´ë©´ largeì— ë„£ê¸°
 			}else {
-				//smallÀÇ ÃÖ´ë°ª º¸´Ù ÇöÀç °ªÀÌ ÀÛ´Ù¸é
+				//smallì˜ ìµœëŒ€ê°’ ë³´ë‹¤ í˜„ì¬ ê°’ì´ ì‘ë‹¤ë©´
 				if(smalls.peek()>num) {
-					larges.add(smalls.poll()); //smallÀÇ ÃÖ´ë°ªÀ» large¿¡ ³Ö°í
-					smalls.add(num); //small¿¡ ÇöÀç °ª ³Ö±â
+					larges.add(smalls.poll()); //smallì˜ ìµœëŒ€ê°’ì„ largeì— ë„£ê³ 
+					smalls.add(num); //smallì— í˜„ì¬ ê°’ ë„£ê¸°
 				}else {
 					larges.add(num); 
 				}
