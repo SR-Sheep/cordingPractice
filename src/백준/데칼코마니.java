@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class INU_µ¥Ä®ÄÚ¸¶´Ï {
+public class ë°ì¹¼ì½”ë§ˆë‹ˆ {
 	//https://www.acmicpc.net/problem/23841
 	
 	public static void main(String[] args) throws IOException {
@@ -25,17 +25,15 @@ public class INU_µ¥Ä®ÄÚ¸¶´Ï {
 				char c = s.charAt(j);
 				if(c!='.') {
 					board[i][j]=board[i][w-1-j]=c;
+				}else if(board[i][j]=='\u0000') {
+					board[i][j]='.';
 				}
 			}
 		}
 		
 		for(char[] b:board) {
 			for(char c:b) {
-				if(c!='\u0000') {
-					bw.append(c);
-				}else {
-					bw.append('.');
-				}
+				bw.append(c);
 			}
 			bw.append("\n");
 		}
