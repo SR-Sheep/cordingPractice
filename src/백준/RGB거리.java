@@ -1,28 +1,28 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class RGB°Å¸® {
+public class RGBê±°ë¦¬ {
 	//https://www.acmicpc.net/problem/1149
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-		int[][] cost = new int[n][3]; //°¢ r,g,b ·Î »öÄ¥ ÇßÀ» ¶§ ÃÖ¼Ò°ª ÀúÀå
+		int[][] cost = new int[n][3]; //ê° r,g,b ë¡œ ìƒ‰ì¹  í–ˆì„ ë•Œ ìµœì†Œê°’ ì €ì¥
 		StringTokenizer st=new StringTokenizer(br.readLine());
-		for(int i=0;i<3;i++) cost[0][i]=Integer.parseInt(st.nextToken()); //Ã³À½ r,g,b ºñ¿ë
+		for(int i=0;i<3;i++) cost[0][i]=Integer.parseInt(st.nextToken()); //ì²˜ìŒ r,g,b ë¹„ìš©
 		for(int i=1;i<n;i++) {
 			st=new StringTokenizer(br.readLine());
 			for(int j=0;j<3;j++) {
 				int min = 1000000;
-				int color = Integer.parseInt(st.nextToken()); //»ö ¼±ÅÃ
+				int color = Integer.parseInt(st.nextToken()); //ìƒ‰ ì„ íƒ
 				for(int k=0;k<3;k++) {
-					if(j==k) continue; //ÀÌÀü Áı°ú °°Àº »ö Á¦¿Ü
+					if(j==k) continue; //ì´ì „ ì§‘ê³¼ ê°™ì€ ìƒ‰ ì œì™¸
 					min=Math.min(min, cost[i-1][k]);
 				}
-				cost[i][j]=min+color; //¼±ÅÃÇÑ »ö + ¼±ÅÃÇÑ »öÀ» Á¦¿ÜÇÑ °ª Áß ÃÖ¼Ò°ª ¼±ÅÃ
+				cost[i][j]=min+color; //ì„ íƒí•œ ìƒ‰ + ì„ íƒí•œ ìƒ‰ì„ ì œì™¸í•œ ê°’ ì¤‘ ìµœì†Œê°’ ì„ íƒ
 			}
 		}
 		int answer = 1000000;
