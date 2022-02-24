@@ -1,9 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ´ŞÆØÀÌ´Â¿Ã¶ó°¡°í½Í´Ù {
+public class ë‹¬íŒ½ì´ëŠ”ì˜¬ë¼ê°€ê³ ì‹¶ë‹¤ {
 	
 	//https://www.acmicpc.net/problem/2869
 	
@@ -11,12 +11,12 @@ public class ´ŞÆØÀÌ´Â¿Ã¶ó°¡°í½Í´Ù {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int up = Integer.parseInt(st.nextToken()); //¿Ã¶ó°¡±â
-		int down = Integer.parseInt(st.nextToken()); //¹Ì²ô·¯Áö±â
-		int length = Integer.parseInt(st.nextToken()); //¿Ã¶ó°¡¾ß ÇÏ´Â °Å¸®
-		length-=up; //¸¶Áö¸· ¿Ã¶ó°¡±â »©±â, ´ä 1 Áõ°¡
-		int diff = up-down; //Â÷ÀÌ
-		int answer = (int)Math.ceil((double)length/(double)diff)+1; //±æÀÌ / Â÷ÀÌ + 1
+		int up = Integer.parseInt(st.nextToken()); //ì˜¬ë¼ê°
+		int down = Integer.parseInt(st.nextToken()); //ë–¨ì–´ì§
+		int length = Integer.parseInt(st.nextToken()); //ë§‰ëŒ€ê¸° ê¸¸ì´
+		length-=up; //ì¼ë‹¨ í•œë²ˆ ì˜¬ë¼ê°€ê³  ë‚¨ì€ ê±°ë¦¬
+		int diff = up-down; //ì°¨ì´
+		int answer = (int)Math.ceil((double)length/(double)diff)+1; // (ë‚¨ì€ ê¸¸ì´ / ì°¨ì´)ë¥¼ ì˜¬ë¦¼í•œ ê°’ +1
 		
 		bw.append(answer+"\n");
 		br.close();
