@@ -1,10 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
-public class ´Ü¾îÁ¤·Ä {
-	
+public class ë‹¨ì–´ì •ë ¬ {
 	//https://www.acmicpc.net/problem/1181
 	
 	public static void main(String[] args) throws IOException {
@@ -12,27 +11,29 @@ public class ´Ü¾îÁ¤·Ä {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
 		
-		Set<String> set = new HashSet<String>(); //Áßº¹Á¦°Å¸¦ À§ÇÑ ¼Â
+		Set<String> set = new HashSet<String>(); //ì¤‘ë³µì œê±°ë¥¼ ìœ„í•œ set
 		
 		for(int i=0;i<n;i++) {
-			set.add(br.readLine()); //¼Â¿¡ ÀÔ·Â
+			set.add(br.readLine()); //ë‹¨ì–´ ì¶”ê°€
 		}
 		
 		String[] s = new String[set.size()];
 		int idx=0;
 		for(String str:set) {
-			s[idx++]=str; //¹è¿­·Î ¿Å±â±â
+			s[idx++]=str; //ë°°ì—´ì— ë‹¨ì–´ ì €ìž¥
 		}
-		//Á¤·Ä
+		//ì •ë ¬
 		Arrays.sort(s,new Comparator<String>() {
 			@Override
 			public int compare(String o1, String o2) {
-				if(o1.length()>o2.length()) return 1; //±æÀÌ°¡ ÂªÀº ¼ø
+				//ê¸¸ì´ê°€ ì§§ìœ¼ë©´ ì•žìœ¼ë¡œ
+				if(o1.length()>o2.length()) return 1;
 				else if(o1.length()<o2.length()) return -1;
-				return o1.compareTo(o2); //
+				//ê¸¸ì´ê°€ ê°™ìœ¼ë©´ ì‚¬ì „ ìˆœ
+				return o1.compareTo(o2);
 			}
 		});
-		
+		//ì¶œë ¥
 		for(String str:s) bw.append(str+"\n");
 		br.close();
 		bw.close();
