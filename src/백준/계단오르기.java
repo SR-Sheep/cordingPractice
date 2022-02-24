@@ -1,10 +1,10 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class °è´Ü¿À¸£±â {
+public class ê³„ë‹¨ì˜¤ë¥´ê¸° {
 	//https://www.acmicpc.net/problem/2579
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,14 +14,14 @@ public class °è´Ü¿À¸£±â {
 		for(int i=1;i<=n;i++) {
 			stairs[i]=Integer.parseInt(br.readLine());
 		}
-		//ÃÊ±â°ª ¼³Á¤
+		//
 		dp[1]=stairs[1];
 		if(n>1) dp[2]=stairs[1]+stairs[2];
 		for(int i=3;i<=n;i++) {
-			dp[i]=stairs[i]+Math.max(dp[i-2], dp[i-3]+stairs[i-1]); //2°è´Ü Àü vs 3°è´Ü Àü + 1°è´Ü Àü
+			//(2 ê³„ë‹¨ ì „ vs 3 ê³„ë‹¨ ì „ + 1 ê³„ë‹¨ ì „)+í˜„ìž¬ê³„ë‹¨ ë°Ÿê¸°
+			dp[i]=stairs[i]+Math.max(dp[i-2], dp[i-3]+stairs[i-1]);
 		}
 		System.out.println(dp[n]);
-		
 		
 		br.close();
 	}
