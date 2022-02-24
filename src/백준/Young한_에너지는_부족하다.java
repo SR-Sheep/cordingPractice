@@ -1,9 +1,11 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
-public class YoungÇÑ_¿¡³ÊÁö´Â_ºÎÁ·ÇÏ´Ù {
+public class Youngí•œ_ì—ë„ˆì§€ëŠ”_ë¶€ì¡±í•˜ë‹¤ {
+	//https://www.acmicpc.net/problem/23561
+	
 	public static int solution(int n, int[] ages) {
 		Arrays.sort(ages);
 		int a= ages[ages.length-1-n];
