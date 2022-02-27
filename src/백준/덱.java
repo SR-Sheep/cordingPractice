@@ -1,4 +1,4 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayDeque;
 import java.util.StringTokenizer;
 
-public class µ¶ {
+public class Îç± {
 	//https://www.acmicpc.net/problem/10866
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
