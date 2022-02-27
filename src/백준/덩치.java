@@ -1,11 +1,11 @@
-package ����;
+package 백준;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class ��ġ {
+public class 덩치 {
 	//https://www.acmicpc.net/problem/7568
 	
 	public static String solution(int[][] wh) {
@@ -14,7 +14,8 @@ public class ��ġ {
 		for(int i=0;i<wh.length;i++) {
 			int num = 1;
 			for(int j=0;j<wh.length;j++) {
-				if(i==j) continue;
+				if(i==j) continue; //본인 패쓰
+				//내 몸무게가 다른 놈보다 가볍고, 키도 작으면 순위 증가
 				if(wh[i][0]<wh[j][0]&&wh[i][1]<wh[j][1]) num++;
 			}
 			sb.append(num+" ");
