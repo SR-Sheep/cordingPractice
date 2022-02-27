@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,36 +6,36 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class °øÀ¯±â¼³Ä¡ {
+public class ê³µìœ ê¸°ì„¤ì¹˜ {
 	//https://www.acmicpc.net/problem/2110
 	
 	static int RouterCount;
 	static int[] Routers;
 	
 	public static boolean isPossible(int mid) {
-		int count = 1; //Ã³À½ 1°³ ¼³Ä¡
-		int curr = Routers[0]; //°øÀ¯±â À§Ä¡, Ã³À½ºÎÅÍ ½ÃÀÛ
+		int count = 1; //ì²˜ìŒ 1ê°œ ì„¤ì¹˜
+		int curr = Routers[0]; //ê³µìœ ê¸° ìœ„ì¹˜, ì²˜ìŒë¶€í„° ì‹œì‘
 		for(int i=0;i<Routers.length;i++) {
-			if(Routers[i]-curr>=mid) { //°øÀ¯±â °Å¸®°¡ mid º¸´Ù Å©¸é
-				count++; //È½¼ö Áõ°¡
-				curr=Routers[i]; //¸¶Áö¸· °øÀ¯±â À§Ä¡ ¾÷µ¥ÀÌÆ®
+			if(Routers[i]-curr>=mid) { //ê³µìœ ê¸° ê±°ë¦¬ê°€ mid ë³´ë‹¤ í¬ë©´
+				count++; //íšŸìˆ˜ ì¦ê°€
+				curr=Routers[i]; //ë§ˆì§€ë§‰ ê³µìœ ê¸° ìœ„ì¹˜ ì—…ë°ì´íŠ¸
 			}
 		}
-		return count>=RouterCount?true:false; //È½¼ö°¡ °øÀ¯±â ¼öº¸´Ù ¸¹´Ù¸é true, Àû´Ù¸é false
+		return count>=RouterCount?true:false; //íšŸìˆ˜ê°€ ê³µìœ ê¸° ìˆ˜ë³´ë‹¤ ë§ë‹¤ë©´ true, ì ë‹¤ë©´ false
 	}
 	
 	public static int solution() {
-		Arrays.sort(Routers); //Á¤·Ä
+		Arrays.sort(Routers); //ì •ë ¬
 		int answer = 0;
-		//ÀÌºĞ Å½»ö
+		//ì´ë¶„ íƒìƒ‰
 		int left=1,right=Routers[Routers.length-1],mid=-1;
 		while(left<=right) {
 			mid=(left+right)/2;
-			if(isPossible(mid)) { //°¡´ÉÇÏ¸é ´ä ¾÷µ¥ÀÌÆ®
+			if(isPossible(mid)) { //ê°€ëŠ¥í•˜ë©´ ë‹µ ì—…ë°ì´íŠ¸
 				answer=mid;
-				left=mid+1; //ÃÖ¼Ò°ª Áõ°¡
+				left=mid+1; //ìµœì†Œê°’ ì¦ê°€
 			}else {
-				right=mid-1; //ÃÖ´ë°ª °¨¼Ò
+				right=mid-1; //ìµœëŒ€ê°’ ê°ì†Œ
 			}
 		}
 		return answer;
