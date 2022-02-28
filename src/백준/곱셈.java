@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,17 +7,19 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class °ö¼À {
+public class ê³±ì…ˆ {
 	//https://www.acmicpc.net/problem/1629
 	
 	public static long solution(int n, int m, int div) {
 		if(m==1) {
 			return n%div;
 		} 
-		long tmp = solution(n, m/2, div);
+		long tmp = solution(n, m/2, div); //ë¶„í• ì •ë³µ
+		//í™€ìˆ˜ë©´
 		if(m%2==1) {
 			return ((tmp*tmp)%div)*(n%div)%div;
 		}
+		//ì§ìˆ˜ë©´
 		return tmp*tmp%div;
 	}
 	
