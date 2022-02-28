@@ -1,38 +1,38 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.Stack;
 
-public class °ıÈ£ {
+public class ê´„í˜¸ {
 	//https://www.acmicpc.net/problem/9012
-	//¿Ã¹Ù¸¥ °ıÈ£ ¹®Á¦
-	//'(' ¸é ½ºÅÃ¿¡ Ãß°¡
-	//')' ¸é ½ºÅÃ¿¡¼­ pop, ½ºÅÃÀÌ ºñ¾îÀÖÀ¸¸é false
-	//¸¶ÃÆÀ» ¶§ , ½ºÅÃÀÌ ºñ¾îÀÖÀ¸¸é true, ¾Æ´Ï¸é false;
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine());
-		String[] answer = {"YES","NO"};
-		Stack<Character> stack = new Stack<>();
+		int n = Integer.parseInt(br.readLine()); //ë¬¸ì œ ìˆ˜
+		String[] answer = {"YES","NO"}; //yes or no
+		Stack<Character> stack = new Stack<>(); //ìŠ¤íƒ
 		for(int i=0;i<n;i++) {
-			String[] s = br.readLine().split("");
+			char[] cArr = br.readLine().toCharArray();
 			int idx = 0;
-			for(int j=0;j<s.length;j++) {
-				char sign = s[j].charAt(0);
+			for(char sign:cArr) {
 				if(sign=='(') {
-					stack.add(sign);
+					stack.add(sign); //ê´„í˜¸ê°€ ì—´ë¦¬ë©´ ìŠ¤íƒì— ë„£ìŒ
 				}else {
+					//ê´„í˜¸ê°€ ë‹«í˜”ì§€ë§Œ ìŠ¤íƒì´ ë¹„ì–´ìˆìœ¼ë©´(ì—´ë¦° ê´„í˜¸ê°€ ë¶€ì¡±í•˜ë©´) NO
 					if(stack.isEmpty()) {
 						idx=1;
 						break;
 					}else {
+						//ìŠ¤íƒì´ ë¹„ì–´ìˆì§€ ì•Šìœ¼ë©´ ìŠ¤íƒ -1
 						stack.pop();
 					}
 				}
 			}
+			//ìŠ¤íƒì´ ë¹„ì–´ìˆìœ¼ë©´ idxì˜ ê°’ëŒ€ë¡œ ì¶œë ¥
 			if(stack.isEmpty()) bw.append(answer[idx]+"\n");
+			//ìŠ¤íƒì— ê´„í˜¸ê°€ ë‚¨ì•„ìˆìœ¼ë©´ ê´„í˜¸ê°€ ëœ ë‹«íŒ ìƒíƒœì„ìœ¼ë¡œ NO
 			else bw.append("NO\n");
+			//ìŠ¤íƒ ë¹„ìš°ê¸°
 			stack.clear();
 		}
 		br.close();
