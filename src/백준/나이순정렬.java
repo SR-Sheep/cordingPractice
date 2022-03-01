@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,21 +6,21 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class ³ªÀÌ¼øÁ¤·Ä {
+public class ë‚˜ì´ìˆœì •ë ¬ {
 	//https://www.acmicpc.net/problem/10814
-	//Å¬·¡½º ÀÌ¿ë
+	
 	static class Member implements Comparable<Member>{
-		private int age; //³ªÀÌ
-		private String name; //ÀÌ¸§
+		private int age; //ë‚˜ì´
+		private String name; //ì´ë¦„
 		public Member(StringTokenizer st) {
-			this.age = Integer.parseInt(st.nextToken()); //³ªÀÌ ÀúÀå
-			this.name = st.nextToken(); //ÀÌ¸§ ÀúÀå
+			this.age = Integer.parseInt(st.nextToken()); //ë‚˜ì´ ì €ì¥
+			this.name = st.nextToken(); //ì´ë¦„ ì €ì¥
 		}
-		@Override //Ãâ·Â
+		@Override //ì¶œë ¥
 		public String toString() {
 			return age+" "+name;
 		}
-		@Override //¼ø¼­
+		@Override //ìˆœì„œ
 		public int compareTo(Member o) {
 			return this.age-o.age;
 		}
@@ -29,16 +29,16 @@ public class ³ªÀÌ¼øÁ¤·Ä {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine()); //¹İº¹¼ö
+		int n = Integer.parseInt(br.readLine()); //ë°˜ë³µìˆ˜
 		StringTokenizer st;
-		List<Member> members = new ArrayList<>(); //ÀúÀåÇÒ ¸®½ºÆ®
+		List<Member> members = new ArrayList<>(); //ì €ì¥í•  ë¦¬ìŠ¤íŠ¸
 		for(int i=0;i<n;i++) {
 			st=new StringTokenizer(br.readLine());
-			Member member = new Member(st); //»ı¼º
-			members.add(member); //¸®½ºÆ®¿¡ Ãß°¡
+			Member member = new Member(st); //ìƒì„±
+			members.add(member); //ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
 		}
-		Collections.sort(members); //Á¤·Ä
-		for(Member m:members) bw.append(m+"\n"); //Ãâ·Â
+		Collections.sort(members); //ì •ë ¬
+		for(Member m:members) bw.append(m+"\n"); //ì¶œë ¥
 		br.close();
 		bw.close();
 	}
