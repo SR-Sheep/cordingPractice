@@ -1,40 +1,43 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.Stack;
 
-public class ±ÕÇüÀâÈù¼¼»ó {
-	//¿Ã¹Ù¸¥ °ıÈ£ ¹®Á¦
-	//'(','[' ¸é ½ºÅÃ¿¡ Ãß°¡
-	//')',']' ¸é ½ºÅÃ¿¡¼­ popÇÏ¿© °¢ ¾Ë¸ÂÀº °ıÈ£ÀÎÁö °Ë»ç, ¸ÂÁö ¾Ê°Å³ª ½ºÅÃÀÌ ºñ¾îÀÖÀ¸¸é false 
-	//¸¶ÃÆÀ» ¶§ , ½ºÅÃÀÌ ºñ¾îÀÖÀ¸¸é true, ¾Æ´Ï¸é false;
+public class ê· í˜•ì¡íŒì„¸ìƒ {
+	//https://www.acmicpc.net/problem/4949
+	
+	//ì˜¬ë°”ë¥¸ ê´„í˜¸ ë¬¸ì œ
+	//'(','[' ë©´ ìŠ¤íƒì— ì¶”ê°€
+	//')',']' ë©´ ìŠ¤íƒì—ì„œ popí•˜ì—¬ ê° ì•Œë§ì€ ê´„í˜¸ì¸ì§€ ê²€ì‚¬, ë§ì§€ ì•Šê±°ë‚˜ ìŠ¤íƒì´ ë¹„ì–´ìˆìœ¼ë©´ false 
+	//ë§ˆì³¤ì„ ë•Œ , ìŠ¤íƒì´ ë¹„ì–´ìˆìœ¼ë©´ true, ì•„ë‹ˆë©´ false;
+	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		Stack<Character> stack = new Stack<>();
-		String[] answer = {"yes","no"}; //´ä ¹è¿­
-		String s = br.readLine(); //¹®ÀÚ¿­
-		while(!s.equals(".")) { //¹®ÀÚ¿­ÀÌ . ÀÌ¸é Á¾·á
-			int idx = 0; //answer[idx], ±âº» yes
-			for(char c:s.toCharArray()) { //ÇØ´ç ÁÙÀ» char·Î ºĞÇØ
-				if(c=='('||c=='[') { //°ıÈ£°¡ ¿­¸®¸é ½ºÅÃ¿¡ ³Ö±â
+		String[] answer = {"yes","no"}; //ë‹µ ë°°ì—´
+		String s = br.readLine(); //ë¬¸ìì—´
+		while(!s.equals(".")) { //ë¬¸ìì—´ì´ . ì´ë©´ ì¢…ë£Œ
+			int idx = 0; //answer[idx], ê¸°ë³¸ yes
+			for(char c:s.toCharArray()) { //í•´ë‹¹ ì¤„ì„ charë¡œ ë¶„í•´
+				if(c=='('||c=='[') { //ê´„í˜¸ê°€ ì—´ë¦¬ë©´ ìŠ¤íƒì— ë„£ê¸°
 					stack.add(c);
-				}else if(c==')') { //°ıÈ£°¡ ´İÇûÀ» ¶§, ½ºÅÃÀÌ ºñ°Å³ª ÇØ´ç °ıÈ£¿Í »óÀÀÇÏ´Â °ıÈ£°¡ ¾Æ´Ï¸é ´äÀ» no·Î º¯°æ ÈÄ break;
+				}else if(c==')') { //ê´„í˜¸ê°€ ë‹«í˜”ì„ ë•Œ, ìŠ¤íƒì´ ë¹„ê±°ë‚˜ í•´ë‹¹ ê´„í˜¸ì™€ ìƒì‘í•˜ëŠ” ê´„í˜¸ê°€ ì•„ë‹ˆë©´ ë‹µì„ noë¡œ ë³€ê²½ í›„ break;
 					if(stack.isEmpty()||stack.pop()!='(') {
 						idx=1;
 						break;
 					}
-				}else if(c==']') { //°ıÈ£°¡ ´İÇûÀ» ¶§, ½ºÅÃÀÌ ºñ°Å³ª ÇØ´ç °ıÈ£¿Í »óÀÀÇÏ´Â °ıÈ£°¡ ¾Æ´Ï¸é ´äÀ» no·Î º¯°æ ÈÄ break;
+				}else if(c==']') { //ê´„í˜¸ê°€ ë‹«í˜”ì„ ë•Œ, ìŠ¤íƒì´ ë¹„ê±°ë‚˜ í•´ë‹¹ ê´„í˜¸ì™€ ìƒì‘í•˜ëŠ” ê´„í˜¸ê°€ ì•„ë‹ˆë©´ ë‹µì„ noë¡œ ë³€ê²½ í›„ break;
 					if(stack.isEmpty()||stack.pop()!='[') {
 						idx=1;
 						break;
 					}
 				}
 			}
-			if(!stack.isEmpty()) idx=1; //½ºÅÃ¿¡ ¾ÆÁ÷ ÀÜ¿© °ıÈ£°¡ ÀÖÀ¸¸é no
-			bw.append(answer[idx]+"\n"); //´ä Ãâ·Â
-			stack.clear(); //½ºÅÃ ÃÊ±âÈ­
-			s = br.readLine(); //´ÙÀ½ ¹®ÀÚ¿­ ºÎ¸£±â
+			if(!stack.isEmpty()) idx=1; //ìŠ¤íƒì— ì•„ì§ ì”ì—¬ ê´„í˜¸ê°€ ìˆìœ¼ë©´ no
+			bw.append(answer[idx]+"\n"); //ë‹µ ì¶œë ¥
+			stack.clear(); //ìŠ¤íƒ ì´ˆê¸°í™”
+			s = br.readLine(); //ë‹¤ìŒ ë¬¸ìì—´ ë¶€ë¥´ê¸°
 		}
 		br.close();
 		bw.close();
