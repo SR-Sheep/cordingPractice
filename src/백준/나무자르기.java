@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ³ª¹«ÀÚ¸£±â {
+public class ë‚˜ë¬´ìë¥´ê¸° {
 	//https://www.acmicpc.net/problem/2805
 	
 	static long[] Trees;
@@ -26,10 +26,10 @@ public class ³ª¹«ÀÚ¸£±â {
 		while(left<=right) {
 			mid=(left+right)/2;
 			if(sumCuttingTrees(mid)>=count) {
-				answer=mid; //´ä ¾÷µ¥ÀÌÆ®
-				left=mid+1; //±æÀÌ ´Ã¸®±â(ÃÖ¼Ò°ª »ó½Â)
+				answer=mid; //ë‹µ ì—…ë°ì´íŠ¸
+				left=mid+1; //ê¸¸ì´ ëŠ˜ë¦¬ê¸°(ìµœì†Œê°’ ìƒìŠ¹)
 			}else{
-				right=mid-1; //±âÁØ °¹¼öº¸´Ù ÀûÀ¸¸é ±æÀÌ Á¼È÷±â(ÃÖ´ë°ª ÇÏ¶ô)
+				right=mid-1; //ê¸°ì¤€ ê°¯ìˆ˜ë³´ë‹¤ ì ìœ¼ë©´ ê¸¸ì´ ì¢íˆê¸°(ìµœëŒ€ê°’ í•˜ë½)
 			}
 		}
 		return answer;
@@ -42,8 +42,8 @@ public class ³ª¹«ÀÚ¸£±â {
 		int n=Integer.parseInt(st.nextToken());
 		int count=Integer.parseInt(st.nextToken());
 		st=new StringTokenizer(br.readLine());
-		Trees=new long[n]; //·£¼± ±æÀÌ¸¦ ÀúÀåÇÒ ¹è¿­ ¼±¾ğ
-		long max = 0; //ÃÖ´ë°ª
+		Trees=new long[n]; //ë‚˜ë¬´ê¸¸ì´ë¥¼ ì €ì¥í•  ë°°ì—´
+		long max = 0; //ìµœëŒ€ê°’ ì´ˆê¸°í™”
 		for(int i=0;i<n;i++) {
 			Trees[i]=Integer.parseInt(st.nextToken());
 			max=Math.max(max, Trees[i]);
