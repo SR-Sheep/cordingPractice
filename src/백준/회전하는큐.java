@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class È¸ÀüÇÏ´ÂÅ¥ {
+public class íšŒì „í•˜ëŠ”í {
 	//https://www.acmicpc.net/problem/1021
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,37 +21,38 @@ public class È¸ÀüÇÏ´ÂÅ¥ {
 		int r = Integer.parseInt(st.nextToken());
 		st=new StringTokenizer(br.readLine());
 		
-		int answer = 0; //´ä
-		int forward = 0; //¼ø¹æÇâ
-		int backward = 0; //¿ª¹æÇâ
+		int answer = 0; //ë‹µ
+		int forward = 0; //ìˆœë°©í–¥
+		int backward = 0; //ì—­ë°©í–¥
 		while(r-->0) {
-			int goal = Integer.parseInt(st.nextToken()); //¸ñÇ¥
-			int count=0; //È½¼ö
-            //µÑ Áß ÇÏ³ª¶óµµ ´äÀÌ¸é Á¾·á
+			int goal = Integer.parseInt(st.nextToken()); //ëª©í‘œ
+			int count=0; //íšŸìˆ˜
+            //ë‘˜ ì¤‘ í•˜ë‚˜ë¼ë„ ë‹µì´ë©´ ì¢…ë£Œ
 			while(list.get(forward)!=goal&&list.get(backward)!=goal) {
-				forward++; //¼ø¹æÇâ ÁøÇà
-				backward--; //¿ª¹æÇâ ÁøÇà
+				forward++; //ìˆœë°©í–¥ ì§„í–‰
+				backward--; //ì—­ë°©í–¥ ì§„í–‰
 				if(forward>=list.size()) {
-					forward=0; //¹üÀ§ ³Ñ¾î°¡¸é 0
+					forward=0; //ë²”ìœ„ ë„˜ì–´ê°€ë©´ 0
 				}
 				if(backward<0) {
-					backward=list.size()-1; //¹üÀ§ ³Ñ¾î°¡¸é ¸Ç ¸¶Áö¸·
+					backward=list.size()-1; //ë²”ìœ„ ë„˜ì–´ê°€ë©´ ë§¨ ë§ˆì§€ë§‰
 				}
-				count++; //È½¼ö Áõ°¡
+				count++; //íšŸìˆ˜ ì¦ê°€
 			}
-            //¼ø¹æÇâÀÌ ´äÀÏ °æ¿ì
+            //ìˆœë°©í–¥ì´ ë‹µì¼ ê²½ìš°
 			if(list.get(forward)==goal) {
-				list.remove(forward); //¼ø¹æÇâ Á¦°Å
-				if(forward==list.size()) forward=0; //¸¶Áö¸· ¿ä¼Ò¿´´Ù¸é 0À¸·Î º¯°æ
-				backward=forward; //¿ª¹æÇâ º¸Á¤
-			//¿ª¹æÇâÀÌ ´äÀÏ °æ¿ì
+				list.remove(forward); //ìˆœë°©í–¥ ì œê±°
+				if(forward==list.size()) forward=0; //ë§ˆì§€ë§‰ ìš”ì†Œì˜€ë‹¤ë©´ 0ìœ¼ë¡œ ë³€ê²½
+				backward=forward; //ì—­ë°©í–¥ ë³´ì •
+			//ì—­ë°©í–¥ì´ ë‹µì¼ ê²½ìš°
 			}else {
-				list.remove(backward); //¿ª¹æÇâ Á¦°Å
-				if(backward==list.size()) backward=0; //¸¶Áö¸· ¿ä¼Ò¿´´Ù¸é 0À¸·Î º¯°æ
-				forward=backward; //¼ø¹æÇâ º¸Á¤
+				list.remove(backward); //ì—­ë°©í–¥ ì œê±°
+				if(backward==list.size()) backward=0; //ë§ˆì§€ë§‰ ìš”ì†Œì˜€ë‹¤ë©´ 0ìœ¼ë¡œ ë³€ê²½
+				forward=backward; //ìˆœë°©í–¥ ë³´ì •
 			}
-			answer+=count; //È½¼ö¸¸Å­ ´ä Áõ°¡
+			answer+=count; //íšŸìˆ˜ë§Œí¼ ë‹µ ì¦ê°€
 		}
+		
 		bw.append(answer+"\n");
 		br.close();
 		bw.close();
