@@ -1,25 +1,25 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ÁÖÀ¯¼Ò {
+public class ì£¼ìœ ì†Œ {
 	//https://www.acmicpc.net/problem/13305
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine()); //³ëµå ¼ö
+		int n = Integer.parseInt(br.readLine()); //ë…¸ë“œ ìˆ˜
 		StringTokenizer st=new StringTokenizer(br.readLine());
-		long[] lengths=new long[n-1]; //³ëµå°£ °Å¸®
+		long[] lengths=new long[n-1]; //ë…¸ë“œê°„ ê±°ë¦¬
 		for(int i=0;i<n-1;i++) {
 			lengths[i]=Long.parseLong(st.nextToken());
 		}
 		st=new StringTokenizer(br.readLine());
-		Long answer = 0l; //ºñ¿ëÀÇ ÇÕ
-		Long cost = Long.MAX_VALUE; //ºñ¿ë
+		Long answer = 0l; //ë¹„ìš©ì˜ í•©
+		Long cost = Long.MAX_VALUE; //ë¹„ìš©
 		for(int i=0;i<n-1;i++) {
-			cost=Math.min(cost,Long.parseLong(st.nextToken())); //ÃÖ¼Òºñ¿ë
-			answer+=cost*lengths[i]; //°Å¸® * ÃÖ¼Òºñ¿ë
+			cost=Math.min(cost,Long.parseLong(st.nextToken())); //ìµœì†Œë¹„ìš©
+			answer+=cost*lengths[i]; //ê±°ë¦¬ * ìµœì†Œë¹„ìš©
 		}
 		bw.append(answer+"\n");
 		br.close();
