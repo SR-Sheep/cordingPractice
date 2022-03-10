@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,9 +7,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ·£¼±ÀÚ¸£±â {
+public class ëœì„ ìë¥´ê¸° {
 	//https://www.acmicpc.net/problem/1654
 	
+
 	static long[] Lans;
 	
 	public static long countLans (long length) {
@@ -26,16 +27,18 @@ public class ·£¼±ÀÚ¸£±â {
 		long answer = 0;
 		while(left<=right) {
 			mid=(left+right)/2;
-			//È½¼ö¸¸Å­ ¸¸µé°Å³ª ´õ ¸¸µé¾ú´Ù¸é
+			//íšŸìˆ˜ë§Œí¼ ë§Œë“¤ê±°ë‚˜ ë” ë§Œë“¤ì—ˆë‹¤ë©´
 			if(countLans(mid)>=count) {
-				answer=mid; //´ä ¾÷µ¥ÀÌÆ®
-				left=mid+1; //±æÀÌ ´Ã¸®±â(ÃÖ¼Ò°ª »ó½Â)
+				answer=mid; //ë‹µ ì—…ë°ì´íŠ¸
+				left=mid+1; //ê¸¸ì´ ëŠ˜ë¦¬ê¸°(ìµœì†Œê°’ ìƒìŠ¹)
 			}else{
-				right=mid-1; //±âÁØ °¹¼öº¸´Ù ÀûÀ¸¸é ±æÀÌ Á¼È÷±â(ÃÖ´ë°ª ÇÏ¶ô)
+				right=mid-1; //ê¸°ì¤€ ê°¯ìˆ˜ë³´ë‹¤ ì ìœ¼ë©´ ê¸¸ì´ ì¢íˆê¸°(ìµœëŒ€ê°’ í•˜ë½)
 			}
 		}
 		return answer;
 	}
+	
+	
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -43,8 +46,8 @@ public class ·£¼±ÀÚ¸£±â {
 		StringTokenizer st=new StringTokenizer(br.readLine());
 		int n=Integer.parseInt(st.nextToken());
 		int count=Integer.parseInt(st.nextToken());
-		Lans=new long[n]; //·£¼± ±æÀÌ¸¦ ÀúÀåÇÒ ¹è¿­ ¼±¾ğ
-		long max = 0; //ÃÖ´ë°ª
+		Lans=new long[n]; //ëœì„  ê¸¸ì´ë¥¼ ì €ì¥í•  ë°°ì—´ ì„ ì–¸
+		long max = 0; //ìµœëŒ€ê°’
 		for(int i=0;i<n;i++) {
 			Lans[i]=Integer.parseInt(br.readLine());
 			max=Math.max(max, Lans[i]);
