@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Æ½ÅÃÅä {
+public class í‹±íƒí†  {
 	//https://www.acmicpc.net/problem/7682
 	public static String solution(int countO, int countX,char[][] board) {
 		int winO=0, winX=0;
 		char c;
-		//°¡·Î °Ë»ç
+		//ê°€ë¡œ ê²€ì‚¬
 		for(int i=0;i<3;i++) {
 			c = board[i][0];
 			if(c=='.') continue;
@@ -26,7 +26,7 @@ public class Æ½ÅÃÅä {
 				else winX++;
 			}
 		}
-		//¼¼·Î °Ë»ç
+		//ì„¸ë¡œ ê²€ì‚¬
 		for(int j=0;j<3;j++) {
 			c = board[0][j];
 			if(c=='.') continue;
@@ -41,7 +41,7 @@ public class Æ½ÅÃÅä {
 				else winX++;
 			}
 		}
-		//´ë°¢¼± / °Ë»ç
+		//ëŒ€ê°ì„  / ê²€ì‚¬
 		c = board[0][0];
 		if(c!='.') {
 			int count = 1;
@@ -55,7 +55,7 @@ public class Æ½ÅÃÅä {
 				else winX++;
 			}
 		}
-		//´ë°¢¼± \ °Ë»ç
+		//ëŒ€ê°ì„  \ ê²€ì‚¬
 		c = board[0][2];
 		if(c!='.') {
 			int count = 1;
@@ -69,13 +69,14 @@ public class Æ½ÅÃÅä {
 				else winX++;
 			}
 		}
-		//²Ë Â÷Áö ¾ÊÀº »óÅÂ¿¡¼­ °áÆÇÀÌ ³ªÁö ¾ÊÀº °æ¿ì invalid
+		
+		//ê½‰ ì°¨ì§€ ì•Šì€ ìƒíƒœì—ì„œ ê²°íŒì´ ë‚˜ì§€ ì•Šì€ ê²½ìš° invalid
 		if(countO+countX!=9&&winO+winX==0) return "invalid";
-		//O°¡ ÀÌ±ä °æ¿ì
+		//Oê°€ ì´ê¸´ ê²½ìš°
 		if(winO>0) {
-			//2¹ø ÀÌ±â°Å³ª, Xµµ ÀÌ±â°Å³ª, X¿Í OÀÇ È½¼ö°¡ °°Áö ¾ÊÀº °æ¿ì invalid
+			//2ë²ˆ ì´ê¸°ê±°ë‚˜, Xë„ ì´ê¸°ê±°ë‚˜, Xì™€ Oì˜ íšŸìˆ˜ê°€ ê°™ì§€ ì•Šì€ ê²½ìš° invalid
 			if(winO>1||winX>0||countO!=countX) return "invalid";
-		//O°¡ 0ÀÌ°í X°¡ ÀÌ±ä °æ¿ì, È½¼ö Â÷ÀÌ°¡ 1ÀÌ ³ª¾ßÇÔ
+		//Oê°€ 0ì´ê³  Xê°€ ì´ê¸´ ê²½ìš°, íšŸìˆ˜ ì°¨ì´ê°€ 1ì´ ë‚˜ì•¼í•¨
 		}else if(winX>0) {
 			if(countO!=countX-1) return "invalid";
 		}
@@ -100,7 +101,7 @@ public class Æ½ÅÃÅä {
 			}
 			if(countX-countO<0||countX-countO>1) bw.append("invalid\n");
 			else bw.append(solution(countO,countX,board)+"\n");
-			//´ÙÀ½
+			//ë‹¤ìŒ ë¬¸ìì—´
 			s=br.readLine();
 		}
 		br.close();
