@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,13 +7,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ¸µ {
+public class ë§ {
 	//https://www.acmicpc.net/problem/3036
-	//ÃÖ´ë°ø¾à¼ö
+	//ìµœëŒ€ê³µì•½ìˆ˜
 	public static int gcd(int a, int b) {
-		int tmp=0;
+		int tmp=a;
 		if(a<b) {
-			tmp=a;
 			a=b;
 			b=tmp;
 		}
@@ -25,7 +24,7 @@ public class ¸µ {
 		return a;
 			
 	}
-	//ÃÖ¼Ò°ø¹è¼ö
+	//ìµœì†Œê³µë°°ìˆ˜
 	public static int lcm(int a, int b) {
 		return a*b/gcd(a,b);
 	}
@@ -35,12 +34,12 @@ public class ¸µ {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
 		StringTokenizer st=new StringTokenizer(br.readLine());
-		//Ã¹Â° ±â¾î
+		//ì²« ë°”í€´
 		int first = Integer.parseInt(st.nextToken());
 		for(int i=1;i<n;i++) {
 			int next = Integer.parseInt(st.nextToken());
 			int lcm = lcm(first,next);
-			//(ÃÖ¼Ò°ø¹è¼ö/Ã¹Â°) / (ÃÖ¼Ò°ø¹è¼ö/´ÙÀ½) ;
+			//ê¸°ì•½ë¶„ìˆ˜ í˜•íƒœë¡œ ì¶œë ¥ (ìµœì†Œê³µë°°ìˆ˜ / í˜„ì¬ ë°”í€´) / (ìµœì†Œê³µë°°ìˆ˜ / ì²«ë°”í€´) ;
 			bw.append(lcm/next + "/" + lcm/first +"\n");
 		}
 		br.close();
