@@ -1,9 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
-public class ¹éÆ®·¡Å·4 {
+public class ë°±íŠ¸ë˜í‚¹4 {
 	//https://www.acmicpc.net/problem/15652
 	
 	static int N, Count;

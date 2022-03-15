@@ -1,9 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
-public class ¹éÆ®·¡Å·2 {
+public class ë°±íŠ¸ë˜í‚¹2 {
 	//https://www.acmicpc.net/problem/15650
 	
 	static boolean[] Visited;

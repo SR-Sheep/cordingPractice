@@ -1,9 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
-public class ¹éÆ®·¡Å·1 {
+public class ë°±íŠ¸ë˜í‚¹1 {
 	
 	//https://www.acmicpc.net/problem/15649
 	
