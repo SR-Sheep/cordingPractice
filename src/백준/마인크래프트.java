@@ -1,37 +1,43 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class ¸¶ÀÎÅ©·¡ÇÁÆ® {
+public class ë§ˆì¸í¬ë˜í”„íŠ¸ {
 	//https://www.acmicpc.net/problem/18111
 	static int[][] Ground;
 	static long B;
 	
 	public static String minecraft(int min, int max) {
-		long time = 500*500*256*2;
-		int h=0;
+		long time = 500*500*256*2; //ìµœëŒ€ì‹œê°„
+		int h=0; //ìµœëŒ€ ë†’ì´
+		//í‰íƒ„í™” í•  ë†’ì´ë¥¼ ì„ ì • (min~max)
 		for(int i=min;i<=max;i++) {
 			long up=0,down=0;
+			//ëª¨ë“  ë•…ì— ëŒ€í•´ íƒìƒ‰
 			for(int[] ground:Ground) {
 				for(int g:ground) {
-					if(i<g) { //±ï±â(ºí·ÏÃæÀü)
+					//í‰íƒ„í™” í•  ë†’ì´ë³´ë‹¤ ë†’ë‹¤ë©´ ê¹ê¸°(ë¸”ë¡ì¶©ì „)
+					if(i<g) { 
 						down+=g-i;
-					}else if(i>g) { //Ã¤¿ì±â(ºí·Ï¼Ò¸ğ)
+					//í‰íƒ„í™” í•  ë†’ì´ë³´ë‹¤ ì‘ë‹¤ë©´ ì±„ìš°ê¸°(ë¸”ë¡ì†Œëª¨)
+					}else if(i>g) {
 						up+=i-g;
 					}
 				}
 			}
+			//ì‚¬ìš©í•œ ë¸”ëŸ­ ìˆ˜(B+down - up)ì´ >=0 ì´ë¼ë©´ ê°€ëŠ¥
 			if(up-down<=B) {
 				long t = down*2+up;
 				if(time>=t) {
 					time=t;
-					h=i;//°¡Àå ³ôÀº ¶¥³ôÀÌ
+					h=i;//minì—ì„œ maxë¡œ ì›€ì§ì„ìœ¼ë¡œ ê°€ì¥ ë†’ì€ ë•…ë†’ì´ì„
 				}
 			}
 		}
+		
 		return time+" "+h;
 	}
 	
@@ -53,7 +59,6 @@ public class ¸¶ÀÎÅ©·¡ÇÁÆ® {
 			}
 		}
 		System.out.println(minecraft(min,max));
-		
 		br.close();
 	}
 }
