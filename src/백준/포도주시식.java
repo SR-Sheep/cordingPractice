@@ -1,10 +1,10 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Æ÷µµÁÖ½Ã½Ä {
+public class í¬ë„ì£¼ì‹œì‹ {
 	//https://www.acmicpc.net/problem/2156
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,8 +17,8 @@ public class Æ÷µµÁÖ½Ã½Ä {
 		dp[1]=wines[1];
 		if(n>1) dp[2]=wines[1]+wines[2];
 		for(int i=3;i<=n;i++) {
-			dp[i]=wines[i]+Math.max(dp[i-3]+wines[i-1], dp[i-2]); //3Àü + 1Àü , 2Àü
-			dp[i]=Math.max(dp[i], dp[i-1]); //ÀÌÀü°ú ºñ±³ÇÏ¿© Å« °ªÀ» ÃëÇÔ(ÇöÀçÀÇ Æ÷µµÁÖ¸¦ ¾È ¸¶½Ç¼öµµ ÀÖÀ½)
+			dp[i]=wines[i]+Math.max(dp[i-3]+wines[i-1], dp[i-2]); //3ì „ + 1ì „ vs 2ì „     + í˜„ìž¬ê°’
+			dp[i]=Math.max(dp[i], dp[i-1]); //ì´ì „ ê°’ê³¼ ë¹„êµ
 		}
 		System.out.println(dp[n]);
 		br.close();
