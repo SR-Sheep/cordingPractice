@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,14 +7,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class ¹Ì·ÎÅ½»ö {
+public class ë¯¸ë¡œíƒìƒ‰ {
 	
 	public static int maze(int rLen, int cLen, char[][] board) {
 		int[][] d = {{0,1},{0,-1},{1,0},{-1,0}};
 		boolean[][] visited = new boolean[rLen][cLen];
 		Queue<int[]> q = new LinkedList<int[]>();
 		visited[0][0]=true;
-		q.add(new int[] {0,0,1}); //Çà, ¿­, Ä­¼ö
+		q.add(new int[] {0,0,1}); //í–‰, ì—´, ì¹¸ìˆ˜
 		while(!q.isEmpty()) {
 			int[] curr = q.poll();
 			int r = curr[0];
