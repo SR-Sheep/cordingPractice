@@ -1,9 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
-public class ¿¬»êÀÚ³¢¿ö³Ö±â {
+public class ì—°ì‚°ìë¼ì›Œë„£ê¸° {
 	
 	//https://www.acmicpc.net/problem/14888
 	
@@ -21,16 +21,16 @@ public class ¿¬»êÀÚ³¢¿ö³Ö±â {
 		for(int i=0;i<4;i++) {
 			if(cal[i]==0) continue;
 			cal[i]--;
-			//´õÇÏ±â
+			//ë”í•˜ê¸°
 			if(i==0) {
 				tmp=sum+nums[idx];
-			//»©±â	
+			//ë¹¼ê¸°	
 			}else if(i==1) {
 				tmp=sum-nums[idx];
-			//°öÇÏ±â
+			//ê³±í•˜ê¸°
 			}else if(i==2) {
 				tmp=sum*nums[idx];
-			//³ª´©±â
+			//ë‚˜ëˆ„ê¸°
 			}else {
 				if(sum<0) {
 					tmp=(sum*-1)/nums[idx]*-1;
@@ -39,7 +39,7 @@ public class ¿¬»êÀÚ³¢¿ö³Ö±â {
 				}
 			}
 			solution(nums, cal, idx+1, tmp);
-			cal[i]++; //¹éÆ®·¡Å·
+			cal[i]++; //ë°±íŠ¸ë˜í‚¹
 		}
 	}
 	
