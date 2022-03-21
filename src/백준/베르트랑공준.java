@@ -1,11 +1,11 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 
-public class º£¸£Æ®¶û°øÁØ {
+public class ë² ë¥´íŠ¸ë‘ê³µì¤€ {
 	
 	//https://www.acmicpc.net/problem/4948
-	
+	//ì†Œìˆ˜ íŒë³„
 	public static boolean isPrime(int num) {
 		if(num==1) return false;
 		for(int i=2;i*i<=num;i++) {
@@ -30,7 +30,7 @@ public class º£¸£Æ®¶û°øÁØ {
 					answer++;
 				}
 			}
-			bw.append(answer+"\n"); //ÇÕ
+			bw.append(answer+"\n"); //ï¿½ï¿½
 		}
 		br.close();
 		bw.close();
