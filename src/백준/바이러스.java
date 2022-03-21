@@ -1,21 +1,23 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class πŸ¿Ã∑ØΩ∫ {
+public class Î∞îÏù¥Îü¨Ïä§ {
 	//https://www.acmicpc.net/problem/2606
 	
-	static boolean[] visited;
+	static boolean[] Visited;
 	static int[][] Graph;
 	
 	public static int dfs(int n) {
 		int count = 1;
-		visited[n]=true;
-		for(int i=1;i<visited.length;i++) {
-			if(Graph[n][i]!=0&&!visited[i]) {
+		Visited[n]=true; //Î∞©Î¨∏Ïó¨Î∂Ä ÌëúÏãú
+		//ÌÉêÏÉâ
+		for(int i=1;i<Visited.length;i++) {
+			//Ïù∏Ï†ëÌï¥ÏûàÍ≥†, Î∞©Î¨∏ÌïòÏßÄ ÏïäÏïòÎã§Î©¥ 1 Ï¶ùÍ∞Ä
+			if(Graph[n][i]!=0&&!Visited[i]) {
 				count+=dfs(i);
 			}
 		}
@@ -27,7 +29,7 @@ public class πŸ¿Ã∑ØΩ∫ {
 		int n = Integer.parseInt(br.readLine());
 		int t = Integer.parseInt(br.readLine());
 		
-		visited = new boolean[n+1];
+		Visited = new boolean[n+1];
 		Graph = new int[n+1][n+1];
 		
 		StringTokenizer st;
@@ -37,9 +39,7 @@ public class πŸ¿Ã∑ØΩ∫ {
 			int b=Integer.parseInt(st.nextToken());
 			Graph[a][b]=Graph[b][a]=1;
 		}
-		System.out.println(dfs(1)-1); //1π¯ ƒƒ«ª≈Õ¥¬ ª≠
-		
-		
+		System.out.println(dfs(1)-1); //Î∞îÏù¥Îü¨Ïä§ Í∞êÏóº Ïª¥Ìì®ÌÑ∞ - 1(1Î≤à Ïª¥Ìì®ÌÑ∞ Ï†úÏô∏)
 		br.close();
 	}
 }
