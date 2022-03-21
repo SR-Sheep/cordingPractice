@@ -1,8 +1,8 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 
-public class ¹úÁý {
+public class ë²Œì§‘ {
 	//https://www.acmicpc.net/problem/2292
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
