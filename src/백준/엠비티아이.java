@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class 엠비티아이 {
-	
+	//https://www.acmicpc.net/problem/24725
 	public static boolean isMBTI(char c1,char c2, char c3, char c4) {
 		//정방향
 		if(c1=='E'||c1=='I') {
