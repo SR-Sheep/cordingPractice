@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ¹è¼ö¿Í¾à¼ö {
+public class ë°°ìˆ˜ì™€ì•½ìˆ˜ {
 	
 	//https://www.acmicpc.net/problem/5086
 	
@@ -19,10 +19,10 @@ public class ¹è¼ö¿Í¾à¼ö {
 		int a = Integer.parseInt(st.nextToken());
 		int b = Integer.parseInt(st.nextToken());
 		while(a!=0&&b!=0) {
-			if(b%a==0) bw.append(print[0]+"\n"); //¾à¼ö
-			else if(a%b==0) bw.append(print[1]+"\n"); //¹è¼ö
-			else bw.append(print[2]+"\n"); //µÑ´Ù ¾Æ´Ô
-			//´ÙÀ½ ¼ö
+			if(b%a==0) bw.append(print[0]+"\n"); //ì•½ìˆ˜
+			else if(a%b==0) bw.append(print[1]+"\n"); //ë°°ìˆ˜
+			else bw.append(print[2]+"\n"); //ë‘˜ë‹¤ ì•„ë‹˜
+			//ë‹¤ìŒ ìˆ˜
 			st=new StringTokenizer(br.readLine());
 			a = Integer.parseInt(st.nextToken());
 			b = Integer.parseInt(st.nextToken());
