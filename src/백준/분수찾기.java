@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class ºÐ¼öÃ£±â {
+public class ë¶„ìˆ˜ì°¾ê¸° {
 	
 	//https://www.acmicpc.net/problem/1193
 	
