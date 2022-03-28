@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,31 +6,36 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class ¼³ÅÁ¹è´Ş {
+public class ì„¤íƒ•ë°°ë‹¬ {
 	
 	//https://www.acmicpc.net/problem/2839
-	//5, 3 ¿ë·®ÀÇ ºÀÁö ÃÖ¼ÒÇÑ °¹¼ö·Î °¡Á®°¡±â
-	//ºÀÁö°¡ ²Ë Âû ¼ö ¾ø´Â °æ¿ì -1 ¸®ÅÏ
-	
-	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
 		int answer = 0;
-		answer=n/5; //5°³µéÀÌ ºÀÁö ÀÌ¿ë
-		n%=5; //³ª¸ÓÁö
+		answer=n/5; //5í‚¤ë¡œ ë´‰ì§€ ì‚¬ìš©
+		n%=5; //5í‚¤ë¡œ ë´‰ì§€ë¥¼ ì“°ê³  ë‚¨ì€ ê°’
 		boolean can = false;
-		for(int i=0;i<7;i++) {
-			if(answer<0) break; //À½¼öÀÏ½Ã ÁßÁö
-			if(n%3==0) { //3À¸·Î ³ª´²Áö¸é
+		while(answer>=0) {
+			if(n%3==0) { //3í‚¤ë¡œ ë´‰ì§€ë¡œ ë‚˜ëˆ  ë–¨ì–´ì§„ë‹¤ë©´ ë‹µ
 				can=true;
-				answer+=n/3; //¸ò¸¸Å­ ´ä Áõ°¡
-				break;
+				answer+=n/3; //ë‹µì— 3í‚¤ë¡œ ë´‰ì§€ ê°œìˆ˜ ë”í•˜ê¸°
+				break; //ì¢…ë£Œ
 			}
-			answer--; //5ºÀÁö¸¦ ±ú¼­ ³ª¸ÓÁö¿¡ Ãß°¡
-			n+=5;
+			answer--; //5í‚¤ë¡œ 1ë´‰ì§€ ê°ì†Œ
+			n+=5; //ë¬´ê²Œ 5í‚¤ë¡œ ì¦ê°€
 		}
+//		for(int i=0;i<7;i++) {
+//			if(answer<0) break; //ë‹µì´ 0ë³´ë‹¤ ì‘ë‹¤ë©´ ì¢…ë£Œ
+//			if(n%3==0) { //3í‚¤ë¡œ ë´‰ì§€ë¡œ ë‚˜ëˆ  ë–¨ì–´ì§„ë‹¤ë©´ ë‹µ
+//				can=true;
+//				answer+=n/3; //ë‹µì— 3í‚¤ë¡œ ë´‰ì§€ ê°œìˆ˜ ë”í•˜ê¸°
+//				break; //ì¢…ë£Œ
+//			}
+//			answer--; //5í‚¤ë¡œ 1ë´‰ì§€ ê°ì†Œ
+//			n+=5; //ë¬´ê²Œ 5í‚¤ë¡œ ì¦ê°€
+//		}
 		if(!can) bw.append(-1+"\n");
 		else bw.append(answer+"\n");
 		br.close();
