@@ -1,11 +1,11 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Á¤¼ö»ï°¢Çü {
+public class ì •ìˆ˜ì‚¼ê°í˜• {
 	//https://www.acmicpc.net/problem/1932
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,21 +13,21 @@ public class Á¤¼ö»ï°¢Çü {
 		int[][] triangle = new int[n][n];
 		
 		StringTokenizer st;
-		//¹è¿­ ³Ö±â
+		//ë°°ì—´ ë„£ê¸°
 		for(int i=0;i<n;i++) {
 			st=new StringTokenizer(br.readLine());
 			for(int j=0;j<=i;j++) {
 				triangle[i][j]=Integer.parseInt(st.nextToken());
 			}
 		}
-		//»ï°¢Çü °¡Àå ¾Æ·¡¿¡¼­ ¿ªÃßÀû
+		//ì‚¼ê°í˜• ê°€ì¥ ì•„ë˜ì—ì„œ ì—­ì¶”ì 
 		for(int i=n-2;i>=0;i--) {
 			for(int j=0;j<=i;j++) {
-				//¾Æ·¡·Î ³»·Á °¥ ¼ö ÀÖ´Â µÎ°³ÀÇ °æ·Î Áß Å« °ªÀ» ÃëÇÏ¿© ´õÇÏ±â
+				//ì•„ë˜ë¡œ ë‚´ë ¤ ê°ˆ ìˆ˜ ìˆëŠ” ë‘ê°œì˜ ê²½ë¡œ ì¤‘ í° ê°’ì„ ì·¨í•˜ì—¬ ë”í•˜ê¸°
 				triangle[i][j]+=Math.max(triangle[i+1][j],triangle[i+1][j+1]);
 			}
 		}
-		//root Ãâ·Â
+		//root ì¶œë ¥
 		System.out.println(triangle[0][0]);
 		br.close();
 	}
