@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,46 +9,47 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class ÇÁ¸°ÅÍÅ¥ {
+public class í”„ë¦°í„°í {
 	//https://www.acmicpc.net/problem/1966
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine()); //¹İº¹ ¼ö
+		int n = Integer.parseInt(br.readLine()); //í…ŒìŠ¤íŠ¸ ê°œìˆ˜
 		StringTokenizer st;
 		for(int i=0;i<n;i++) {
 			st=new StringTokenizer(br.readLine());
-			int doc = Integer.parseInt(st.nextToken()); //¹®¼­ ¼ö
-			int idx = Integer.parseInt(st.nextToken()); //±Ã±İÇØÇÏ´Â °ª
-			int val = 0; //±Ã±İÇØÇÏ´Â °ªÀÇ Áß¿äµµ
-			int order = 0; //Ãâ·Â¼ø¼­
+			int doc = Integer.parseInt(st.nextToken()); //ë¬¸ì„œ ê°œìˆ˜
+			int idx = Integer.parseInt(st.nextToken()); //ëª‡ë²ˆì§¸ë¡œ ì¸ì‡„ë˜ëŠ”ì§€ ê¶ê¸ˆí•œ ë¬¸ì„œ
+			int val = 0; //ê¶ê¸ˆí•œ ë¬¸ì„œì˜ ì¤‘ìš”ë„
+			int order = 0; //ìˆœì„œ
 			Queue<int[]> q = new LinkedList<>();
-			int[] max = new int[10]; //Áß¿äµµ ¼ö¸¦ ÀúÀåÇÒ ¹è¿­
+			int[] max = new int[10]; //ì¤‘ìš”ë„ë¥¼ ì €ì¥
 			st=new StringTokenizer(br.readLine());
-			//Áß¿äµµ ÀÔ·Â
+			//ì¤‘ìš”ë„
 			for(int j=0;j<doc;j++) {
 				int imp=Integer.parseInt(st.nextToken());
-				if(j==idx) val = imp; //±Ã±İÇØÇÏ´Â °ªÀÇ Áß¿äµµ
-				q.add(new int[] {j,imp}); //Å¥¿¡ (ÀÎµ¦½º, Áß¿äµµ)·Î »ğÀÔ
-				max[imp]++; //Áß¿äµµÀÇ ¼ö¸¦ ÀúÀåÇÔ
+				if(j==idx) val = imp; //ê¶ê¸ˆí•œ ë¬¸ì„œì˜ ì¤‘ìš”ë„ ì €ì¥
+				q.add(new int[] {j,imp}); //íì— ì‚½ì…(ìˆœì„œ, ì¤‘ìš”ë„)
+				max[imp]++; //ì¤‘ìš”ë„ ê°œìˆ˜ ì¦ê°€
 			}
-			//³ôÀº Áß¿äµµºÎÅÍ ¿ª¼øÀ¸·Î Å½»ö
+			//ì¤‘ìš”ë„ ë†’ì€ ìˆœ íƒìƒ‰
 			for(int j=9;j>=val;j--) {
-				while(max[j]>0) { //ÇØ´ç Áß¿äµµ°¡ 0ÀÌ µÉ¶§±îÁö Å½»ö
-					int[] curr=q.poll(); //Å¥¿¡¼­ »Ì±â
-					int index = curr[0]; //ÇöÀç ÀÎµ¦½º
-					int value = curr[1]; //ÇöÀç Áß¿äµµ
-					if(j!=value) { //ÇöÀç Áß¿äµµ°¡ °¡Àå ³ôÀº °ªÀÌ ¾Æ´Ï¶ó¸é
-						q.add(curr); //´Ù½Ã Å¥¿¡ ³Ö±â
-					}else if(index==idx) { //ÇöÀç Áß¿äµµ°¡ °¡Àå ³ôÀº °ªÀÌ°í, ±Ã±İÇØÇÏ´Â °ªÀÌ¸é
-						order++; //¼ø¼­ Áõ°¡ ÈÄ
-						break; //¸ØÃã
-					}else { //ÇöÀç Áß¿äµµ°¡ °¡Àå ³ôÀº°ªÀÌ³ª ±À±İÇØÇÏ´Â °ªÀÌ ¾Æ´Ï¸é
-						order++; //¼ø¼­ Áõ°¡ ÈÄ
-						max[j]--; //ÃÖ´ë°ªÀÇ °¹¼ö °¨¼Ò
+				while(max[j]>0) { //ë‚¨ì€ ì¤‘ìš”ë„ì˜ ìˆ˜ê°€ 0ë³´ë‹¤ í¬ë©´ ë°˜ë³µ
+					int[] curr=q.poll(); //íì—ì„œ ë¹¼ê¸°
+					int index = curr[0]; //í˜„ì¬ ë¬¸ì„œ ë²ˆí˜¸
+					int value = curr[1]; //í˜„ì¬ ë¬¸ì„œì˜ ì¤‘ìš”ë„
+					if(j!=value) { //í˜„ì¬ ë¬¸ì„œê°€ ìµœëŒ€ ì¤‘ìš”ë„ê°€ ì•„ë‹ˆë©´
+						q.add(curr); //ë‹¤ì‹œ íì— ë„£ê¸°
+					}else if(index==idx) { //ë‚´ê°€ ì°¾ëŠ” ë¬¸ì„œì´ë©´ 
+						order++; //ìˆœì„œ ì¦ê°€
+						break; //ì¢…ë£Œ
+					}else { //ìµœëŒ€ ì¤‘ìš”ë„ì´ì§€ë§Œ ë‚´ê°€ ì°¾ëŠ” ë¬¸ì„œê°€ ì•„ë‹ˆë¼ë©´
+						order++; //ìˆœì„œ ì¦ê°€
+						max[j]--; //ì¤‘ìš”ë„ ê°œìˆ˜ ê°ì†Œ
 					}
 				}
 			}
+			//ì¶œë ¥
 			bw.append(order+"\n");
 		}
 		br.close();
