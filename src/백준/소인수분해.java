@@ -1,9 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ¼ÒÀÎ¼öºĞÇØ {
+public class ì†Œì¸ìˆ˜ë¶„í•´ {
 	//https://www.acmicpc.net/problem/11653
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
