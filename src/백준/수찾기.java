@@ -1,4 +1,4 @@
-package ����;
+package 백준;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,11 +8,11 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class ��ã�� {
+public class 수찾기 {
 	//https://www.acmicpc.net/problem/1920
 	
 	static int[] Arr;
-	
+	//이분탐색을 통한 수 찾기
 	public static int isExist(int num) {
 		int left = 0, right = Arr.length-1, mid = -1;
 		while(left<=right) {
