@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,14 +8,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class ¼û¹Ù²ÀÁú {
+public class ìˆ¨ë°”ê¼­ì§ˆ {
 	//https://www.acmicpc.net/problem/1697
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st=new StringTokenizer(br.readLine());
 		int subin=Integer.parseInt(st.nextToken());
 		int brother=Integer.parseInt(st.nextToken());
-		Queue<int[]> q = new LinkedList<int[]>();// À§Ä¡, ºñ¿ë
+		Queue<int[]> q = new LinkedList<int[]>();// ìœ„ì¹˜, ë¹„ìš©
 		q.add(new int[] {subin,0});
 		int answer = 0;
 		int[] board = new int[100001];
@@ -28,18 +28,18 @@ public class ¼û¹Ù²ÀÁú {
 				answer = cost;
 				break;
 			}
-			cost++; //¿òÁ÷ÀÓÀ¸·Î ºñ¿ë Áõ°¡
-			//ÇÑÄ­ µÚ·Î
+			cost++; //ë¹„ìš© ì¦ê°€
+			//-1ì¹¸ ì´ë™
 			if(location-1>=0&&board[location-1]>cost) {
 				board[location-1]=cost;
 				q.add(new int[] {location-1,cost});
 			}
-			//ÇÑÄ­ ¾ÕÀ¸·Î
+			//+1ì¹¸ ì´ë™
 			if(location+1<=100000&&board[location+1]>cost) {
 				board[location+1]=cost;
 				q.add(new int[] {location+1,cost});
 			}
-			//¼ø°£ÀÌµ¿(x2)
+			//2ë°° ì´ë™
 			if(location*2<=100000&&board[location*2]>cost) {
 				board[location*2]=cost;
 				q.add(new int[] {location*2,cost});
