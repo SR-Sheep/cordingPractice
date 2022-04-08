@@ -1,12 +1,12 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ¼Ò¼öÃ£±â {
+public class ì†Œìˆ˜ì°¾ê¸° {
 	
 	//https://www.acmicpc.net/problem/1978
-	
+	//ì†Œìˆ˜ íŒë³„
 	public static boolean isPrime(int num) {
 		if(num==1) return false;
 		for(int i=2;i*i<=num;i++) {
@@ -22,6 +22,7 @@ public class ¼Ò¼öÃ£±â {
 		StringTokenizer st=new StringTokenizer(br.readLine());
 		int answer=0;
 		for(int i=0;i<n;i++) {
+			//ì†Œìˆ˜ë©´ ë‹µ ì¦ê°€
 			if(isPrime(Integer.valueOf(st.nextToken()))) answer++;
 		}
 		bw.append(answer+"\n");
