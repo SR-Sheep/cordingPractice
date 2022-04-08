@@ -1,34 +1,41 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ½¬¿î°è´Ü¼ö {
+public class ì‰¬ìš´ê³„ë‹¨ìˆ˜ {
 	//https://www.acmicpc.net/problem/10844
 	public static void main(String[] args) throws IOException {
+		//ê¸¸ì´ê°€ nì¸ ê³„ë‹¨ìˆ˜ ì¶œë ¥(1ì”© ì°¨ì´)
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		final int DIV = 1000000000;
 		int n = Integer.parseInt(br.readLine());
 		
 		long[][] dp=new long[n+1][11];
-		//ÃÊ±âÈ­
+		//dp ìˆ«ìë¡œ 1ì˜ìë¦¬ ì´ˆê¸°í™” (0~9)
 		for(int i=0;i<=9;i++) {
 			dp[1][i]=1;
 		}
+		//ë‹¤ìŒ ìë¦¿ìˆ˜ dp ì´ë™
 		for(int i=2;i<=n;i++) {
-			dp[i][0]=dp[i-1][1]; //0 ´ÙÀ½¿¡´Â 1¸¸ ¿È
+			dp[i][0]=dp[i-1][1]; //0ì€ ì´ì „ ìë¦¿ìˆ˜ì˜ 1ì—ì„œ -1 ë°–ì— ë°©ë²•ì´ ì—†ìŒ
+			//1~9ì— ëŒ€í•´ íƒìƒ‰
 			for(int j=1;j<=9;j++) {
-				dp[i][j]=(dp[i-1][j-1]+dp[i-1][j+1])%DIV; //i ´ÙÀ½¿¡´Â i-1, i+1 ¸¸ ¿Ã ¼ö ÀÖÀ½
+				//ië²ˆì§¸ ìë¦¬ìˆ˜ì˜ j ìˆ«ìê°€ ì˜¤ë ¤ë©´
+				//i-1 ë²ˆì§¸ì—ì„œ j-1 ì˜ ìˆ«ìì´ê±°ë‚˜ j+1ì˜ ìˆ«ìì´ì–´ì•¼ í•¨
+				//ë‚˜ë¨¸ì§€ë¥¼ ì¶œë ¥í•´ì•¼ í•¨ìœ¼ë¡œ DIVë¡œ ë‚˜ëˆ ì¤Œ
+				dp[i][j]=(dp[i-1][j-1]+dp[i-1][j+1])%DIV;
 			}
 		}
 		long sum=0;
-		//½ÃÀÛ ¼ıÀÚ´Â 1-9¸¸ °¡´ÉÇÔÀ¸·Î 1-9±îÁöÀÇ ÇÕ¸¸ ÃëÇÔ
+		//ë§ˆì§€ë§‰ ìë¦¬ìˆ˜ nì—ì„œ 1~9ì˜ ê°€ì§€ ìˆ˜ ê³„ì‚°, 0ì€ ì œì™¸í•¨
 		for(int i=1;i<=9;i++) {
 			sum+=dp[n][i];
 			sum%=DIV;
 		}
+		//ì¶œë ¥
 		System.out.println(sum);
 		br.close();
 	}
