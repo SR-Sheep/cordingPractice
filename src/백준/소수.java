@@ -1,12 +1,12 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ¼Ò¼ö {
+public class ì†Œìˆ˜ {
 	
 	//https://www.acmicpc.net/problem/2581
-	
+	//ì†Œìˆ˜íŒë³„
 	public static boolean isPrime(int num) {
 		if(num==1) return false;
 		for(int i=2;i*i<=num;i++) {
@@ -25,14 +25,14 @@ public class ¼Ò¼ö {
 		for(int i=n;i<=m;i++) {
 			int num = Integer.valueOf(i);
 			if(isPrime(num)) {
-				sum+=num; //ÇÕ
-				min=Math.min(min, num); //ÃÖ¼Ò°ª
+				sum+=num; //ì†Œìˆ˜ë©´ ë”í•˜ê¸°
+				min=Math.min(min, num); //ìµœì†Œê°’ ì—…ë°ì´íŠ¸
 			}
 		}
-		if(sum==0) bw.append(-1+"\n"); //¼Ò¼ö°¡ ¾øÀ¸¸é -1 ¸®ÅÏ
+		if(sum==0) bw.append(-1+"\n"); //ì†Œìˆ˜ê°€ ì—†ìœ¼ë©´ -1 ë¦¬í„´
 		else {	
-			bw.append(sum+"\n"); //ÇÕ
-			bw.append(min+"\n"); //ÃÖ¼Ò°ª
+			bw.append(sum+"\n"); //í•© ì¶œë ¥
+			bw.append(min+"\n"); //ìµœì†Œê°’ ì¶œë ¥
 		}
 		br.close();
 		bw.close();
