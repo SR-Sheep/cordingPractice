@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class ¼ıÀÚÄ«µå2 {
+public class ìˆ«ìì¹´ë“œ2 {
 	
 	//https://www.acmicpc.net/problem/10816
 	
@@ -27,6 +27,7 @@ public class ¼ıÀÚÄ«µå2 {
 		st=new StringTokenizer(br.readLine());
 		for(int i=0;i<n;i++) {
 			int num=Integer.parseInt(st.nextToken());
+			//ìˆ«ìê°€ ì—†ìœ¼ë©´ 0, ìˆìœ¼ë©´ í•´ë‹¹ ìˆ«ì ê°œìˆ˜ ì¶œë ¥
 			sb.append(map.get(num)==null?0:map.get(num)).append(" ");
 		}
 		bw.append(sb);
