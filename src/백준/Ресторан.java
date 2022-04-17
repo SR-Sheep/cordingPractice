@@ -1,14 +1,14 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.HashMap;
 
-public class ¼Ò°­_¬²¬Ö¬ã¬ä¬à¬â¬Ñ¬ß {
+public class Ğ ĞµÑÑ‚Ğ¾Ñ€Ğ°Ğ½ {
 	
 	//https://www.acmicpc.net/problem/23738
 	
 	public static void main(String[] args) throws IOException {
-		//¸Ê ÁØºñ
+		//ë§¤ì¹­ë˜ëŠ” ë°œìŒ ë§µí•‘
 		HashMap<Character, String> map = new HashMap<>();
 		map.put('A',"a");
 		map.put('B',"v");
@@ -26,13 +26,13 @@ public class ¼Ò°­_¬²¬Ö¬ã¬ä¬à¬â¬Ñ¬ß {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		String s = br.readLine();
-		//´äÀ» Ãâ·ÂÇÒ ½ºÆ®¸µºô´õ
+		//ë‹µ ì¶œë ¥ì„ ìœ„í•œ ìŠ¤íŠ¸ë§ë¹Œë”
 		StringBuilder sb = new StringBuilder();
-		//¸Ê¿¡¼­ ÇØ´ç ±ÛÀÚ ºÙÀÌ±â
+		//ë§¤ì¹­ë˜ëŠ” ë°œìŒ ì—°ê²°
 		for(char c:s.toCharArray()) {
 			sb.append(map.get(c));
 		}
-		//Ãâ·Â
+		//ï¿½ï¿½ï¿½
 		bw.append(sb.toString()+"\n");
 		br.close();
 		bw.close();
