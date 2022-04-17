@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,13 +7,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ÀÌÇ×°è¼ö2 {
+public class ì´í•­ê³„ìˆ˜2 {
 	//https://www.acmicpc.net/problem/11051
 	public static long comb(int a, int b) {
+		//ì´í•­ê³„ìˆ˜ ì‚¬ë‹¤ë¦¬ë¥¼ ì´ìš© nCm = (n-1)Cm + (n-1)C(m-1)
 		long[][] dp = new long[a+1][a+1];
 		for(int i=1;i<=a;i++) {
 			for(int j=0;j<=i;j++) {
-				if(j==0||j==i) dp[i][j]=1;
+				if(j==0||j==i) dp[i][j]=1; //0Cx or xCx = 1
 				else dp[i][j]=(dp[i-1][j]+dp[i-1][j-1])%10007;
 			}
 		}
@@ -27,7 +28,7 @@ public class ÀÌÇ×°è¼ö2 {
 		StringTokenizer st=new StringTokenizer(br.readLine());
 		int a = Integer.parseInt(st.nextToken());
 		int b = Integer.parseInt(st.nextToken());
-		//Å«¼öÀÓÀ¸·Î dp·Î ÇØ°á
+		//í° ìˆ˜ì„ìœ¼ë¡œ dpë¥¼ ì´ìš©í•˜ì—¬ í•´ê²°
 		bw.append(comb(a,b)+"\n");
 		br.close();
 		bw.close();
