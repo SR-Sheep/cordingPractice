@@ -1,10 +1,10 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ¿œ∑Œ∏∏µÈ±‚ {
+public class ÏùºÎ°úÎßåÎì§Í∏∞ {
 	//https://www.acmicpc.net/problem/1463
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
