@@ -1,58 +1,64 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
-public class ½ºµµÄí {
+public class ìŠ¤ë„ì¿  {
 	
 	//https://www.acmicpc.net/problem/2580
 	
 	static int[][] Board;
+	static final int MAX_LENGTH = 9;
 	
 	public static void sudoku(int r, int c) throws IOException {
-		if(c==9) {
-			sudoku(++r,0); //c°¡ ¹üÀ§ ¹ÛÀÌ¸é r Áõ°¡ ÈÄ, 0À¸·Î º¯°æ
+		//ì—´ì´ ë²”ìœ„ë¥¼ ë„˜ì–´ê°€ë©´ r ì¦ê°€
+		if(c==MAX_LENGTH) {
+			sudoku(++r,0);
 			return;
 		}
-		if(r==9) { //rÀÌ ¹üÀ§ ¹ÛÀÎ °æ¿ì, ¸ğµç Å½»öÀÌ ¸¶Ä£ °æ¿ìÀÓÀ¸·Î Ãâ·ÂÈÄ Á¾·á
+		//í–‰ì´ ë²”ìœ„ë¥¼ ë„˜ì–´ê°€ë©´ ì¶œë ¥
+		if(r==MAX_LENGTH) {
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-			for(int i=0;i<9;i++) {
+			for(int i=0;i<MAX_LENGTH;i++) {
 				StringBuilder sb = new StringBuilder();
-				for(int j=0;j<9;j++) {
+				for(int j=0;j<MAX_LENGTH;j++) {
 					sb.append(Board[i][j]+" ");
 				}
 				bw.append(sb.toString().trim()+"\n");
 			}
 			bw.close();
+			//ê°•ì œ ì¢…ë£Œ
 			System.exit(0);
 		}
-		//ÇöÀç ºÎºĞÀÌ 0ÀÌ¶ó¸é
+		//ë¹ˆ ê³µê°„ì´ë©´ ìˆ«ì ë„£ê¸°
 		if(Board[r][c]==0) {
-			//¸ğµç °¡´ÉÇÑ ¼ö¸¦ ³Ö¾îº¸°í, °¡´ÉÇÏ¸é Àç±Í
+			//ë“¤ì–´ê°ˆ ìˆ˜ ìˆëŠ” ìˆ«ì 1~9
 			for(int i=1;i<10;i++) {
-				if(check(r, c, i)) { 
+				if(check(r, c, i)) {
 					Board[r][c]=i;
 					sudoku(r, c+1);
 				}
 			}
-			Board[r][c]=0; //¹éÆ®·¡Å·, ¸ğµÎ ºÒ°¡ ½Ã ´Ù½Ã 0À¸·Î ¸¸µë
+			//ì´ˆê¸°í™”
+			Board[r][c]=0;
 			return;
 		}
+		//ì¬ê·€, ë‹¤ìŒ ì—´
 		sudoku(r,++c);
 		
 	}
 	
 	
 	public static boolean check(int r , int c, int num) {
-		//°¡·Î¿­ °Ë»ç
+		//ê°€ë¡œì—´ ê²€ì‚¬
 		for(int i:Board[r]) {
 			if(i==num) return false;
 		}
-		//¼¼·Î¿­ °Ë»ç
+		//ì„¸ë¡œì—´ ê²€ì‚¬
 		for(int i=0;i<9;i++) {
 			if(Board[i][c]==num) return false;
 		}
-		//»ç°¢Çü °Ë»ç
+		//ì‚¬ê°í˜• ê²€ì‚¬
 		while(r%3!=0) {
 			r--;
 		}
@@ -64,7 +70,7 @@ public class ½ºµµÄí {
 				if(Board[i][j]==num) return false;
 			}
 		}
-		//¸ğµÎ Åë°ú½Ã °¡´É
+		
 		return true;
 		
 	}
@@ -80,9 +86,9 @@ public class ½ºµµÄí {
 				Board[i][j]=Integer.parseInt(st.nextToken());
 			}
 		}
-		br.close();
 		
-		//0,0ºÎÅÍ Å½»ö ½ÃÀÛ
 		sudoku(0, 0);
+		
+		br.close();
 	}
 }
