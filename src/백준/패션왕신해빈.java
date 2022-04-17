@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.StringTokenizer;
 
-public class ÆĞ¼Ç¿Õ½ÅÇØºó {
+public class íŒ¨ì…˜ì™•ì‹ í•´ë¹ˆ {
 	
 	//https://www.acmicpc.net/problem/9375
 	
@@ -19,20 +19,22 @@ public class ÆĞ¼Ç¿Õ½ÅÇØºó {
 		int n = Integer.parseInt(br.readLine());
 		StringTokenizer st;
 		for(int i=0;i<n;i++) {
-			int m = Integer.parseInt(br.readLine()); //ÁØºñµÈ ¼ÒÇ° ¼ö
-			HashMap<String,Integer> map = new LinkedHashMap<>(); //¸Ê ¼±¾ğ 
+			int m = Integer.parseInt(br.readLine()); //ì¼€ì´ìŠ¤ ê°œìˆ˜
+			//ì˜·ì˜ ì¢…ë¥˜ ìˆ˜ë¥¼ ì €ì¥í•  ë§µ, ê° ì¢…ë¥˜ì˜ ê¸°ë³¸ê°’ì€ ì•„ë¬´ê²ƒë„ ì°©ìš©í•˜ì§€ ì•ŠëŠ” ê²½ìš°ì¸ 1
+			HashMap<String,Integer> map = new LinkedHashMap<>();
 			for(int j=0;j<m;j++) {
 				st=new StringTokenizer(br.readLine());
-				st.nextToken();
-				String wear = st.nextToken(); //¼ÒÇ° Á¾·ù
-				map.put(wear, map.getOrDefault(wear, 1)+1); //¼ÒÇ° Á¾·ùÀÇ °¹¼ö +1
+				st.nextToken(); //ì˜ë¥˜ ì´ë¦„, í•„ìš” ì—†ìŒ
+				String wear = st.nextToken(); //ì˜ë¥˜ ì¢…ë¥˜
+				//ì¢…ë¥˜ : ê¸°ë³¸ê°’ 1 ì—ì„œ 1ì”© ì¦ê°€
+				map.put(wear, map.getOrDefault(wear, 1)+1);
 			}
 			int answer = 1;
-			//(°¢ ¼ÒÇ°ÀÇ °¹¼ö +1) ¸ğµÎ °öÇÏ±â
+			//valueì˜ ê°’ì„ ëª¨ë‘ ê³±í•¨
 			for(String key:map.keySet()) {
 				answer*=map.get(key);
 			}
-			bw.append(answer-1+"\n"); //¸ğµÎ ¾È Âø¿ë ÇÏ´Â °æ¿ì 1 »©±â
+			bw.append(answer-1+"\n"); //ëª¨ë‘ ë¯¸ì°©ìš©í•˜ëŠ” ê²½ìš° ì œì™¸ (-1)
 		}
 		br.close();
 		bw.close();
