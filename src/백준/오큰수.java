@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class ¿ÀÅ«¼ö {
+public class ì˜¤í°ìˆ˜ {
 	//https://www.acmicpc.net/problem/17298
 	
 	public static void main(String[] args) throws IOException {
@@ -16,24 +16,25 @@ public class ¿ÀÅ«¼ö {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
 		StringTokenizer st=new StringTokenizer(br.readLine());
-		Stack<Integer> stack = new Stack<Integer>();
+		Stack<Integer> stack = new Stack<Integer>(); //idxë¥¼ í‘œê¸°í•  ìŠ¤íƒì„ ì´ìš©
 		StringBuilder sb = new StringBuilder();
 		int[] nums = new int[n];
 		for(int i=0;i<n;i++) {
 			int num =Integer.parseInt(st.nextToken());
 			nums[i]=num;
-			//½ºÅÃÀÇ ¸Ç À§(ÀÌÀü) ÀÎµ¦½ºÀÇ ¼ıÀÚº¸´Ù ÇöÀç ¼ıÀÚ°¡ Å©¸é
+			//ìŠ¤íƒì˜ ë§¨ ìœ„(ì´ì „) ì¸ë±ìŠ¤ì˜ ìˆ«ìë³´ë‹¤ í˜„ì¬ ìˆ«ìê°€ í¬ë©´
 			while(!stack.isEmpty()&&nums[stack.peek()]<num) {
-				//ÇØ´ç ¼ıÀÚ´Â ÇöÀç ¼ıÀÚ
+				//í•´ë‹¹ ìˆ«ìëŠ” í˜„ì¬ ìˆ«ì
 				nums[stack.pop()]=num;
 			}
-			//ÇöÀç ¼ıÀÚ ½ºÅÃ¿¡ ³Ö±â
+			//í˜„ì¬ ìˆ«ì ìŠ¤íƒì— ë„£ê¸°
 			stack.add(i);
 		}
-		//¾ÆÁ÷ ½ºÅÃ¿¡ ¼ıÀÚ°¡ ³²¾ÆÀÖÀ¸¸é, ÇØ´ç ¼ıÀÚ´Â -1
+		//ì•„ì§ ìŠ¤íƒì— ìˆ«ìê°€ ë‚¨ì•„ìˆìœ¼ë©´, í•´ë‹¹ ìˆ«ìëŠ” -1
 		while(!stack.isEmpty()) {
 			nums[stack.pop()] = -1;
 		}
+		//ì¶œë ¥
 		for(int i:nums) {
 			sb.append(i+" ");
 		}
