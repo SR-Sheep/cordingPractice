@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,23 +6,27 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class ÆÑÅä¸®¾ó0ÀÇ°³¼ö {
+public class íŒ©í† ë¦¬ì–¼0ì˜ê°œìˆ˜ {
 	//https://www.acmicpc.net/problem/1676
-	//µÚ¿¡¼­ 0ÀÌ ¾Æ´Ñ ±ÛÀÚ°¡ ³ª¿Ã¶§ ±îÁöÀÇ 0ÀÇ °³¼ö
-	//°¢ ¼ıÀÚ¸¶´Ù 5·Î ³ª´²Áö´Â °¹¼ö¸¸Å­ 0ÀÇ °³¼ö Á¸Àç
+	//2*3*4*...*n ì—ì„œ 10ì´ ëª‡ë²ˆ ê³±í•´ì§€ëŠ”ì§€ êµ¬í•˜ëŠ” ë¬¸ì œ
+	//2ì˜ ê°œìˆ˜ëŠ” ì¶©ë¶„í•¨ìœ¼ë¡œ 5ì˜ ê°œìˆ˜ë¥¼ êµ¬í•œë‹¤.
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
 		int answer=0;
+		//5ì”© ì¦ê°€
 		for(int i=5;i<=n;i+=5) {
 			int tmp =i;
+			//5ì˜ xìŠ¹ì˜ xë§Œí¼ ë‹µ ì¦ê°€
 			while(tmp%5==0) {
 				answer++;
 				tmp/=5;
 			}
 		}
+		//nì´ 0ì´ë¼ë©´ 1
 		if(n==0) answer=1;
+		//ì¶œë ¥
 		bw.append(answer+"\n");
 		br.close();
 		bw.close();
