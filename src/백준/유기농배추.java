@@ -1,4 +1,4 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class ¿Ø±‚≥ÛπË√ﬂ {
+public class Ïú†Í∏∞ÎÜçÎ∞∞Ï∂î {
 	//https://www.acmicpc.net/problem/1012
 	static int[][] D = {{0,1},{0,-1},{1,0},{-1,0}};
 	
@@ -56,15 +56,15 @@ public class ¿Ø±‚≥ÛπË√ﬂ {
 		StringTokenizer st;
 		for(int i=0;i<t;i++) {
 			st=new StringTokenizer(br.readLine());
-			int m=Integer.parseInt(st.nextToken()); //∞°∑Œ
-			int n=Integer.parseInt(st.nextToken()); //ºº∑Œ
-			int k=Integer.parseInt(st.nextToken()); //π›∫π»Ωºˆ
+			int m=Integer.parseInt(st.nextToken()); //Í∞ÄÎ°ú
+			int n=Integer.parseInt(st.nextToken()); //ÏÑ∏Î°ú
+			int k=Integer.parseInt(st.nextToken()); //Î∞òÎ≥µÌöüÏàò
 			
 			int[][] board = new int[n][m];
 			for(int j=0;j<k;j++) {
 				st=new StringTokenizer(br.readLine());
-				int c=Integer.parseInt(st.nextToken()); //∞°∑Œ
-				int r=Integer.parseInt(st.nextToken()); //ºº∑Œ
+				int c=Integer.parseInt(st.nextToken()); //Í∞ÄÎ°ú
+				int r=Integer.parseInt(st.nextToken()); //ÏÑ∏Î°ú
 				board[r][c]=1;
 			}
 			bw.append(earthworm(board)+"\n");
