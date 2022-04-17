@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,24 +9,24 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class ¿ä¼¼Çª½º¹®Á¦0 {
+public class ìš”ì„¸í‘¸ìŠ¤ë¬¸ì œ0 {
 	//https://www.acmicpc.net/problem/11866
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken()); //ÃÑ »ç¶÷¼ö
-		int a = Integer.parseInt(st.nextToken()); //Á¦°ÅÇØ¾ß ÇÒ »ç¶÷ °£ÀÇ °£°İ
-		Queue<Integer> q = new LinkedList<>(); //Å¥ ¼±¾ğ
-		for(int i=1;i<=n;i++) q.add(i); //Å¥¿¡ »ç¶÷µé Ã¤¿ö³Ö±â
-		StringBuilder sb = new StringBuilder("<"); //´äÀ» ÀúÀåÇÒ ½ºÆ®¸µºô´õ
-		int count = 1; //Â÷·Ê
+		int n = Integer.parseInt(st.nextToken()); //ì´ ì‚¬ëŒìˆ˜
+		int a = Integer.parseInt(st.nextToken()); //ì œê±°í•´ì•¼ í•  ì‚¬ëŒ ê°„ì˜ ê°„ê²©
+		Queue<Integer> q = new LinkedList<>(); //í ì„ ì–¸
+		for(int i=1;i<=n;i++) q.add(i); //íì— ì‚¬ëŒë“¤ ì±„ì›Œë„£ê¸°
+		StringBuilder sb = new StringBuilder("<"); //ë‹µì„ ì €ì¥í•  ìŠ¤íŠ¸ë§ë¹Œë”
+		int count = 1; //ì°¨ë¡€
 		while(!q.isEmpty()) {
 			int curr = q.poll();
-			if(count++%a==0) sb.append(curr+", "); //aÀÇ ¹è¼ö Â÷·ÊÀÏ½Ã Á¦°Å
-			else q.add(curr); //Á¦°ÅµÇÁö ¾ÊÀ¸¸é ´Ù½Ã Å¥¿¡ ³Ö±â
+			if(count++%a==0) sb.append(curr+", "); //aì˜ ë°°ìˆ˜ ì°¨ë¡€ì¼ì‹œ ì œê±°
+			else q.add(curr); //ì œê±°ë˜ì§€ ì•Šìœ¼ë©´ ë‹¤ì‹œ íì— ë„£ê¸°
 		}
-		sb.delete(sb.length()-2, sb.length()).append(">"); //¸¶Áö¸· ", " Á¦°Å ÇÑ µÚ ">"³Ö±â
+		sb.delete(sb.length()-2, sb.length()).append(">"); //ë§ˆì§€ë§‰ ", " ì œê±° í•œ ë’¤ ">"ë„£ê¸°
 		bw.append(sb);
 		br.close();
 		bw.close();
