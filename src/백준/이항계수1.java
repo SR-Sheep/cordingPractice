@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ÀÌÇ×°è¼ö1 {
+public class ì´í•­ê³„ìˆ˜1 {
 	//https://www.acmicpc.net/problem/11050
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,7 +15,7 @@ public class ÀÌÇ×°è¼ö1 {
 		StringTokenizer st=new StringTokenizer(br.readLine());
 		int a = Integer.parseInt(st.nextToken());
 		int b = Integer.parseInt(st.nextToken());
-		//Á¶ÇÕ, 10 ÀÌÇÏÀÇ ¼öÀÓÀ¸·Î ¹Ù·Î °è»ê
+		//ì¡°í•©, 10 ì´í•˜ì˜ ìˆ˜ì„ìœ¼ë¡œ ë°”ë¡œ ê³„ì‚°
 		int answer =1;
 		int count = 0;
 		while(count++<b) {
