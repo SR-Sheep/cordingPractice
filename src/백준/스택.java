@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class ½ºÅÃ {
+public class ìŠ¤íƒ {
 	//https://www.acmicpc.net/problem/10828
 	
 	static Stack<Integer> stack;
@@ -21,7 +21,7 @@ public class ½ºÅÃ {
 			stack.add(Integer.parseInt(st.nextToken())); //push
 		}else if(cmd.equals("pop")) {
 			if(stack.isEmpty()) {
-				bw.append(-1+"\n"); //ºñ¾îÀÖÀ¸¸é -1
+				bw.append(-1+"\n"); //ë¹„ì–´ìˆìœ¼ë©´ -1 ì¶œë ¥
 			}else {
 				bw.append(stack.pop()+"\n"); //pop
 			}
@@ -29,13 +29,13 @@ public class ½ºÅÃ {
 			bw.append(stack.size()+"\n"); //size
 		}else if(cmd.equals("empty")) {
 			if(stack.isEmpty()) {
-				bw.append(1+"\n"); //ºñ¾îÀÖÀ¸¸é 1
+				bw.append(1+"\n"); //ë¹„ì–´ìˆìœ¼ë©´ 1 ì¶œë ¥
 			}else {
-				bw.append(0+"\n"); //ºñ¾îÀÖÁö ¾ÊÀ¸¸é 0
+				bw.append(0+"\n"); //ë¹„ì–´ìˆì§€ ì•Šìœ¼ë©´ 0 ì¶œë ¥
 			}
 		}else {
 			if(stack.isEmpty()) {
-				bw.append(-1+"\n"); //ºñ¾îÀÖÀ¸¸é -1
+				bw.append(-1+"\n"); //ë¹„ì–´ìˆìœ¼ë©´ -1 ì¶œë ¥
 			}else {
 				bw.append(stack.peek()+"\n"); //top
 			}
