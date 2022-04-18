@@ -1,11 +1,11 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class ½ºÅ¸Æ®¿Í¸µÅ© {
+public class ìŠ¤íƒ€íŠ¸ì™€ë§í¬ {
 	//https://www.acmicpc.net/problem/14889
 	
 	static int[][] Board;
@@ -14,36 +14,40 @@ public class ½ºÅ¸Æ®¿Í¸µÅ© {
 	public static int solution() {
 		int answer=Integer.MAX_VALUE;
 		int half = N/2;
-		int bit = 1<<N; //ºñÆ®¸¶½ºÅ© ÀÌ¿ë
+		int bit = 1<<N; //ë¹„íŠ¸ë§ˆìŠ¤í¬ ì‚¬ìš©
 		for(int i=1;i<bit;i++) {
-			if(Integer.bitCount(i)==half) { //ºñÆ®°¡ ÄÑÁø ¼ö°¡ half¿Í °°À» °æ¿ì¿¡¸¸
-				List<Integer> start = new ArrayList<Integer>();//½ºÅ¸Æ®ÆÀ Á¶ÇÕ †š±â
-				List<Integer> link = new ArrayList<Integer>(); //¸µÅ©ÆÀ Á¶ÇÕ ³Ö±â
+			if(Integer.bitCount(i)==half) { //1ê³¼ 0ìœ¼ë¡œ íŒ€ ë‚˜ëˆ„ê¸°
+				List<Integer> start = new ArrayList<Integer>();//ìŠ¤íƒ€íŠ¸íŒ€
+				List<Integer> link = new ArrayList<Integer>(); //ë§í¬íŒ€
 				int startSum=0, linkSum=0;
 				int sum=0;
 				for(int j=0;j<N;j++) {
 					int tmp = 1<<j;
+					//jë²ˆì§¸ ìˆ«ìê°€ 1ì´ë©´ ìŠ¤íƒ€íŠ¸íŒ€
 					if((i&tmp)==tmp) {
 						start.add(j);
+					//jë²ˆì§¸ ìˆ«ìê°€ 0ì´ë©´ ë§í¬íŒ€
 					}else {
 						link.add(j);
 					}
 				}
-				//½ºÅ¸Æ®ÆÀ ÇÕ
+				//ìŠ¤íƒ€íŠ¸íŒ€ ë‚´ ì‹œë„ˆì§€ íš¨ê³¼
 				for(int a:start) {
 					for(int b:start) {
 						startSum+=Board[a][b];
 					}
 				}
-				//¸µÅ©ÆÀ ÇÕ
+				//ë§í¬íŒ€ ë‚´ ì‹œë„ˆì§€ íš¨ê³¼
 				for(int a:link) {
 					for(int b:link) {
 						linkSum+=Board[a][b];
 					}
 				}
-				//µÎ ÆÀ°£ÀÇ Â÷ÀÌÀÇ ÃÖ¼Ò¸¦ ´äÀ¸·Î ÃëÇÔ
+				//íŒ€ê°„ì˜ ê²©ì°¨ ê³„ì‚°
 				sum=startSum-linkSum;
+				//ìŒìˆ˜ ë³´ì •
 				if(sum<0) sum*=-1;
+				//íŒ€ê°„ì˜ ê²©ì°¨ì˜ ìµœì†Œê°’
 				answer=Math.min(answer,sum);
 				
 			}
