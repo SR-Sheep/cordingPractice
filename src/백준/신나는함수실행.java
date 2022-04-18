@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,21 +7,26 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ½Å³ª´ÂÇÔ¼ö½ÇÇà {
+public class ì‹ ë‚˜ëŠ”í•¨ìˆ˜ì‹¤í–‰ {
 	//https://www.acmicpc.net/problem/9184
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int[][][] exciting= new int[51][51][51];
 		
+		int[][][] exciting= new int[21][21][21];
+		
+		//ì£¼ì–´ì§„ ì¡°ê±´ëŒ€ë¡œ êµ¬í˜„
 		for(int i=0;i<21;i++) {
 			for(int j=0;j<21;j++) {
 				for(int k=0;k<21;k++) {
+					//í•˜ë‚˜ë¼ë„ 0ì´ë©´ 1
 					if(i<=0||j<=0||k<=0) {
 						exciting[i][j][k]=1;
+					//i<j<k ë¼ë©´
 					}else if(i<j&&j<k) {
 						exciting[i][j][k]=exciting[i][j][k-1]+exciting[i][j-1][k-1]-exciting[i][j-1][k];
+					//ê·¸ë°–ì˜ ê²½ìš°
 					}else {
 						exciting[i][j][k]=exciting[i-1][j][k]+exciting[i-1][j-1][k]+exciting[i-1][j][k-1]-exciting[i-1][j-1][k-1];
 					}
@@ -44,7 +49,7 @@ public class ½Å³ª´ÂÇÔ¼ö½ÇÇà {
 			}else {
 				bw.append(exciting[a][b][c]+"\n");
 			}
-			//´ÙÀ½¼ö
+			//ë‹¤ìŒìˆ˜
 			st=new StringTokenizer(br.readLine());
 			a =Integer.parseInt(st.nextToken());
 			b =Integer.parseInt(st.nextToken());
