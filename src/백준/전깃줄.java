@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,21 +7,31 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-public class Àü±êÁÙ {
+public class ì „ê¹ƒì¤„ {
 	//https://www.acmicpc.net/problem/2565
 	public static int solution(int[][] lines) {
+		//dpë¥¼ ê¸°ë¡í•  ë°°ì—´ ì„ ì–¸
 		int[] dp = new int[lines.length];
-		int answer = 0; //¼³Ä¡ °³¼ö
+		//Aì „ë´‡ëŒ€ ìœ„ì¹˜ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬, ê°™ì€ ìœ„ì¹˜ì— ë‘ê°œ ì´ìƒ ì „ê¹ƒì¤„ ì—†ìŒ
+		Arrays.sort(lines, (x,y)->(x[0]-y[0]));
+		//ì„¤ì¹˜ ê°œìˆ˜
+		int answer = 0;
 		for(int i=0;i<lines.length;i++) {
-			dp[i]=1; //º»ÀÎÀÚ½Å
-			for(int j=0;j<i;j++) { //º»ÀÎ ÀÌÀüµéÀÇ °ª°ú ºñ±³
-				if(lines[i][1]>lines[j][1]) { //B Àüº¿´ë¿¡ ÀÚ½Åº¸´Ù ÀÛÀº °ªÀÏ °æ¿ì ¼³Ä¡ °¡´É
-					dp[i]=Math.max(dp[i], dp[j]+1); //º»ÀÎ°ú ´Ù¸¥ Àü±êÁÙ + º»ÀÎ
+			//ì´ì „ ì „ì„ ë“¤ì˜ ìµœëŒ€ê°’ê³¼ ë¹„êµ
+			for(int j=0;j<i;j++) {
+				//B ì „ë´‡ëŒ€ì— ìì‹ ë³´ë‹¤ ì‘ì€ ìˆœì„œì¼ ê²½ìš° ì„¤ì¹˜ ê°€ëŠ¥
+				if(lines[i][1]>lines[j][1]) {
+					//ì´ë“¤ ì¤‘ ìµœëŒ€ê°’ì„ ì·¨í•¨
+					dp[i]=Math.max(dp[i], dp[j]);
 				}
 			}
-			answer = Math.max(answer, dp[i]); //ÃÖ´ë°ªÀ» ´äÀ¸·Î ÃëÇÔ
+			//ë³¸ì¸ ìì‹ ì˜ ì „ì„  ìˆ˜(+1)
+			dp[i]++;
+			//ìµœëŒ€ê°’ì„ ë‹µìœ¼ë¡œ ì·¨í•¨
+			answer = Math.max(answer, dp[i]);
 		}
-		return lines.length-answer; //ÀüÃ¼ - ¼³Ä¡°³¼ö
+		//(ì „ì²´ - ì„¤ì¹˜ê°œìˆ˜) ì¶œë ¥
+		return lines.length-answer;
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -31,15 +41,9 @@ public class Àü±êÁÙ {
 		int[][] lines = new int[t][2];
 		for(int i=0;i<t;i++) {
 			st=new StringTokenizer(br.readLine());
-			lines[i][0]=Integer.parseInt(st.nextToken());
-			lines[i][1]=Integer.parseInt(st.nextToken());
+			lines[i][0]=Integer.parseInt(st.nextToken()); //Aì „ë´‡ëŒ€ ìœ„ì¹˜
+			lines[i][1]=Integer.parseInt(st.nextToken()); //Bì „ë´‡ëŒ€ ìœ„ì¹˜
 		}
-		Arrays.sort(lines, new Comparator<int[]>() {
-			@Override
-			public int compare(int[] o1, int[] o2) {
-				return o1[0]-o2[0]; //À§Ä¡ ¹øÈ£´Â ÀÚ¿¬¼ö, °°Àº À§Ä¡¿¡ µÎ°³ ÀÌ»ó Àü±êÁÙ ¾øÀ½
-			}
-		});
 		System.out.println(solution(lines));
 		br.close();
 	}
