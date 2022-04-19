@@ -1,9 +1,9 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.*;
 import java.util.Stack;
 
-public class ¡¶∑Œ {
+public class Ï†úÎ°ú {
 	//https://www.acmicpc.net/problem/10773
 	
 	public static void main(String[] args) throws IOException {
@@ -17,10 +17,10 @@ public class ¡¶∑Œ {
 		for(int i=0;i<n;i++) {
 			num = Integer.parseInt(br.readLine());
 			if(num!=0) {
-				sum+=num; //0¿Ã æ∆¥œ∏È ¥ı«œ±‚
-				stack.add(num); //Ω∫≈√ø° ºˆ ¿˙¿Â
+				sum+=num; //Ìï©ÏπòÍ∏∞
+				stack.add(num); //Ïä§ÌÉùÏóê Ï∂îÍ∞Ä
 			}else {
-				sum-=stack.pop(); //0¿Ã∏È Ω∫≈√ø°º≠ ªÃæ∆º≠ ï˚±‚
+				sum-=stack.pop(); //0Ïù¥Î©¥ Ïä§ÌÉùÏùò Îß® ÏúÑÏóê ÏûàÎäî Ïàò Ï†úÍ±∞
 			}
 		}
 		bw.append(sum+"\n");
