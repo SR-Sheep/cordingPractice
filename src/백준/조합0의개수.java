@@ -1,4 +1,4 @@
-package ����;
+package 백준;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,9 +7,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ����0�ǰ��� {
+public class 조합0의개수 {
 	//https://www.acmicpc.net/problem/2004
-	
+	/*
+	 * nCr = n!/{(n-r)!r!}
+	 * nCr의 5 개수 =  n! 의 5의 개수 - ( (n-r)! 의 5의 개수 + r!의 5의 개수)
+	 * nCr의 2 개수 =  n! 의 2의 개수 - ( (n-r)! 의 2의 개수 + r!의 2의 개수)
+	 * 중 작은 것
+	 */
 	public static long countZero(long n, long num) {
 		long answer=0l;
 		while(n>=num) {
