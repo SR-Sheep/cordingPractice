@@ -1,11 +1,11 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
 
-public class Á¹¾÷»çÁø {
-	//https://www.acmicpc.net/problem/23348
+public class ì¡¸ì—…ì‚¬ì§„ {
+	//https://www.acmicpc.net/problem/23349
 	static class Place{
 		private String place;
 		private int start, end;
@@ -26,56 +26,59 @@ public class Á¹¾÷»çÁø {
 		for(int i=0;i<n;i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			String name=st.nextToken();
-			if(names.contains(name)) continue; //ÀÌ¸§ÀÌ Á¸ÀçÇÏ¸é ÄÁÆ¼´º
-			names.add(name); //ÀÌ¸§ Ãß°¡
+			if(names.contains(name)) continue; //ê°™ì€ ì´ë¦„ì´ë©´ ì»¨í‹°ë‰´
+			names.add(name); //ì´ë¦„ ì¶”ê°€
 			String place=st.nextToken();
 			int start=Integer.parseInt(st.nextToken());
 			int end=Integer.parseInt(st.nextToken());
-			list.add(new Place(place, start, end)); //¸®½ºÆ®¿¡ Å¬·¡½º ÇüÅÂ·Î ÀúÀå
+			list.add(new Place(place, start, end)); //ìœ„ì¹˜ì™€ ì‹œì‘,ë ì €ì¥
 		} 
 		br.close();
-		//ÀÌ¸§¼ø Á¤·Ä
+		//ìœ„ì¹˜ ì•ŒíŒŒë²³ìˆœìœ¼ë¡œ ì •ë ¬
 		Collections.sort(list,(x,y)->(x.place.compareTo(y.place)));
 		
-		//ÃÊ±â°ª ¼±¾ğ
+		//ê²¹ì¹˜ëŠ” ì‹œê°„ëŒ€ ìµœëŒ€ê°’
 		int max=0;
 		String title="";
 		int s=0;
 		int e=0;
-		//¸®½ºÆ® Å½»ö
+		//ï¿½ï¿½ï¿½ï¿½Æ® Å½ï¿½ï¿½
 		for(Place p:list) {
-			//½Ã°£ ¹è¿­ »ı¼º, ÀÌ¹Ì Á¸ÀçÇÏ¸é ÇØ´ç ¹è¿­À» °¡Á®¿È
+			//í•´ë‹¹ ìœ„ì¹˜ì˜ ì‹œê°„ëŒ€ ê°€ì ¸ì˜¤ê¸°
 			int[] time=map.getOrDefault(p.place, new int[50001]);
-			//½ÃÀÛ~³¡±îÁö °ª Áõ°¡
+			//ì‹œì‘~ë ì‹œê°„
 			for(int j=p.start;j<p.end;j++) {
+				//ê²¹ì¹˜ëŠ” ì‹œê°„ëŒ€ ì¦ê°€
 				time[j]++;
-				//ÃÖ´ë°ªº¸´Ù Å©¸é ÇØ´ç Àå¼Ò¿Í max°ª ¾÷µ¥ÀÌÆ®
+				//ìµœëŒ€ê°’ ê°±ì‹ ì‹œ ê¸°ë¡
 				if(max<time[j]) {
 					title = p.place;
 					max=time[j];
 				}
 			}
+			//ì‹œê°„ëŒ€ ì—…ë°ì´íŠ¸
 			map.put(p.place, time);
 		}
-		//´ä Àå¼ÒÀÇ ½Ã°£ ¹è¿­
+		//ìµœëŒ€ê°’ì„ ê°€ì§„ ì¥ì†Œì˜ ì‹œê°„ëŒ€
 		int[] tmp = map.get(title);
 
 		boolean flag =false;
+		//ëª¨ë“  ì‹œê°„ëŒ€ íƒìƒ‰
 		for(int i=1;i<50001;i++) {
-			//Ã³À½À¸·Î max°ªÀ» ¸¸³ª¸é s·Î ÀúÀå
+			//ì‹œì‘ì 
 			if(tmp[i]==max&&!flag) {
 				s=i;
 				flag=true;
-			//Ã³À½À¸·Î maxº¸´Ù ÀÛÀº °ªÀ» ¸¸³ª¸é e·Î ÀúÀå ÈÄ break;
+			//ëì  íƒìƒ‰
 			}else if(tmp[i]<max&&flag){
 				e=i;
 				flag=false;
 				break;
 			}
 		}
-		//³¡À» ¸¸³ªÁö ¸øÇßÀ¸¸é ÃÖ´ë°ªÀÎ 50000À¸·Î ¾÷µ¥ÀÌÆ®
+		//ëì ì„ ì°¾ì§€ ëª»í•˜ë©´ 50000ìœ¼ë¡œ ë³€ê²½Æ®
 		if(flag) e=50000;
-		//Ãâ·Â
+		//ì¶œë ¥
 		System.out.println(title+" "+s+" "+e);
 		
 	}
