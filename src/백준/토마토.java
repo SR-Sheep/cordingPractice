@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,20 +7,21 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Åä¸¶Åä {
+public class í† ë§ˆí†  {
 	//https://www.acmicpc.net/problem/7576
+	//ì¼ìˆ˜ ê³„ì‚°
 	public static int ripeDay(int[][] board,int r, int c) {
 		int answer = 0;
 		for(int i=0;i<r;i++) {
 			for(int j=0;j<c;j++) {
-				if(board[i][j]==0) { //0ÀÌ Á¸Àç ÇÏ¸é -1 ¸®ÅÏ
+				if(board[i][j]==0) { //0ì´ ì¡´ì¬í•˜ë©´ ëœìµì€ í† ë§ˆí†  ì¡´ì¬, -1 ì¶œë ¥
 					return -1;
 				}else {
-					answer=Math.max(answer, board[i][j]); //ÃÖ´ë°ª
+					answer=Math.max(answer, board[i][j]); //ìµœëŒ€ê°’ ê³„ì‹¼
 				}
 			}
 		}
-		return --answer;  //ÀÌ¹Ì ÀÍÀº Åä¸¶ÅäºÎÅÍ ½ÃÀÛÇßÀ½À¸·Î 1À» »©ÁÜ
+		return --answer;  //ìµœì´ˆ ì¡´ì¬í•œ í† ë§ˆí† ë¥¼ ì‹¬ì€ í•˜ë£¨ ë¹¼ê¸°
 	}
 	
 	public static void main(String[] args) throws IOException {
@@ -37,30 +38,36 @@ public class Åä¸¶Åä {
 			st=new StringTokenizer(br.readLine());
 			for(int j=0;j<c;j++) {
 				board[i][j]=Integer.parseInt(st.nextToken());
+				//í† ë§ˆí† ë¥¼ ì‹¬ì—ˆìœ¼ë©´ íì— ìœ„ì¹˜ ë„£ê¸°
 				if(board[i][j]==1) {
 					q.add(new int[] {i,j});
 				}
 			}
 		}
 		
-		int[][] d = {{0,1},{0,-1},{1,0},{-1,0}}; //¹æÇâ
+		int[][] d = {{0,1},{0,-1},{1,0},{-1,0}}; //ë°©í–¥
 		
-		
+		//ë„ˆë¹„ íƒìƒ‰
 		while(!q.isEmpty()) {
 			int[] curr = q.poll();
 			int row = curr[0];
 			int col = curr[1];
 			int value = board[row][col];
-			
+			//ìƒí•˜ì¢Œìš° íƒìƒ‰
 			for(int i=0;i<4;i++) {
 				int nr = row +d[i][0];
 				int nc = col +d[i][1];
+				//ë²”ìœ„ë°– íŒ¨ì“°
 				if(nr<0||nc<0||nr>=r||nc>=c) continue;
+				//ì´ë¯¸ ìµì—ˆìœ¼ë©´ íŒ¨ì“°
 				if(board[nr][nc]!=0) continue;
+				//ì¼ìˆ˜ ê²½ê³¼
 				board[nr][nc]=value+1;
+				//íì— ìƒˆ ìœ„ì¹˜ ì‚½ì…
 				q.add(new int[] {nr,nc});
 			}
 		}
+		//ì¶œë ¥
 		System.out.println(ripeDay(board, r, c));
 		
 		br.close();
