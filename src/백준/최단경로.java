@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class ÃÖ´Ü°æ·Î {
+public class ìµœë‹¨ê²½ë¡œ {
 	//https://www.acmicpc.net/problem/1753
 	
 	static final int INF = Integer.MAX_VALUE;
@@ -28,30 +28,30 @@ public class ÃÖ´Ü°æ·Î {
 		Arrays.fill(dist, INF);
 		dist[start]=0;
 		
-		List<int[]>[] list = new ArrayList[v+1];//listÀÇ v¹øÂ°¿¡ {u,cost} ÀúÀå
+		List<int[]>[] list = new ArrayList[v+1];//listì˜ vë²ˆì§¸ì— {u,cost} ì €ì¥
 		for(int i=1;i<=v;i++) {
 			list[i]=new ArrayList<int[]>();
 		}
-		//ÀÔ·Â
+		//ì…ë ¥
 		for(int i=0;i<e;i++) {
 			st=new StringTokenizer(br.readLine());
 			int a=Integer.parseInt(st.nextToken());
 			int b=Integer.parseInt(st.nextToken());
 			int cost=Integer.parseInt(st.nextToken());
-			list[a].add(new int[] {b,cost}); //½ÃÀÛ idx¿¡ {¸ñÀûÁö, ºñ¿ë} ÀúÀå
+			list[a].add(new int[] {b,cost}); //ì‹œì‘ idxì— {ëª©ì ì§€, ë¹„ìš©} ì €ì¥
 		}
 		
-		//´ÙÀÍ½ºÆ®¶ó ¾Ë°í¸®Áò
-		boolean[] visited = new boolean[v+1]; //¹æ¹® ¿©ºÎ Ç¥½Ã
-		PriorityQueue<int[]> pq = new PriorityQueue<int[]>((x,y)->(x[1]-y[1])); //ÇöÀçÀ§Ä¡ cost, cost ÀûÀº ¼ø
-		pq.add(new int[] {start,0});//½ÃÀÛ, cost=0;
+		//ë‹¤ìµìŠ¤íŠ¸ë¼ ì•Œê³ ë¦¬ì¦˜
+		boolean[] visited = new boolean[v+1]; //ë°©ë¬¸ ì—¬ë¶€ í‘œì‹œ
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>((x,y)->(x[1]-y[1])); //í˜„ì¬ìœ„ì¹˜ cost, cost ì ì€ ìˆœ
+		pq.add(new int[] {start,0});//ì‹œì‘, cost=0;
 		
 		while(!pq.isEmpty()) {
 			int[] curr = pq.poll();
-			int point = curr[0];//ÇöÀç À§Ä¡
-			if(visited[point]) continue; //ÀÌÀü¿¡ ¹æ¹®ÇßÀ¸¸é ÆĞ¾²
+			int point = curr[0];//í˜„ì¬ ìœ„ì¹˜
+			if(visited[point]) continue; //ì´ì „ì— ë°©ë¬¸í–ˆìœ¼ë©´ íŒ¨ì“°
 			visited[point]=true;
-			//¿¬°áµÈ ºÎºĞ Å½»ö
+			//ì—°ê²°ëœ ë¶€ë¶„ íƒìƒ‰
 			for(int[] next:list[point]) {
 				int nextPoint = next[0];
 				int nextCost = next[1];
@@ -61,7 +61,7 @@ public class ÃÖ´Ü°æ·Î {
 				}
 			}
 		}
-		//Ãâ·Â
+		//ì¶œë ¥
 		for(int i=1;i<=v;i++) {
 			bw.append(dist[i]==INF?"INF\n":dist[i]+"\n");
 		}
