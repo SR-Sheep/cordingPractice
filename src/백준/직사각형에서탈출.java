@@ -1,9 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class Á÷»ç°¢Çü¿¡¼­Å»Ãâ {
+public class ì§ì‚¬ê°í˜•ì—ì„œíƒˆì¶œ {
 	
 	//https://www.acmicpc.net/problem/1085
 	
@@ -11,13 +11,15 @@ public class Á÷»ç°¢Çü¿¡¼­Å»Ãâ {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int x = Integer.parseInt(st.nextToken());
-		int y = Integer.parseInt(st.nextToken());
-		int w = Integer.parseInt(st.nextToken());
-		int h = Integer.parseInt(st.nextToken());
-		int answer = Math.min(x, y); //x y Áß ÀÛÀº°ÍÀ» ÃëÇÔ(Á¡ÀÇ ¿ŞÂÊ, ¾Æ·¡ÂÊ °ª)
-		answer=Math.min(answer, w-x); //w-x¿Í ºñ±³(Á¡ÀÇ ¿À¸¥ÂÊ ºñ±³)
-		answer=Math.min(answer, h-y); //h-y¿Í ºñ±³(Á¡ÀÇ À§ÂÊ ºñ±³)
+		int x = Integer.parseInt(st.nextToken()); //í•œìˆ˜ì˜ xì¢Œí‘œ
+		int y = Integer.parseInt(st.nextToken()); //í•œìˆ˜ì˜ yì¢Œí‘œ
+		int w = Integer.parseInt(st.nextToken()); //ì§ì‚¬ê°í˜• ë„ˆë¹„
+		int h = Integer.parseInt(st.nextToken()); //ì§ì‚¬ê°í˜• ë†’ì´
+		// ì  ê¸°ì¤€ 3,6,9,12ì‹œ ë°©í–¥ ë¹„êµ
+		int answer = Math.min(x, y); //x y ì¤‘ ì‘ì€ ê°’, (ì  ê¸°ì¤€ 9ì‹œ, 6ì‹œ ê±°ë¦¬)
+		answer=Math.min(answer, w-x); //w-x ì™€ ë¹„êµ (3ì‹œ ê±°ë¦¬)
+		answer=Math.min(answer, h-y); //h-y ì™€ ë¹„êµ (12ì‹œ ê±°ë¦¬)
+		//ì¶œë ¥
 		bw.append(answer+"\n");
 		br.close();
 		bw.close();
