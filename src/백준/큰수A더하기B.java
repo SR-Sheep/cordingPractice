@@ -1,9 +1,10 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 
-public class Å«¼öA´õÇÏ±âB {
+public class í°ìˆ˜Aë”í•˜ê¸°B {
 	
 	//https://www.acmicpc.net/problem/10757
 	
@@ -14,45 +15,56 @@ public class Å«¼öA´õÇÏ±âB {
 		
 		String a = st.nextToken();
 		String b = st.nextToken();
+		
+		//1) ë°°ì—´í˜•íƒœ ê³„ì‚°
+		
 		StringBuilder aSb = new StringBuilder(a);
 		StringBuilder bSb = new StringBuilder(b);
 		StringBuilder sb = new StringBuilder();
 		
 		int length = Math.max(a.length(), b.length());
-		int[] aArr = new int[length+1]; //¿Ã¸² ¹æÁö·Î 1 Áõ°¡
+		int[] aArr = new int[length+1];
 		int[] bArr = new int[length+1]; 
 		
-		//¿ª¼ø, 1ÀÇ ÀÚ¸® ºÎÅÍ
+		//ìˆ«ì ë’¤ì§‘ê¸°(1ì˜ìë¦¬ ìˆ«ìë¶€í„° ê³„ì‚°)
 		aSb.reverse();
 		bSb.reverse();
 		
-		//°¢ ¹è¿­¿¡ ÀúÀå
+		//ë°°ì—´ í˜•íƒœë¡œ ìˆ«ì ë„£ê¸°
 		int idx=0;
 		for(char c:aSb.toString().toCharArray()) {
 			aArr[idx++] = c-'0';
 		}
-		//°¢ ¹è¿­¿¡ ÀúÀå
 		idx=0;
 		for(char c:bSb.toString().toCharArray()) {
 			bArr[idx++] = c-'0';
 		}
 		
+		
 		int sum = -1;
+		//1ì˜ ìë¦¬ë¶€í„° ê³„ì‚°
 		for(int i=0;i<length;i++) {
-			sum = aArr[i]+bArr[i]; //°¢ ÀÚ¸®¼öÀÇ ÇÕ
-			if(sum>9) aArr[i+1]++; //10ºÎÅÍ ´ÙÀ½ ÀÚ¸®¼ö Áõ°¡
-			aArr[i]=sum%10; //a¹è¿­¿¡ 10À¸·Î ³ª´« ³ª¸ÓÁö °ªÀ» ÃëÇÔ
+			sum = aArr[i]+bArr[i]; //ë‘ ìˆ«ìì˜ í•©
+			if(sum>9) aArr[i+1]++; //10ì´ ë„˜ì–´ê°€ë©´ ë‹¤ìŒ ìë¦¿ìˆ˜+1
+			aArr[i]=sum%10; //í•©ì˜ ì¼ì˜ ìë¦¬ëŠ” aArrì— ì €ì¥
 		}
 		
-		//´ä º¯È¯
+		//ì¶œë ¥ì„ ìœ„í•´ ìŠ¤íŠ¸ë§ ë¹Œë” ë§¨ ì•ì— ì‚½ì…
 		for(int i=0;i<length;i++) {
 			sb.insert(0, aArr[i]);
 		}
-		
-		//ÀÚ¸´¼ö Áõ°¡½Ã Ãß°¡
+		//ë§ˆì§€ë§‰ ìë¦¬ìˆ˜ê°€ 0ì´ ì•„ë‹ˆë©´ ë„£ê¸°
 		if(aArr[length]!=0) sb.insert(0, aArr[length]);
+		//ì¶œë ¥
 		bw.write(sb.toString()+"\n");
+		
+		//2) BigInteger ì‚¬ìš©
+		BigInteger bigA = new BigInteger(a);
+		BigInteger bigB = new BigInteger(b);
+		System.out.println(bigA.add(bigB));
+		
 		br.close();
 		bw.close();
 	}
 }
+
