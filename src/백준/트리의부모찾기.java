@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,20 +11,21 @@ import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Æ®¸®ÀÇºÎ¸ğÃ£±â {
+public class íŠ¸ë¦¬ì˜ë¶€ëª¨ì°¾ê¸° {
 	//https://www.acmicpc.net/problem/11725
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int t = Integer.parseInt(br.readLine());
 		StringTokenizer st;
-		List<Integer>[] list = new ArrayList[t+1]; //ÀÎÁ¢ ¸®½ºÆ®
+		List<Integer>[] list = new ArrayList[t+1]; //ì¸ì ‘ë¦¬ìŠ¤íŠ¸ ì €ì¥
+		//ë¦¬ìŠ¤íŠ¸ ê°ì²´ ìƒì„±
 		for(int i=0;i<t+1;i++) {
 			list[i] = new ArrayList<>();
 		}
-		boolean[] visited = new boolean[t+1]; //¹æ¹® ¿©ºÎ
-		int[] parents = new int[t+1]; //ºÎ¸ğ ±â·Ï
-		//¸®½ºÆ®¿¡ ÀÔ·Â
+		boolean[] visited = new boolean[t+1]; //ë°©ë¬¸ì—¬ë¶€
+		int[] parents = new int[t+1]; //ë¶€ëª¨
+		//ì¸ì ‘ë¦¬ìŠ¤íŠ¸ ì¶”ê°€
 		for(int i=0;i<t-1;i++) {
 			st=new StringTokenizer(br.readLine());
 			int a=Integer.parseInt(st.nextToken());
@@ -32,21 +33,23 @@ public class Æ®¸®ÀÇºÎ¸ğÃ£±â {
 			list[a].add(b);
 			list[b].add(a);
 		}
-		//Å¥ ¼±¾ğ
+		//í ì„ ì–¸
 		Queue<Integer> q = new LinkedList<>();
-		q.add(1); //·çÆ®(1) ÀÔ·Â
+		q.add(1); //íŠ¸ë¦¬ ë£¨íŠ¸ 1 ì¶”ê°€
+		//ë„ˆë¹„ ìš°ì„  íƒìƒ‰
 		while(!q.isEmpty()) {
 			int curr = q.poll();
-			visited[curr]=true; //¹æ¹® ¿©ºÎ Ç¥½Ã
-			//ÀÎÁ¢ ¸®½ºÆ® Å½»ö
+			visited[curr]=true; //ë°©ë¬¸ ì²´í¬
+			//ì¸ì ‘ ë¦¬ìŠ¤íŠ¸ ê²€ìƒ‰
 			for(int i:list[curr]) {
-				if(visited[i]) continue; //¹æ¹®½Ã ÆĞ½º
-				parents[i]=curr; //ºÎ¸ğ ±â·Ï
-				q.add(i);
+				if(visited[i]) continue; //ë°©ë¬¸ì‹œ íŒ¨ì“°
+				parents[i]=curr; //ë¹„ ë°©ë¬¸ì‹œ ë¶€ëª¨ ì„¤ì •
+				q.add(i); //íì— ìƒˆ ë²ˆí˜¸ ì‚½ì…
 			}
 		}
+		//2ë¶€í„° ë¶€ëª¨ ì¶œë ¥
 		for(int i=2;i<=t;i++) {
-			bw.append(parents[i]+"\n"); //2¹øºÎÅÍ ºÎ¸ğ Ãâ·Â
+			bw.append(parents[i]+"\n");
 		}
 		br.close();
 		bw.close();
