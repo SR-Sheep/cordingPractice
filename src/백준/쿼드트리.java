@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class ÄõµåÆ®¸® {
+public class ì¿¼ë“œíŠ¸ë¦¬ {
 //	https://www.acmicpc.net/problem/1992
 	
 	static int[][] Board;
@@ -24,8 +24,11 @@ public class ÄõµåÆ®¸® {
 				sum+=Board[i][j];
 			}
 		}
+		//ëª¨ë‘ 0
 		if(sum==0) Sb.append(0);
+		//ëª¨ë‘ 1
 		else if(sum==length*length) Sb.append(1); 
+		//ê·¸ ì™¸ 4ë¶„í•  í›„ ì¬ê·€
 		else {
 			length/=2;
 			Sb.append('(');
