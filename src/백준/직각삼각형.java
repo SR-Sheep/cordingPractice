@@ -1,12 +1,11 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Á÷°¢»ï°¢Çü {
+public class ì§ê°ì‚¼ê°í˜• {
 	//https://www.acmicpc.net/problem/4153
-	//Á÷°¢»ï°¢ÇüÀÌ¸é right, ¾Æ´Ï¸é wrong Ãâ·Â
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -16,11 +15,14 @@ public class Á÷°¢»ï°¢Çü {
 		int c = Integer.parseInt(st.nextToken());
 		int[] arr = new int[3];
 		String[] answer = {"right","wrong"};
+		//0ì´ ì—†ë‹¤ë©´ ì‹¤í–‰ (0,0,0 = ë)
 		while(a*b*c!=0) {
 			arr[0]=a;
 			arr[1]=b;
 			arr[2]=c;
+			//ë°°ì—´ ì •ë ¬
 			Arrays.sort(arr);
+			//í”¼íƒ€ê³ ë¼ìŠ¤ ì •ë¦¬ c^2 = a^2 + b^2
 			if(arr[2]*arr[2]==arr[1]*arr[1]+arr[0]*arr[0]) {
 				bw.append(answer[0]+"\n");
 			}else {
