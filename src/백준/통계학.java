@@ -1,60 +1,64 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 import java.util.Map.Entry;
 
-public class Åë°èÇĞ {
+public class í†µê³„í•™ {
 	//https://www.acmicpc.net/problem/2108
 	
-	//1) »ê¼úÆò±Õ 2) Áß¾Ó°ª 3) ÃÖºó°ª 4) ¹üÀ§
+	//1) ì‚°ìˆ í‰ê·  2) ì¤‘ì•™ê°’ 3) ìµœë¹ˆê°’ 4)ë²”ìœ„
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
-		double average = 0; //Æò±Õ
-		int median=0,mode=0,range=0; //Áß¾Ó°ª, ÃÖºó°ª, ¹üÀ§ 
-		int max=-4001,min=4001; //ÃÖ´ë°ª, ÃÖ¼Ò°ª
-		int[] nums = new int[8001]; //idx = ¼ıÀÚ+4000 ÀÎ ¹è¿­ ¼±¾ğ
+		double average = 0; //í‰ê· 
+		int median=0,mode=0,range=0; //ì¤‘ì•™ê°’, ìµœë¹ˆê°’, ë²”ìœ„ 
+		int max=-4001,min=4001; //ìµœì†Œ, ìµœëŒ€ê°’
+		int[] nums = new int[8001]; //idx = ê°’+4000 (ìŒìˆ˜ê°’ ë³´ì •, -4000 -> 0)
 		
 		for(int i=0;i<n;i++) {
 			int num = Integer.parseInt(br.readLine());
-			average+= num; //Æò±Õ
-			max=Math.max(max, num); //ÃÖ´ë°ª
-			min=Math.min(min, num); //ÃÖ¼Ò°ª
-			nums[num+4000]++; //¹è¿­ÀÇ ¼ıÀÚ Áõ°¡
+			average+= num; //í‰ê· ì— ë”í•˜ê¸°
+			max=Math.max(max, num); //ìµœëŒ€ê°’
+			min=Math.min(min, num); //ìµœì†Œê°’
+			nums[num+4000]++; //ìµœë¹ˆê°’ì„ ìœ„í•´ ë¹ˆë„ ê¸°ë¡
 		}
 		br.close();
 		if(n!=1) {
-			//Æò±Õ
+			//í‰ê· , ë°˜ì˜¬ë¦¼
 			average= Math.round(average/n);
-			int idx=0; //Áß¾Ó°ªÀ» À§ÇÑ ´©Àû ¼ö
-			int count = 1; //ÃÖºó°ªÀ» À§ÇÑ È½¼ö
-			boolean isMedian=false; //Áß¾Ó°ªÀÌ °è»êµÇ¾ú´ÂÁö ÆÇ´Ü
-			int fre = 0; //ÃÖ´ëºóµµ¼ö
-			//Áß¾Ó
+			int idx=0; //í˜„ì¬ ìˆ«ì ìœ„ì¹˜
+			int count = 1; //ìµœë¹ˆê°’ ìˆœì„œ
+			boolean isMedian=false; //ì¤‘ê°„ê°’ ì—¬ë¶€
+			int fre = 0; //ë¹ˆë„
+			//íƒìƒ‰
 			for(int i=min+4000;i<=max+4000;i++) {
-				idx+=nums[i];//¼ıÀÚ °³¼ö ´©Àû
-				if(!isMedian&&idx>=n/2+1) { //Áß¾Ó°ªÀÌ °è»êÀÌ ¾ÈµÆ°í, ´©ÀûµÈ ¼ö°¡ Áß¾Ó°ª ÀÌ»óÀÌ¶ó¸é
-					median=i-4000; //Áß¾Ó°ª = i - 4000;
-					isMedian=true; //Áß¾Ó°ª °è»ê Ç¥½Ã
+				idx+=nums[i];//ìˆ«ì ìˆœì„œ ê°±ì‹ 
+				if(!isMedian&&idx>=n/2+1) { //ì¤‘ê°„ê°’ì´ ì—†ê³ , ì¤‘ê°„ì§€ì ì´ë¼ë©´
+					median=i-4000; //ì¤‘ê°„ê°’;
+					isMedian=true; //ì¤‘ê°„ê°’ ì²´í¬
 				}
+				//ë¹ˆë„ìˆ˜ ìµœëŒ€ë¼ë©´
 				if(fre<nums[i]) {
-					fre=nums[i]; //ºóµµ°¡ ÃÖ´ë°ªÀÌ¸é
-					mode=i-4000; //ÃÖºó°ª
-					count = 1; //¼ø¼­ ÃÊ±âÈ­
-				}else if(fre==nums[i]&&count==1) { //ÃÖºó°ª°ú °°À¸¸ç ÇÑ¹ø¸¸ ³ª¿Â ¼ö¶ó¸é
-					mode=i-4000; //µÎ¹øÂ° °ª
-					count++; //È½¼ö Áõ°¡
+					fre=nums[i]; //ìµœëŒ€ ë¹ˆë„ìˆ˜ ì €ì¥
+					mode=i-4000; //ìµœë¹ˆê°’ ê°±ì‹ 
+					count = 1; //ë¹ˆë„ìˆ˜ì™€ ê°™ì€ ìˆ˜ ì´ˆê¸°í™”
+				//ìµœëŒ€ ë¹ˆë„ìˆ˜ì´ê³  2ë²ˆì§¸ ê°’ì´ë¼ë©´
+				}else if(fre==nums[i]&&count==1) { 
+					mode=i-4000; //ìµœë¹ˆê°’ ê°±ì‹ 
+					count++; //íšŸìˆ˜ ì¦ê°€
 				}
 			}
-			//¹üÀ§
-			range=max-min; //ÃÖ´ë°ª - ÃÖ¼Ò°ª
+			//ë²”ìœ„
+			range=max-min; //ï¿½Ö´ë°ª - ï¿½Ö¼Ò°ï¿½
 		}else {
-			mode=median=(int)average; //ÇÑ°³¸¸ Á¸Àç½Ã ¸ğµÎ °°À½
-			range=0; //¹üÀ§´Â 0
+			//nì´ 1ì´ë©´ í‰ê· ê³¼ ëª¨ë‘ ê°™ìŒ
+			mode=median=(int)average;
+			//ë²”ìœ„ëŠ” 0
+			range=0; 
 		}
-		//Ãâ·Â
+		//ì¶œë ¥
 		bw.write((int)average+"\n");
 		bw.write(median+"\n");
 		bw.write(mode+"\n");
