@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,14 +7,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class ÃÖ¼Ò°ø¹è¼ö {
+public class ìµœì†Œê³µë°°ìˆ˜ {
 	//https://www.acmicpc.net/problem/1934
-	//ÃÖ´ë°ø¾à¼ö : À¯Å¬¸®µå È£Á¦¹ı
+	//ìµœëŒ€ê³µì•½ìˆ˜
 	public static int gcd(int n, int m) {
 		if(m==0) return n;
 		return gcd(m, n%m);
 	}
-	//ÃÖ¼Ò°ø¹è¼ö = a*b / ÃÖ´ë°ø¾à¼ö
+	//ìµœì†Œê³µë°°ìˆ˜
 	public static int lcd(int n, int m) {
 		if(n>m) return n*m/gcd(n,m);
 		return n*m/gcd(m,n);
