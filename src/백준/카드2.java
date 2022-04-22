@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,22 +8,25 @@ import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Ä«µå2 {
+public class ì¹´ë“œ2 {
 	//https://www.acmicpc.net/problem/2164
+	// 1 / 2 / 2 4 / 2 4 6 8 / ...
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
 		
-		//q »ç¿ë ¾ÈÇÔ
+		//ìˆ˜í•™ì„ ì´ìš©í•˜ì—¬ í’€ì´
+		//log_2 (n)ì˜ ì •ìˆ˜ ë¶€ë¶„
 		int num = (int)(Math.log(n)/Math.log(2));
 		int prev = (int)Math.pow(2, num);
+		//2^(log_2(n)ì˜ ì†Œìˆ˜ë¶€ë¶„ +1)
 		int answer =(n-prev)*2;
 		if(answer==0) answer = n;
 		bw.append(answer+"\n");
 		
-		//q¸¦ »ç¿ë
+		//që¥¼ ì´ìš©í•˜ì—¬ í’€ì´
 		Queue<Integer> q = new LinkedList<Integer>();
 		for(int i=1;i<=n;i++) q.add(i);
 		while(q.size()>1) {
