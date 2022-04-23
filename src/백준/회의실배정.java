@@ -1,9 +1,9 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.*;
 
-public class È¸ÀÇ½Ç¹èÁ¤ {
+public class íšŒì˜ì‹¤ë°°ì • {
 	
 	//https://www.acmicpc.net/problem/1931
 	
@@ -11,15 +11,15 @@ public class È¸ÀÇ½Ç¹èÁ¤ {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int n = Integer.parseInt(br.readLine());
-		int[][] time = new int[n][2]; //È¸ÀÇ ½Ã°£ : ½ÃÀÛ, Á¾·á
-		int answer = 0; //´ä
+		int[][] time = new int[n][2]; //íšŒì˜ ì‹œê°„ : ì‹œì‘, ì¢…ë£Œ
+		int answer = 0; //ë‹µ
 		StringTokenizer st;
 		for(int i=0;i<n;i++) {
 			st= new StringTokenizer(br.readLine());
-			time[i][0] = Integer.parseInt(st.nextToken()); //½ÃÀÛ½Ã°£
-			time[i][1] = Integer.parseInt(st.nextToken()); //Á¾·á½Ã°£
+			time[i][0] = Integer.parseInt(st.nextToken());
+			time[i][1] = Integer.parseInt(st.nextToken());
 		}
-		//Á¾·á½Ã°£ÀÌ ºü¸¥ ¼ø Á¤·Ä, °°À» ½Ã ½ÃÀÛ½Ã°£ÀÌ ºü¸¥ ¼ø
+		//ì¢…ë£Œì‹œê°„ì´ ë¹ ë¥¸ ìˆœ ì •ë ¬, ê°™ì„ ì‹œ ì‹œì‘ì‹œê°„ì´ ë¹ ë¥¸ ìˆœ
 		Arrays.sort(time, new Comparator<int[]>() {
 			@Override
 			public int compare(int[] o1, int[] o2) {
@@ -27,16 +27,16 @@ public class È¸ÀÇ½Ç¹èÁ¤ {
 				else return o1[0]-o2[0];
 			}
 		});
-		//È¸ÀÇ Á¾·á ½Ã°£
+		//íšŒì˜ ì¢…ë£Œ ì‹œê°„
 		int end = -1;
 		for(int[] t:time) {
-			//Á¾·á½Ã°£º¸´Ù ½ÃÀÛ½Ã°£ÀÌ °°°Å³ª Å©´Ù¸é 
+			//ì¢…ë£Œì‹œê°„ë³´ë‹¤ ì‹œì‘ì‹œê°„ì´ ê°™ê±°ë‚˜ í¬ë‹¤ë©´ 
 			if(t[0]>=end) {
-				end=t[1]; //Á¾·á½Ã°£ ¾÷µ¥ÀÌÆ®
-				answer++; //´ä Áõ°¡
+				end=t[1]; //ì¢…ë£Œì‹œê°„ ì—…ë°ì´íŠ¸
+				answer++; //ë‹µ ì¦ê°€
 			}
 		}
-		bw.append(answer+"\n"); //´ä Ãâ·Â
+		bw.append(answer+"\n"); //ë‹µ ì¶œë ¥
 		br.close();
 		bw.close();
 	}
