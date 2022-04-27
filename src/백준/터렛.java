@@ -1,10 +1,11 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class ÅÍ·¿ {
+public class í„°ë › {
 	//https://www.acmicpc.net/problem/1002
+	//ì› 2ê°œì˜ ì ‘ì ì„ êµ¬í•˜ëŠ” ë¬¸ì œ
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -22,24 +23,26 @@ public class ÅÍ·¿ {
 			y2=Integer.parseInt(st.nextToken());
 			r2=Integer.parseInt(st.nextToken());
 			
-			int l = (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2); //ÁßÁ¡°£ÀÇ °Å¸® Á¦°ö
-			int r = (r1+r2)*(r1+r2); //±æÀÌ ÇÕÀÇ Á¦°ö
-			int d = (r1-r2)*(r1-r2); //±æÀÌ Â÷ÀÇ Á¦°ö
+			int l = (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2); //ë‘ ì›ì˜ ì¤‘ì‹¬ê°„ì˜ ê±°ë¦¬ ì œê³±
+			int r = (r1+r2)*(r1+r2); //ë‘ ì›ì˜ ë°˜ì§€ë¦„ì˜ í•© ì œê³±
+			int d = (r1-r2)*(r1-r2); //ë‘ ì›ì˜ ë°˜ì§€ë¦„ ì°¨ì˜ ì œê³±
+			//ë‘ ì¤‘ì‹¬ì´ ë–¨ì–´ì ¸ ìžˆë‹¤ë©´
 			if(l>0) {
-				//¹ÝÁö¸§ ÇÕ ±æÀÌ°¡ ÁßÁ¡ °Å¸®º¸´Ù ÀÛÀ¸¸é ´ä ¾øÀ½
+				//ê±°ë¦¬ê°€ í•©ë³´ë‹¤ í° ê²½ìš°, ì ‘ì  ì—†ìŒ
 				if(l>r) answer=0;
-				//¹ÝÁö¸§ Â÷ ±æÀÌ°¡ ÁßÁ¡ °Å¸®º¸´Ù Å©¸é ´ä ¾øÀ½
+				//ê±°ë¦¬ê°€ ì°¨ë³´ë‹¤ ìž‘ì€ ê²½ìš°, ë§Œë‚˜ì§€ ì•Šê³  ë‚´ë¶€ì— ì›ì´ ìžˆìŒ
 				else if(l<d) answer = 0;
-				//¹ÝÁö¸§ÀÇ ÇÕ ±æÀÌ¿Í ÁÜÁ¡ °Å¸® ±æÀÌ°¡ °°À» ¶§(¿ÜÁ¢)
+				//ê±°ë¦¬ì™€ í•©ì´ ê°™ì€ ê²½ìš° ì™¸ì ‘
 				else if(r==l) answer = 1;
-				//¹ÝÁö¸§ÀÇ Â÷ ±æÀÌ¿Í ÁßÁ¡ °Å¸® ±æÀÌ°¡ °°À» ¶§(³»Á¢)
+				//ê±°ë¦¬ì™€ ì°¨ê°€ ê°™ì€ ê²½ìš° ë‚´ì ‘
 				else if(d==l) answer = 1;
-				//³ª¸ÓÁö´Â 2°³¾¿
+				//ë‚˜ë¨¸ì§€ì˜ ê²½ìš° ì›ì´ ë‘ê°œì˜ ì ‘ì ì„ ê°€ì§
 				else answer = 2;
-			}else if(r1==r2){ //ÁßÁ¡ÀÌ °°°í, ¹ÝÁö¸§µµ °°À¸¸é ¹«ÇÑ´ë
+			//ë‘ ì¤‘ì‹¬ì´ ê°™ê³ , ë°˜ì§€ë¦„ë„ ê°™ë‹¤ë©´ ëª¨ë“ ì ì´ ê²¹ì¹¨	
+			}else if(r1==r2){ 
 				answer=-1;
+			//ë‘ ì¤‘ì‹¬ì´ ê°™ê³ , ë°˜ì§€ë¦„ì´ ë‹¤ë¥´ë©´ ì ‘ì  ì—†ìŒ
 			}else {
-				//ÁßÁ¡ÀÌ °°À¸³ª ¹ÝÁö¸§ÀÌ ´Ù¸£¸é 0
 				answer = 0;
 			}
 			bw.append(answer+"\n");
