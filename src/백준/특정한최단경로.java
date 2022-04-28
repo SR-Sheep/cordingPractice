@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class 특정한최단경로 {
-	
+	//https://www.acmicpc.net/problem/1504
 	static List<int[]>[] Board; //board[x] 에 {y, cost} 형식
 	static int[][] Dist; //다익스트라 알고리즘의 거리 값 저장, [3][Nodes]로 구성
 	static int Nodes; //노드의 수
@@ -42,18 +42,21 @@ public class 특정한최단경로 {
 	}
 	
 	public static int solution(int a, int b) {
-		moveMinLength(0, 1); //시작과의 거리
-		moveMinLength(1, a); //a와의 거리
-		moveMinLength(2, Nodes);//끝점간의 거리
+		moveMinLength(0, 1); //시작과 다른 점과의 거리 세팅
+		moveMinLength(1, a); //a와 다른 점과의 거리 세팅
+		moveMinLength(2, Nodes);//끝점과 다른 점과의 거리 세팅
 		
 		int sToA = Dist[0][a]; //1~a 거리
 		int aToB = Dist[1][b]; //a~b 거리
 		int bToN = Dist[2][b]; //node~b 거리
+		//하나라도 도달하지 못하면 -1 리턴
 		if(sToA>=INF||bToN>=INF||aToB>=INF) return -1;
 		
 		int sToB = Dist[0][b]; // 1~b 거리
 		int aToN = Dist[2][a]; //node~a 거리 
-		return Math.min(sToA+bToN, sToB+aToN)+aToB; //두 거리 중 짧은 것을 취함
+		
+		//(1->a->b->n , 1->b->a->n) 중 작은 것을 취함
+		return Math.min(sToA+bToN, sToB+aToN)+aToB;
 	}
 	
 	public static void main(String[] args) throws IOException {
