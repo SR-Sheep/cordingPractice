@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,57 +7,59 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Æ®¸®ÀÇÁö¸§ {
-	static int V; //³ëµå °¹¼ö
-	static List<int[]>[] AdjList; //ÀÎÁ¢ node ¸®½ºÆ®
-	static boolean[] Visited; //¹æ¹®¿©ºÎ
-	static int Node,Cost; //ÃÖ´ë ±æÀÌ ³¡Á¡, ÃÖ´ë ºñ¿ë
+public class íŠ¸ë¦¬ì˜ì§€ë¦„ {
+	//https://www.acmicpc.net/problem/1167
+	
+	static int V; //ë…¸ë“œ ê°¯ìˆ˜
+	static List<int[]>[] AdjList; //ì¸ì ‘ node ë¦¬ìŠ¤íŠ¸
+	static boolean[] Visited; //ë°©ë¬¸ì—¬ë¶€
+	static int Node,Cost; //ìµœëŒ€ ê¸¸ì´ ëì , ìµœëŒ€ ë¹„ìš©
 	
 	public static void treeDiameter(int node, int cost) {
-		Visited[node]=true; //¹æ¹®¿©ºÎ Ç¥½Ã
-		//ÇöÀç ºñ¿ëÀÌ ÃÖ´ë°ªÀÌ¶ó¸é ÇØ´ç Node, Cost ¾÷µ¥ÀÌÆ®
+		Visited[node]=true; //ë°©ë¬¸ì—¬ë¶€ í‘œì‹œ
+		//í˜„ì¬ ë¹„ìš©ì´ ìµœëŒ€ê°’ì´ë¼ë©´ í•´ë‹¹ Node, Cost ì—…ë°ì´íŠ¸
 		if(cost>Cost) {
 			Cost=cost;
 			Node=node;
 		}
-		//±ÙÁ¢ ¸®½ºÆ® Å½»ö
+		//ê·¼ì ‘ ë¦¬ìŠ¤íŠ¸ íƒìƒ‰
 		for(int i=0;i<AdjList[node].size();i++) {
 			int[] curr = AdjList[node].get(i);
 			int v = curr[0];
 			int c = curr[1];
-			if(Visited[v]) continue; //¹æ¹®½Ã ÆĞ¾²
+			if(Visited[v]) continue; //ë°©ë¬¸ì‹œ íŒ¨ì“°
 			treeDiameter(v, cost+c); //dfs
 		}
 	}
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		V = Integer.parseInt(br.readLine()); //Á¤Á¡°³¼ö
-		AdjList = new ArrayList[V+1]; //ÀÎÁ¢ node, (node, cost)
-		Node = 0; //°¡Àå ±ä ³¡Á¡ Áß 1°³ ÃÊ±âÈ­
-		Cost = 0; //ÃÖ´ëºñ¿ë ÃÊ±âÈ­
+		V = Integer.parseInt(br.readLine()); //ì •ì ê°œìˆ˜
+		AdjList = new ArrayList[V+1]; //ì¸ì ‘ node, (node, cost)
+		Node = 0; //ê°€ì¥ ê¸´ ëì  ì¤‘ 1ê°œ ì´ˆê¸°í™”
+		Cost = 0; //ìµœëŒ€ë¹„ìš© ì´ˆê¸°í™”
 		for(int i=1;i<V+1;i++) {
-			AdjList[i]=new ArrayList<>(); //¸®½ºÆ® »ı¼º
+			AdjList[i]=new ArrayList<>(); //ë¦¬ìŠ¤íŠ¸ ìƒì„±
 		}
 		
 		StringTokenizer st;
 		for(int i=0;i<V;i++) {
 			st=new StringTokenizer(br.readLine());
-			int u=Integer.parseInt(st.nextToken()); //³ëµå
-			int v=Integer.parseInt(st.nextToken()); //»ó´ë ³ëµå
-			int cost = -1; //ºñ¿ë
+			int u=Integer.parseInt(st.nextToken()); //ë…¸ë“œ
+			int v=Integer.parseInt(st.nextToken()); //ìƒëŒ€ ë…¸ë“œ
+			int cost = -1; //ë¹„ìš©
 			while(v!=-1) {
 				cost=Integer.parseInt(st.nextToken());
-				AdjList[u].add(new int[] {v,cost}); //ÀÎÁ¢¸®½ºÆ®ÀÇ u ¹øÂ°¿¡ {v, cost} ³Ö±â
+				AdjList[u].add(new int[] {v,cost}); //ì¸ì ‘ë¦¬ìŠ¤íŠ¸ì˜ u ë²ˆì§¸ì— {v, cost} ë„£ê¸°
 				v=Integer.parseInt(st.nextToken());
 			}
 		}
 		
-		Visited = new boolean[V+1]; //¹æ¹®¿©ºÎ ÃÊ±âÈ­
-		treeDiameter(1,0); //ÀÓÀÇÀÇ Á¡(1)ÀÇ ³¡Á¡ Ã£±â(Node Ã£±â)
-		Visited = new boolean[V+1]; //¹æ¹®¿©ºÎ ÃÊ±âÈ­
-		treeDiameter(Node,0);//³¡Á¡(Node)¿¡¼­ ´Ù¸¥ ³¡Á¡ ±îÁöÀÇ °Å¸® Ã£±â(Cost Ã£±â)
-		System.out.println(Cost); //ÃÖ´ë ºñ¿ë Ãâ·Â
+		Visited = new boolean[V+1]; //ë°©ë¬¸ì—¬ë¶€ ì´ˆê¸°í™”
+		treeDiameter(1,0); //ì„ì˜ì˜ ì (1)ì˜ ëì  ì°¾ê¸°(Node ì°¾ê¸°)
+		Visited = new boolean[V+1]; //ë°©ë¬¸ì—¬ë¶€ ì´ˆê¸°í™”
+		treeDiameter(Node,0);//ëì (Node)ì—ì„œ ë‹¤ë¥¸ ëì  ê¹Œì§€ì˜ ê±°ë¦¬ ì°¾ê¸°(Cost ì°¾ê¸°)
+		System.out.println(Cost); //ìµœëŒ€ ë¹„ìš© ì¶œë ¥
 		br.close();
 	}
 }
