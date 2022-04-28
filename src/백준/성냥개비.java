@@ -1,4 +1,4 @@
-package ¹éÁØ;
+package ë°±ì¤€;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class INU_¼º³É°³ºñ {
+public class ì„±ëƒ¥ê°œë¹„ {
 	//https://www.acmicpc.net/problem/23842
-	
+	//ê° ìˆ«ìì— ì‚¬ìš©ë˜ëŠ” ì„±ëƒ¥ ìˆ˜ 0,1,2,3,4,5,6,7,8,9
 	static int[] match = {6,2,5,5,4,5,6,3,7,6};
 	
 	public static String solution(int n) {
-		n-=4; //+, = ¼º³É »ç¿ë
+		n-=4; //+, = ì„±ëƒ¥ ì‚¬ìš©í•¨ìœ¼ë¡œ ê¸°ë³¸ 4ê°œì‚¬ìš©
 		for(int i=0;i<10;i++) {
 			for(int j=0;j<10;j++) {
 				for(int a=0;a<10;a++) {
