@@ -1,11 +1,11 @@
-package πÈ¡ÿ;
+package Î∞±Ï§Ä;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class ø¨º”«’ {
+public class Ïó∞ÏÜçÌï© {
 	//https://www.acmicpc.net/problem/1912
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,7 +15,9 @@ public class ø¨º”«’ {
 		int max = -1000;
 		for(int i=1;i<=t;i++) {
 			int num = Integer.parseInt(st.nextToken());
+			//Ïù¥Ï†Ñ Í∞íÏùÑ ÎçîÌï†ÏßÄ ÎßêÏßÄ Í≤∞Ï†ï
 			arr[i]=Math.max(arr[i-1]+num, num);
+			//ÏµúÎåÄÍ∞í
 			max=Math.max(arr[i], max);
 		}
 		System.out.println(max);
