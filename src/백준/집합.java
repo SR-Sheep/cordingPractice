@@ -15,33 +15,35 @@ public class 집합 {
 		int t = Integer.parseInt(br.readLine());
 		StringTokenizer st;
 		
-		int s = 1<<20; //공집합
+		int s = 0; //공집합
 		for(int i=0;i<t;i++) {
 			st=new StringTokenizer(br.readLine());
 			char cmd = st.nextToken().charAt(1);
 			//all
 			if(cmd=='l') {
+				//모든 비트 on
 				s=(1<<21) - 1;
 			//empty	
 			}else if(cmd=='m') {
-				s=1<<20;
+				//초기화
+				s=0;
 			}else {
 				int x = Integer.parseInt(st.nextToken());
 				int idx = 1<<x;
-				//add
+				//add , 해당 위치 on
 				if(cmd=='d') {
 					s|=idx;
-				//remove	
+				//remove, 해당 위치 off	
 				}else if(cmd=='e') {
 					s&=~idx;
-				//check
+				//check, 해당 위치 확인
 				}else if(cmd=='h') {
 					if(s==(s|idx)) {
 						bw.append("1\n");
 					}else {
 						bw.append("0\n");
 					}
-				//toggle
+				//toggle, 반전
 				}else {
 					if(s==(s|idx)) {
 						s&=~idx;
