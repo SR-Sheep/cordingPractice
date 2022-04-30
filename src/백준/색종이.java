@@ -19,11 +19,16 @@ public class 색종이 {
 		//종이 개수
 		int n = Integer.parseInt(br.readLine());
 		StringTokenizer st;
+		//종이는 1번부터 시작
 		for(int i=1;i<=n;i++) {
 			st=new StringTokenizer(br.readLine());
+			//열
 			int c=Integer.parseInt(st.nextToken());
+			//행
 			int r=Integer.parseInt(st.nextToken());
+			//너비
 			int w=Integer.parseInt(st.nextToken());
+			//높이
 			int h=Integer.parseInt(st.nextToken());
 			//구역에 해당 종이 번호 입력
 			for(int j=0;j<h;j++) {
@@ -37,10 +42,11 @@ public class 색종이 {
 		//완전 탐색
 		for(int i=0;i<INF;i++) {
 			for(int j=0;j<INF;j++) {
+				//해당 번호 증가
 				answer[Board[i][j]]++;
 			}
 		}
-		
+		//출력, 1번부터 종이 / 0은 빈공간
 		for(int i=1;i<=n;i++) {
 			bw.append(answer[i]+"\n");
 		}
