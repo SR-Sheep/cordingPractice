@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class 초성중성종성 {
 	//한글코드의 값 = ((초성 * 21) + 중성) * 28 + 종성 + 0xAC00
-	//*0xAC00 = 'ㄱ'
+	//*0xAC00 = '가'
 	//초성 = ((x - 0xAC00) / 28) / 21 + 0x1100 (초성 ㄱ)
 	//중성 = ((x - 0xAC00) / 28) % 21 + 0x1161 (중성 ㅏ)
 	//종성 = (x - 0xAC00) % 28 + 0x11A8-1 (종성 ㄱ -1 ',' 없는 경우로 인해 -1)
@@ -17,10 +17,12 @@ public class 초성중성종성 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String s = br.readLine();
+		char c = s.charAt(0);
+		char def = '가';
 		int cho,jung,jong;
-		cho = ((s.hashCode() - 0xAC00) / 28)/21;
-		jung = ((s.hashCode() - 0xAC00) / 28)%21;
-		jong = ((s.hashCode() - 0xAC00) % 28);
+		cho = ((c - def) / 28)/21;
+		jung = ((c - def) / 28)%21;
+		jong = ((c - def) % 28);
 		System.out.println(Cho[cho]);
 		System.out.println(Jung[jung]);
 		System.out.println(Jong[jong]);
