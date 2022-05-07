@@ -20,10 +20,10 @@ public class 헤라클레스와히드라 {
 			String attack = br.readLine();
 			
 			for(char c:attack.toCharArray()) {
-				heads--;
-				if(heads==0) break;
 				if(c=='c') {
-					heads+=2;
+					heads++;
+				}else {
+					heads--;
 				}
 			}
 			
