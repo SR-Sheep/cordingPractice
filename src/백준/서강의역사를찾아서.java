@@ -30,7 +30,7 @@ public class 서강의역사를찾아서 {
 		//점수 차 최대값 출력
 		int answer = 0;
 		for(int i=0;i<max;i++) {
-			answer=Math.max(answer, nows[i]-befores[i]);
+			answer=Math.max(answer, befores[i]-nows[i]);
 		}
 		System.out.println(answer);
 		br.close();
