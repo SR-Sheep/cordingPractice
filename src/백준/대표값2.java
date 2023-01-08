@@ -1,12 +1,9 @@
 package 백준;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class 대표값2 {
 	public static void main(String[] args) throws IOException {
@@ -22,7 +19,7 @@ public class 대표값2 {
 		Arrays.sort(arr);
 		
 		System.out.println(sum/5);
-		System.out.println(arr[3]);
+		System.out.println(arr[2]);
 		br.close();
 	}
 }
