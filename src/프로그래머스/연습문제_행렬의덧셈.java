@@ -1,6 +1,6 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_Çà·ÄÀÇµ¡¼À {
+public class ì—°ìŠµë¬¸ì œ_í–‰ë ¬ì˜ë§ì…ˆ {
     //https://programmers.co.kr/learn/courses/30/lessons/12950
 	public static int[][] solution(int[][] arr1, int[][] arr2) {
         for(int i=0;i<arr1.length;i++){
