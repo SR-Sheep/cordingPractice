@@ -1,0 +1,153 @@
+package 백준;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Game2048 {
+	static final int LIMIT =5;
+	static final char[] D = {'u','d','l','r'};
+	
+	static class Game{
+		int n;
+		int count;
+		int[][] board;
+		int max;
+		
+		public Game(int n) {
+			this.n = n;
+			this.board = new int[n][n];
+			this.count = 0;
+			this.max = -1; 
+		}
+		
+		public Game(Game game) {
+			this.n = game.n;
+			this.count= game.count;
+			this.board = Arrays.stream(game.board).map(int[]::clone).toArray(int[][]::new);
+			this.max = game.max; 
+		}
+		
+		public void move(char cmd) {
+			switch (cmd) {
+			case 'u': 
+				for(int c=0;c<n;c++) {
+					int lastIdx = 0;
+					for(int r=1;r<n;r++) {
+						int value = board[r][c];
+						if(value==0) continue;
+						//합칠 수 있다면
+						if(board[lastIdx][c]==value) {
+							board[lastIdx][c]*=2;
+							board[r][c] = 0;
+							this.max=Math.max(max, value*2);
+						}else if(board[lastIdx][c]==0){
+							board[lastIdx][c] = value;
+							board[r][c] = 0;
+						}
+						lastIdx = r;
+					}
+				}
+				break;
+			case 'd': 
+				for(int c=0;c<n;c++) {
+					int lastIdx = n-1;
+					for(int r=n-2;r>=0;r--) {
+						int value = board[r][c];
+						if(value==0) continue;
+						//합칠 수 있다면
+						if(board[lastIdx][c]==value) {
+							board[lastIdx][c]*=2;
+							board[r][c] = 0;
+							this.max=Math.max(max, value*2);
+						}else if(board[lastIdx][c]==0){
+							board[lastIdx][c] = value;
+							board[r][c] = 0;
+						}
+						lastIdx = r;
+					}
+				}
+				break;
+			case 'l': 
+				for(int r=0;r<n;r++) {
+					int lastIdx = 0;
+					for(int c=1;c<n;c++) {
+						int value = board[r][c];
+						if(value==0) continue;
+						//합칠 수 있다면
+						if(board[r][lastIdx]==value) {
+							board[r][lastIdx]*=2;
+							board[r][c] = 0;
+							this.max=Math.max(max, value*2);
+						}else if(board[r][lastIdx]==0){
+							board[r][lastIdx] = value;
+							board[r][c] = 0;
+						}
+						lastIdx = c;
+					}
+				}
+				break;
+			case 'r': 
+				for(int r=0;r<n;r++) {
+					int lastIdx = n-1;
+					for(int c=n-2;c>=0;c--) {
+						int value = board[r][c];
+						if(value==0) continue;
+						//합칠 수 있다면
+						if(board[r][lastIdx]==value) {
+							board[r][lastIdx]*=2;
+							board[r][c] = 0;
+							this.max=Math.max(max, value*2);
+						}else if(board[r][lastIdx]==0){
+							board[r][lastIdx] = value;
+							board[r][c] = 0;
+						}
+						lastIdx = c;
+					}
+				}
+				break;
+			default : count++;
+			}
+		}
+		
+		@Override
+		public String toString() {
+			StringBuilder sb = new StringBuilder();
+			for(int[] b:board) {
+				for(int i:b) sb.append(i+" ");
+				sb.append("\n");
+			}
+			return sb.toString();
+		}
+		
+	}
+	public static int solution(Game game) {
+		if(game.count>=LIMIT) return game.max;
+		int max = -1;
+		for(int i=0;i<4;i++) {
+			Game next = new Game(game);
+			next.move(D[i]);
+			max=Math.max(max, solution(next));
+		}
+		return max;
+	}
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		Game game = new Game(n);
+		for(int i=0;i<n;i++) {
+			st = new StringTokenizer(br.readLine());
+			for(int j=0;j<n;j++) {
+				int num = Integer.parseInt(st.nextToken());
+				game.board[i][j]=num;
+				game.max= Math.max(game.max, num);
+			}
+		}
+		System.out.println(solution(game));
+		br.close();
+	}
+}
