@@ -1,6 +1,6 @@
-package �迭��ȯ;
+package 배열전환;
 
-public class �迭��ȯ {
+public class 배열전환 {
 	public static void main(String[] args) {
 		String s = "";
 		s=s.replace("[", "{").replace("]", "}");
