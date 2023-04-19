@@ -52,11 +52,13 @@ public class 랜선연결 {
 			//연결한 컴퓨터 수
 			for(int j=1;j<=computers;j++) {
 				//현재 스위치를 연결한 경우가 이전 스위치를 연결한 경우보다 비용이 적다면 업데이트
-				//(이전 스위치의 연결한 컴퓨터 수 -1(인터넷 공급을 위한 선) +  현재 스위치의 포트 수 = j)
-				//=> 이전 스위치의 연결한 컴퓨터 수 = j - 현재 스위치의 포트 수 +1
-				if(j-swich.portCount+1>=0
-						&&j-swich.portCount+1<=computers
-						&&dp[i-1][j]>dp[i-1][j-swich.portCount+1]+swich.cost) {
+				//이전 스위치의 연결한 컴퓨터 수 -1(인터넷 공급을 위한 선) +  현재 스위치의 포트 수 -1(인터넷 공급을 위한 선) = j
+				//=> 이전 스위치의 연결한 컴퓨터 수 = j - 현재 스위치의 포트 수 +2
+				//j - 현재 스위치의 포트 수 +2가 범위 내에 있고,
+				//현재 스위치 설치가 더 이득이면 업데이트
+				if(j-swich.portCount+2>=0
+						&&j-swich.portCount+2<=computers
+						&&dp[i-1][j]>dp[i-1][j-swich.portCount+2]+swich.cost) {
 					dp[i][j]=dp[i-1][j-swich.portCount+1]+swich.cost;
 				//아닐 시 이전 스위치 비용과 같음
 				}else {
@@ -64,21 +66,24 @@ public class 랜선연결 {
 				}
 			}
 		}
-		
+		//INF면 -1, 아니면 값 출력
 		return dp[swichs][computers]==INF?-1:dp[swichs][computers];
 	}
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//스위치 개수
 		int n = Integer.parseInt(br.readLine());
+		//스위치 정보를 저장할 리스트
 		List<Swich> list = new ArrayList<>();
 		StringTokenizer st;
 		for(int i=0;i<n;i++) {
 			st=new StringTokenizer(br.readLine());
-			int portCount=Integer.parseInt(st.nextToken())-1; //인터넷 공급 선 제외(-1)
+			int portCount=Integer.parseInt(st.nextToken()); //포트 수
 			int cost=Integer.parseInt(st.nextToken()); //비용
-			list.add(new Swich(portCount, cost));
+			list.add(new Swich(portCount, cost)); //스위치 정보 추가
 		}
+		//컴퓨터 개수
 		int m = Integer.parseInt(br.readLine());
 		System.out.println(getMinCost(list, n, m));
 		br.close();
