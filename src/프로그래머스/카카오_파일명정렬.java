@@ -1,9 +1,9 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ä«Ä«¿À_ÆÄÀÏ¸íÁ¤·Ä {
+public class ì¹´ì¹´ì˜¤_íŒŒì¼ëª…ì •ë ¬ {
 	//https://programmers.co.kr/learn/courses/30/lessons/17686
 	
     static class Name implements Comparable<Name>{
