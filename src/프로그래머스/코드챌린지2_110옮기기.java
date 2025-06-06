@@ -1,65 +1,65 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.Stack;
 
-public class ÄÚµåÃ§¸°Áö2_110¿Å±â±â {
+public class ì½”ë“œì±Œë¦°ì§€2_110ì˜®ê¸°ê¸° {
 /*
  *  https://programmers.co.kr/learn/courses/30/lessons/77886
  *
-	¹®Á¦ ¼³¸í
-	0°ú 1·Î ÀÌ·ç¾îÁø ¾î¶² ¹®ÀÚ¿­ x¿¡ ´ëÇØ¼­,
-	´ç½ÅÀº ´ÙÀ½°ú °°Àº Çàµ¿À» ÅëÇØ x¸¦ ÃÖ´ëÇÑ »çÀü ¼øÀ¸·Î ¾Õ¿¡ ¿Àµµ·Ï ¸¸µé°íÀÚ ÇÕ´Ï´Ù.
+	ë¬¸ì œ ì„¤ëª…
+	0ê³¼ 1ë¡œ ì´ë£¨ì–´ì§„ ì–´ë–¤ ë¬¸ìžì—´ xì— ëŒ€í•´ì„œ,
+	ë‹¹ì‹ ì€ ë‹¤ìŒê³¼ ê°™ì€ í–‰ë™ì„ í†µí•´ xë¥¼ ìµœëŒ€í•œ ì‚¬ì „ ìˆœìœ¼ë¡œ ì•žì— ì˜¤ë„ë¡ ë§Œë“¤ê³ ìž í•©ë‹ˆë‹¤.
 
-	x¿¡ ÀÖ´Â "110"À» »Ì¾Æ¼­, ÀÓÀÇÀÇ À§Ä¡¿¡ ´Ù½Ã »ðÀÔÇÕ´Ï´Ù.
-	¿¹¸¦ µé¾î, x = "11100" ÀÏ ¶§, ¿©±â¼­ Áß¾Ó¿¡ ÀÖ´Â "110"À» »ÌÀ¸¸é x = "10" ÀÌ µË´Ï´Ù.
-	»Ì¾Ò´ø "110"À» xÀÇ ¸Ç ¾Õ¿¡ ´Ù½Ã »ðÀÔÇÏ¸é x = "11010" ÀÌ µË´Ï´Ù.
+	xì— ìžˆëŠ” "110"ì„ ë½‘ì•„ì„œ, ìž„ì˜ì˜ ìœ„ì¹˜ì— ë‹¤ì‹œ ì‚½ìž…í•©ë‹ˆë‹¤.
+	ì˜ˆë¥¼ ë“¤ì–´, x = "11100" ì¼ ë•Œ, ì—¬ê¸°ì„œ ì¤‘ì•™ì— ìžˆëŠ” "110"ì„ ë½‘ìœ¼ë©´ x = "10" ì´ ë©ë‹ˆë‹¤.
+	ë½‘ì•˜ë˜ "110"ì„ xì˜ ë§¨ ì•žì— ë‹¤ì‹œ ì‚½ìž…í•˜ë©´ x = "11010" ì´ ë©ë‹ˆë‹¤.
 
-	º¯Çü½ÃÅ³ ¹®ÀÚ¿­ x°¡ ¿©·¯ °³ µé¾îÀÖ´Â ¹®ÀÚ¿­ ¹è¿­ s°¡ ÁÖ¾îÁ³À» ¶§,
-	°¢ ¹®ÀÚ¿­¿¡ ´ëÇØ¼­ À§ÀÇ Çàµ¿À¸·Î º¯ÇüÇØ¼­ ¸¸µé ¼ö ÀÖ´Â ¹®ÀÚ¿­ Áß
-	»çÀü ¼øÀ¸·Î °¡Àå ¾Õ¿¡ ¿À´Â ¹®ÀÚ¿­À» ¹è¿­¿¡ ´ã¾Æ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+	ë³€í˜•ì‹œí‚¬ ë¬¸ìžì—´ xê°€ ì—¬ëŸ¬ ê°œ ë“¤ì–´ìžˆëŠ” ë¬¸ìžì—´ ë°°ì—´ sê°€ ì£¼ì–´ì¡Œì„ ë•Œ,
+	ê° ë¬¸ìžì—´ì— ëŒ€í•´ì„œ ìœ„ì˜ í–‰ë™ìœ¼ë¡œ ë³€í˜•í•´ì„œ ë§Œë“¤ ìˆ˜ ìžˆëŠ” ë¬¸ìžì—´ ì¤‘
+	ì‚¬ì „ ìˆœìœ¼ë¡œ ê°€ìž¥ ì•žì— ì˜¤ëŠ” ë¬¸ìžì—´ì„ ë°°ì—´ì— ë‹´ì•„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	1 ¡Â sÀÇ ±æÀÌ ¡Â 1,000,000
-	1 ¡Â sÀÇ °¢ ¿ø¼Ò ±æÀÌ ¡Â 1,000,000
-	1 ¡Â sÀÇ ¸ðµç ¿ø¼ÒÀÇ ±æÀÌÀÇ ÇÕ ¡Â 1,000,000
+	ì œí•œì‚¬í•­
+	1 â‰¤ sì˜ ê¸¸ì´ â‰¤ 1,000,000
+	1 â‰¤ sì˜ ê° ì›ì†Œ ê¸¸ì´ â‰¤ 1,000,000
+	1 â‰¤ sì˜ ëª¨ë“  ì›ì†Œì˜ ê¸¸ì´ì˜ í•© â‰¤ 1,000,000
 */
 	
 	
 	public static String transfer(String s) {
-		StringBuilder zzo = new StringBuilder(); // 110À» ³ÖÀ» ½ºÆ®¸µºô´õ
-		StringBuilder answer = new StringBuilder(); // ´äÀ» ³ÖÀ» ½ºÆ®¸µºô´õ
-		Stack<Character> st = new Stack<>(); // ½ºÅÃ ¼±¾ð
-		// ½ºÅÃ ³Ö±â
+		StringBuilder zzo = new StringBuilder(); // 110ì„ ë„£ì„ ìŠ¤íŠ¸ë§ë¹Œë”
+		StringBuilder answer = new StringBuilder(); // ë‹µì„ ë„£ì„ ìŠ¤íŠ¸ë§ë¹Œë”
+		Stack<Character> st = new Stack<>(); // ìŠ¤íƒ ì„ ì–¸
+		// ìŠ¤íƒ ë„£ê¸°
 		for (char c : s.toCharArray()) {
-			if (c == '0' && st.size() > 1) { // ÇØ´ç ±ÛÀÚ°¡ 0ÀÌ¸ç ½ºÅÃ¿¡ 2°³ ÀÌ»ó ÀÖÀ» °æ¿ì
+			if (c == '0' && st.size() > 1) { // í•´ë‹¹ ê¸€ìžê°€ 0ì´ë©° ìŠ¤íƒì— 2ê°œ ì´ìƒ ìžˆì„ ê²½ìš°
 				char tmp = st.pop();
-				if (tmp == '1' && st.peek() == '1') { // ¾Õ¿¡ µÎ ±ÛÀÚ°¡ 1ÀÌ¸é (110)
-					st.pop(); // ¹®ÀÚ¿­¿¡¼­ 110 »èÁ¦ ÈÄ
-					zzo.append("110"); // 110 ½ºÆ®¸µºô´õ¿¡ 110 Ãß°¡
+				if (tmp == '1' && st.peek() == '1') { // ì•žì— ë‘ ê¸€ìžê°€ 1ì´ë©´ (110)
+					st.pop(); // ë¬¸ìžì—´ì—ì„œ 110 ì‚­ì œ í›„
+					zzo.append("110"); // 110 ìŠ¤íŠ¸ë§ë¹Œë”ì— 110 ì¶”ê°€
 				} else {
-					st.add(tmp); // ±× ¿ÜÀÇ °æ¿ì popÇÑ ±ÛÀÚ¸¦ º¹±¸ÇÑ µÚ
-					st.add('0'); // ÇØ´ç ±ÛÀÚ(0) Ãß°¡
+					st.add(tmp); // ê·¸ ì™¸ì˜ ê²½ìš° popí•œ ê¸€ìžë¥¼ ë³µêµ¬í•œ ë’¤
+					st.add('0'); // í•´ë‹¹ ê¸€ìž(0) ì¶”ê°€
 				}
 			} else {
-				// ÇØ´ç ±ÛÀÚ°¡ 1ÀÌ°Å³ª ½ºÅÃ¿¡ 2¹Ì¸¸ ÀúÀå½Ã ½ºÅÃ¿¡ ÇØ´ç±ÛÀÚ Ãß°¡
+				// í•´ë‹¹ ê¸€ìžê°€ 1ì´ê±°ë‚˜ ìŠ¤íƒì— 2ë¯¸ë§Œ ì €ìž¥ì‹œ ìŠ¤íƒì— í•´ë‹¹ê¸€ìž ì¶”ê°€
 				st.add(c);
 			}
 		}
-		// ½ºÅÃ¿¡¼­ »©±â
-		boolean isLastZero = true; // ¸¶Áö¸· 0ÀÎÁö È®ÀÎ
-		// ½ºÅÃÀÌ ºñ¿öÁú¶§±îÁö ¹Ýº¹
+		// ìŠ¤íƒì—ì„œ ë¹¼ê¸°
+		boolean isLastZero = true; // ë§ˆì§€ë§‰ 0ì¸ì§€ í™•ì¸
+		// ìŠ¤íƒì´ ë¹„ì›Œì§ˆë•Œê¹Œì§€ ë°˜ë³µ
 		while (!st.isEmpty()) {
 			char c = st.pop(); // pop
-			if (isLastZero && c == '0') { // ½ºÅÃ¿¡¼­ Ã³À½À¸·Î 0À» ¸¸³ª´Â °æ¿ì(¸¶Áö¸· 0)
-				answer.insert(0, zzo.toString()); // 110½ºÆ®¸µºô´õÀÇ 110µéÀ» ¾Õ¿¡ Ãß°¡
+			if (isLastZero && c == '0') { // ìŠ¤íƒì—ì„œ ì²˜ìŒìœ¼ë¡œ 0ì„ ë§Œë‚˜ëŠ” ê²½ìš°(ë§ˆì§€ë§‰ 0)
+				answer.insert(0, zzo.toString()); // 110ìŠ¤íŠ¸ë§ë¹Œë”ì˜ 110ë“¤ì„ ì•žì— ì¶”ê°€
 				isLastZero = false;
 			}
-			answer.insert(0, c); // stack¿¡¼­ »ÌÈù ±ÛÀÚ¸¦ ¸Ç ¾Õ¿¡ ºÙÀÌ±â
+			answer.insert(0, c); // stackì—ì„œ ë½‘ížŒ ê¸€ìžë¥¼ ë§¨ ì•žì— ë¶™ì´ê¸°
 		}
-		// ³²Àº ±ÛÀÚ¿¡ 0ÀÌ ¾ø¾ú´Ù¸é 110 ½ºÆ®¸µºô´õ¸¦ ¸Ç ¾Õ¿¡ ºÙÀÌ±â
+		// ë‚¨ì€ ê¸€ìžì— 0ì´ ì—†ì—ˆë‹¤ë©´ 110 ìŠ¤íŠ¸ë§ë¹Œë”ë¥¼ ë§¨ ì•žì— ë¶™ì´ê¸°
 		if (isLastZero)
 			answer.insert(0, zzo.toString());
-		// ½ºÆ®¸µ ÇüÀ¸·Î º¯È¯ÇÏ¿© Ãâ·Â
+		// ìŠ¤íŠ¸ë§ í˜•ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ì¶œë ¥
 		return answer.toString();
 	}
 

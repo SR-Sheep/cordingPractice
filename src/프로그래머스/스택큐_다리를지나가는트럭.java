@@ -1,55 +1,55 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class ½ºÅÃÅ¥_´Ù¸®¸¦Áö³ª°¡´ÂÆ®·° {
+public class ìŠ¤íƒí_ë‹¤ë¦¬ë¥¼ì§€ë‚˜ê°€ëŠ”íŠ¸ëŸ­ {
 	/*
-	 Æ®·° ¿©·¯ ´ë°¡ °­À» °¡·ÎÁö¸£´Â ÀÏÂ÷¼± ´Ù¸®¸¦ Á¤ÇØÁø ¼øÀ¸·Î °Ç³Ê·Á ÇÕ´Ï´Ù.
-	 ¸ðµç Æ®·°ÀÌ ´Ù¸®¸¦ °Ç³Ê·Á¸é ÃÖ¼Ò ¸î ÃÊ°¡ °É¸®´ÂÁö ¾Ë¾Æ³»¾ß ÇÕ´Ï´Ù.
-	 ´Ù¸®¿¡´Â Æ®·°ÀÌ ÃÖ´ë bridge_length´ë ¿Ã¶ó°¥ ¼ö ÀÖÀ¸¸ç,
-	 ´Ù¸®´Â weight ÀÌÇÏ±îÁöÀÇ ¹«°Ô¸¦ °ßµô ¼ö ÀÖ½À´Ï´Ù.
-	 ´Ü, ´Ù¸®¿¡ ¿ÏÀüÈ÷ ¿À¸£Áö ¾ÊÀº Æ®·°ÀÇ ¹«°Ô´Â ¹«½ÃÇÕ´Ï´Ù.
+	 íŠ¸ëŸ­ ì—¬ëŸ¬ ëŒ€ê°€ ê°•ì„ ê°€ë¡œì§€ë¥´ëŠ” ì¼ì°¨ì„  ë‹¤ë¦¬ë¥¼ ì •í•´ì§„ ìˆœìœ¼ë¡œ ê±´ë„ˆë ¤ í•©ë‹ˆë‹¤.
+	 ëª¨ë“  íŠ¸ëŸ­ì´ ë‹¤ë¦¬ë¥¼ ê±´ë„ˆë ¤ë©´ ìµœì†Œ ëª‡ ì´ˆê°€ ê±¸ë¦¬ëŠ”ì§€ ì•Œì•„ë‚´ì•¼ í•©ë‹ˆë‹¤.
+	 ë‹¤ë¦¬ì—ëŠ” íŠ¸ëŸ­ì´ ìµœëŒ€ bridge_lengthëŒ€ ì˜¬ë¼ê°ˆ ìˆ˜ ìžˆìœ¼ë©°,
+	 ë‹¤ë¦¬ëŠ” weight ì´í•˜ê¹Œì§€ì˜ ë¬´ê²Œë¥¼ ê²¬ë”œ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+	 ë‹¨, ë‹¤ë¦¬ì— ì™„ì „ížˆ ì˜¤ë¥´ì§€ ì•Šì€ íŠ¸ëŸ­ì˜ ë¬´ê²ŒëŠ” ë¬´ì‹œí•©ë‹ˆë‹¤.
 	 
-	 *Á¦ÇÑÁ¶°Ç
+	 *ì œí•œì¡°ê±´
 	 
-	 bridge_length´Â 1 ÀÌ»ó 10,000 ÀÌÇÏÀÔ´Ï´Ù.
- 	 weight´Â 1 ÀÌ»ó 10,000 ÀÌÇÏÀÔ´Ï´Ù.
-	 truck_weightsÀÇ ±æÀÌ´Â 1 ÀÌ»ó 10,000 ÀÌÇÏÀÔ´Ï´Ù.
-	 ¸ðµç Æ®·°ÀÇ ¹«°Ô´Â 1 ÀÌ»ó weight ÀÌÇÏÀÔ´Ï´Ù.
+	 bridge_lengthëŠ” 1 ì´ìƒ 10,000 ì´í•˜ìž…ë‹ˆë‹¤.
+ 	 weightëŠ” 1 ì´ìƒ 10,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	 truck_weightsì˜ ê¸¸ì´ëŠ” 1 ì´ìƒ 10,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	 ëª¨ë“  íŠ¸ëŸ­ì˜ ë¬´ê²ŒëŠ” 1 ì´ìƒ weight ì´í•˜ìž…ë‹ˆë‹¤.
 	 
 	 */
 	
 	
     public static int solution(int bridge_length, int weight, int[] truck_weights) {
-    	//ÀÚµ¿Â÷¸¦ ¿Ã¸± ´Ù¸® q ¼±¾ð (¸ÕÀú ¿Ã¶ó°¡´Â Â÷°¡ ¸ÕÀú ³ª°¨)
+    	//ìžë™ì°¨ë¥¼ ì˜¬ë¦´ ë‹¤ë¦¬ q ì„ ì–¸ (ë¨¼ì € ì˜¬ë¼ê°€ëŠ” ì°¨ê°€ ë¨¼ì € ë‚˜ê°)
     	Queue<Integer> bridge = new LinkedList<Integer>();
-    	//´Ù¸®¿¡ ºó °ø°£ 0 Ã¤¿ì±â (¸¶Áö¸· ºÎºÐÀº Ã¹ Â÷°¡ ¿Ã¶ó °¥ °Í)
+    	//ë‹¤ë¦¬ì— ë¹ˆ ê³µê°„ 0 ì±„ìš°ê¸° (ë§ˆì§€ë§‰ ë¶€ë¶„ì€ ì²« ì°¨ê°€ ì˜¬ë¼ ê°ˆ ê²ƒ)
     	for(int i=0;i<bridge_length-1;i++) bridge.add(0);
-    	//Ã¹ Â÷ ´Ù¸® À§¿¡ ¿Ã¸®±â
+    	//ì²« ì°¨ ë‹¤ë¦¬ ìœ„ì— ì˜¬ë¦¬ê¸°
     	bridge.add(truck_weights[0]);
     	
-    	//ÀÌ¹Ì Ã¹Â÷°¡ ¿Ã¶ó°¬À¸´Ï ½Ã°£Àº 1ÃÊ, À§Ä¡ idx´Â 1, ´Ù¸®À§ ¹«°Ô´Â Ã¹Â÷ÀÇ ¹«°Ô
+    	//ì´ë¯¸ ì²«ì°¨ê°€ ì˜¬ë¼ê°”ìœ¼ë‹ˆ ì‹œê°„ì€ 1ì´ˆ, ìœ„ì¹˜ idxëŠ” 1, ë‹¤ë¦¬ìœ„ ë¬´ê²ŒëŠ” ì²«ì°¨ì˜ ë¬´ê²Œ
     	int sec=1;
     	int idx=1;
     	int sum = truck_weights[0];
     	
     	while(!bridge.isEmpty()) {
-    		sec++;// ½Ã°£°æ°ú
+    		sec++;// ì‹œê°„ê²½ê³¼
     		int truck = bridge.poll();
-    		sum-=truck; //ÇöÀç Æ®·° Å»Ãâ
-    		//ÀÎµ¦½º°¡ ¹üÀ§ ³»¿¡ ÀÖ´Ù¸é
+    		sum-=truck; //í˜„ìž¬ íŠ¸ëŸ­ íƒˆì¶œ
+    		//ì¸ë±ìŠ¤ê°€ ë²”ìœ„ ë‚´ì— ìžˆë‹¤ë©´
     		if(idx<truck_weights.length) {
-    			//ÇöÀç ÇÕ°è + ´ÙÀ½ Æ®·°ÀÇ ¹«°Ô°¡ Áß·®ÃÊ°úÀÏ½Ã
+    			//í˜„ìž¬ í•©ê³„ + ë‹¤ìŒ íŠ¸ëŸ­ì˜ ë¬´ê²Œê°€ ì¤‘ëŸ‰ì´ˆê³¼ì¼ì‹œ
     			if(sum+truck_weights[idx]>weight) {
-    				bridge.add(0); //´Ù¸® À§¿¡ 0 Ãß°¡
-				//ÇöÀç ÇÕ°è + ´ÙÀ½ Æ®·°ÀÇ ¹«°Ô°¡ Áß·® ³» ÀÏ½Ã
+    				bridge.add(0); //ë‹¤ë¦¬ ìœ„ì— 0 ì¶”ê°€
+				//í˜„ìž¬ í•©ê³„ + ë‹¤ìŒ íŠ¸ëŸ­ì˜ ë¬´ê²Œê°€ ì¤‘ëŸ‰ ë‚´ ì¼ì‹œ
     			}else {
-    				sum+=truck_weights[idx]; //´ÙÀ½ Æ®·° ¿Ã¸®±â
-    				bridge.add(truck_weights[idx]); //ºê¸´Áö¿¡ ´ÙÀ½ Æ®·° Ãß°¡
-    				idx++;//ÀÎµ¦½º Áõ°¡
+    				sum+=truck_weights[idx]; //ë‹¤ìŒ íŠ¸ëŸ­ ì˜¬ë¦¬ê¸°
+    				bridge.add(truck_weights[idx]); //ë¸Œë¦¿ì§€ì— ë‹¤ìŒ íŠ¸ëŸ­ ì¶”ê°€
+    				idx++;//ì¸ë±ìŠ¤ ì¦ê°€
     			}
     		}
 		}

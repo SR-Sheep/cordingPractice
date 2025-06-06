@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 
-public class ¿¬½À¹®Á¦_ÃÖ¼Ú°ª¸¸µé±â {
+public class ì—°ìŠµë¬¸ì œ_ìµœì†Ÿê°’ë§Œë“¤ê¸° {
     public static int solution(int []A, int []B){
         int answer = 0;
         Arrays.sort(A);

@@ -1,18 +1,18 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class ¿¬½À¹®Á¦_¹®ÀÚ¿­³»¸¶À½´ë·ÎÁ¤·ÄÇÏ±â {
+public class ì—°ìŠµë¬¸ì œ_ë¬¸ìì—´ë‚´ë§ˆìŒëŒ€ë¡œì •ë ¬í•˜ê¸° {
     //https://programmers.co.kr/learn/courses/30/lessons/12915
 	public String[] solution(String[] strings, int n) {
         Arrays.sort(strings, new Comparator<String>() {
         	@Override
         	public int compare(String o1, String o2) {
         		if(o1.charAt(n)!=o2.charAt(n)) {
-        			return (o1.charAt(n)+"").compareTo(o2.charAt(n)+""); //n¹øÂ° ±ÛÀÚ ºñ±³
+        			return (o1.charAt(n)+"").compareTo(o2.charAt(n)+""); //në²ˆì§¸ ê¸€ì ë¹„êµ
         		}else {
-        			return o1.compareTo(o2); //°°À¸¸é ¹Ù·Î ºñ±³
+        			return o1.compareTo(o2); //ê°™ìœ¼ë©´ ë°”ë¡œ ë¹„êµ
         		}
         	}
         });

@@ -1,19 +1,19 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class Ä«Ä«¿À_nÁø¼ö°ÔÀÓ {
+public class ì¹´ì¹´ì˜¤_nì§„ìˆ˜ê²Œì„ {
 	
     public static String solution(int n, int t, int m, int p) {
         StringBuilder answer = new StringBuilder();
         StringBuilder tmp = new StringBuilder();
-        //±ÛÀÚ±æÀÌ
+        //ê¸€ìê¸¸ì´
         int repeat = m*(t-1)+p;
         int num=0;
         while(tmp.toString().length()<=repeat){
-            //Áø¹ı º¯È¯ÇÏ¿© ºÙÀÌ±â
+            //ì§„ë²• ë³€í™˜í•˜ì—¬ ë¶™ì´ê¸°
         	tmp.append(Integer.toString(num++,n));
         }
         for(int i=p-1;i<repeat;i+=m){
-        	//³» Â÷·Ê¿¡ ÇØ´çµÇ´Â ¼ıÀÚ¸¸ ´ä¿¡ ºÙÀÌ±â
+        	//ë‚´ ì°¨ë¡€ì— í•´ë‹¹ë˜ëŠ” ìˆ«ìë§Œ ë‹µì— ë¶™ì´ê¸°
             answer.append(tmp.toString().toUpperCase().charAt(i));
         }
         return answer.toString();

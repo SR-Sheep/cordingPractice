@@ -1,17 +1,17 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class µ¿Àû°èÈ¹¹ý_Á¤¼ö»ï°¢Çü {
+public class ë™ì ê³„íšë²•_ì •ìˆ˜ì‚¼ê°í˜• {
 	
 	public static long solution(int[][] triangle) {
-		//¸»´Ü¿¡¼­ n°ú n+1 Áß ´õ Å« °ªÀ» ÃëÇÑµÚ »óÀ§ ´Ü°è¿¡ ÇÕÄ§
-		//(¸¶Áö¸·-1)ÃþºÎÅÍ ÃÖ»óÀ§ Ãþ±îÁö
+		//ë§ë‹¨ì—ì„œ nê³¼ n+1 ì¤‘ ë” í° ê°’ì„ ì·¨í•œë’¤ ìƒìœ„ ë‹¨ê³„ì— í•©ì¹¨
+		//(ë§ˆì§€ë§‰-1)ì¸µë¶€í„° ìµœìƒìœ„ ì¸µê¹Œì§€
 		for(int floor=triangle.length-2;floor>=0;floor--) {
-			//°¢ ÃþÀÇ ±æÀÌ = floor+1
+			//ê° ì¸µì˜ ê¸¸ì´ = floor+1
 			for(int i=0;i<floor+1;i++) {
 				triangle[floor][i]+=Math.max(triangle[floor+1][i],triangle[floor+1][i+1]);
 			}
 		}
-		//root±îÁö ¹Ýº¹ ÈÄ Ãâ·Â
+		//rootê¹Œì§€ ë°˜ë³µ í›„ ì¶œë ¥
         return triangle[0][0];
     }
 	

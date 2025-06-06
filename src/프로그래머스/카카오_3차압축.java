@@ -1,38 +1,38 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.*;
 
-public class Ä«Ä«¿À_3Â÷¾ÐÃà {
+public class ì¹´ì¹´ì˜¤_3ì°¨ì••ì¶• {
 	//https://programmers.co.kr/learn/courses/30/lessons/17684
 	
     public static int[] solution(String msg) {
         List<Integer> list = new ArrayList<>();
         HashMap<String, Integer> map = new HashMap<>();
-        //map ÃÊ±âÈ­, ¾ËÆÄºª ³Ö±â
+        //map ì´ˆê¸°í™”, ì•ŒíŒŒë²³ ë„£ê¸°
         for(int i=0;i<26;i++){
             map.put(Character.toString('A'+i),i+1);
         }
-        //´ÙÀ½ idx, 27ºÎÅÍ ½ÃÀÛ
+        //ë‹¤ìŒ idx, 27ë¶€í„° ì‹œìž‘
         int idx=27;
-        //´Ü¾î °Ë»ç¸¦ À§ÇÑ ½ºÆ®¸µ ºô´õ ¼±¾ð
+        //ë‹¨ì–´ ê²€ì‚¬ë¥¼ ìœ„í•œ ìŠ¤íŠ¸ë§ ë¹Œë” ì„ ì–¸
         StringBuilder sb = new StringBuilder();
         for(char c:msg.toCharArray()){
-        	sb.append(c); //´Ü¾î ºÙÀÌ±â
-        	//map¿¡ Æ÷ÇÔµÇ¾î ÀÖÁö ¾ÊÀ¸¸é
+        	sb.append(c); //ë‹¨ì–´ ë¶™ì´ê¸°
+        	//mapì— í¬í•¨ë˜ì–´ ìžˆì§€ ì•Šìœ¼ë©´
             if(!map.containsKey(sb.toString())){
-            	//¸Ê¿¡ ÇØ´ç idx¸¦ ¸Ê¿¡ Ãß°¡
+            	//ë§µì— í•´ë‹¹ idxë¥¼ ë§µì— ì¶”ê°€
             	map.put(sb.toString(), idx++);
-            	//ÇöÀç ´Ü¾î¸¦ »« µÚ map¿¡¼­ idx¸¦ list¿¡ Ãß°¡
+            	//í˜„ìž¬ ë‹¨ì–´ë¥¼ ëº€ ë’¤ mapì—ì„œ idxë¥¼ listì— ì¶”ê°€
             	sb.deleteCharAt(sb.length()-1);
                 list.add(map.get(sb.toString()));
-                //sb¸¦ ¸ðµÎ Áö¿ì°í, ´Ù½Ã ÇöÀç ´Ü¾î ³Ö±â
+                //sbë¥¼ ëª¨ë‘ ì§€ìš°ê³ , ë‹¤ì‹œ í˜„ìž¬ ë‹¨ì–´ ë„£ê¸°
             	sb.delete(0, sb.length());
             	sb.append(c);
             }
         }
-        //¸¶Áö¸· ´Ü¾î¿¡ ´ëÇÑ idx
+        //ë§ˆì§€ë§‰ ë‹¨ì–´ì— ëŒ€í•œ idx
         list.add(map.get(sb.toString()));
-        //¹è¿­·Î º¯È¯
+        //ë°°ì—´ë¡œ ë³€í™˜
         int[] answer = new int[list.size()];
         for(int i=0;i<list.size();i++) answer[i]=list.get(i);
         return answer;

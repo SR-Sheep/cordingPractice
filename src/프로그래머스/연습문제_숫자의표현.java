@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_¼ıÀÚÀÇÇ¥Çö {
+public class ì—°ìŠµë¬¸ì œ_ìˆ«ìì˜í‘œí˜„ {
 	//https://programmers.co.kr/learn/courses/30/lessons/12924
-	//ÀÚ¿¬¼ö nÀÌ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, ¿¬¼ÓµÈ ÀÚ¿¬¼öµé·Î nÀ» Ç¥ÇöÇÏ´Â ¹æ¹ıÀÇ ¼ö¸¦ returnÇÏ´Â solution¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+	//ìì—°ìˆ˜ nì´ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, ì—°ì†ëœ ìì—°ìˆ˜ë“¤ë¡œ nì„ í‘œí˜„í•˜ëŠ” ë°©ë²•ì˜ ìˆ˜ë¥¼ returní•˜ëŠ” solutionë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 	
     public static int solution(int n) {
         int answer = 0;

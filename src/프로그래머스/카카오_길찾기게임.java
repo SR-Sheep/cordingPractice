@@ -1,11 +1,11 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class Ä«Ä«¿À_±æÃ£±â°ÔÀÓ {
+public class ì¹´ì¹´ì˜¤_ê¸¸ì°¾ê¸°ê²Œì„ {
 	
 	static List<Integer> Pre;
 	static List<Integer> Post;
@@ -35,18 +35,18 @@ public class Ä«Ä«¿À_±æÃ£±â°ÔÀÓ {
 				Node currNode;
 				while(true) {
 					currNode=head;
-					//·çÆ®º¸´Ù ÀÛÀ¸¸é ¿ŞÂÊ Å½»ö
+					//ë£¨íŠ¸ë³´ë‹¤ ì‘ìœ¼ë©´ ì™¼ìª½ íƒìƒ‰
 					if(head.x>x) {
 						head = head.left;
-						//¿ŞÂÊÀÌ ºñ¾úÀ¸¸é »ı¼ºÈÄ Á¾·á
+						//ì™¼ìª½ì´ ë¹„ì—ˆìœ¼ë©´ ìƒì„±í›„ ì¢…ë£Œ
 						if(head==null) {
 							currNode.left=new Node(x,y,idx);
 							break;
 						}
-					//·çÆ®º¸´Ù Å©¸é ¿À¸¥ÂÊ Å½»ö
+					//ë£¨íŠ¸ë³´ë‹¤ í¬ë©´ ì˜¤ë¥¸ìª½ íƒìƒ‰
 					}else {
 						head=head.right;
-						//¿À¸¥ÂÊ ºñ¾úÀ¸¸é »ı¼ºÈÄ Á¾·á
+						//ì˜¤ë¥¸ìª½ ë¹„ì—ˆìœ¼ë©´ ìƒì„±í›„ ì¢…ë£Œ
 						if(head==null) {
 							currNode.right=new Node(x,y,idx);
 							break;
@@ -60,7 +60,7 @@ public class Ä«Ä«¿À_±æÃ£±â°ÔÀÓ {
 			
 		}
 			
-		//ÈÄÀ§
+		//í›„ìœ„
 		public void postorder(Node root) {
 			if(root!=null) {
 				postorder(root.left);
@@ -69,7 +69,7 @@ public class Ä«Ä«¿À_±æÃ£±â°ÔÀÓ {
 			}
 		}
 		
-		//ÀüÀ§
+		//ì „ìœ„
 		public void preorder(Node root) {
 			if(root!=null) {
 				Pre.add(root.num);

@@ -1,6 +1,6 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_ÀÚ¿¬¼öµÚÁı¾î¹è¿­·Î¸¸µé±â {
+public class ì—°ìŠµë¬¸ì œ_ìì—°ìˆ˜ë’¤ì§‘ì–´ë°°ì—´ë¡œë§Œë“¤ê¸° {
 	
 	//https://programmers.co.kr/learn/courses/30/lessons/12932
 	

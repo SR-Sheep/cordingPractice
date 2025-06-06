@@ -1,25 +1,25 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.HashMap;
 
-public class Ä«Ä«¿À_È£ÅÚ¹æ¹èÁ¤ {
+public class ì¹´ì¹´ì˜¤_í˜¸í…”ë°©ë°°ì • {
 	/*https://programmers.co.kr/learn/courses/30/lessons/64063*/
 	
 	public static long emptyRoom(long l, HashMap<Long, Long> map) {
-		//½Å±Ô È¸¿ø
+		//ì‹ ê·œ íšŒì›
 		if(!map.containsKey(l)) {
-			//´ÙÀ½¹æ ¹øÈ£¸¦ ¸Ê¿¡ ³Ö¾îÁÜ 
+			//ë‹¤ìŒë°© ë²ˆí˜¸ë¥¼ ë§µì— ë„£ì–´ì¤Œ 
 			map.put(l, l+1);
 			return l;
 		}
-		//ÀÌ¹Ì Â÷ÀÖ´Â °æ¿ì
-		//¸Ê¿¡ ±â·ÏµÈ ´ÙÀ½ ¹æ ¹øÈ£¸¦ ±â·Ï
+		//ì´ë¯¸ ì°¨ìˆëŠ” ê²½ìš°
+		//ë§µì— ê¸°ë¡ëœ ë‹¤ìŒ ë°© ë²ˆí˜¸ë¥¼ ê¸°ë¡
 		long next=map.get(l);
-		//ºó¹æ Ã£±â
+		//ë¹ˆë°© ì°¾ê¸°
 		long empty=emptyRoom(next, map);
-		//ÇØ´ç ¹æ ¹øÈ£¿¡ ºó ¹æ ÀÔ·Â
+		//í•´ë‹¹ ë°© ë²ˆí˜¸ì— ë¹ˆ ë°© ì…ë ¥
 		map.put(l, empty);
-		//ºó ¹æÀ» ¸®ÅÏ
+		//ë¹ˆ ë°©ì„ ë¦¬í„´
 		return empty;
 	}
     public static long[] solution(long k, long[] room_number) {

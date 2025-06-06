@@ -1,21 +1,21 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.Calendar;
 
-public class ¿¬½À¹®Á¦_2016³â {
+public class ì—°ìŠµë¬¸ì œ_2016ë…„ {
     public static String solution(int a, int b) {
     	/*
     	https://programmers.co.kr/learn/courses/30/lessons/12901
-    	¹®Á¦ ¼³¸í
-    	2016³â 1¿ù 1ÀÏÀº ±Ý¿äÀÏÀÔ´Ï´Ù. 2016³â a¿ù bÀÏÀº ¹«½¼ ¿äÀÏÀÏ±î¿ä?
-    	µÎ ¼ö a ,b¸¦ ÀÔ·Â¹Þ¾Æ 2016³â a¿ù bÀÏÀÌ ¹«½¼ ¿äÀÏÀÎÁö ¸®ÅÏÇÏ´Â ÇÔ¼ö, solutionÀ» ¿Ï¼ºÇÏ¼¼¿ä.
-    	¿äÀÏÀÇ ÀÌ¸§Àº ÀÏ¿äÀÏºÎÅÍ Åä¿äÀÏ±îÁö °¢°¢ SUN,MON,TUE,WED,THU,FRI,SAT
+    	ë¬¸ì œ ì„¤ëª…
+    	2016ë…„ 1ì›” 1ì¼ì€ ê¸ˆìš”ì¼ìž…ë‹ˆë‹¤. 2016ë…„ aì›” bì¼ì€ ë¬´ìŠ¨ ìš”ì¼ì¼ê¹Œìš”?
+    	ë‘ ìˆ˜ a ,bë¥¼ ìž…ë ¥ë°›ì•„ 2016ë…„ aì›” bì¼ì´ ë¬´ìŠ¨ ìš”ì¼ì¸ì§€ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜, solutionì„ ì™„ì„±í•˜ì„¸ìš”.
+    	ìš”ì¼ì˜ ì´ë¦„ì€ ì¼ìš”ì¼ë¶€í„° í† ìš”ì¼ê¹Œì§€ ê°ê° SUN,MON,TUE,WED,THU,FRI,SAT
 
-    	ÀÔ´Ï´Ù. ¿¹¸¦ µé¾î a=5, b=24¶ó¸é 5¿ù 24ÀÏÀº È­¿äÀÏÀÌ¹Ç·Î ¹®ÀÚ¿­ "TUE"¸¦ ¹ÝÈ¯ÇÏ¼¼¿ä.
+    	ìž…ë‹ˆë‹¤. ì˜ˆë¥¼ ë“¤ì–´ a=5, b=24ë¼ë©´ 5ì›” 24ì¼ì€ í™”ìš”ì¼ì´ë¯€ë¡œ ë¬¸ìžì—´ "TUE"ë¥¼ ë°˜í™˜í•˜ì„¸ìš”.
 
-    	Á¦ÇÑ Á¶°Ç
-    	2016³âÀº À±³âÀÔ´Ï´Ù.
-    	2016³â a¿ù bÀÏÀº ½ÇÁ¦·Î ÀÖ´Â ³¯ÀÔ´Ï´Ù. (13¿ù 26ÀÏÀÌ³ª 2¿ù 45ÀÏ°°Àº ³¯Â¥´Â ÁÖ¾îÁöÁö ¾Ê½À´Ï´Ù)
+    	ì œí•œ ì¡°ê±´
+    	2016ë…„ì€ ìœ¤ë…„ìž…ë‹ˆë‹¤.
+    	2016ë…„ aì›” bì¼ì€ ì‹¤ì œë¡œ ìžˆëŠ” ë‚ ìž…ë‹ˆë‹¤. (13ì›” 26ì¼ì´ë‚˜ 2ì›” 45ì¼ê°™ì€ ë‚ ì§œëŠ” ì£¼ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤)
     	*/
     	
     	

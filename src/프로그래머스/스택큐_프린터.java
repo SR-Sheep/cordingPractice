@@ -1,4 +1,4 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,49 +9,49 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
-public class ½ºÅÃÅ¥_ÇÁ¸°ÅÍ {
+public class ìŠ¤íƒí_í”„ë¦°í„° {
 
 
 	/*
-	1. ÀÎ¼â ´ë±â¸ñ·ÏÀÇ °¡Àå ¾Õ¿¡ ÀÖ´Â ¹®¼­(J)¸¦ ´ë±â¸ñ·Ï¿¡¼­ ²¨³À´Ï´Ù.
-	2. ³ª¸ÓÁö ÀÎ¼â ´ë±â¸ñ·Ï¿¡¼­ Jº¸´Ù Áß¿äµµ°¡ ³ôÀº ¹®¼­°¡ ÇÑ °³¶óµµ Á¸ÀçÇÏ¸é J¸¦ ´ë±â¸ñ·ÏÀÇ °¡Àå ¸¶Áö¸·¿¡ ³Ö½À´Ï´Ù.
-	3. ±×·¸Áö ¾ÊÀ¸¸é J¸¦ ÀÎ¼âÇÕ´Ï´Ù.
+	1. ì¸ì‡„ ëŒ€ê¸°ëª©ë¡ì˜ ê°€ìž¥ ì•žì— ìžˆëŠ” ë¬¸ì„œ(J)ë¥¼ ëŒ€ê¸°ëª©ë¡ì—ì„œ êº¼ëƒ…ë‹ˆë‹¤.
+	2. ë‚˜ë¨¸ì§€ ì¸ì‡„ ëŒ€ê¸°ëª©ë¡ì—ì„œ Jë³´ë‹¤ ì¤‘ìš”ë„ê°€ ë†’ì€ ë¬¸ì„œê°€ í•œ ê°œë¼ë„ ì¡´ìž¬í•˜ë©´ Jë¥¼ ëŒ€ê¸°ëª©ë¡ì˜ ê°€ìž¥ ë§ˆì§€ë§‰ì— ë„£ìŠµë‹ˆë‹¤.
+	3. ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ Jë¥¼ ì¸ì‡„í•©ë‹ˆë‹¤.
 	
-	³»°¡ ÀÎ¼â¸¦ ¿äÃ»ÇÑ ¹®¼­°¡ ¸î ¹øÂ°·Î ÀÎ¼âµÇ´ÂÁö ¾Ë°í ½Í½À´Ï´Ù. À§ÀÇ ¿¹¿¡¼­ C´Â 1¹øÂ°·Î, A´Â 3¹øÂ°·Î ÀÎ¼âµË´Ï´Ù.
-	ÇöÀç ´ë±â¸ñ·Ï¿¡ ÀÖ´Â ¹®¼­ÀÇ Áß¿äµµ°¡ ¼ø¼­´ë·Î ´ã±ä ¹è¿­ priorities¿Í
-	³»°¡ ÀÎ¼â¸¦ ¿äÃ»ÇÑ ¹®¼­°¡ ÇöÀç ´ë±â¸ñ·ÏÀÇ ¾î¶² À§Ä¡¿¡ ÀÖ´ÂÁö¸¦ ¾Ë·ÁÁÖ´Â locationÀÌ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§,
-	³»°¡ ÀÎ¼â¸¦ ¿äÃ»ÇÑ ¹®¼­°¡ ¸î ¹øÂ°·Î ÀÎ¼âµÇ´ÂÁö return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä. 
+	ë‚´ê°€ ì¸ì‡„ë¥¼ ìš”ì²­í•œ ë¬¸ì„œê°€ ëª‡ ë²ˆì§¸ë¡œ ì¸ì‡„ë˜ëŠ”ì§€ ì•Œê³  ì‹¶ìŠµë‹ˆë‹¤. ìœ„ì˜ ì˜ˆì—ì„œ CëŠ” 1ë²ˆì§¸ë¡œ, AëŠ” 3ë²ˆì§¸ë¡œ ì¸ì‡„ë©ë‹ˆë‹¤.
+	í˜„ìž¬ ëŒ€ê¸°ëª©ë¡ì— ìžˆëŠ” ë¬¸ì„œì˜ ì¤‘ìš”ë„ê°€ ìˆœì„œëŒ€ë¡œ ë‹´ê¸´ ë°°ì—´ prioritiesì™€
+	ë‚´ê°€ ì¸ì‡„ë¥¼ ìš”ì²­í•œ ë¬¸ì„œê°€ í˜„ìž¬ ëŒ€ê¸°ëª©ë¡ì˜ ì–´ë–¤ ìœ„ì¹˜ì— ìžˆëŠ”ì§€ë¥¼ ì•Œë ¤ì£¼ëŠ” locationì´ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ,
+	ë‚´ê°€ ì¸ì‡„ë¥¼ ìš”ì²­í•œ ë¬¸ì„œê°€ ëª‡ ë²ˆì§¸ë¡œ ì¸ì‡„ë˜ëŠ”ì§€ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”. 
 	
-	Á¦ÇÑ»çÇ×
+	ì œí•œì‚¬í•­
 	
-	ÇöÀç ´ë±â¸ñ·Ï¿¡´Â 1°³ ÀÌ»ó 100°³ ÀÌÇÏÀÇ ¹®¼­°¡ ÀÖ½À´Ï´Ù.
-	ÀÎ¼â ÀÛ¾÷ÀÇ Áß¿äµµ´Â 1~9·Î Ç¥ÇöÇÏ¸ç ¼ýÀÚ°¡ Å¬¼ö·Ï Áß¿äÇÏ´Ù´Â ¶æÀÔ´Ï´Ù.
-	locationÀº 0 ÀÌ»ó (ÇöÀç ´ë±â¸ñ·Ï¿¡ ÀÖ´Â ÀÛ¾÷ ¼ö - 1) ÀÌÇÏÀÇ °ªÀ» °¡Áö¸ç ´ë±â¸ñ·ÏÀÇ °¡Àå ¾Õ¿¡ ÀÖÀ¸¸é 0, µÎ ¹øÂ°¿¡ ÀÖÀ¸¸é 1·Î Ç¥ÇöÇÕ´Ï´Ù.
+	í˜„ìž¬ ëŒ€ê¸°ëª©ë¡ì—ëŠ” 1ê°œ ì´ìƒ 100ê°œ ì´í•˜ì˜ ë¬¸ì„œê°€ ìžˆìŠµë‹ˆë‹¤.
+	ì¸ì‡„ ìž‘ì—…ì˜ ì¤‘ìš”ë„ëŠ” 1~9ë¡œ í‘œí˜„í•˜ë©° ìˆ«ìžê°€ í´ìˆ˜ë¡ ì¤‘ìš”í•˜ë‹¤ëŠ” ëœ»ìž…ë‹ˆë‹¤.
+	locationì€ 0 ì´ìƒ (í˜„ìž¬ ëŒ€ê¸°ëª©ë¡ì— ìžˆëŠ” ìž‘ì—… ìˆ˜ - 1) ì´í•˜ì˜ ê°’ì„ ê°€ì§€ë©° ëŒ€ê¸°ëª©ë¡ì˜ ê°€ìž¥ ì•žì— ìžˆìœ¼ë©´ 0, ë‘ ë²ˆì§¸ì— ìžˆìœ¼ë©´ 1ë¡œ í‘œí˜„í•©ë‹ˆë‹¤.
 	 */
     public static int solution(int[] priorities, int location) {
-        Queue<int[]> q = new LinkedList<>(); //Å¥ ¼±¾ð
-        //³ôÀº ¿ì¼±¼øÀ§ ¸ÕÀú Ãâ·ÂµÇ´Â pq
+        Queue<int[]> q = new LinkedList<>(); //í ì„ ì–¸
+        //ë†’ì€ ìš°ì„ ìˆœìœ„ ë¨¼ì € ì¶œë ¥ë˜ëŠ” pq
         PriorityQueue<Integer> pq = new PriorityQueue<Integer>((x,y)->y-x);
         
         for(int i=0;i<priorities.length;i++) {
-        	q.add(new int[] {i,priorities[i]}); //index¿Í ¿ì¼±¼øÀ§¸¦ q¿¡ ³Ö±â
-        	pq.add(priorities[i]); //¿ì¼±¼øÀ§ pq¿¡ ³Ö±â
+        	q.add(new int[] {i,priorities[i]}); //indexì™€ ìš°ì„ ìˆœìœ„ë¥¼ qì— ë„£ê¸°
+        	pq.add(priorities[i]); //ìš°ì„ ìˆœìœ„ pqì— ë„£ê¸°
         }
         
-        int order=1; //¼ø¼­ ±âº»°ª
+        int order=1; //ìˆœì„œ ê¸°ë³¸ê°’
         
         while(!q.isEmpty()) {
-        	int[] now = q.poll(); //qÀÇ ¸Ç Ã³À½
+        	int[] now = q.poll(); //qì˜ ë§¨ ì²˜ìŒ
         	int idx=now[0];
         	int priority = now[1];
-        	if(priority<pq.peek()) { //pqÀÇ ¸Ç Ã³À½(¿ì¼±¼øÀ§ ÃÖ´ëÄ¡) °ªº¸´Ù ÀÛÀ¸¸é
-        		q.add(now); //qÀÇ ¸Ç µÚ¿¡ ´Ù½Ã ³Ö±â
+        	if(priority<pq.peek()) { //pqì˜ ë§¨ ì²˜ìŒ(ìš°ì„ ìˆœìœ„ ìµœëŒ€ì¹˜) ê°’ë³´ë‹¤ ìž‘ìœ¼ë©´
+        		q.add(now); //qì˜ ë§¨ ë’¤ì— ë‹¤ì‹œ ë„£ê¸°
         		continue;
         	}
-        	//¿©±â±îÁö ¿À¸é ÇöÀç ¿ì¼±¼øÀ§ = ¿ì¼±¼øÀ§ ÃÖ´ëÄ¡
-        	pq.poll(); //pq¿¡¼­ ÃÖ¿ì¼±¼øÀ§ »èÁ¦
-        	if(idx==location) return order; //¸¸¾à Ã£°íÀÚ ÇÏ´Â À§Ä¡ÀÏ °æ¿ì return
-        	order++; //¼ø¼­ Áõ°¡
+        	//ì—¬ê¸°ê¹Œì§€ ì˜¤ë©´ í˜„ìž¬ ìš°ì„ ìˆœìœ„ = ìš°ì„ ìˆœìœ„ ìµœëŒ€ì¹˜
+        	pq.poll(); //pqì—ì„œ ìµœìš°ì„ ìˆœìœ„ ì‚­ì œ
+        	if(idx==location) return order; //ë§Œì•½ ì°¾ê³ ìž í•˜ëŠ” ìœ„ì¹˜ì¼ ê²½ìš° return
+        	order++; //ìˆœì„œ ì¦ê°€
         }
     	return -1;
     }

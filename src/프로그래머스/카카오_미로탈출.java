@@ -1,16 +1,16 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.*;
 
-public class Ä«Ä«¿À_¹Ì·ÎÅ»Ãâ {
-	//¼±¹æÇâ
+public class ì¹´ì¹´ì˜¤_ë¯¸ë¡œíƒˆì¶œ {
+	//ì„ ë°©í–¥
 	static int[][] Forward;
-	//¿ª¹æÇâ
+	//ì—­ë°©í–¥
 	static int[][] Reverse;
     
     static class Room{
-		int no,cost; //¹øÈ£, ºñ¿ë
-		int[] visited; //¹æ¹® ¿©ºÎ
+		int no,cost; //ë²ˆí˜¸, ë¹„ìš©
+		int[] visited; //ë°©ë¬¸ ì—¬ë¶€
 		public Room(int no,int cost, int[] visited) {
 			this.no=no;
 			this.cost=cost;
@@ -20,68 +20,68 @@ public class Ä«Ä«¿À_¹Ì·ÎÅ»Ãâ {
 
     
     public static int solution1(int n, int start, int end, int[][] roads, int[] traps) {
-        //¼±¹æÇâ
+        //ì„ ë°©í–¥
     	Forward=new int[n+1][n+1];
-    	//¿ª¹æÇâ
+    	//ì—­ë°©í–¥
     	Reverse=new int[n+1][n+1];
     	
     	for(int[] road:roads) {
-    		//¼±¹æÇâ, ¿ª¹æÇâ ±×·¡ÇÁ Ã¤¿ì±â
+    		//ì„ ë°©í–¥, ì—­ë°©í–¥ ê·¸ë˜í”„ ì±„ìš°ê¸°
     		int s = road[0], e = road[1], cost = road[2];
     		Forward[s][e]=Reverse[e][s]=Forward[s][e]==0?cost:Math.min(Forward[s][e], cost);
     	}
-        //Æ®·¦ È®ÀÎÀ» À§ÇÑ ¸®½ºÆ®
+        //íŠ¸ë© í™•ì¸ì„ ìœ„í•œ ë¦¬ìŠ¤íŠ¸
     	List<Integer> trapList = new ArrayList<>();
     	for(int trap:traps) {
     		trapList.add(trap);
     	} 
-    	//¿ì¼±¼øÀ§ Å¥ ¼±¾ğ, ºñ¿ëÀÌ ÀûÀº¼øÀ¸·Î Á¤·Ä
+    	//ìš°ì„ ìˆœìœ„ í ì„ ì–¸, ë¹„ìš©ì´ ì ì€ìˆœìœ¼ë¡œ ì •ë ¬
     	PriorityQueue<Room> pq = new PriorityQueue<Room>((Room x,Room y)->(x.cost-y.cost));
     	pq.add(new Room(start,0,new int[n+1]));
-    	//¹İº¹ ½ÇÇà
+    	//ë°˜ë³µ ì‹¤í–‰
     	while(!pq.isEmpty()) {
     		Room room = pq.poll();
     		int no = room.no;
     		int cost = room.cost;
     		int[] visited=room.visited;
-    		//ÇöÀç°¡ µµÂøÁöÁ¡ÀÌ¸é ºñ¿ë Ãâ·Â
+    		//í˜„ì¬ê°€ ë„ì°©ì§€ì ì´ë©´ ë¹„ìš© ì¶œë ¥
     		if(no==end) return cost;
-    		//ÇöÀç À§Ä¡ ¹æ¹®¼ö Áõ°¡
+    		//í˜„ì¬ ìœ„ì¹˜ ë°©ë¬¸ìˆ˜ ì¦ê°€
     		visited[no]++;
-    		//2¹ø ÀÌ»ó ¹æ¹®½Ã ÄÁÆ¼´º(ÃÖ´ë 2¹ø±îÁö ¹æ¹®)
+    		//2ë²ˆ ì´ìƒ ë°©ë¬¸ì‹œ ì»¨í‹°ë‰´(ìµœëŒ€ 2ë²ˆê¹Œì§€ ë°©ë¬¸)
     		if(visited[no]>2) continue;
-            //ÇÔÁ¤ ÀÛµ¿ ¿©ºÎ ÆÇº°
+            //í•¨ì • ì‘ë™ ì—¬ë¶€ íŒë³„
     		boolean activeTrap=false;
-    		//ÇÔÁ¤ ¸ñ·ÏÀÌ ÀÖ°í, ¹æ¹® È½¼ö°¡ È¦¼öÀÌ¸é ÇÔÁ¤ ÀÛµ¿
+    		//í•¨ì • ëª©ë¡ì´ ìˆê³ , ë°©ë¬¸ íšŸìˆ˜ê°€ í™€ìˆ˜ì´ë©´ í•¨ì • ì‘ë™
     		if(trapList.contains(no)&&visited[no]%2==1) activeTrap=true;
     		
-    		//¸ğµç ³ëµå¿¡ ´ëÇÑ Å½»ö
+    		//ëª¨ë“  ë…¸ë“œì— ëŒ€í•œ íƒìƒ‰
     		for(int next=1;next<n+1;next++) {
-    			//Çö ³ëµå¿Í °°À¸¸é ÄÁÆ¼´º
+    			//í˜„ ë…¸ë“œì™€ ê°™ìœ¼ë©´ ì»¨í‹°ë‰´
     			if(next==no) continue;
-                //´ÙÀ½ ¹æ¹®ÇÒ ³ëµåÀÇ ÇÔÁ¤ ÀÛµ¿ ÆÇ´Ü
+                //ë‹¤ìŒ ë°©ë¬¸í•  ë…¸ë“œì˜ í•¨ì • ì‘ë™ íŒë‹¨
                 boolean nextActiveTrap=false;
-                //ÇÔÁ¤ ¸ñ·Ï¿¡ ÀÖ°í, ¹æ¹® È½¼ö°¡ È¦¼öÀÌ¸é ÀÛµ¿
+                //í•¨ì • ëª©ë¡ì— ìˆê³ , ë°©ë¬¸ íšŸìˆ˜ê°€ í™€ìˆ˜ì´ë©´ ì‘ë™
                 if(trapList.contains(next)&&visited[next]%2==1) nextActiveTrap=true;
-                //¿ª¹æÇâ, ÇÔÁ¤ 1°³¸¸ ÀÛµ¿
+                //ì—­ë°©í–¥, í•¨ì • 1ê°œë§Œ ì‘ë™
                 if(Reverse[no][next]!=0) {
-                	//ÇÔÁ¤ÀÌ 1°³¸¸ ÀÛµ¿½Ã(µÎ°³ÀÇ ÇÔÁ¤ ¿©ºÎ°¡ ¼­·Î ´Ù¸¦°æ¿ì)
+                	//í•¨ì •ì´ 1ê°œë§Œ ì‘ë™ì‹œ(ë‘ê°œì˜ í•¨ì • ì—¬ë¶€ê°€ ì„œë¡œ ë‹¤ë¥¼ê²½ìš°)
                     if(activeTrap ^ nextActiveTrap){
-                    	//¿ì¼±¼øÀ§ Å¥¿¡ ´ÙÀ½ À§Ä¡, ºñ¿ë, ¹æ¹®À» »ğÀÔ
+                    	//ìš°ì„ ìˆœìœ„ íì— ë‹¤ìŒ ìœ„ì¹˜, ë¹„ìš©, ë°©ë¬¸ì„ ì‚½ì…
                         pq.add(new Room(next, cost+Reverse[no][next], visited));
                     }
                 };
-                //¼ø¹æÇâ, ÇÔÁ¤ 0°³ È¤Àº 2°³ ÀÛµ¿    				
+                //ìˆœë°©í–¥, í•¨ì • 0ê°œ í˜¹ì€ 2ê°œ ì‘ë™    				
                 if(Forward[no][next]!=0) {
-                	//ÇÔÁ¤ÀÌ 0°³ È¤Àº 2°³ ÀÛµ¿½Ã(µÎ°³ÀÇ ÇÔÁ¤ ÀÛµ¿ÀÌ °°À» °æ¿ì)
+                	//í•¨ì •ì´ 0ê°œ í˜¹ì€ 2ê°œ ì‘ë™ì‹œ(ë‘ê°œì˜ í•¨ì • ì‘ë™ì´ ê°™ì„ ê²½ìš°)
                     if(!(activeTrap^nextActiveTrap)){
-                    	//¿ì¼±¼øÀ§ Å¥¿¡ ´ÙÀ½ À§Ä¡, ºñ¿ë, ¹æ¹®À» »ğÀÔ
+                    	//ìš°ì„ ìˆœìœ„ íì— ë‹¤ìŒ ìœ„ì¹˜, ë¹„ìš©, ë°©ë¬¸ì„ ì‚½ì…
                         pq.add(new Room(next,cost+Forward[no][next],visited));
                     }
     			}
     		}
     	}
-    	//µµÂø ¸øÇÒ ½Ã -1 ¸®ÅÏ
+    	//ë„ì°© ëª»í•  ì‹œ -1 ë¦¬í„´
         return -1;
     }
 	
@@ -89,15 +89,15 @@ public class Ä«Ä«¿À_¹Ì·ÎÅ»Ãâ {
 	
 	
 	
-	//------------- ´Ù¸¥ »ç¶÷ÀÇ Ç®ÀÌ¸¦ °øºÎÇÑ °ÍÀÓ --------------//
+	//------------- ë‹¤ë¥¸ ì‚¬ëŒì˜ í’€ì´ë¥¼ ê³µë¶€í•œ ê²ƒì„ --------------//
     static class Tuple implements Comparable<Tuple>{
-        //ºñ¿ë, ÀÎµ¦½º, ÇÔÁ¤¹ßµ¿»óÈ²
+        //ë¹„ìš©, ì¸ë±ìŠ¤, í•¨ì •ë°œë™ìƒí™©
     	int val, idx, state;
         
         public Tuple(int val, int idx, int state){
             this.val = val; this.idx = idx; this.state = state;
         }
-        //ºñ¿ëÀÌ ÀûÀ»¼ö·Ï ¸ÕÀú À§Ä¡	
+        //ë¹„ìš©ì´ ì ì„ìˆ˜ë¡ ë¨¼ì € ìœ„ì¹˜	
         @Override
         public int compareTo(Tuple o) {
             if (val > o.val) return 1;
@@ -119,23 +119,23 @@ public class Ä«Ä«¿À_¹Ì·ÎÅ»Ãâ {
     static List<Pair> adj[] = new ArrayList[1004];
     static List<Pair> adjrev[] = new ArrayList[1004];
     static int trapidx[] = new int[1004];
-    //ÇÔÁ¤ÀÇ ÀÎµ¦½º & ÇöÀç ÇÔÁ¤ »óÅÂ, ÇÔÁ¤ÀÌ ¹ßµ¿µÇ¸é true, ¹ßµ¿ ¾ÈµÇ¸é false;
+    //í•¨ì •ì˜ ì¸ë±ìŠ¤ & í˜„ì¬ í•¨ì • ìƒíƒœ, í•¨ì •ì´ ë°œë™ë˜ë©´ true, ë°œë™ ì•ˆë˜ë©´ false;
     static boolean bitmask(int state, int idx){
         return ((1 << trapidx[idx]) & state) != 0;
     }
 
     public static int solution(int n, int start, int end, int[][] roads, int[] traps) {
-        // d°ªÀ» INF·Î ÃÊ±âÈ­
+        // dê°’ì„ INFë¡œ ì´ˆê¸°í™”
         for(int i = 1; i <= n; i++){
             for(int j = 0; j < 1024; j++)
                 d[i][j] = INF;
         }
-        // adj, adjrev¿¡ ´ëÇÑ ÃÊ±âÈ­
+        // adj, adjrevì— ëŒ€í•œ ì´ˆê¸°í™”
         for(int i = 1; i <= n; i++){
-            adj[i] = new ArrayList<>(); //i¿¡¼­ °¥ ¼ö ÀÖ´Â ¹è¿­
-            adjrev[i] = new ArrayList<>(); //i¿¡ µµÂøÇÏ´Â ¹è¿­(¿ª¼ø)            
+            adj[i] = new ArrayList<>(); //iì—ì„œ ê°ˆ ìˆ˜ ìˆëŠ” ë°°ì—´
+            adjrev[i] = new ArrayList<>(); //iì— ë„ì°©í•˜ëŠ” ë°°ì—´(ì—­ìˆœ)            
         }
-        // trapidx¿¡ ´ëÇÑ ÃÊ±âÈ­
+        // trapidxì— ëŒ€í•œ ì´ˆê¸°í™”
         for(int i = 1; i <= n; i++) {
         	trapidx[i] = -1;
         }
@@ -145,62 +145,62 @@ public class Ä«Ä«¿À_¹Ì·ÎÅ»Ãâ {
         	trapidx[num] = i;
         }
         
-        //TrapIdx : ¸ğµç ³ëµå Áß Æ®·¦ÀÇ idx¸¦ °¡Áö°í ÀÖÀ½, ³ª¸ÓÁø -1
+        //TrapIdx : ëª¨ë“  ë…¸ë“œ ì¤‘ íŠ¸ë©ì˜ idxë¥¼ ê°€ì§€ê³  ìˆìŒ, ë‚˜ë¨¸ì§„ -1
 
-        // Åë·Î Ã³¸®
+        // í†µë¡œ ì²˜ë¦¬
         for(int i = 0; i < roads.length; i++){
-            int u = roads[i][0]; //½ÃÀÛ
-            int v = roads[i][1]; //µµÂø
-            int val = roads[i][2]; //ºñ¿ë
-            adj[u].add(new Pair(v, val)); //¼ø¹æÇâ, u -> v, ºñ¿ë
-            adjrev[v].add(new Pair(u, val));//¿ª¹æÇâ, v -> u, ºñ¿ë            
+            int u = roads[i][0]; //ì‹œì‘
+            int v = roads[i][1]; //ë„ì°©
+            int val = roads[i][2]; //ë¹„ìš©
+            adj[u].add(new Pair(v, val)); //ìˆœë°©í–¥, u -> v, ë¹„ìš©
+            adjrev[v].add(new Pair(u, val));//ì—­ë°©í–¥, v -> u, ë¹„ìš©            
         }
 
         d[start][0] = 0;
         PriorityQueue<Tuple> pq = new PriorityQueue<>();        
-        pq.add(new Tuple(d[start][0], start, 0)); //½ÃÀÛÁ¡¿¡¼­ ÇÔÁ¤ÀÌ 0 ¹ßµ¿ÀÎ »óÈ² , ½ÃÀÛ, ºñ¿ë 0
+        pq.add(new Tuple(d[start][0], start, 0)); //ì‹œì‘ì ì—ì„œ í•¨ì •ì´ 0 ë°œë™ì¸ ìƒí™© , ì‹œì‘, ë¹„ìš© 0
         while(!pq.isEmpty()){
             Tuple cur = pq.poll();
-            // pq¿¡¼­ »ÌÈ÷´Â ¿ø¼Ò´Â °¡±î¿î ¼øÀÌ¶ó´Â Á¡À» ÀÌ¿ëÇØ¼­ ¸Ç ¸¶Áö¸·¿¡ d[..][end]¸¦ for¹®À¸·Î ¼øÈ¸ÇÏÁö ¾Ê¾Æµµ µÇ°Ô idx == endÀÏ ¶§ ¹Ù·Î ´äÀ» ¹İÈ¯
+            // pqì—ì„œ ë½‘íˆëŠ” ì›ì†ŒëŠ” ê°€ê¹Œìš´ ìˆœì´ë¼ëŠ” ì ì„ ì´ìš©í•´ì„œ ë§¨ ë§ˆì§€ë§‰ì— d[..][end]ë¥¼ forë¬¸ìœ¼ë¡œ ìˆœíšŒí•˜ì§€ ì•Šì•„ë„ ë˜ê²Œ idx == endì¼ ë•Œ ë°”ë¡œ ë‹µì„ ë°˜í™˜
             if(cur.idx == end) return cur.val;
-            //ÇöÀç idx¿¡¼­ ÇöÀç ÇÔÁ¤ »óÅÂÀÇ ºñ¿ëÀÌ ´Ù¸£¸é ÄÁÆ¼´º  
+            //í˜„ì¬ idxì—ì„œ í˜„ì¬ í•¨ì • ìƒíƒœì˜ ë¹„ìš©ì´ ë‹¤ë¥´ë©´ ì»¨í‹°ë‰´  
             if(d[cur.idx][cur.state] != cur.val) continue;
             
-            for(int i = 0; i < adj[cur.idx].size(); i++){ // Á¤¹æÇâ °£¼±¿¡ ´ëÇÑ È®ÀÎ
-                Pair nxt = adj[cur.idx].get(i); // °£¼±À¸·Î ¿¬°áµÈ ´ÙÀ½ ¹æ
+            for(int i = 0; i < adj[cur.idx].size(); i++){ // ì •ë°©í–¥ ê°„ì„ ì— ëŒ€í•œ í™•ì¸
+                Pair nxt = adj[cur.idx].get(i); // ê°„ì„ ìœ¼ë¡œ ì—°ê²°ëœ ë‹¤ìŒ ë°©
                 int rev = 0;
-                //ÇöÀç ³ëµå°¡ Æ®·¦ÀÌ°í, ÇÔÁ¤ÀÌ ¹ßµ¿µÈ´Ù¸é rev µÚÁı±â	
-                if(trapidx[cur.idx] != -1 && bitmask(cur.state, cur.idx)) rev ^= 1; // ÇöÀç cur.idx¹ø trapÀ» ¹âÀº »óÅÂ¶ó¸é rev »óÅÂ¸¦ µÚÁıÀ½
-                //´ÙÀ½ ³ëµå°¡ Æ®·¦ÀÌ°í, ÇÔÁ¤ÀÌ ¹ßµ¿µÈ´Ù¸é rev µÚÁı±â	
-                if(trapidx[nxt.x] != -1 && bitmask(cur.state, nxt.x)) rev ^= 1; // ÇöÀç nxt.x¹ø trapÀ» ¹âÀº »óÅÂ¶ó¸é rev »óÅÂ¸¦ µÚÁıÀ½
-                //rev°¡ 1ÀÌ¸é ÄÁÆ¼´º ( 1ÀÌ µÇ´Â °æ¿ì : ÇÔÁ¤ 1°³ ¹ßµ¿)
-                if(rev != 0) continue; // Á¤¹æÇâ °£¼±À» º¸°í ÀÖÀ¸¹Ç·Î trapÀ» 1°³¸¸ ¹âÀº »óÈ²ÀÏ °æ¿ì ³Ñ¾î°¨
-                //´ÙÀ½ »óÅÂ
+                //í˜„ì¬ ë…¸ë“œê°€ íŠ¸ë©ì´ê³ , í•¨ì •ì´ ë°œë™ëœë‹¤ë©´ rev ë’¤ì§‘ê¸°	
+                if(trapidx[cur.idx] != -1 && bitmask(cur.state, cur.idx)) rev ^= 1; // í˜„ì¬ cur.idxë²ˆ trapì„ ë°Ÿì€ ìƒíƒœë¼ë©´ rev ìƒíƒœë¥¼ ë’¤ì§‘ìŒ
+                //ë‹¤ìŒ ë…¸ë“œê°€ íŠ¸ë©ì´ê³ , í•¨ì •ì´ ë°œë™ëœë‹¤ë©´ rev ë’¤ì§‘ê¸°	
+                if(trapidx[nxt.x] != -1 && bitmask(cur.state, nxt.x)) rev ^= 1; // í˜„ì¬ nxt.xë²ˆ trapì„ ë°Ÿì€ ìƒíƒœë¼ë©´ rev ìƒíƒœë¥¼ ë’¤ì§‘ìŒ
+                //revê°€ 1ì´ë©´ ì»¨í‹°ë‰´ ( 1ì´ ë˜ëŠ” ê²½ìš° : í•¨ì • 1ê°œ ë°œë™)
+                if(rev != 0) continue; // ì •ë°©í–¥ ê°„ì„ ì„ ë³´ê³  ìˆìœ¼ë¯€ë¡œ trapì„ 1ê°œë§Œ ë°Ÿì€ ìƒí™©ì¼ ê²½ìš° ë„˜ì–´ê°
+                //ë‹¤ìŒ ìƒíƒœ
                 int nxt_state = cur.state;
-                //´ÙÀ½ ³ëµå°¡ ÇÔÁ¤ÀÌ¶ó¸é, ´ÙÀ½ ³ëµåÀÇ ÇÔÁ¤ ¹İÀü
+                //ë‹¤ìŒ ë…¸ë“œê°€ í•¨ì •ì´ë¼ë©´, ë‹¤ìŒ ë…¸ë“œì˜ í•¨ì • ë°˜ì „
                 if(trapidx[nxt.x] != -1) nxt_state ^= (1 << trapidx[nxt.x]);
-                //´ÙÀ½ ³ëµå, »óÅÂÀÇ °ª > ÇöÀç ºñ¿ë + ´ÙÀ½ ºñ¿ë ÀÌ¶ó¸é
+                //ë‹¤ìŒ ë…¸ë“œ, ìƒíƒœì˜ ê°’ > í˜„ì¬ ë¹„ìš© + ë‹¤ìŒ ë¹„ìš© ì´ë¼ë©´
                 if(d[nxt.x][nxt_state] > nxt.y + cur.val){
-                	///´ÙÀ½ ³ëµå, »óÅÂ¿¡ ÃÖ¼Òºñ¿ë Àû¿ë
+                	///ë‹¤ìŒ ë…¸ë“œ, ìƒíƒœì— ìµœì†Œë¹„ìš© ì ìš©
                     d[nxt.x][nxt_state] = nxt.y + cur.val;
-                    //pq¿¡ ³Ö±â (´ÙÀ½ ³ëµå/ÇÔÁ¤ »óÅÂ , ´ÙÀ½ ³ëµå , ÇÔÁ¤ »óÅÂ); 
+                    //pqì— ë„£ê¸° (ë‹¤ìŒ ë…¸ë“œ/í•¨ì • ìƒíƒœ , ë‹¤ìŒ ë…¸ë“œ , í•¨ì • ìƒíƒœ); 
                     pq.add(new Tuple(d[nxt.x][nxt_state], nxt.x, nxt_state));
                 }               
             }
 
-            for(int i = 0; i < adjrev[cur.idx].size(); i++){ // ¿ª¹æÇâ °£¼±¿¡ ´ëÇÑ È®ÀÎ
-                Pair nxt = adjrev[cur.idx].get(i); // °£¼±À¸·Î ¿¬°áµÈ ´ÙÀ½ ¹æ
+            for(int i = 0; i < adjrev[cur.idx].size(); i++){ // ì—­ë°©í–¥ ê°„ì„ ì— ëŒ€í•œ í™•ì¸
+                Pair nxt = adjrev[cur.idx].get(i); // ê°„ì„ ìœ¼ë¡œ ì—°ê²°ëœ ë‹¤ìŒ ë°©
                 int rev = 0;
-                if(trapidx[cur.idx] != -1 && bitmask(cur.state, cur.idx)) rev ^= 1; // ÇöÀç cur.idx¹ø trapÀ» ¹âÀº »óÅÂ¶ó¸é rev »óÅÂ¸¦ µÚÁıÀ½
-                if(trapidx[nxt.x] != -1 && bitmask(cur.state, nxt.x)) rev ^= 1; // ÇöÀç nxt.x¹ø trapÀ» ¹âÀº »óÅÂ¶ó¸é rev »óÅÂ¸¦ µÚÁıÀ½
-                if(rev != 1) continue; // ¿ª¹æÇâ °£¼±À» º¸°í ÀÖÀ¸¹Ç·Î trapÀ» 0°³ or 2°³ ¹âÀº »óÈ²ÀÏ °æ¿ì ³Ñ¾î°¨
+                if(trapidx[cur.idx] != -1 && bitmask(cur.state, cur.idx)) rev ^= 1; // í˜„ì¬ cur.idxë²ˆ trapì„ ë°Ÿì€ ìƒíƒœë¼ë©´ rev ìƒíƒœë¥¼ ë’¤ì§‘ìŒ
+                if(trapidx[nxt.x] != -1 && bitmask(cur.state, nxt.x)) rev ^= 1; // í˜„ì¬ nxt.xë²ˆ trapì„ ë°Ÿì€ ìƒíƒœë¼ë©´ rev ìƒíƒœë¥¼ ë’¤ì§‘ìŒ
+                if(rev != 1) continue; // ì—­ë°©í–¥ ê°„ì„ ì„ ë³´ê³  ìˆìœ¼ë¯€ë¡œ trapì„ 0ê°œ or 2ê°œ ë°Ÿì€ ìƒí™©ì¼ ê²½ìš° ë„˜ì–´ê°
                 int nxt_state = cur.state;
-                //´ÙÀ½ ³ëµå°¡ ÇÔÁ¤ÀÌ¶ó¸é ´ÙÀ½ ³ëµå ÇÔÁ¤ÀÇ »óÅÂ µÚÁıÀ½
+                //ë‹¤ìŒ ë…¸ë“œê°€ í•¨ì •ì´ë¼ë©´ ë‹¤ìŒ ë…¸ë“œ í•¨ì •ì˜ ìƒíƒœ ë’¤ì§‘ìŒ
                 if(trapidx[nxt.x] != -1) nxt_state ^= (1 << trapidx[nxt.x]);
-                //±×·¡ÇÁ ÃÖ¼Ò°ªÀ¸·Î ¾÷µ¥ÀÌÆ®
+                //ê·¸ë˜í”„ ìµœì†Œê°’ìœ¼ë¡œ ì—…ë°ì´íŠ¸
                 if(d[nxt.x][nxt_state] > nxt.y + cur.val){
                     d[nxt.x][nxt_state] = nxt.y + cur.val;
-                    //pq¿¡ ³Ö±â(´ÙÀ½³ëµå/»óÅÂ ÀÇ °ª, ´ÙÀ½ ³ëµå, »óÅÂ);
+                    //pqì— ë„£ê¸°(ë‹¤ìŒë…¸ë“œ/ìƒíƒœ ì˜ ê°’, ë‹¤ìŒ ë…¸ë“œ, ìƒíƒœ);
                     pq.add(new Tuple(d[nxt.x][nxt_state], nxt.x, nxt_state));
                 }               
             }

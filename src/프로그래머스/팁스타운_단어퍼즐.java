@@ -1,39 +1,39 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ÆÁ½ºÅ¸¿î_´Ü¾îÆÛÁñ {
+public class íŒìŠ¤íƒ€ìš´_ë‹¨ì–´í¼ì¦ {
 	//https://programmers.co.kr/learn/courses/30/lessons/12983
 	
 	static List<String>[] Pieces;
 	static final int INF = 987654321;
 	
     public static int solution(String[] strs, String t) {
-    	Pieces = new ArrayList[6]; //Á¶°¢ÀÇ ±æÀÌ = idx·Î »ç¿ë
+    	Pieces = new ArrayList[6]; //ì¡°ê°ì˜ ê¸¸ì´ = idxë¡œ ì‚¬ìš©
     	for(int i=1;i<6;i++) {
-    		Pieces[i]=new ArrayList<>(); //°¢ ±æÀÌ¸¶´Ù ¸®½ºÆ® »ı¼º
+    		Pieces[i]=new ArrayList<>(); //ê° ê¸¸ì´ë§ˆë‹¤ ë¦¬ìŠ¤íŠ¸ ìƒì„±
     	}
-    	//Á¶°¢ Å½»ö
+    	//ì¡°ê° íƒìƒ‰
     	for(String str:strs) {
-    		Pieces[str.length()].add(str); //Á¶°¢ ±æÀÌ idxÀÇ ¸®½ºÆ®¿¡ Á¶°¢ ³Ö±â
+    		Pieces[str.length()].add(str); //ì¡°ê° ê¸¸ì´ idxì˜ ë¦¬ìŠ¤íŠ¸ì— ì¡°ê° ë„£ê¸°
     	}
-    	int len = t.length(); //¹®ÀÚ¿­ ±æÀÌ
-    	int[] dp = new int[len+1]; //dp ¼±¾ğ
+    	int len = t.length(); //ë¬¸ìì—´ ê¸¸ì´
+    	int[] dp = new int[len+1]; //dp ì„ ì–¸
     	for(int i=1;i<=len;i++) {
-    		dp[i]=INF; //1~ len ±îÁö INF ·Î ÃÊ±âÈ­
+    		dp[i]=INF; //1~ len ê¹Œì§€ INF ë¡œ ì´ˆê¸°í™”
     	}
     	for(int i=1;i<=len;i++) {
     		StringBuilder sb = new StringBuilder();
     		for(int j=1;j<=5;j++) {
-    			if(i-j<0) break; //i-j¹øÂ°°¡ 0º¸´Ù ÀÛÀ¸¸é ÄÁÆ¼´º
-    			sb.insert(0,t.charAt(i-j)); //sb¿¡ ÇÑ±ÛÀÚ¾¿ Ãß°¡
-    			if(Pieces[j].contains(sb.toString())) { //ÇØ´ç ¸®½ºÆ®¿¡ Á¶°¢ÀÌ Á¸ÀçÇÑ´Ù¸é
-    				dp[i]=Math.min(dp[i-j]+1, dp[i]); //Á¶°¢ Ãß°¡ ÀÌÀüÀÇ dp +1 °ú ÇöÀç dp °ªÁß ÀÛÀº °ªÀ» ÃëÇÔ
+    			if(i-j<0) break; //i-jë²ˆì§¸ê°€ 0ë³´ë‹¤ ì‘ìœ¼ë©´ ì»¨í‹°ë‰´
+    			sb.insert(0,t.charAt(i-j)); //sbì— í•œê¸€ìì”© ì¶”ê°€
+    			if(Pieces[j].contains(sb.toString())) { //í•´ë‹¹ ë¦¬ìŠ¤íŠ¸ì— ì¡°ê°ì´ ì¡´ì¬í•œë‹¤ë©´
+    				dp[i]=Math.min(dp[i-j]+1, dp[i]); //ì¡°ê° ì¶”ê°€ ì´ì „ì˜ dp +1 ê³¼ í˜„ì¬ dp ê°’ì¤‘ ì‘ì€ ê°’ì„ ì·¨í•¨
     			}
     		}
     	}
-    	return dp[len]==INF?-1:dp[len]; //ÃÖÁ¾ °á°ú°ªÀÌ INF¸é -1, ¾Æ´Ï¸é ÇØ´ç °ªÀ» Ãâ·Â
+    	return dp[len]==INF?-1:dp[len]; //ìµœì¢… ê²°ê³¼ê°’ì´ INFë©´ -1, ì•„ë‹ˆë©´ í•´ë‹¹ ê°’ì„ ì¶œë ¥
     }
     
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_ÀÌ»óÇÑ¹®ÀÚ¸¸µé±â {
+public class ì—°ìŠµë¬¸ì œ_ì´ìƒí•œë¬¸ìë§Œë“¤ê¸° {
 	
     public static String solution(String s) {
         StringBuilder sb = new StringBuilder();

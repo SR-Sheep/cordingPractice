@@ -1,12 +1,12 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class ÆÁ½ºÅ¸¿î_´Ü¾îÆÛÁñ2 {
+public class íŒìŠ¤íƒ€ìš´_ë‹¨ì–´í¼ì¦2 {
 	//https://programmers.co.kr/learn/courses/30/lessons/12983
-	//Æ®¸®¸¦ »ç¿ëÇÏ·Á Ç®·Á ÇßÀ¸³ª ½Ã°£ÃÊ°ú
+	//íŠ¸ë¦¬ë¥¼ ì‚¬ìš©í•˜ë ¤ í’€ë ¤ í–ˆìœ¼ë‚˜ ì‹œê°„ì´ˆê³¼
 	
 	static Alphabet[] Alpha;
 	static int Answer; 

@@ -1,18 +1,18 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class ±íÀÌ³Êºñ¿ì¼±Å½»ö_³×Æ®¿öÅ© {
+public class ê¹Šì´ë„ˆë¹„ìš°ì„ íƒìƒ‰_ë„¤íŠ¸ì›Œí¬ {
 	static int[] Link;
 	
-	//ºÎ¸ğ Ã£±â
+	//ë¶€ëª¨ ì°¾ê¸°
 	public static int getParent(int x) {
 		if(Link[x]==x) return x;
 		return Link[x]= getParent(Link[x]);
 	}
 	
-	//ºÎ¸ğ º´ÇÕ
+	//ë¶€ëª¨ ë³‘í•©
 	public static void setParent(int a,int b) {
 		a=getParent(a);
 		b=getParent(b);
@@ -23,25 +23,25 @@ public class ±íÀÌ³Êºñ¿ì¼±Å½»ö_³×Æ®¿öÅ© {
 	public static int solution(int n, int[][] computers) {
 		int l= computers.length;
 		Link=new int[l];
-		//ÀÚ½ÅÀÇ ºÎ¸ğ´Â ÀÚ±â ÀÚ½ÅÀÌ´Ù.
+		//ìì‹ ì˜ ë¶€ëª¨ëŠ” ìê¸° ìì‹ ì´ë‹¤.
 		for(int i=0;i<l;i++) Link[i]=i;
 		
 		for(int i=0;i<l;i++) {
 			for(int j=0;j<l;j++) {
-				//1ÀÌ°Å³ª ÀÚ±â ÀÚ½ÅÀÌ ¾Æ´Ï¸é
+				//1ì´ê±°ë‚˜ ìê¸° ìì‹ ì´ ì•„ë‹ˆë©´
 				if(computers[i][j]==1&&i!=j) {
-					//ºÎ¸ğ ¼³Á¤
+					//ë¶€ëª¨ ì„¤ì •
 					setParent(i, j);
 				}
 			}
 		}
-		//Áßº¹À» Á¦°Å ÇÏ±â À§ÇÑ set
+		//ì¤‘ë³µì„ ì œê±° í•˜ê¸° ìœ„í•œ set
 		Set<Integer> set = new HashSet<>();
 		for(int i:Link) {
-			//ºÎ¸ğµéÀ» set¿¡ ³Ö±â
+			//ë¶€ëª¨ë“¤ì„ setì— ë„£ê¸°
 			set.add(getParent(i));
 		}
-		//setÀÇ ±æÀÌ Ãâ·Â = ºÎ¸ğÀÇ ¼ö Ãâ·Â
+		//setì˜ ê¸¸ì´ ì¶œë ¥ = ë¶€ëª¨ì˜ ìˆ˜ ì¶œë ¥
 		return set.size();
 	}
 	

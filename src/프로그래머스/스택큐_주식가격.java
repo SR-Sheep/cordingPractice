@@ -1,25 +1,25 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ½ºÅÃÅ¥_ÁÖ½Ä°¡°Ý {
+public class ìŠ¤íƒí_ì£¼ì‹ê°€ê²© {
 	
 	/*
-	ÃÊ ´ÜÀ§·Î ±â·ÏµÈ ÁÖ½Ä°¡°ÝÀÌ ´ã±ä ¹è¿­ prices°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§,
-	°¡°ÝÀÌ ¶³¾îÁöÁö ¾ÊÀº ±â°£Àº ¸î ÃÊÀÎÁö¸¦ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä.
+	ì´ˆ ë‹¨ìœ„ë¡œ ê¸°ë¡ëœ ì£¼ì‹ê°€ê²©ì´ ë‹´ê¸´ ë°°ì—´ pricesê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ,
+	ê°€ê²©ì´ ë–¨ì–´ì§€ì§€ ì•Šì€ ê¸°ê°„ì€ ëª‡ ì´ˆì¸ì§€ë¥¼ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”.
 
-	* Á¦ÇÑ»çÇ×
+	* ì œí•œì‚¬í•­
 	
-	pricesÀÇ °¢ °¡°ÝÀº 1 ÀÌ»ó 10,000 ÀÌÇÏÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	pricesÀÇ ±æÀÌ´Â 2 ÀÌ»ó 100,000 ÀÌÇÏÀÔ´Ï´Ù. 
+	pricesì˜ ê° ê°€ê²©ì€ 1 ì´ìƒ 10,000 ì´í•˜ì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+	pricesì˜ ê¸¸ì´ëŠ” 2 ì´ìƒ 100,000 ì´í•˜ìž…ë‹ˆë‹¤. 
 	 */
 	
     public static int[] solution(int[] prices) {
         int[] answer = new int[prices.length];
         for(int i=0;i<prices.length;i++) {
         	int sec=0;
-        	int now = prices[i]; //ÇöÀç°¡°Ý
+        	int now = prices[i]; //í˜„ìž¬ê°€ê²©
         	for(int j=i+1;j<prices.length;j++) {
-        		sec++; //½Ã°£ Áõ°¡
-        		//´ÙÀ½ °¡°ÝÀÌ ÇöÀç°¡°Ý º¸´Ù ÀÛÀ¸¸é ÁßÁö
+        		sec++; //ì‹œê°„ ì¦ê°€
+        		//ë‹¤ìŒ ê°€ê²©ì´ í˜„ìž¬ê°€ê²© ë³´ë‹¤ ìž‘ìœ¼ë©´ ì¤‘ì§€
         		if(now>prices[j]) break;
         	}
         	answer[i]=sec;

@@ -1,68 +1,68 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 
-public class ÀÌºÐÅ½»ö_Â¡°Ë´Ù¸® {
+public class ì´ë¶„íƒìƒ‰_ì§•ê²€ë‹¤ë¦¬ {
 	/*
-	Ãâ¹ßÁöÁ¡ºÎÅÍ µµÂøÁöÁ¡±îÁöÀÇ °Å¸® distance,
-	¹ÙÀ§µéÀÌ ÀÖ´Â À§Ä¡¸¦ ´ãÀº ¹è¿­ rocks,
-	Á¦°ÅÇÒ ¹ÙÀ§ÀÇ ¼ö nÀÌ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§,
-	¹ÙÀ§¸¦ n°³ Á¦°ÅÇÑ µÚ °¢ ÁöÁ¡ »çÀÌÀÇ °Å¸®ÀÇ ÃÖ¼Ú°ª Áß¿¡
-	°¡Àå Å« °ªÀ» return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+	ì¶œë°œì§€ì ë¶€í„° ë„ì°©ì§€ì ê¹Œì§€ì˜ ê±°ë¦¬ distance,
+	ë°”ìœ„ë“¤ì´ ìžˆëŠ” ìœ„ì¹˜ë¥¼ ë‹´ì€ ë°°ì—´ rocks,
+	ì œê±°í•  ë°”ìœ„ì˜ ìˆ˜ nì´ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ,
+	ë°”ìœ„ë¥¼ nê°œ ì œê±°í•œ ë’¤ ê° ì§€ì  ì‚¬ì´ì˜ ê±°ë¦¬ì˜ ìµœì†Ÿê°’ ì¤‘ì—
+	ê°€ìž¥ í° ê°’ì„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	- µµÂøÁöÁ¡±îÁöÀÇ °Å¸® distance´Â 1 ÀÌ»ó 1,000,000,000 ÀÌÇÏÀÔ´Ï´Ù.
-	- ¹ÙÀ§´Â 1°³ ÀÌ»ó 50,000°³ ÀÌÇÏ°¡ ÀÖ½À´Ï´Ù.
-	- n Àº 1 ÀÌ»ó ¹ÙÀ§ÀÇ °³¼ö ÀÌÇÏÀÔ´Ï´Ù.
+	ì œí•œì‚¬í•­
+	- ë„ì°©ì§€ì ê¹Œì§€ì˜ ê±°ë¦¬ distanceëŠ” 1 ì´ìƒ 1,000,000,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	- ë°”ìœ„ëŠ” 1ê°œ ì´ìƒ 50,000ê°œ ì´í•˜ê°€ ìžˆìŠµë‹ˆë‹¤.
+	- n ì€ 1 ì´ìƒ ë°”ìœ„ì˜ ê°œìˆ˜ ì´í•˜ìž…ë‹ˆë‹¤.
 	*/
 	
 	/*
-	 * Àü·«
-	 * ÁÙÀ» ¼¼¿î µÚ
-	 * ÃÖ¼Ò(1), ÃÖ´ë °Å¸®(distance) °ª¿¡¼­ Á¡Á¡ °ªÀ» Á¼Çô mid ¼³Á¤
-	 * midº¸´Ù ´ú ¶³¾îÁø µ¹Àº ÆÄ±« -> ¶³¾îÁø °Å¸®ÀÇ ÇöÀç ÃÖ¼Ò°ª = mid 
+	 * ì „ëžµ
+	 * ì¤„ì„ ì„¸ìš´ ë’¤
+	 * ìµœì†Œ(1), ìµœëŒ€ ê±°ë¦¬(distance) ê°’ì—ì„œ ì ì  ê°’ì„ ì¢í˜€ mid ì„¤ì •
+	 * midë³´ë‹¤ ëœ ë–¨ì–´ì§„ ëŒì€ íŒŒê´´ -> ë–¨ì–´ì§„ ê±°ë¦¬ì˜ í˜„ìž¬ ìµœì†Œê°’ = mid 
 	 * 
-	 * ÃÖ¼Ò°¡ ÃÖ´ëº¸´Ù Å¬¶§±îÁö ¹Ýº¹
+	 * ìµœì†Œê°€ ìµœëŒ€ë³´ë‹¤ í´ë•Œê¹Œì§€ ë°˜ë³µ
 	 * 
-	 * µ¹ ÆÄ±« È½¼ö°¡ nº¸´Ù ÀÛ°Å³ª °°´Ù¸é
-	 * ´ä°ú ºñ±³ÇÏ¿© Å«°ªÀ» ÃëÇÑµÚ
-	 * ÃÖ¼Ò°ªÀ» mid+1·Î ¼³Á¤ÇÏ°í ¹Ýº¹
+	 * ëŒ íŒŒê´´ íšŸìˆ˜ê°€ në³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ë‹¤ë©´
+	 * ë‹µê³¼ ë¹„êµí•˜ì—¬ í°ê°’ì„ ì·¨í•œë’¤
+	 * ìµœì†Œê°’ì„ mid+1ë¡œ ì„¤ì •í•˜ê³  ë°˜ë³µ
 	 * 
-	 * µ¹ ÆÄ±« È½¼ö°¡ nº¸´Ù Å©´Ù¸é
-	 * ÃÖ´ë°ªÀ» mid-1·Î ¼³Á¤ÇÏ°í ¹Ýº¹
+	 * ëŒ íŒŒê´´ íšŸìˆ˜ê°€ në³´ë‹¤ í¬ë‹¤ë©´
+	 * ìµœëŒ€ê°’ì„ mid-1ë¡œ ì„¤ì •í•˜ê³  ë°˜ë³µ
 	 * 
 	 */
     public static int solution(int distance, int[] rocks, int n) {
         int answer = 0;
         Arrays.sort(rocks);
-        //ÃÖ¼Ò °Å¸® 1, ÃÖ´ë °Å¸® = distance
+        //ìµœì†Œ ê±°ë¦¬ 1, ìµœëŒ€ ê±°ë¦¬ = distance
         int left = 1, right = distance, mid=0;
         
         while(left<=right) {
-        	int prev = 0; //ÀÌÀü µ¹
-        	int cnt=0; //È½¼ö
-        	//Áß°£ °Å¸® ¼³Á¤
+        	int prev = 0; //ì´ì „ ëŒ
+        	int cnt=0; //íšŸìˆ˜
+        	//ì¤‘ê°„ ê±°ë¦¬ ì„¤ì •
         	mid = (left+right)/2;
-        	//Å½»ö ½ÃÀÛ
+        	//íƒìƒ‰ ì‹œìž‘
         	for(int rock:rocks) {
-        		//ÇöÀç µ¹°ú ÀÌÀü µ¹ »çÀÌÀÇ °Å¸®°¡ ¹Ìµåº¸´Ù ÀÛ´Ù¸é µ¹ ÆÄ±«(È½¼ö Áõ°¡)
+        		//í˜„ìž¬ ëŒê³¼ ì´ì „ ëŒ ì‚¬ì´ì˜ ê±°ë¦¬ê°€ ë¯¸ë“œë³´ë‹¤ ìž‘ë‹¤ë©´ ëŒ íŒŒê´´(íšŸìˆ˜ ì¦ê°€)
         		if(mid>rock-prev) {
         			cnt++;
         		} else {
-        			//¾Æ´Ï¶ó¸é ÀÌÀüµ¹·Î ¼³Á¤
+        			//ì•„ë‹ˆë¼ë©´ ì´ì „ëŒë¡œ ì„¤ì •
         			prev = rock;
         		}
         	}
-        	//¸¶Áö¸· ¿ä¼Ò¿¡ ´ëÇÑ °Ë»ç
+        	//ë§ˆì§€ë§‰ ìš”ì†Œì— ëŒ€í•œ ê²€ì‚¬
         	if(distance-prev <mid) cnt++;
         	
-        	//µ¹ ÆÄ±« È½¼ö°¡ Á¦½ÃÇÑ ¼ýÀÚº¸´Ù ÀÛ´Ù¸é
+        	//ëŒ íŒŒê´´ íšŸìˆ˜ê°€ ì œì‹œí•œ ìˆ«ìžë³´ë‹¤ ìž‘ë‹¤ë©´
         	if(cnt<=n) {
-        		//left°ªÀ» mid+1·Î º¯°æ
+        		//leftê°’ì„ mid+1ë¡œ ë³€ê²½
         		left = mid+1;
-        		//´äÀº midÀÇ ÃÖ´ë°ªÀ¸·Î ÃëÇÔ
+        		//ë‹µì€ midì˜ ìµœëŒ€ê°’ìœ¼ë¡œ ì·¨í•¨
         		answer = Math.max(answer, mid);
-        	//µ¹ ÆÄ±« È½¼ö°¡ nº¸´Ù Å©¸é Á¶°Ç¿¡ ¸ÂÁö ¾ÊÀ½À¸·Î right¸¸ ¼³Á¤
+        	//ëŒ íŒŒê´´ íšŸìˆ˜ê°€ në³´ë‹¤ í¬ë©´ ì¡°ê±´ì— ë§žì§€ ì•ŠìŒìœ¼ë¡œ rightë§Œ ì„¤ì •
         	}else {
         		right = mid-1;
         	}

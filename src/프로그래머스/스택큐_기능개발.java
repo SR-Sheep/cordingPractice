@@ -1,45 +1,45 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.*;
 
-public class ½ºÅÃÅ¥_±â´É°³¹ß {
+public class ìŠ¤íƒí_ê¸°ëŠ¥ê°œë°œ {
 	/*
-	 * ÇÁ·Î±×·¡¸Ó½º ÆÀ¿¡¼­´Â ±â´É °³¼± ÀÛ¾÷À» ¼öÇà ÁßÀÔ´Ï´Ù. °¢ ±â´ÉÀº Áøµµ°¡ 100%ÀÏ ¶§ ¼­ºñ½º¿¡ ¹Ý¿µÇÒ ¼ö ÀÖ½À´Ï´Ù.
-	¶Ç, °¢ ±â´ÉÀÇ °³¹ß¼Óµµ´Â ¸ðµÎ ´Ù¸£±â ¶§¹®¿¡ µÚ¿¡ ÀÖ´Â ±â´ÉÀÌ ¾Õ¿¡ ÀÖ´Â ±â´Éº¸´Ù ¸ÕÀú °³¹ßµÉ ¼ö ÀÖ°í,
-	ÀÌ¶§ µÚ¿¡ ÀÖ´Â ±â´ÉÀº ¾Õ¿¡ ÀÖ´Â ±â´ÉÀÌ ¹èÆ÷µÉ ¶§ ÇÔ²² ¹èÆ÷µË´Ï´Ù.
-	¸ÕÀú ¹èÆ÷µÇ¾î¾ß ÇÏ´Â ¼ø¼­´ë·Î ÀÛ¾÷ÀÇ Áøµµ°¡ ÀûÈù Á¤¼ö ¹è¿­ progresses¿Í °¢ ÀÛ¾÷ÀÇ °³¹ß ¼Óµµ°¡ ÀûÈù Á¤¼ö ¹è¿­ speeds°¡
-	ÁÖ¾îÁú ¶§ °¢ ¹èÆ÷¸¶´Ù ¸î °³ÀÇ ±â´ÉÀÌ ¹èÆ÷µÇ´ÂÁö¸¦ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä.
+	 * í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤ íŒ€ì—ì„œëŠ” ê¸°ëŠ¥ ê°œì„  ìž‘ì—…ì„ ìˆ˜í–‰ ì¤‘ìž…ë‹ˆë‹¤. ê° ê¸°ëŠ¥ì€ ì§„ë„ê°€ 100%ì¼ ë•Œ ì„œë¹„ìŠ¤ì— ë°˜ì˜í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+	ë˜, ê° ê¸°ëŠ¥ì˜ ê°œë°œì†ë„ëŠ” ëª¨ë‘ ë‹¤ë¥´ê¸° ë•Œë¬¸ì— ë’¤ì— ìžˆëŠ” ê¸°ëŠ¥ì´ ì•žì— ìžˆëŠ” ê¸°ëŠ¥ë³´ë‹¤ ë¨¼ì € ê°œë°œë  ìˆ˜ ìžˆê³ ,
+	ì´ë•Œ ë’¤ì— ìžˆëŠ” ê¸°ëŠ¥ì€ ì•žì— ìžˆëŠ” ê¸°ëŠ¥ì´ ë°°í¬ë  ë•Œ í•¨ê»˜ ë°°í¬ë©ë‹ˆë‹¤.
+	ë¨¼ì € ë°°í¬ë˜ì–´ì•¼ í•˜ëŠ” ìˆœì„œëŒ€ë¡œ ìž‘ì—…ì˜ ì§„ë„ê°€ ì ížŒ ì •ìˆ˜ ë°°ì—´ progressesì™€ ê° ìž‘ì—…ì˜ ê°œë°œ ì†ë„ê°€ ì ížŒ ì •ìˆ˜ ë°°ì—´ speedsê°€
+	ì£¼ì–´ì§ˆ ë•Œ ê° ë°°í¬ë§ˆë‹¤ ëª‡ ê°œì˜ ê¸°ëŠ¥ì´ ë°°í¬ë˜ëŠ”ì§€ë¥¼ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”.
 
-	Á¦ÇÑ »çÇ×
-	ÀÛ¾÷ÀÇ °³¼ö(progresses, speeds¹è¿­ÀÇ ±æÀÌ)´Â 100°³ ÀÌÇÏÀÔ´Ï´Ù.
-	ÀÛ¾÷ Áøµµ´Â 100 ¹Ì¸¸ÀÇ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	ÀÛ¾÷ ¼Óµµ´Â 100 ÀÌÇÏÀÇ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	¹èÆ÷´Â ÇÏ·ç¿¡ ÇÑ ¹ø¸¸ ÇÒ ¼ö ÀÖÀ¸¸ç, ÇÏ·çÀÇ ³¡¿¡ ÀÌ·ç¾îÁø´Ù°í °¡Á¤ÇÕ´Ï´Ù. ¿¹¸¦ µé¾î ÁøµµÀ²ÀÌ 95%ÀÎ ÀÛ¾÷ÀÇ °³¹ß ¼Óµµ°¡ ÇÏ·ç¿¡ 4%¶ó¸é ¹èÆ÷´Â 2ÀÏ µÚ¿¡ ÀÌ·ç¾îÁý´Ï´Ù.
+	ì œí•œ ì‚¬í•­
+	ìž‘ì—…ì˜ ê°œìˆ˜(progresses, speedsë°°ì—´ì˜ ê¸¸ì´)ëŠ” 100ê°œ ì´í•˜ìž…ë‹ˆë‹¤.
+	ìž‘ì—… ì§„ë„ëŠ” 100 ë¯¸ë§Œì˜ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+	ìž‘ì—… ì†ë„ëŠ” 100 ì´í•˜ì˜ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+	ë°°í¬ëŠ” í•˜ë£¨ì— í•œ ë²ˆë§Œ í•  ìˆ˜ ìžˆìœ¼ë©°, í•˜ë£¨ì˜ ëì— ì´ë£¨ì–´ì§„ë‹¤ê³  ê°€ì •í•©ë‹ˆë‹¤. ì˜ˆë¥¼ ë“¤ì–´ ì§„ë„ìœ¨ì´ 95%ì¸ ìž‘ì—…ì˜ ê°œë°œ ì†ë„ê°€ í•˜ë£¨ì— 4%ë¼ë©´ ë°°í¬ëŠ” 2ì¼ ë’¤ì— ì´ë£¨ì–´ì§‘ë‹ˆë‹¤.
 	 */
 	
 	
 	public static int[] solution(int[] progresses, int[] speeds) {
 		Queue<Integer> q = new LinkedList<>();
 		for(int i=0;i<progresses.length;i++) {
-			int progress=progresses[i]; //ÁøÇàµµ
-			int speed=speeds[i]; //¼Óµµ
-			int day=0; //°æ°úÀÏ
-			while(progress<100) { //100%°¡ ³ÑÀ» ¶§±îÁö °æ°úÀÏ Áõ°¡
+			int progress=progresses[i]; //ì§„í–‰ë„
+			int speed=speeds[i]; //ì†ë„
+			int day=0; //ê²½ê³¼ì¼
+			while(progress<100) { //100%ê°€ ë„˜ì„ ë•Œê¹Œì§€ ê²½ê³¼ì¼ ì¦ê°€
 				progress+=speed;
 				day++;
 			}
-			q.add(day); //°æ°úÀÏ q¿¡ ³Ö±â
+			q.add(day); //ê²½ê³¼ì¼ qì— ë„£ê¸°
 		}
-		List<Integer> list = new ArrayList<Integer>(); //´äÀ» Á¦ÃâÇÒ list
-		int before = q.poll(); //¸Ç Ã³À½ ¿Ï¼ºÀÏÀ» Àü³¯·Î ÁöÁ¤
-		list.add(1); //Ã¹ ¿Ï¼º °³¼ö
+		List<Integer> list = new ArrayList<Integer>(); //ë‹µì„ ì œì¶œí•  list
+		int before = q.poll(); //ë§¨ ì²˜ìŒ ì™„ì„±ì¼ì„ ì „ë‚ ë¡œ ì§€ì •
+		list.add(1); //ì²« ì™„ì„± ê°œìˆ˜
 		while(!q.isEmpty()) {
-			int day=q.poll(); //´ÙÀ½ ¿Ï¼ºÀÏ
-			if(before<day) { //ÀÌÀüº¸´Ù ´õ °É¸±°æ¿ì
-				list.add(1); //¹èÆ÷ °¹¼ö Ãß°¡
-				before=day; //ÀÌÀü ¿Ï¼ºÀÏ ¾÷µ¥ÀÌÆ®
+			int day=q.poll(); //ë‹¤ìŒ ì™„ì„±ì¼
+			if(before<day) { //ì´ì „ë³´ë‹¤ ë” ê±¸ë¦´ê²½ìš°
+				list.add(1); //ë°°í¬ ê°¯ìˆ˜ ì¶”ê°€
+				before=day; //ì´ì „ ì™„ì„±ì¼ ì—…ë°ì´íŠ¸
 			}else {
-				//ÀÌÀü ¿Ï¼ºÀÏ º¸´Ù ´ÙÀ½ ¿Ï¼ºÀÏÀÌ ÀÛ°Å³ª °°À¸¸é ¸¶Áö¸· ¿ä¼ÒÀÇ ¿Ï¼º °¹¼ö Áõ°¡
+				//ì´ì „ ì™„ì„±ì¼ ë³´ë‹¤ ë‹¤ìŒ ì™„ì„±ì¼ì´ ìž‘ê±°ë‚˜ ê°™ìœ¼ë©´ ë§ˆì§€ë§‰ ìš”ì†Œì˜ ì™„ì„± ê°¯ìˆ˜ ì¦ê°€
 				list.set(list.size()-1, list.get(list.size()-1)+1);
 			}
 		}

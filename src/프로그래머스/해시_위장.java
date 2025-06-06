@@ -1,21 +1,21 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.HashMap;
 
-public class ÇØ½Ã_À§Àå {
+public class í•´ì‹œ_ìœ„ì¥ {
 	/*
-	 *  clothes = {ÀÇ»óÀÌ¸§, ÀÇ»óÁ¾·ù}, ¸ğµÎ ¹®ÀÚ¿­
-	 *  ÀÇ»ó¼ö 1-30
-	 *  °°Àº ÀÌ¸§ ÀÇ»ó ¾øÀ½
-	 *  ¹®ÀÚ¿­ ±æÀÌ 1-20, ¾ËÆÄºª¼Ò¹®ÀÚ¿Í _ ·Î ±¸¼º
-	 *  ÃÖ¼Ò ÇÑ°³ ÀåÂø
+	 *  clothes = {ì˜ìƒì´ë¦„, ì˜ìƒì¢…ë¥˜}, ëª¨ë‘ ë¬¸ìì—´
+	 *  ì˜ìƒìˆ˜ 1-30
+	 *  ê°™ì€ ì´ë¦„ ì˜ìƒ ì—†ìŒ
+	 *  ë¬¸ìì—´ ê¸¸ì´ 1-20, ì•ŒíŒŒë²³ì†Œë¬¸ìì™€ _ ë¡œ êµ¬ì„±
+	 *  ìµœì†Œ í•œê°œ ì¥ì°©
 	 */
     public static int solution(String[][] clothes) {
         int answer=1;
-		HashMap<String, Integer> map = new HashMap<String, Integer>(); //¸Ê¼±¾ğ
-		for(String[] wear:clothes) map.put(wear[1], map.getOrDefault(wear[1], 1)+1); //Á¾·ùº° ±âº»°ª 2(0,1 µÎ°¡Áö), ÀÖÀ» °æ¿ì 1¾¿ Áõ°¡
-		for(String key:map.keySet()) answer*=map.get(key); //¸ğµç ¼ö °öÇÔ
-        return answer-1; //¾Æ¹«°Íµµ ¾ø´Â °æ¿ì Á¦¿Ü½ÃÅ°°í ¸®ÅÏ
+		HashMap<String, Integer> map = new HashMap<String, Integer>(); //ë§µì„ ì–¸
+		for(String[] wear:clothes) map.put(wear[1], map.getOrDefault(wear[1], 1)+1); //ì¢…ë¥˜ë³„ ê¸°ë³¸ê°’ 2(0,1 ë‘ê°€ì§€), ìˆì„ ê²½ìš° 1ì”© ì¦ê°€
+		for(String key:map.keySet()) answer*=map.get(key); //ëª¨ë“  ìˆ˜ ê³±í•¨
+        return answer-1; //ì•„ë¬´ê²ƒë„ ì—†ëŠ” ê²½ìš° ì œì™¸ì‹œí‚¤ê³  ë¦¬í„´
     }
     
     public static void main(String[] args) {

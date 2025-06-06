@@ -1,20 +1,20 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_¼ö¹Ú¼ö¹Ú¼ö {
+public class ì—°ìŠµë¬¸ì œ_ìˆ˜ë°•ìˆ˜ë°•ìˆ˜ {
 	
 //	https://programmers.co.kr/learn/courses/30/lessons/12922
 	
     public static String solution(int n) {
-        int repeat = n/2; //¹Ýº¹È½¼ö
-        int su = n%2; //³ª¸ÓÁö
+        int repeat = n/2; //ë°˜ë³µíšŸìˆ˜
+        int su = n%2; //ë‚˜ë¨¸ì§€
         StringBuilder sb = new StringBuilder();
-        //¹Ýº¹È½¼ö¸¸Å­ ¼ö¹Ú ºÙÀÌ±â
+        //ë°˜ë³µíšŸìˆ˜ë§Œí¼ ìˆ˜ë°• ë¶™ì´ê¸°
         while(repeat-->0){
-            sb.append("¼ö¹Ú");
+            sb.append("ìˆ˜ë°•");
         }
-        //³ª¸ÓÁö°¡ ÀÖÀ¸¸é ¼ö ºÙÀÌ±â
-        if(su>0) sb.append("¼ö");
-        //¸®ÅÏ
+        //ë‚˜ë¨¸ì§€ê°€ ìžˆìœ¼ë©´ ìˆ˜ ë¶™ì´ê¸°
+        if(su>0) sb.append("ìˆ˜");
+        //ë¦¬í„´
         return sb.toString();
     }
 	

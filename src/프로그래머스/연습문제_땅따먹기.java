@@ -1,13 +1,13 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.PriorityQueue;
 
-public class ¿¬½À¹®Á¦_¶¥µû¸Ô±â {
+public class ì—°ìŠµë¬¸ì œ_ë•…ë”°ë¨¹ê¸° {
 	//https://programmers.co.kr/learn/courses/30/lessons/12913
-	/* ¶¥µû¸Ô±â °ÔÀÓÀ» ÇÏ·Á°í ÇÕ´Ï´Ù. ¶¥µû¸Ô±â °ÔÀÓÀÇ ¶¥(land)Àº ÃÑ NÇà 4¿­·Î ÀÌ·ç¾îÁ® ÀÖ°í, ¸ðµç Ä­¿¡´Â Á¡¼ö°¡ ¾²¿© ÀÖ½À´Ï´Ù.
-	 * 1ÇàºÎÅÍ ¶¥À» ¹âÀ¸¸ç ÇÑ Çà¾¿ ³»·Á¿Ã ¶§, °¢ ÇàÀÇ 4Ä­ Áß ÇÑ Ä­¸¸ ¹âÀ¸¸é¼­ ³»·Á¿Í¾ß ÇÕ´Ï´Ù.
-	 * ´Ü, ¶¥µû¸Ô±â °ÔÀÓ¿¡´Â ÇÑ Çà¾¿ ³»·Á¿Ã ¶§, °°Àº ¿­À» ¿¬¼ÓÇØ¼­ ¹âÀ» ¼ö ¾ø´Â Æ¯¼ö ±ÔÄ¢ÀÌ ÀÖ½À´Ï´Ù.
-	 * ¸¶Áö¸· Çà±îÁö ¸ðµÎ ³»·Á¿ÔÀ» ¶§, ¾òÀ» ¼ö ÀÖ´Â Á¡¼öÀÇ ÃÖ´ë°ªÀ» returnÇÏ´Â solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØ ÁÖ¼¼¿ä
+	/* ë•…ë”°ë¨¹ê¸° ê²Œìž„ì„ í•˜ë ¤ê³  í•©ë‹ˆë‹¤. ë•…ë”°ë¨¹ê¸° ê²Œìž„ì˜ ë•…(land)ì€ ì´ Ní–‰ 4ì—´ë¡œ ì´ë£¨ì–´ì ¸ ìžˆê³ , ëª¨ë“  ì¹¸ì—ëŠ” ì ìˆ˜ê°€ ì“°ì—¬ ìžˆìŠµë‹ˆë‹¤.
+	 * 1í–‰ë¶€í„° ë•…ì„ ë°Ÿìœ¼ë©° í•œ í–‰ì”© ë‚´ë ¤ì˜¬ ë•Œ, ê° í–‰ì˜ 4ì¹¸ ì¤‘ í•œ ì¹¸ë§Œ ë°Ÿìœ¼ë©´ì„œ ë‚´ë ¤ì™€ì•¼ í•©ë‹ˆë‹¤.
+	 * ë‹¨, ë•…ë”°ë¨¹ê¸° ê²Œìž„ì—ëŠ” í•œ í–‰ì”© ë‚´ë ¤ì˜¬ ë•Œ, ê°™ì€ ì—´ì„ ì—°ì†í•´ì„œ ë°Ÿì„ ìˆ˜ ì—†ëŠ” íŠ¹ìˆ˜ ê·œì¹™ì´ ìžˆìŠµë‹ˆë‹¤.
+	 * ë§ˆì§€ë§‰ í–‰ê¹Œì§€ ëª¨ë‘ ë‚´ë ¤ì™”ì„ ë•Œ, ì–»ì„ ìˆ˜ ìžˆëŠ” ì ìˆ˜ì˜ ìµœëŒ€ê°’ì„ returní•˜ëŠ” solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ ì£¼ì„¸ìš”
 	 */
     public static int solution(int[][] land) {
         int answer = 0;
@@ -16,10 +16,10 @@ public class ¿¬½À¹®Á¦_¶¥µû¸Ô±â {
         dp[0]=land[0];
         for(int i=1;i<land.length;i++){
             for(int j=0;j<4;j++){
-                pq.add(new int[]{j,dp[i-1][j]}); //idx, °ª
+                pq.add(new int[]{j,dp[i-1][j]}); //idx, ê°’
             }
-            int[] first = pq.poll(); //ÀÌÀü ÃÖ´ë°ª(idx, value)
-            int[] second = pq.poll(); //ÀÌÀü µÎ¹øÂ° ÃÖ´ë°ª(idx, value)
+            int[] first = pq.poll(); //ì´ì „ ìµœëŒ€ê°’(idx, value)
+            int[] second = pq.poll(); //ì´ì „ ë‘ë²ˆì§¸ ìµœëŒ€ê°’(idx, value)
             for(int j=0;j<4;j++){
                 if(first[0]!=j){
                     dp[i][j]=land[i][j]+first[1];

@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.HashSet;
 
-public class Ä«Ä«¿À_ºÒ·®»ç¿ëÀÚ {
+public class ì¹´ì¹´ì˜¤_ë¶ˆëŸ‰ì‚¬ìš©ì {
 	//https://programmers.co.kr/learn/courses/30/lessons/64064
 	
 	static int N;
@@ -11,7 +11,7 @@ public class Ä«Ä«¿À_ºÒ·®»ç¿ëÀÚ {
 	static HashSet<String> Bad;
 	static HashSet<Integer> Bad2;
 	
-	//¹è¿­ÀÌ¿ë
+	//ë°°ì—´ì´ìš©
 	public static void candidate(int idx,boolean[] visited){
 		if(idx==N) {
 			StringBuilder sb = new StringBuilder();
@@ -22,7 +22,7 @@ public class Ä«Ä«¿À_ºÒ·®»ç¿ëÀÚ {
 			Bad.add(sb.toString());
 			return;
 		}
-		//Á¤±ÔÇ¥Çö½Ä
+		//ì •ê·œí‘œí˜„ì‹
 		String regex = Ban[idx];
 		
 		for(int i=0;i<User.length;i++) {
@@ -34,7 +34,7 @@ public class Ä«Ä«¿À_ºÒ·®»ç¿ëÀÚ {
 		}
 	}
 	
-	//ºñÆ®¸¶½ºÅ© ÀÌ¿ë
+	//ë¹„íŠ¸ë§ˆìŠ¤í¬ ì´ìš©
 	public static void candidate2(int idx,int visited){
 		if(idx==N) {
 			Bad2.add(visited);
@@ -54,14 +54,14 @@ public class Ä«Ä«¿À_ºÒ·®»ç¿ëÀÚ {
         N=banned_id.length;
     	User=user_id;
     	Ban=new String[N];
-    	//*À» Á¤±ÔÇ¥Çö½ÄÀ¸·Î º¯°æ
+    	//*ì„ ì •ê·œí‘œí˜„ì‹ìœ¼ë¡œ ë³€ê²½
     	for(int i=0;i<N;i++) {
     		Ban[i]=banned_id[i].replace("*", "[a-z0-9]{1}");
     	}
-    	//¹è¿­ÀÌ¿ë
+    	//ë°°ì—´ì´ìš©
     	Bad=new HashSet<>();
     	candidate(0,new boolean[user_id.length]);
-    	//ºñÆ®¸¶½ºÅ©ÀÌ¿ë
+    	//ë¹„íŠ¸ë§ˆìŠ¤í¬ì´ìš©
     	Bad2=new HashSet<>();
     	candidate2(0,1<<user_id.length-1);
     	

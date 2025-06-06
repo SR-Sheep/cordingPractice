@@ -1,23 +1,23 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.HashSet;
 
-public class ÇØ½Ã_ÀüÈ­¹øÈ£¸ñ·Ï {
+public class í•´ì‹œ_ì „í™”ë²ˆí˜¸ëª©ë¡ {
 	/*
-	 * phone_bookÀº 1-100,000
-	 * °¢ ¹øÈ£ ±æÀÌ : 1- 20
-	 * Áßº¹ ¹øÈ£ ¾øÀ½
+	 * phone_bookì€ 1-100,000
+	 * ê° ë²ˆí˜¸ ê¸¸ì´ : 1- 20
+	 * ì¤‘ë³µ ë²ˆí˜¸ ì—†ìŒ
 	 */
     public static boolean solution(String[] phone_book) {
         HashSet<String> set = new HashSet<String>();
-        for(String phone:phone_book) set.add(phone); //Æù¹øÈ£ set¿¡ ³Ö±â
+        for(String phone:phone_book) set.add(phone); //í°ë²ˆí˜¸ setì— ë„£ê¸°
         for(String phone:set) {
         	for(int i=1;i<phone.length();i++) {
-        		String tmp=phone.substring(0,i); //Æù¹øÈ£ Á¶°¢³»±â
-        		if(set.contains(tmp)) return false; //Á¶°¢³­ Æù¹øÈ£ ÀÖÀ» ½Ã false;
+        		String tmp=phone.substring(0,i); //í°ë²ˆí˜¸ ì¡°ê°ë‚´ê¸°
+        		if(set.contains(tmp)) return false; //ì¡°ê°ë‚œ í°ë²ˆí˜¸ ìˆì„ ì‹œ false;
         	}
         }
-        return true; //¸ğµÎ Åë°ú½Ã, true;
+        return true; //ëª¨ë‘ í†µê³¼ì‹œ, true;
       }
 	
 	

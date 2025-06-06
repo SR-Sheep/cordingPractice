@@ -1,20 +1,20 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ¿¬½À¹®Á¦_³ª´©¾î¶³¾îÁö´Â¼ıÀÚ {
+public class ì—°ìŠµë¬¸ì œ_ë‚˜ëˆ„ì–´ë–¨ì–´ì§€ëŠ”ìˆ«ì {
 	/*https://programmers.co.kr/learn/courses/30/lessons/12910
-	¹®Á¦ ¼³¸í
-	arrayÀÇ °¢ element Áß divisor·Î ³ª´©¾î ¶³¾îÁö´Â °ªÀ» ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÑ ¹è¿­À» ¹İÈ¯ÇÏ´Â ÇÔ¼ö, solutionÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.
-	divisor·Î ³ª´©¾î ¶³¾îÁö´Â element°¡ ÇÏ³ªµµ ¾ø´Ù¸é ¹è¿­¿¡ -1À» ´ã¾Æ ¹İÈ¯ÇÏ¼¼¿ä.
+	ë¬¸ì œ ì„¤ëª…
+	arrayì˜ ê° element ì¤‘ divisorë¡œ ë‚˜ëˆ„ì–´ ë–¨ì–´ì§€ëŠ” ê°’ì„ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•œ ë°°ì—´ì„ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜, solutionì„ ì‘ì„±í•´ì£¼ì„¸ìš”.
+	divisorë¡œ ë‚˜ëˆ„ì–´ ë–¨ì–´ì§€ëŠ” elementê°€ í•˜ë‚˜ë„ ì—†ë‹¤ë©´ ë°°ì—´ì— -1ì„ ë‹´ì•„ ë°˜í™˜í•˜ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	arrÀº ÀÚ¿¬¼ö¸¦ ´ãÀº ¹è¿­ÀÔ´Ï´Ù.
-	Á¤¼ö i, j¿¡ ´ëÇØ i ¡Á j ÀÌ¸é arr[i] ¡Á arr[j] ÀÔ´Ï´Ù.
-	divisor´Â ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	array´Â ±æÀÌ 1 ÀÌ»óÀÎ ¹è¿­ÀÔ´Ï´Ù.
+	ì œí•œì‚¬í•­
+	arrì€ ìì—°ìˆ˜ë¥¼ ë‹´ì€ ë°°ì—´ì…ë‹ˆë‹¤.
+	ì •ìˆ˜ i, jì— ëŒ€í•´ i â‰  j ì´ë©´ arr[i] â‰  arr[j] ì…ë‹ˆë‹¤.
+	divisorëŠ” ìì—°ìˆ˜ì…ë‹ˆë‹¤.
+	arrayëŠ” ê¸¸ì´ 1 ì´ìƒì¸ ë°°ì—´ì…ë‹ˆë‹¤.
 	*/
 	
     public static List<Integer> solution(int[] arr, int divisor) {

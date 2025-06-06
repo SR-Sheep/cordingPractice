@@ -1,35 +1,35 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 import java.util.*;
 
-public class ÀÌºĞÅ½»ö_ÀÔ±¹½É»ç {
-	//½Ã°£ÀÌ ÃæºĞÇÑÁö °Ë»ç
+public class ì´ë¶„íƒìƒ‰_ì…êµ­ì‹¬ì‚¬ {
+	//ì‹œê°„ì´ ì¶©ë¶„í•œì§€ ê²€ì‚¬
     public static boolean isEnoughTime(long n,int[] times,long mid ) {
 		long cnt=0;
-		// mid/time : mid½Ã°£µ¿¾È ¸î»ç¶÷À» ¹ŞÀ» ¼ö ÀÖ´ÂÁö?
+		// mid/time : midì‹œê°„ë™ì•ˆ ëª‡ì‚¬ëŒì„ ë°›ì„ ìˆ˜ ìˆëŠ”ì§€?
 		for(long time:times) cnt+=mid/time;
-		// n¸íÀ» ¹ŞÀ» ¼ö ¾ø´Ù¸é false
+		// nëª…ì„ ë°›ì„ ìˆ˜ ì—†ë‹¤ë©´ false
 		if(n>cnt)return false;
-		//n¸íÀÌ ¼ö¿ë °¡´ÉÇÏ´Ù¸é true
+		//nëª…ì´ ìˆ˜ìš© ê°€ëŠ¥í•˜ë‹¤ë©´ true
 		else return true;
 	}
     public static long solution(long n, int[] times) {
-        //´äÀ» ÃÖ´ë ½Ã°£À¸·Î ¼³Á¤
+        //ë‹µì„ ìµœëŒ€ ì‹œê°„ìœ¼ë¡œ ì„¤ì •
     	long answer=Long.MAX_VALUE;
-        //¹è¿­ Á¤·Ä
+        //ë°°ì—´ ì •ë ¬
         Arrays.sort(times);
-        //ÃÖ¼Ò = 1¸í 1ºĞ, ÃÖ´ë = »ç¶÷¼ö * ÃÖ´ë °É¸®´Â ½Ã°£
+        //ìµœì†Œ = 1ëª… 1ë¶„, ìµœëŒ€ = ì‚¬ëŒìˆ˜ * ìµœëŒ€ ê±¸ë¦¬ëŠ” ì‹œê°„
 		long start=1,end=n*times[times.length-1],mid=0;
 		
 		while(start<=end) {
-			//Áß°£°ª ¼³Á¤
+			//ì¤‘ê°„ê°’ ì„¤ì •
 			mid=(start+end)/2;
-			//Á¦ÇÑ½Ã°£À» mid·Î ¼³Á¤ÇßÀ» ¶§, ¸ğµÎ ¼ö¿ëÀÌ °¡´ÉÇÏ¸é
+			//ì œí•œì‹œê°„ì„ midë¡œ ì„¤ì •í–ˆì„ ë•Œ, ëª¨ë‘ ìˆ˜ìš©ì´ ê°€ëŠ¥í•˜ë©´
 			if(isEnoughTime(n, times, mid)) {
-				//ÃÖ¼Ò°ªÀÌ ´ä, ÀÌ°÷¿¡ ¿À¸é ¾îÂ÷ÇÇ ÃÖ¼Ò°ª
+				//ìµœì†Œê°’ì´ ë‹µ, ì´ê³³ì— ì˜¤ë©´ ì–´ì°¨í”¼ ìµœì†Œê°’
 				answer=mid;
-				//¼ö¿ëÀÌ °¡´ÉÇÏ¹Ç·Î ÃÖ´ë°ªÀ» Á¼Èû(mid °¨¼Ò)
+				//ìˆ˜ìš©ì´ ê°€ëŠ¥í•˜ë¯€ë¡œ ìµœëŒ€ê°’ì„ ì¢í˜(mid ê°ì†Œ)
 				end=mid-1;
-			//¼ö¿ë ºÒ°¡½Ã ÃÖ¼Ò°ªÀ» ´Ã¸² (mid Áõ°¡)
+			//ìˆ˜ìš© ë¶ˆê°€ì‹œ ìµœì†Œê°’ì„ ëŠ˜ë¦¼ (mid ì¦ê°€)
 			}else start=mid+1;	
 		}
 		return answer;

@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.*;
 
-public class Ä«Ä«¿À_°¡»ç°Ë»ö {
+public class ì¹´ì¹´ì˜¤_ê°€ì‚¬ê²€ìƒ‰ {
 	static class Trie{
 		private Trie[] child= new Trie[26];
 		private int count;
@@ -34,7 +34,7 @@ public class Ä«Ä«¿À_°¡»ç°Ë»ö {
 		
 	}
 	
-	//´Ü¾î ÃÖ´ë ±æÀÌ 10000
+	//ë‹¨ì–´ ìµœëŒ€ ê¸¸ì´ 10000
 	static Trie[] TrieRoot = new Trie[10000];
 	static Trie[] ReTrieRoot = new Trie[10000];
 	
@@ -43,36 +43,36 @@ public class Ä«Ä«¿À_°¡»ç°Ë»ö {
 		int[] answer= new int[queries.length];
 		int ansIdx=0;
 		
-		//´Ü¾î ÀÔ·Â
+		//ë‹¨ì–´ ì…ë ¥
 		for(String word:words) {
-			//´Ü¾îÀÇ ±æÀÌ·Î idx
+			//ë‹¨ì–´ì˜ ê¸¸ì´ë¡œ idx
 			int idx = word.length()-1;
-			//ÃÖÃÊ Á¢±Ù½Ã, °´Ã¼ ¼±¾ğ
+			//ìµœì´ˆ ì ‘ê·¼ì‹œ, ê°ì²´ ì„ ì–¸
 			if(TrieRoot[idx]==null) {
 				TrieRoot[idx]=new Trie();
 				ReTrieRoot[idx]=new Trie();
 			}
-			//¼±¹æÇâ¿¡ ´Ü¾î »ğÀÔ
+			//ì„ ë°©í–¥ì— ë‹¨ì–´ ì‚½ì…
 			TrieRoot[idx].insert(word);
-			//¿ª¹æÇâ¿¡ °Å²Ù·Î ´Ü¾î »ğÀÔ
+			//ì—­ë°©í–¥ì— ê±°ê¾¸ë¡œ ë‹¨ì–´ ì‚½ì…
 			ReTrieRoot[idx].insert(new StringBuilder(word).reverse().toString());
 		}
-		//Äõ¸® Ã£±â
+		//ì¿¼ë¦¬ ì°¾ê¸°
 		for(String query:queries) {
-			//Äõ¸®ÀÇ ±æÀÌ·Î idx
+			//ì¿¼ë¦¬ì˜ ê¸¸ì´ë¡œ idx
 			int idx= query.length()-1;
-			//Äõ¸®ÀÇ ±æÀÌ¸¦ °¡Áø ´Ü¾î°¡ ¾øÀ¸¸é 0 ÀÔ·Â
+			//ì¿¼ë¦¬ì˜ ê¸¸ì´ë¥¼ ê°€ì§„ ë‹¨ì–´ê°€ ì—†ìœ¼ë©´ 0 ì…ë ¥
 			if(TrieRoot[idx]==null) {
 				answer[ansIdx++]=0;
 				continue;
 			}
-			//Ã³À½ÀÌ ? °¡ ¾Æ´Ï¸é ¼ø¹æÇâ
+			//ì²˜ìŒì´ ? ê°€ ì•„ë‹ˆë©´ ìˆœë°©í–¥
 			if(query.charAt(0)!='?') {
-				//Æ®¸® root¿¡¼­ ´Ü¾î Ã£±â
+				//íŠ¸ë¦¬ rootì—ì„œ ë‹¨ì–´ ì°¾ê¸°
 				answer[ansIdx++]=TrieRoot[idx].search(query);
-			//Ã³À½ÀÌ ? ÀÌ¸é ¿ª¹æÇâ
+			//ì²˜ìŒì´ ? ì´ë©´ ì—­ë°©í–¥
 			}else {
-				//¿ª Æ®¸® root ¿¡¼­ ´Ü¾î µÚÁıÀº »óÅÂ·Î Ã£±â
+				//ì—­ íŠ¸ë¦¬ root ì—ì„œ ë‹¨ì–´ ë’¤ì§‘ì€ ìƒíƒœë¡œ ì°¾ê¸°
 				answer[ansIdx++]=ReTrieRoot[idx].search(new StringBuilder(query).reverse().toString());
 			}
 		}
@@ -84,7 +84,7 @@ public class Ä«Ä«¿À_°¡»ç°Ë»ö {
 	
 	
 	
-	//-----------------º»ÀÎ ÀÛ¼º, ±×·¯³ª È¿À²¼º Åë°ú ¸øÇÔ------------------------//
+	//-----------------ë³¸ì¸ ì‘ì„±, ê·¸ëŸ¬ë‚˜ íš¨ìœ¨ì„± í†µê³¼ ëª»í•¨------------------------//
 	static class Alphabet{
 		private char alphabet;
 		private int idx;
@@ -122,7 +122,7 @@ public class Ä«Ä«¿À_°¡»ç°Ë»ö {
     	HashMap<Character, Alphabet> backward = new HashMap<>();
     	
     	for(String word:words) {
-    		//Á¤¹æÇâ
+    		//ì •ë°©í–¥
     		boolean isConatain=true;
     		Alphabet root = forward.get(word.charAt(0));
     		if(root==null) {
@@ -134,7 +134,7 @@ public class Ä«Ä«¿À_°¡»ç°Ë»ö {
     		for(int i=1;i<word.length();i++) {
     			char c = word.charAt(i);
     			Alphabet next = now.next.get(c);
-    			//ÀÚ½ÄÀ¸·Î ¾ø´Ù¸é
+    			//ìì‹ìœ¼ë¡œ ì—†ë‹¤ë©´
     			if(next==null) {
     				next=new Alphabet(c,i);
     				now.next.put(c,next);
@@ -143,7 +143,7 @@ public class Ä«Ä«¿À_°¡»ç°Ë»ö {
     		}
     		if(!isConatain) forward.put(word.charAt(0) ,root);
     		
-    		//¿ª¹æÇâ
+    		//ì—­ë°©í–¥
     		root = backward.get(word.charAt(word.length()-1));
     		isConatain=true;
     		if(root==null) {
@@ -157,7 +157,7 @@ public class Ä«Ä«¿À_°¡»ç°Ë»ö {
     			int idx=word.length()-1-i;
     			char c = word.charAt(idx);
     			Alphabet next = now.next.get(c);
-    			//ÀÚ½ÄÀ¸·Î ¾ø´Ù¸é
+    			//ìì‹ìœ¼ë¡œ ì—†ë‹¤ë©´
     			if(next==null) {
     				next=new Alphabet(c,i);
     				now.next.put(c,next);
@@ -170,13 +170,13 @@ public class Ä«Ä«¿À_°¡»ç°Ë»ö {
     	int[] answer = new int[queries.length];
     	int idx=0;
     	for(String q:queries) {
-    		//Á¤¹æÇâ
+    		//ì •ë°©í–¥
     		int num=0;
     		if(q.charAt(0)!='?') {
     			for(Character key:forward.keySet()) {
     				num+=count(0,q,forward.get(key));
     			}
-			//¿ª¼ø
+			//ì—­ìˆœ
     		}else {
     			StringBuilder sb = new StringBuilder(q);
     			String r = sb.reverse().toString();

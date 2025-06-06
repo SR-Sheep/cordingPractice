@@ -1,21 +1,21 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ÄÚµåÃ§¸°Áö3_n2¹è¿­ÀÚ¸£±â {
+public class ì½”ë“œì±Œë¦°ì§€3_n2ë°°ì—´ìžë¥´ê¸° {
 	/*
 	https://programmers.co.kr/learn/courses/30/lessons/87390
 	
-	Á¤¼ö n, left, right°¡ ÁÖ¾îÁý´Ï´Ù. ´ÙÀ½ °úÁ¤À» °ÅÃÄ¼­ 1Â÷¿ø ¹è¿­À» ¸¸µé°íÀÚ ÇÕ´Ï´Ù.
+	ì •ìˆ˜ n, left, rightê°€ ì£¼ì–´ì§‘ë‹ˆë‹¤. ë‹¤ìŒ ê³¼ì •ì„ ê±°ì³ì„œ 1ì°¨ì› ë°°ì—´ì„ ë§Œë“¤ê³ ìž í•©ë‹ˆë‹¤.
 
-	nÇà n¿­ Å©±âÀÇ ºñ¾îÀÖ´Â 2Â÷¿ø ¹è¿­À» ¸¸µì´Ï´Ù.
-	i = 1, 2, 3, ..., n¿¡ ´ëÇØ¼­, ´ÙÀ½ °úÁ¤À» ¹Ýº¹ÇÕ´Ï´Ù.
-	1Çà 1¿­ºÎÅÍ iÇà i¿­±îÁöÀÇ ¿µ¿ª ³»ÀÇ ¸ðµç ºó Ä­À» ¼ýÀÚ i·Î Ã¤¿ó´Ï´Ù.
-	1Çà, 2Çà, ..., nÇàÀ» Àß¶ó³»¾î ¸ðµÎ ÀÌ¾îºÙÀÎ »õ·Î¿î 1Â÷¿ø ¹è¿­À» ¸¸µì´Ï´Ù.
-	»õ·Î¿î 1Â÷¿ø ¹è¿­À» arrÀÌ¶ó ÇÒ ¶§, arr[left], arr[left+1], ..., arr[right]¸¸ ³²±â°í ³ª¸ÓÁö´Â Áö¿ó´Ï´Ù.
-	Á¤¼ö n, left, right°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁý´Ï´Ù. ÁÖ¾îÁø °úÁ¤´ë·Î ¸¸µé¾îÁø 1Â÷¿ø ¹è¿­À» return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+	ní–‰ nì—´ í¬ê¸°ì˜ ë¹„ì–´ìžˆëŠ” 2ì°¨ì› ë°°ì—´ì„ ë§Œë“­ë‹ˆë‹¤.
+	i = 1, 2, 3, ..., nì— ëŒ€í•´ì„œ, ë‹¤ìŒ ê³¼ì •ì„ ë°˜ë³µí•©ë‹ˆë‹¤.
+	1í–‰ 1ì—´ë¶€í„° ií–‰ iì—´ê¹Œì§€ì˜ ì˜ì—­ ë‚´ì˜ ëª¨ë“  ë¹ˆ ì¹¸ì„ ìˆ«ìž ië¡œ ì±„ì›ë‹ˆë‹¤.
+	1í–‰, 2í–‰, ..., ní–‰ì„ ìž˜ë¼ë‚´ì–´ ëª¨ë‘ ì´ì–´ë¶™ì¸ ìƒˆë¡œìš´ 1ì°¨ì› ë°°ì—´ì„ ë§Œë“­ë‹ˆë‹¤.
+	ìƒˆë¡œìš´ 1ì°¨ì› ë°°ì—´ì„ arrì´ë¼ í•  ë•Œ, arr[left], arr[left+1], ..., arr[right]ë§Œ ë‚¨ê¸°ê³  ë‚˜ë¨¸ì§€ëŠ” ì§€ì›ë‹ˆë‹¤.
+	ì •ìˆ˜ n, left, rightê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤. ì£¼ì–´ì§„ ê³¼ì •ëŒ€ë¡œ ë§Œë“¤ì–´ì§„ 1ì°¨ì› ë°°ì—´ì„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	1 ¡Â n ¡Â 107
-	0 ¡Â left ¡Â right < n2
+	ì œí•œì‚¬í•­
+	1 â‰¤ n â‰¤ 107
+	0 â‰¤ left â‰¤ right < n2
 	right - left < 105
 	*/
 	
@@ -23,9 +23,9 @@ public class ÄÚµåÃ§¸°Áö3_n2¹è¿­ÀÚ¸£±â {
         int[] answer = new int[(int)(right-left+1)];
         int idx=0;
         for(long i=left;i<=right;i++){
-            int r = (int)(i/n)+1; //Çà
-            int c = (int)(i%n)+1; //¿­
-        	answer[idx++]=r<c?c:r; //¿­ÀÌ Çàº¸´Ù Å©¸é Çà Ãâ·Â, ¾Æ´Ò½Ã ¿­ Ãâ·Â
+            int r = (int)(i/n)+1; //í–‰
+            int c = (int)(i%n)+1; //ì—´
+        	answer[idx++]=r<c?c:r; //ì—´ì´ í–‰ë³´ë‹¤ í¬ë©´ í–‰ ì¶œë ¥, ì•„ë‹ì‹œ ì—´ ì¶œë ¥
         }
         return answer;
     }

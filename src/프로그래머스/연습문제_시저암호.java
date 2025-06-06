@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_½ÃÀú¾ÏÈ£ {
+public class ì—°ìŠµë¬¸ì œ_ì‹œì €ì•”í˜¸ {
 	//https://programmers.co.kr/learn/courses/30/lessons/12926?language=java
-	//n¸¸Å­ ´ÙÀ½ ±ÛÀÚ Ãâ·Â, ´ë¹®ÀÚ´Â ´ë¹®ÀÚ·Î, ¼Ò¹®ÀÚ´Â ¼Ò¹®ÀÚ·Î, °ø¹éÀº °ø¹éÀ¸·Î
+	//në§Œí¼ ë‹¤ìŒ ê¸€ì ì¶œë ¥, ëŒ€ë¬¸ìëŠ” ëŒ€ë¬¸ìë¡œ, ì†Œë¬¸ìëŠ” ì†Œë¬¸ìë¡œ, ê³µë°±ì€ ê³µë°±ìœ¼ë¡œ
     public static String solution(String s, int n) {
         StringBuilder sb = new StringBuilder();
         for(char c:s.toCharArray()){

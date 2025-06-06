@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_JadenCase¹®ÀÚ¿­¸¸µé±â {
+public class ì—°ìŠµë¬¸ì œ_JadenCaseë¬¸ìì—´ë§Œë“¤ê¸° {
 	//https://programmers.co.kr/learn/courses/30/lessons/12951
-	//¸Ç ¾Õ±ÛÀÚ ´ë¹®ÀÚ·Î Ãâ·Â
+	//ë§¨ ì•ê¸€ì ëŒ€ë¬¸ìë¡œ ì¶œë ¥
     public static String solution(String s) {
         StringBuilder sb = new StringBuilder();
         s=s.toLowerCase();

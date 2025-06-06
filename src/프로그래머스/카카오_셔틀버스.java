@@ -1,10 +1,10 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Ä«Ä«¿À_¼ÅÆ²¹ö½º {
+public class ì¹´ì¹´ì˜¤_ì…”í‹€ë²„ìŠ¤ {
 	
 	//https://programmers.co.kr/learn/courses/30/lessons/17678
 	
@@ -14,25 +14,25 @@ public class Ä«Ä«¿À_¼ÅÆ²¹ö½º {
     
     public static String solution(int n, int t, int m, String[] timetable) {
         int answer=-1;
-        List<Integer> list = new ArrayList<>(); //½Ã°£À» ÀúÀåÇÒ ¸®½ºÆ® »ı¼º
+        List<Integer> list = new ArrayList<>(); //ì‹œê°„ì„ ì €ì¥í•  ë¦¬ìŠ¤íŠ¸ ìƒì„±
         for(String time:timetable){
             String[] hs = time.split(":");
             int dep = Integer.parseInt(hs[0])*60+Integer.parseInt(hs[1]);
-            list.add(dep); //ÃÊ·Î º¯È¯ ÈÄ ¸®½ºÆ®¿¡ ³Ö±â
+            list.add(dep); //ì´ˆë¡œ ë³€í™˜ í›„ ë¦¬ìŠ¤íŠ¸ì— ë„£ê¸°
         }
-        Collections.sort(list); //ºü¸¥ ¼ø Á¤·Ä
+        Collections.sort(list); //ë¹ ë¥¸ ìˆœ ì •ë ¬
         for(int i=1;i<n;i++){
-            int busTime = bus(i,t); //¹ö½º°¡ ¿À´Â ½Ã°£
+            int busTime = bus(i,t); //ë²„ìŠ¤ê°€ ì˜¤ëŠ” ì‹œê°„
             for(int j=0;j<m;j++){
-            	//¹ö½º ½Ã°£º¸´Ù ¸ÕÀú ¿Â Å©·ç°¡ ÀÖÀ¸¸é Å¾½Â
+            	//ë²„ìŠ¤ ì‹œê°„ë³´ë‹¤ ë¨¼ì € ì˜¨ í¬ë£¨ê°€ ìˆìœ¼ë©´ íƒ‘ìŠ¹
                 if(busTime<list.get(0)) break;
                 list.remove(0);
             }
         }
-        //¸¶Áö¸· ¹ö½º ½Ã°£
+        //ë§ˆì§€ë§‰ ë²„ìŠ¤ ì‹œê°„
         int lastBusTime = bus(n,t);
         int count = 0;
-        //¹üÀ§ ³» ½Â°´ ¼ö ¼¼±â
+        //ë²”ìœ„ ë‚´ ìŠ¹ê° ìˆ˜ ì„¸ê¸°
         for(int time:list){
             if(time<=lastBusTime){
                 count++;
@@ -40,11 +40,11 @@ public class Ä«Ä«¿À_¼ÅÆ²¹ö½º {
                 break;
             }
         }
-        //ÀÚ¸®°¡ ³²À¸¸é ¸¶Áö¸· ¹ö½º½Ã°£¿¡ Å¾½Â
+        //ìë¦¬ê°€ ë‚¨ìœ¼ë©´ ë§ˆì§€ë§‰ ë²„ìŠ¤ì‹œê°„ì— íƒ‘ìŠ¹
         if(m>count) answer = lastBusTime;
-        //ÀÚ¸®°¡ ¾È³²À¸¸é ¸¶Áö¸· ½Â°´º¸´Ù 1ºĞ ¸ÕÀú Å¾½Â
+        //ìë¦¬ê°€ ì•ˆë‚¨ìœ¼ë©´ ë§ˆì§€ë§‰ ìŠ¹ê°ë³´ë‹¤ 1ë¶„ ë¨¼ì € íƒ‘ìŠ¹
         else answer = list.get(m-1)-1;
-        //00:00 Çü½ÄÀ¸·Î ¸®ÅÏ
+        //00:00 í˜•ì‹ìœ¼ë¡œ ë¦¬í„´
         return String.format("%02d:%02d",answer/60,answer%60);
     }
     public static void main(String[] args) {

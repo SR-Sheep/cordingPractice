@@ -1,11 +1,11 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 
-public class Ä«Ä«¿À_¿Üº®Á¡°Ë {
+public class ì¹´ì¹´ì˜¤_ì™¸ë²½ì ê²€ {
 	//https://programmers.co.kr/learn/courses/30/lessons/60062;
-	//https://www.youtube.com/watch?v=LtPYdZbJlzk °øºÎÇÑ ³»¿ëÀÓ
-	//ÃÖ¼Ò°ª ±¸ÇÏ±â -> 1°³¸¦ ¼öÇàÇÏ°í, ¹æ¹®¿©ºÎ Ã¼Å© // 2¹øÂ° ¼öÇà½Ã ¹æ¹®ÇÑ °÷ ÆĞ¾²ÇÑ Àç±Í ½ÇÇà, ´äÀÇ ÃÖ´ë°ªÀ» ³ÑÀ»½Ã ºê·¹ÀÌÅ©
+	//https://www.youtube.com/watch?v=LtPYdZbJlzk ê³µë¶€í•œ ë‚´ìš©ì„
+	//ìµœì†Œê°’ êµ¬í•˜ê¸° -> 1ê°œë¥¼ ìˆ˜í–‰í•˜ê³ , ë°©ë¬¸ì—¬ë¶€ ì²´í¬ // 2ë²ˆì§¸ ìˆ˜í–‰ì‹œ ë°©ë¬¸í•œ ê³³ íŒ¨ì“°í•œ ì¬ê·€ ì‹¤í–‰, ë‹µì˜ ìµœëŒ€ê°’ì„ ë„˜ì„ì‹œ ë¸Œë ˆì´í¬
 	
 	static final int INF  = Integer.MAX_VALUE;
 	static int[] Dist;
@@ -19,22 +19,22 @@ public class Ä«Ä«¿À_¿Üº®Á¡°Ë {
 		for(int i=0;i<Weak.length;i++) {
 			int next = (position+i)%Weak.length;
 			int diff = Weak[next]-Weak[position];
-			//°Å¸®°¡ À½¼ö¸é n ´õÇÏ±â
+			//ê±°ë¦¬ê°€ ìŒìˆ˜ë©´ n ë”í•˜ê¸°
 			if(diff<0) diff+=N;
-			//µÎ ¹øÂ° Å« ¼ö
+			//ë‘ ë²ˆì§¸ í° ìˆ˜
 			if(diff>Dist[Dist.length-count]) break;
-			//¹æ¹®¿©ºÎ È®ÀÎ
+			//ë°©ë¬¸ì—¬ë¶€ í™•ì¸
 			visited|=1<<next;
 		}
-		//¸ğµçÁ¡ ¹æ¹®½Ã ´ä º¯°æ
+		//ëª¨ë“ ì  ë°©ë¬¸ì‹œ ë‹µ ë³€ê²½
 		if(visited==(1<<Weak.length)-1) {
 			Answer=count;
 			return;
 		}
 		for(int i=0;i<Weak.length;i++) {
-			//¹æ¹®ÇÑ °÷ ÆĞ¾²
+			//ë°©ë¬¸í•œ ê³³ íŒ¨ì“°
 			if((visited&(1<<i))!=0) continue;
-			//Àç±Í
+			//ì¬ê·€
 			search(count+1,i,visited);
 		}
 	}
@@ -47,7 +47,7 @@ public class Ä«Ä«¿À_¿Üº®Á¡°Ë {
         Weak=weak;
         
         for(int i=0;i<weak.length;i++) {
-        	search(1, i, 0); //°¹¼ö, ½ÃÀÛÁ¡, ¹æ¹®¿©ºÎ
+        	search(1, i, 0); //ê°¯ìˆ˜, ì‹œì‘ì , ë°©ë¬¸ì—¬ë¶€
         }
         return Answer==INF?-1:Answer;
     }

@@ -1,34 +1,34 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.*;
 
-public class µ¿Àû°èÈ¹¹ı_NÀ¸·ÎÇ¥Çö {
+public class ë™ì ê³„íšë²•_Nìœ¼ë¡œí‘œí˜„ {
 	/*
-	¾Æ·¡¿Í °°ÀÌ 5¿Í »çÄ¢¿¬»ê¸¸À¸·Î 12¸¦ Ç¥ÇöÇÒ ¼ö ÀÖ½À´Ï´Ù.
+	ì•„ë˜ì™€ ê°™ì´ 5ì™€ ì‚¬ì¹™ì—°ì‚°ë§Œìœ¼ë¡œ 12ë¥¼ í‘œí˜„í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
 	12 = 5 + 5 + (5 / 5) + (5 / 5)
 	12 = 55 / 5 + 5 / 5
 	12 = (55 + 5) / 5
 
-	5¸¦ »ç¿ëÇÑ È½¼ö´Â °¢°¢ 6,5,4 ÀÔ´Ï´Ù. ±×¸®°í ÀÌÁß °¡Àå ÀÛÀº °æ¿ì´Â 4ÀÔ´Ï´Ù.
-	ÀÌÃ³·³ ¼ıÀÚ N°ú number°¡ ÁÖ¾îÁú ¶§, N°ú »çÄ¢¿¬»ê¸¸ »ç¿ëÇØ¼­ Ç¥Çö ÇÒ ¼ö ÀÖ´Â ¹æ¹ı Áß N »ç¿ëÈ½¼öÀÇ ÃÖ¼Ú°ªÀ» return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇÏ¼¼¿ä.
+	5ë¥¼ ì‚¬ìš©í•œ íšŸìˆ˜ëŠ” ê°ê° 6,5,4 ì…ë‹ˆë‹¤. ê·¸ë¦¬ê³  ì´ì¤‘ ê°€ì¥ ì‘ì€ ê²½ìš°ëŠ” 4ì…ë‹ˆë‹¤.
+	ì´ì²˜ëŸ¼ ìˆ«ì Nê³¼ numberê°€ ì£¼ì–´ì§ˆ ë•Œ, Nê³¼ ì‚¬ì¹™ì—°ì‚°ë§Œ ì‚¬ìš©í•´ì„œ í‘œí˜„ í•  ìˆ˜ ìˆëŠ” ë°©ë²• ì¤‘ N ì‚¬ìš©íšŸìˆ˜ì˜ ìµœì†Ÿê°’ì„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì‘ì„±í•˜ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	NÀº 1 ÀÌ»ó 9 ÀÌÇÏÀÔ´Ï´Ù.
-	number´Â 1 ÀÌ»ó 32,000 ÀÌÇÏÀÔ´Ï´Ù.
-	¼ö½Ä¿¡´Â °ıÈ£¿Í »çÄ¢¿¬»ê¸¸ °¡´ÉÇÏ¸ç ³ª´©±â ¿¬»ê¿¡¼­ ³ª¸ÓÁö´Â ¹«½ÃÇÕ´Ï´Ù.
-	ÃÖ¼Ú°ªÀÌ 8º¸´Ù Å©¸é -1À» return ÇÕ´Ï´Ù.
+	ì œí•œì‚¬í•­
+	Nì€ 1 ì´ìƒ 9 ì´í•˜ì…ë‹ˆë‹¤.
+	numberëŠ” 1 ì´ìƒ 32,000 ì´í•˜ì…ë‹ˆë‹¤.
+	ìˆ˜ì‹ì—ëŠ” ê´„í˜¸ì™€ ì‚¬ì¹™ì—°ì‚°ë§Œ ê°€ëŠ¥í•˜ë©° ë‚˜ëˆ„ê¸° ì—°ì‚°ì—ì„œ ë‚˜ë¨¸ì§€ëŠ” ë¬´ì‹œí•©ë‹ˆë‹¤.
+	ìµœì†Ÿê°’ì´ 8ë³´ë‹¤ í¬ë©´ -1ì„ return í•©ë‹ˆë‹¤.
 	*/
 	
-	//´Ù¸¥ »ç¶÷ÀÇ ÄÚµå ³»¿ëÀ» ºĞ¼®ÇÔ
+	//ë‹¤ë¥¸ ì‚¬ëŒì˜ ì½”ë“œ ë‚´ìš©ì„ ë¶„ì„í•¨
     public static int solution1(int N, int number) {
     	int answer = -1;
-        Set<Integer>[] setArr = new Set[9]; //¹è¿­¿¡ setÀÌ µé¾î°¨, //0-8±îÁö »ı¼º
+        Set<Integer>[] setArr = new Set[9]; //ë°°ì—´ì— setì´ ë“¤ì–´ê°, //0-8ê¹Œì§€ ìƒì„±
         int t = N;
-        //¹è¿­ÀÇ Ã¹¹øÂ°¿¡´Â 1¹ø »ç¿ë ... 8¹øÂ°¿¡´Â 8¹ø »ç¿ë
+        //ë°°ì—´ì˜ ì²«ë²ˆì§¸ì—ëŠ” 1ë²ˆ ì‚¬ìš© ... 8ë²ˆì§¸ì—ëŠ” 8ë²ˆ ì‚¬ìš©
         for(int i = 1; i < 9; i++) {
             setArr[i] = new HashSet<>();
-            setArr[i].add(t); //1¿¡´Â N, 2¿¡´Â NN... 8¿¡´Â NNNNNNNN ³Ö±â
+            setArr[i].add(t); //1ì—ëŠ” N, 2ì—ëŠ” NN... 8ì—ëŠ” NNNNNNNN ë„£ê¸°
             t = t * 10 + N;
         }
         
@@ -36,7 +36,7 @@ public class µ¿Àû°èÈ¹¹ı_NÀ¸·ÎÇ¥Çö {
             for(int j = 1; j < i; j++) {
                 for(Integer a : setArr[j]) {
                     for(Integer b : setArr[i - j]) {
-                    	//i + (i-j) = i ÀÌ¹Ç·Î i idx ¿¡ °è»ê °ª ÀúÀå
+                    	//i + (i-j) = i ì´ë¯€ë¡œ i idx ì— ê³„ì‚° ê°’ ì €ì¥
                         setArr[i].add(a + b);
                         setArr[i].add(a - b);
                         setArr[i].add(b - a);
@@ -53,7 +53,7 @@ public class µ¿Àû°èÈ¹¹ı_NÀ¸·ÎÇ¥Çö {
         }
         
         for(int i = 1; i < 9; i++) {
-        	//ÀûÀº ¼ıÀÚºÎÅÍ Å½»ö, ´äÀÌ ÀÖÀ¸¸ç answer¿¡ ÀúÀå
+        	//ì ì€ ìˆ«ìë¶€í„° íƒìƒ‰, ë‹µì´ ìˆìœ¼ë©° answerì— ì €ì¥
             if(setArr[i].contains(number)) {
                 answer = i;
                 break;
@@ -63,36 +63,36 @@ public class µ¿Àû°èÈ¹¹ı_NÀ¸·ÎÇ¥Çö {
     }
 	
 	
-	//º»ÀÎÀÌ Â§ ÄÚµå, Å×½ºÆ®´Â Åë°úÇÏÁö¸¸ ºñÈ¿À²ÀûÀÓ
+	//ë³¸ì¸ì´ ì§  ì½”ë“œ, í…ŒìŠ¤íŠ¸ëŠ” í†µê³¼í•˜ì§€ë§Œ ë¹„íš¨ìœ¨ì ì„
 	static HashMap<Integer, Integer> Map;
 	static final int INF = Integer.MAX_VALUE;
-	//i¿Í jÀÇ ¿¬»ê °á°ú ÈÄ, cnt°¡ ÀÛÀº °ÍÀ» map¿¡ ³ÖÀ½
+	//iì™€ jì˜ ì—°ì‚° ê²°ê³¼ í›„, cntê°€ ì‘ì€ ê²ƒì„ mapì— ë„£ìŒ
     public static void putMap(int i,int j,int cnt) {
-    	//´õÇÏ±â ¿¬»ê
+    	//ë”í•˜ê¸° ì—°ì‚°
 		Map.put(i+j, Math.min(Map.getOrDefault(i+j, INF),cnt));
-		//»©±â ¿¬»ê
+		//ë¹¼ê¸° ì—°ì‚°
 		Map.put(i-j, Math.min(Map.getOrDefault(i-j, INF),cnt));
-		//°öÇÏ±â ¿¬»ê
+		//ê³±í•˜ê¸° ì—°ì‚°
 		Map.put(i*j, Math.min(Map.getOrDefault(i*j, INF),cnt));
-		//j°¡ 0ÀÌ ¾Æ´Ï¸é ³ª´©±â ¿¬»ê
+		//jê°€ 0ì´ ì•„ë‹ˆë©´ ë‚˜ëˆ„ê¸° ì—°ì‚°
 		if(j!=0) Map.put(i/j, Math.min(Map.getOrDefault(i/j, INF),cnt));
 	}
     
     public static int cal(int number,int count) {
-		//È½¼ö°¡ 8¹ø ³Ñ¾î°¡¸é -1 ¸®ÅÏ
+		//íšŸìˆ˜ê°€ 8ë²ˆ ë„˜ì–´ê°€ë©´ -1 ë¦¬í„´
     	if(count>8) return -1;
-		//map¿¡ ¿øÇÏ´Â ¼ıÀÚ°¡ ÀÖÀ¸¸é ÇØ´ç count ¸®ÅÏ
+		//mapì— ì›í•˜ëŠ” ìˆ«ìê°€ ìˆìœ¼ë©´ í•´ë‹¹ count ë¦¬í„´
     	if(Map.get(number)!=null) return Map.get(number);
 		
     	int cnt;
-		//mapÀÇ key
+		//mapì˜ key
 		List<Integer> keys = new ArrayList<Integer>();
 		for(Integer key:Map.keySet())keys.add(key);
 		
-		//¸ğµç key¿¡ ´ëÇØ +-*/ ½ÇÇà
+		//ëª¨ë“  keyì— ëŒ€í•´ +-*/ ì‹¤í–‰
 		for(Integer i:keys) {
 			for(Integer j:keys) {
-				cnt=Map.get(i)+Map.get(j); //i¿Í jÀÇ ¸ğµç È½¼ö
+				cnt=Map.get(i)+Map.get(j); //iì™€ jì˜ ëª¨ë“  íšŸìˆ˜
 				if(cnt>8) continue;
 				putMap(i,j,cnt);
 			}//for end
@@ -101,8 +101,8 @@ public class µ¿Àû°èÈ¹¹ı_NÀ¸·ÎÇ¥Çö {
 	}
     public static int solution(int N, int number) {
         int cal=0;
-		Map=new HashMap<Integer, Integer>(); //¸Ê»ı¼º(¼ıÀÚ, È½¼ö)
-		//N, NN, NNN.. ½ÄÀÇ ¼ıÀÚ map¿¡ ³Ö±â(8¹ø±îÁö)
+		Map=new HashMap<Integer, Integer>(); //ë§µìƒì„±(ìˆ«ì, íšŸìˆ˜)
+		//N, NN, NNN.. ì‹ì˜ ìˆ«ì mapì— ë„£ê¸°(8ë²ˆê¹Œì§€)
 		for(int i=1;i<9;i++) {
 			cal=cal*10+N; 
         	Map.put(cal, i);

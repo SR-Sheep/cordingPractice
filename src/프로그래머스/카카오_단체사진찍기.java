@@ -1,29 +1,29 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 
-public class Ä«Ä«¿À_´ÜÃ¼»çÁøÂï±â {
+public class ì¹´ì¹´ì˜¤_ë‹¨ì²´ì‚¬ì§„ì°ê¸° {
 	/*
-	°¡À»À» ¸Â¾Æ Ä«Ä«¿ÀÇÁ·»Áî´Â ´ÜÃ¼·Î ¼ÒÇ³À» ¶°³µ´Ù.
-	Áñ°Å¿î ½Ã°£À» º¸³»°í ¸¶Áö¸·¿¡ ´ÜÃ¼»çÁøÀ» Âï±â À§ÇØ Ä«¸Þ¶ó ¾Õ¿¡ ÀÏ·Ä·Î ³ª¶õÈ÷ ¼¹´Ù.
-	±×·±µ¥ °¢ÀÚ°¡ ¿øÇÏ´Â ¹èÄ¡°¡ ¸ðµÎ ´Þ¶ó ¾î¶² ¼ø¼­·Î ¼³Áö Á¤ÇÏ´Âµ¥ ½Ã°£ÀÌ ¿À·¡ °É·È´Ù.
-	³×¿À´Â ÇÁ·Îµµ¿Í ³ª¶õÈ÷ ¼­±â¸¦ ¿øÇß°í,
-	Æ©ºê°¡ »ÕÀº ºÒÀ» ¸ÂÀº ÀûÀÌ ÀÖ´ø ¶óÀÌ¾ðÀº Æ©ºê¿¡°Ô¼­ Àû¾îµµ ¼¼ Ä­ ÀÌ»ó ¶³¾îÁ®¼­ ¼­±â¸¦ ¿øÇß´Ù.
-	»çÁøÀ» Âï°í ³ª¼­ µ¹¾Æ¿À´Â ±æ¿¡, ¹«Áö´Â ¸ðµÎ°¡ ¿øÇÏ´Â Á¶°ÇÀ» ¸¸Á·ÇÏ¸é¼­µµ ´Ù¸£°Ô ¼­´Â ¹æ¹ýÀÌ ÀÖÁö ¾Ê¾ÒÀ»±î »ý°¢ÇØº¸°Ô µÇ¾ú´Ù.
-	°¢ ÇÁ·»Áî°¡ ¿øÇÏ´Â Á¶°ÇÀ» ÀÔ·ÂÀ¸·Î ¹Þ¾ÒÀ» ¶§ ¸ðµç Á¶°ÇÀ» ¸¸Á·ÇÒ ¼ö ÀÖµµ·Ï ¼­´Â °æ¿ìÀÇ ¼ö¸¦ °è»êÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇØº¸ÀÚ.
+	ê°€ì„ì„ ë§žì•„ ì¹´ì¹´ì˜¤í”„ë Œì¦ˆëŠ” ë‹¨ì²´ë¡œ ì†Œí’ì„ ë– ë‚¬ë‹¤.
+	ì¦ê±°ìš´ ì‹œê°„ì„ ë³´ë‚´ê³  ë§ˆì§€ë§‰ì— ë‹¨ì²´ì‚¬ì§„ì„ ì°ê¸° ìœ„í•´ ì¹´ë©”ë¼ ì•žì— ì¼ë ¬ë¡œ ë‚˜ëž€ížˆ ì„°ë‹¤.
+	ê·¸ëŸ°ë° ê°ìžê°€ ì›í•˜ëŠ” ë°°ì¹˜ê°€ ëª¨ë‘ ë‹¬ë¼ ì–´ë–¤ ìˆœì„œë¡œ ì„¤ì§€ ì •í•˜ëŠ”ë° ì‹œê°„ì´ ì˜¤ëž˜ ê±¸ë ¸ë‹¤.
+	ë„¤ì˜¤ëŠ” í”„ë¡œë„ì™€ ë‚˜ëž€ížˆ ì„œê¸°ë¥¼ ì›í–ˆê³ ,
+	íŠœë¸Œê°€ ë¿œì€ ë¶ˆì„ ë§žì€ ì ì´ ìžˆë˜ ë¼ì´ì–¸ì€ íŠœë¸Œì—ê²Œì„œ ì ì–´ë„ ì„¸ ì¹¸ ì´ìƒ ë–¨ì–´ì ¸ì„œ ì„œê¸°ë¥¼ ì›í–ˆë‹¤.
+	ì‚¬ì§„ì„ ì°ê³  ë‚˜ì„œ ëŒì•„ì˜¤ëŠ” ê¸¸ì—, ë¬´ì§€ëŠ” ëª¨ë‘ê°€ ì›í•˜ëŠ” ì¡°ê±´ì„ ë§Œì¡±í•˜ë©´ì„œë„ ë‹¤ë¥´ê²Œ ì„œëŠ” ë°©ë²•ì´ ìžˆì§€ ì•Šì•˜ì„ê¹Œ ìƒê°í•´ë³´ê²Œ ë˜ì—ˆë‹¤.
+	ê° í”„ë Œì¦ˆê°€ ì›í•˜ëŠ” ì¡°ê±´ì„ ìž…ë ¥ìœ¼ë¡œ ë°›ì•˜ì„ ë•Œ ëª¨ë“  ì¡°ê±´ì„ ë§Œì¡±í•  ìˆ˜ ìžˆë„ë¡ ì„œëŠ” ê²½ìš°ì˜ ìˆ˜ë¥¼ ê³„ì‚°í•˜ëŠ” í”„ë¡œê·¸ëž¨ì„ ìž‘ì„±í•´ë³´ìž.
 
-	ÀÔ·Â Çü½Ä
-	ÀÔ·ÂÀº Á¶°ÇÀÇ °³¼ö¸¦ ³ªÅ¸³»´Â Á¤¼ö n°ú n°³ÀÇ ¿ø¼Ò·Î ±¸¼ºµÈ ¹®ÀÚ¿­ ¹è¿­ data·Î ÁÖ¾îÁø´Ù.
-	dataÀÇ ¿ø¼Ò´Â °¢ ÇÁ·»Áî°¡ ¿øÇÏ´Â Á¶°ÇÀÌ N~F=0°ú °°Àº ÇüÅÂÀÇ ¹®ÀÚ¿­·Î ±¸¼ºµÇ¾î ÀÖ´Ù. Á¦ÇÑÁ¶°ÇÀº ¾Æ·¡¿Í °°´Ù.
+	ìž…ë ¥ í˜•ì‹
+	ìž…ë ¥ì€ ì¡°ê±´ì˜ ê°œìˆ˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ì •ìˆ˜ nê³¼ nê°œì˜ ì›ì†Œë¡œ êµ¬ì„±ëœ ë¬¸ìžì—´ ë°°ì—´ dataë¡œ ì£¼ì–´ì§„ë‹¤.
+	dataì˜ ì›ì†ŒëŠ” ê° í”„ë Œì¦ˆê°€ ì›í•˜ëŠ” ì¡°ê±´ì´ N~F=0ê³¼ ê°™ì€ í˜•íƒœì˜ ë¬¸ìžì—´ë¡œ êµ¬ì„±ë˜ì–´ ìžˆë‹¤. ì œí•œì¡°ê±´ì€ ì•„ëž˜ì™€ ê°™ë‹¤.
 
 	1 <= n <= 100
-	dataÀÇ ¿ø¼Ò´Â ´Ù¼¸ ±ÛÀÚ·Î ±¸¼ºµÈ ¹®ÀÚ¿­ÀÌ´Ù. °¢ ¿ø¼ÒÀÇ Á¶°ÇÀº ´ÙÀ½°ú °°´Ù.
-	Ã¹ ¹øÂ° ±ÛÀÚ¿Í ¼¼ ¹øÂ° ±ÛÀÚ´Â ´ÙÀ½ 8°³ Áß ÇÏ³ªÀÌ´Ù.
-	{A, C, F, J, M, N, R, T} °¢°¢ ¾îÇÇÄ¡, ÄÜ, ÇÁ·Îµµ, Á¦ÀÌÁö, ¹«Áö, ³×¿À, ¶óÀÌ¾ð, Æ©ºê¸¦ ÀÇ¹ÌÇÑ´Ù.
-	Ã¹ ¹øÂ° ±ÛÀÚ´Â Á¶°ÇÀ» Á¦½ÃÇÑ ÇÁ·»Áî, ¼¼ ¹øÂ° ±ÛÀÚ´Â »ó´ë¹æÀÌ´Ù. Ã¹ ¹øÂ° ±ÛÀÚ¿Í ¼¼ ¹øÂ° ±ÛÀÚ´Â Ç×»ó ´Ù¸£´Ù.
-	µÎ ¹øÂ° ±ÛÀÚ´Â Ç×»ó ~ÀÌ´Ù.
-	³× ¹øÂ° ±ÛÀÚ´Â ´ÙÀ½ 3°³ Áß ÇÏ³ªÀÌ´Ù. {=, <, >} °¢°¢ °°À½, ¹Ì¸¸, ÃÊ°ú¸¦ ÀÇ¹ÌÇÑ´Ù.
-	´Ù¼¸ ¹øÂ° ±ÛÀÚ´Â 0 ÀÌ»ó 6 ÀÌÇÏÀÇ Á¤¼öÀÇ ¹®ÀÚÇüÀÌ¸ç, Á¶°Ç¿¡ Á¦½ÃµÇ´Â °£°ÝÀ» ÀÇ¹ÌÇÑ´Ù. ÀÌ¶§ °£°ÝÀº µÎ ÇÁ·»Áî »çÀÌ¿¡ ÀÖ´Â ´Ù¸¥ ÇÁ·»ÁîÀÇ ¼öÀÌ´Ù.
+	dataì˜ ì›ì†ŒëŠ” ë‹¤ì„¯ ê¸€ìžë¡œ êµ¬ì„±ëœ ë¬¸ìžì—´ì´ë‹¤. ê° ì›ì†Œì˜ ì¡°ê±´ì€ ë‹¤ìŒê³¼ ê°™ë‹¤.
+	ì²« ë²ˆì§¸ ê¸€ìžì™€ ì„¸ ë²ˆì§¸ ê¸€ìžëŠ” ë‹¤ìŒ 8ê°œ ì¤‘ í•˜ë‚˜ì´ë‹¤.
+	{A, C, F, J, M, N, R, T} ê°ê° ì–´í”¼ì¹˜, ì½˜, í”„ë¡œë„, ì œì´ì§€, ë¬´ì§€, ë„¤ì˜¤, ë¼ì´ì–¸, íŠœë¸Œë¥¼ ì˜ë¯¸í•œë‹¤.
+	ì²« ë²ˆì§¸ ê¸€ìžëŠ” ì¡°ê±´ì„ ì œì‹œí•œ í”„ë Œì¦ˆ, ì„¸ ë²ˆì§¸ ê¸€ìžëŠ” ìƒëŒ€ë°©ì´ë‹¤. ì²« ë²ˆì§¸ ê¸€ìžì™€ ì„¸ ë²ˆì§¸ ê¸€ìžëŠ” í•­ìƒ ë‹¤ë¥´ë‹¤.
+	ë‘ ë²ˆì§¸ ê¸€ìžëŠ” í•­ìƒ ~ì´ë‹¤.
+	ë„¤ ë²ˆì§¸ ê¸€ìžëŠ” ë‹¤ìŒ 3ê°œ ì¤‘ í•˜ë‚˜ì´ë‹¤. {=, <, >} ê°ê° ê°™ìŒ, ë¯¸ë§Œ, ì´ˆê³¼ë¥¼ ì˜ë¯¸í•œë‹¤.
+	ë‹¤ì„¯ ë²ˆì§¸ ê¸€ìžëŠ” 0 ì´ìƒ 6 ì´í•˜ì˜ ì •ìˆ˜ì˜ ë¬¸ìží˜•ì´ë©°, ì¡°ê±´ì— ì œì‹œë˜ëŠ” ê°„ê²©ì„ ì˜ë¯¸í•œë‹¤. ì´ë•Œ ê°„ê²©ì€ ë‘ í”„ë Œì¦ˆ ì‚¬ì´ì— ìžˆëŠ” ë‹¤ë¥¸ í”„ë Œì¦ˆì˜ ìˆ˜ì´ë‹¤.
 	*/
 	static boolean[] Visited;
 	static int N, Answer;
@@ -33,34 +33,34 @@ public class Ä«Ä«¿À_´ÜÃ¼»çÁøÂï±â {
 		boolean pass=true;
 		for(int[] condition:Conditions) {
 			if(!pass) break;
-			int a=condition[0]; //¼ö 1
-			int b=condition[1]; //¼ö 2
-			int sign = condition[2]; //±âÈ£
-			int num = condition[3]; //°Å¸®
+			int a=condition[0]; //ìˆ˜ 1
+			int b=condition[1]; //ìˆ˜ 2
+			int sign = condition[2]; //ê¸°í˜¸
+			int num = condition[3]; //ê±°ë¦¬
 			
 			int aIdx=-1, bIdx=-1;
 			for(int i=0;i<8;i++) {
-				if(a==s.charAt(i)-'0') aIdx=i; //¼ö 1ÀÇ idx
-				else if(b==s.charAt(i)-'0') bIdx=i; //¼ö 2ÀÇ idx
+				if(a==s.charAt(i)-'0') aIdx=i; //ìˆ˜ 1ì˜ idx
+				else if(b==s.charAt(i)-'0') bIdx=i; //ìˆ˜ 2ì˜ idx
 			}
-			int interval =Math.abs(aIdx-bIdx)-1; //¼ö 1°ú 2ÀÇ °Å¸®
+			int interval =Math.abs(aIdx-bIdx)-1; //ìˆ˜ 1ê³¼ 2ì˜ ê±°ë¦¬
 			//=
 			if(sign==61) {
-				if(interval!=num) pass=false; //°Å¸®°¡ num°ú °°Áö ¾ÊÀ¸¸é false ¸®ÅÏ
+				if(interval!=num) pass=false; //ê±°ë¦¬ê°€ numê³¼ ê°™ì§€ ì•Šìœ¼ë©´ false ë¦¬í„´
 			//<	
 			}else if(sign==60) {
-				if(interval>=num) pass=false; //°Å¸®°¡ num ÀÌ»óÀÌ¸é false ¸®ÅÏ
+				if(interval>=num) pass=false; //ê±°ë¦¬ê°€ num ì´ìƒì´ë©´ false ë¦¬í„´
 			//>	
 			}else if(sign==62) {
-				if(interval<=num) pass=false; //°Å¸®°¡ num ÀÌÇÏÀÌ¸é false ¸®ÅÏ
+				if(interval<=num) pass=false; //ê±°ë¦¬ê°€ num ì´í•˜ì´ë©´ false ë¦¬í„´
 			}
 		}
-		if(pass) Answer++; //Åë°ú½Ã ´ä Áõ°¡
+		if(pass) Answer++; //í†µê³¼ì‹œ ë‹µ ì¦ê°€
 	}
 	
-	//¼ö¿­ »ý¼º
+	//ìˆ˜ì—´ ìƒì„±
 	public static void permutation(String s) {
-		//¼ö¿­ÀÇ ±æÀÌ°¡ 8
+		//ìˆ˜ì—´ì˜ ê¸¸ì´ê°€ 8
 		if(s.length()==8) {
 			isOk(s);
 			return;
@@ -82,15 +82,15 @@ public class Ä«Ä«¿À_´ÜÃ¼»çÁøÂï±â {
     	Conditions=new ArrayList<>();
         for(String d:data) {
         	int a=-1,b=-1;
-        	int sign=d.charAt(3)+0; //ºÎÈ£
-        	int num=d.charAt(4)-'0'; //¼ýÀÚ
-        	//ÇÁ·£µå ¹è¿­ Å½»öÇÏ¿© ¼ýÀÚ·Î º¯È¯
+        	int sign=d.charAt(3)+0; //ë¶€í˜¸
+        	int num=d.charAt(4)-'0'; //ìˆ«ìž
+        	//í”„ëžœë“œ ë°°ì—´ íƒìƒ‰í•˜ì—¬ ìˆ«ìžë¡œ ë³€í™˜
         	for(int i=0;i<8;i++) {
         		char friend =friends[i];
-        		if(friend==d.charAt(0)) a=i; //Ã¹¹øÂ° Ä£±¸
-        		else if(friend==d.charAt(2)) b=i; //µÎ¹øÂ° Ä£±¸
+        		if(friend==d.charAt(0)) a=i; //ì²«ë²ˆì§¸ ì¹œêµ¬
+        		else if(friend==d.charAt(2)) b=i; //ë‘ë²ˆì§¸ ì¹œêµ¬
         	}
-        	Conditions.add(new int[] {a,b,sign,num}); //º¯È¯ÇÏ¿© ¹øÈ£1, ¹øÈ£2, ºÎÈ£, ¼ýÀÚ ÀÔ·Â
+        	Conditions.add(new int[] {a,b,sign,num}); //ë³€í™˜í•˜ì—¬ ë²ˆí˜¸1, ë²ˆí˜¸2, ë¶€í˜¸, ìˆ«ìž ìž…ë ¥
         }
         permutation("");
         return Answer;

@@ -1,40 +1,40 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Á¤·Ä_°¡ÀåÅ«¼ö {
+public class ì •ë ¬_ê°€ì¥í°ìˆ˜ {
 	/*
-	0 ¶Ç´Â ¾çÀÇ Á¤¼ö°¡ ´ã±ä ¹è¿­ numbers°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§,
-	¼ø¼­¸¦ Àç¹èÄ¡ÇÏ¿© ¸¸µé ¼ö ÀÖ´Â °¡Àå Å« ¼ö¸¦ ¹®ÀÚ¿­·Î ¹Ù²Ù¾î
-	return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+	0 ë˜ëŠ” ì–‘ì˜ ì •ìˆ˜ê°€ ë‹´ê¸´ ë°°ì—´ numbersê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ,
+	ìˆœì„œë¥¼ ì¬ë°°ì¹˜í•˜ì—¬ ë§Œë“¤ ìˆ˜ ìˆëŠ” ê°€ì¥ í° ìˆ˜ë¥¼ ë¬¸ìì—´ë¡œ ë°”ê¾¸ì–´
+	return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì‘ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ »çÇ×
-	numbersÀÇ ±æÀÌ´Â 1 ÀÌ»ó 100,000 ÀÌÇÏÀÔ´Ï´Ù.
-	numbersÀÇ ¿ø¼Ò´Â 0 ÀÌ»ó 1,000 ÀÌÇÏÀÔ´Ï´Ù.
-	Á¤´äÀÌ ³Ê¹« Å¬ ¼ö ÀÖÀ¸´Ï ¹®ÀÚ¿­·Î ¹Ù²Ù¾î return ÇÕ´Ï´Ù.
-	ÀÔÃâ·Â ¿¹
+	ì œí•œ ì‚¬í•­
+	numbersì˜ ê¸¸ì´ëŠ” 1 ì´ìƒ 100,000 ì´í•˜ì…ë‹ˆë‹¤.
+	numbersì˜ ì›ì†ŒëŠ” 0 ì´ìƒ 1,000 ì´í•˜ì…ë‹ˆë‹¤.
+	ì •ë‹µì´ ë„ˆë¬´ í´ ìˆ˜ ìˆìœ¼ë‹ˆ ë¬¸ìì—´ë¡œ ë°”ê¾¸ì–´ return í•©ë‹ˆë‹¤.
+	ì…ì¶œë ¥ ì˜ˆ
 	 */
 	
 	
     public static String solution(int[] numbers) {
-        StringBuilder sb = new StringBuilder(); //´ä Á¶ÇÕÀ» À§ÇÑ ½ºÆ®¸µ ºô´õ ¼±¾ğ
-        //½ºÆ®¸µ ¹è¿­·Î º¯È¯
+        StringBuilder sb = new StringBuilder(); //ë‹µ ì¡°í•©ì„ ìœ„í•œ ìŠ¤íŠ¸ë§ ë¹Œë” ì„ ì–¸
+        //ìŠ¤íŠ¸ë§ ë°°ì—´ë¡œ ë³€í™˜
         String[] sArr= new String[numbers.length];
         for(int i=0;i<numbers.length;i++) {
         	sArr[i]=numbers[i]+"";//
         }
-        //Á¤·Ä
+        //ì •ë ¬
         Arrays.sort(sArr, new Comparator<String>(){
-        	//compareTo´Â ½ºÆ®¸µµµ °¡´É
+        	//compareToëŠ” ìŠ¤íŠ¸ë§ë„ ê°€ëŠ¥
         	@Override
         	public int compare(String o1, String o2) {
         		return (o2+o1).compareTo(o1+o2);
         	}
         });
-        //0À¸·Î ½ÃÀÛÇÏ¸é 0À¸·Î ¸®ÅÏ
+        //0ìœ¼ë¡œ ì‹œì‘í•˜ë©´ 0ìœ¼ë¡œ ë¦¬í„´
         if(sArr[0].equals("0")) return "0";
-        //´ä Á¦Ãâ
+        //ë‹µ ì œì¶œ
         for(String s:sArr) {
         	sb.append(s);
         }

@@ -1,27 +1,27 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ¿ÏÀüÅ½»ö_Ä«Æê {
+public class ì™„ì „íƒìƒ‰_ì¹´íŽ« {
 	
 	/*
-	Leo´Â Ä«ÆêÀ» »ç·¯ °¬´Ù°¡ Áß¾Ó¿¡´Â ³ë¶õ»öÀ¸·Î Ä¥ÇØÁ® ÀÖ°í
-	Å×µÎ¸® 1ÁÙÀº °¥»öÀ¸·Î Ä¥ÇØÁ® ÀÖ´Â °ÝÀÚ ¸ð¾ç Ä«ÆêÀ» ºÃ½À´Ï´Ù.
+	LeoëŠ” ì¹´íŽ«ì„ ì‚¬ëŸ¬ ê°”ë‹¤ê°€ ì¤‘ì•™ì—ëŠ” ë…¸ëž€ìƒ‰ìœ¼ë¡œ ì¹ í•´ì ¸ ìžˆê³ 
+	í…Œë‘ë¦¬ 1ì¤„ì€ ê°ˆìƒ‰ìœ¼ë¡œ ì¹ í•´ì ¸ ìžˆëŠ” ê²©ìž ëª¨ì–‘ ì¹´íŽ«ì„ ë´¤ìŠµë‹ˆë‹¤.
 
-	Leo´Â ÁýÀ¸·Î µ¹¾Æ¿Í¼­ ¾Æ±î º» Ä«ÆêÀÇ ³ë¶õ»ö°ú °¥»öÀ¸·Î »öÄ¥µÈ °ÝÀÚÀÇ °³¼ö´Â ±â¾ïÇßÁö¸¸,
-	ÀüÃ¼ Ä«ÆêÀÇ Å©±â´Â ±â¾ïÇÏÁö ¸øÇß½À´Ï´Ù.
+	LeoëŠ” ì§‘ìœ¼ë¡œ ëŒì•„ì™€ì„œ ì•„ê¹Œ ë³¸ ì¹´íŽ«ì˜ ë…¸ëž€ìƒ‰ê³¼ ê°ˆìƒ‰ìœ¼ë¡œ ìƒ‰ì¹ ëœ ê²©ìžì˜ ê°œìˆ˜ëŠ” ê¸°ì–µí–ˆì§€ë§Œ,
+	ì „ì²´ ì¹´íŽ«ì˜ í¬ê¸°ëŠ” ê¸°ì–µí•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.
 	
-	Leo°¡ º» Ä«Æê¿¡¼­ °¥»ö °ÝÀÚÀÇ ¼ö brown, ³ë¶õ»ö °ÝÀÚÀÇ ¼ö yellow°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§
-	Ä«ÆêÀÇ °¡·Î, ¼¼·Î Å©±â¸¦ ¼ø¼­´ë·Î ¹è¿­¿¡ ´ã¾Æ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+	Leoê°€ ë³¸ ì¹´íŽ«ì—ì„œ ê°ˆìƒ‰ ê²©ìžì˜ ìˆ˜ brown, ë…¸ëž€ìƒ‰ ê²©ìžì˜ ìˆ˜ yellowê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ
+	ì¹´íŽ«ì˜ ê°€ë¡œ, ì„¸ë¡œ í¬ê¸°ë¥¼ ìˆœì„œëŒ€ë¡œ ë°°ì—´ì— ë‹´ì•„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
 	
-	Á¦ÇÑ»çÇ×
-	°¥»ö °ÝÀÚÀÇ ¼ö brownÀº 8 ÀÌ»ó 5,000 ÀÌÇÏÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	³ë¶õ»ö °ÝÀÚÀÇ ¼ö yellow´Â 1 ÀÌ»ó 2,000,000 ÀÌÇÏÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	Ä«ÆêÀÇ °¡·Î ±æÀÌ´Â ¼¼·Î ±æÀÌ¿Í °°°Å³ª, ¼¼·Î ±æÀÌº¸´Ù ±é´Ï´Ù.
+	ì œí•œì‚¬í•­
+	ê°ˆìƒ‰ ê²©ìžì˜ ìˆ˜ brownì€ 8 ì´ìƒ 5,000 ì´í•˜ì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+	ë…¸ëž€ìƒ‰ ê²©ìžì˜ ìˆ˜ yellowëŠ” 1 ì´ìƒ 2,000,000 ì´í•˜ì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+	ì¹´íŽ«ì˜ ê°€ë¡œ ê¸¸ì´ëŠ” ì„¸ë¡œ ê¸¸ì´ì™€ ê°™ê±°ë‚˜, ì„¸ë¡œ ê¸¸ì´ë³´ë‹¤ ê¹ë‹ˆë‹¤.
 	 */
     public static int[] solution(int brown, int yellow) {
-        //¾à¼ö Ã£±â
+        //ì•½ìˆ˜ ì°¾ê¸°
         for(int i=1;i*i<=yellow;i++) {
         	if(yellow%i==0) {
-        		//i´Â ÀÛÀº ¾à¼ö, yellow/i = Å«¾à¼ö
+        		//iëŠ” ìž‘ì€ ì•½ìˆ˜, yellow/i = í°ì•½ìˆ˜
         		int width = yellow/i+2;
         		int height = i+2;
         		if(brown+yellow==width*height) return new int[] {width,height};

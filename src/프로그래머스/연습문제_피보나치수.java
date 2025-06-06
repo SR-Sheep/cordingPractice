@@ -1,12 +1,12 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_ÇÇº¸³ªÄ¡¼ö {
+public class ì—°ìŠµë¬¸ì œ_í”¼ë³´ë‚˜ì¹˜ìˆ˜ {
 	//https://programmers.co.kr/learn/courses/30/lessons/12945#;
 	/*
-	2 ÀÌ»óÀÇ nÀÌ ÀÔ·ÂµÇ¾úÀ» ¶§, n¹øÂ° ÇÇº¸³ªÄ¡ ¼ö¸¦ 1234567À¸·Î ³ª´« ³ª¸ÓÁö¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö, solutionÀ» ¿Ï¼ºÇØ ÁÖ¼¼¿ä.
+	2 ì´ìƒì˜ nì´ ìž…ë ¥ë˜ì—ˆì„ ë•Œ, në²ˆì§¸ í”¼ë³´ë‚˜ì¹˜ ìˆ˜ë¥¼ 1234567ìœ¼ë¡œ ë‚˜ëˆˆ ë‚˜ë¨¸ì§€ë¥¼ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜, solutionì„ ì™„ì„±í•´ ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ »çÇ×
-	nÀº 2 ÀÌ»ó 100,000 ÀÌÇÏÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
+	ì œí•œ ì‚¬í•­
+	nì€ 2 ì´ìƒ 100,000 ì´í•˜ì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
 	*/
     public int solution(int n) {
         int answer = 0, n1 = 0, n2 = 1;

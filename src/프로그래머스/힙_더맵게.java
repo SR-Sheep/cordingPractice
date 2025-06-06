@@ -1,41 +1,41 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.PriorityQueue;
 
-public class Èü_´õ¸Ê°Ô {
+public class íž™_ë”ë§µê²Œ {
 	/*
-	 ¸Å¿î °ÍÀ» ÁÁ¾ÆÇÏ´Â Leo´Â ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ K ÀÌ»óÀ¸·Î ¸¸µé°í ½Í½À´Ï´Ù.
-	 ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ K ÀÌ»óÀ¸·Î ¸¸µé±â À§ÇØ
-	 Leo´Â ½ºÄÚºô Áö¼ö°¡ °¡Àå ³·Àº µÎ °³ÀÇ À½½ÄÀ»
-	 ¾Æ·¡¿Í °°ÀÌ Æ¯º°ÇÑ ¹æ¹ýÀ¸·Î ¼¯¾î »õ·Î¿î À½½ÄÀ» ¸¸µì´Ï´Ù.
+	 ë§¤ìš´ ê²ƒì„ ì¢‹ì•„í•˜ëŠ” LeoëŠ” ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ K ì´ìƒìœ¼ë¡œ ë§Œë“¤ê³  ì‹¶ìŠµë‹ˆë‹¤.
+	 ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ K ì´ìƒìœ¼ë¡œ ë§Œë“¤ê¸° ìœ„í•´
+	 LeoëŠ” ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ ê°€ìž¥ ë‚®ì€ ë‘ ê°œì˜ ìŒì‹ì„
+	 ì•„ëž˜ì™€ ê°™ì´ íŠ¹ë³„í•œ ë°©ë²•ìœ¼ë¡œ ì„žì–´ ìƒˆë¡œìš´ ìŒì‹ì„ ë§Œë“­ë‹ˆë‹¤.
 	 
-	 ¼¯Àº À½½ÄÀÇ ½ºÄÚºô Áö¼ö = °¡Àå ¸ÊÁö ¾ÊÀº À½½ÄÀÇ ½ºÄÚºô Áö¼ö + (µÎ ¹øÂ°·Î ¸ÊÁö ¾ÊÀº À½½ÄÀÇ ½ºÄÚºô Áö¼ö * 2)
+	 ì„žì€ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ = ê°€ìž¥ ë§µì§€ ì•Šì€ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ + (ë‘ ë²ˆì§¸ë¡œ ë§µì§€ ì•Šì€ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ * 2)
 	 
 	 
-	 Leo´Â ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö°¡ K ÀÌ»óÀÌ µÉ ¶§±îÁö ¹Ýº¹ÇÏ¿© ¼¯½À´Ï´Ù.
- 	 Leo°¡ °¡Áø À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ ´ãÀº ¹è¿­ scoville°ú ¿øÇÏ´Â ½ºÄÚºô Áö¼ö K°¡ ÁÖ¾îÁú ¶§,
- 	 ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ K ÀÌ»óÀ¸·Î ¸¸µé±â À§ÇØ ¼¯¾î¾ß ÇÏ´Â ÃÖ¼Ò È½¼ö¸¦return ÇÏµµ·Ï
- 	 solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+	 LeoëŠ” ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ K ì´ìƒì´ ë  ë•Œê¹Œì§€ ë°˜ë³µí•˜ì—¬ ì„žìŠµë‹ˆë‹¤.
+ 	 Leoê°€ ê°€ì§„ ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ ë‹´ì€ ë°°ì—´ scovilleê³¼ ì›í•˜ëŠ” ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ Kê°€ ì£¼ì–´ì§ˆ ë•Œ,
+ 	 ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ K ì´ìƒìœ¼ë¡œ ë§Œë“¤ê¸° ìœ„í•´ ì„žì–´ì•¼ í•˜ëŠ” ìµœì†Œ íšŸìˆ˜ë¥¼return í•˜ë„ë¡
+ 	 solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
 
-	 *Á¦ÇÑ »çÇ×
-	 scovilleÀÇ ±æÀÌ´Â 2 ÀÌ»ó 1,000,000 ÀÌÇÏÀÔ´Ï´Ù.
-	 K´Â 0 ÀÌ»ó 1,000,000,000 ÀÌÇÏÀÔ´Ï´Ù.
-	 scovilleÀÇ ¿ø¼Ò´Â °¢°¢ 0 ÀÌ»ó 1,000,000 ÀÌÇÏÀÔ´Ï´Ù.
-	 ¸ðµç À½½ÄÀÇ ½ºÄÚºô Áö¼ö¸¦ K ÀÌ»óÀ¸·Î ¸¸µé ¼ö ¾ø´Â °æ¿ì¿¡´Â -1À» return ÇÕ´Ï´Ù.
+	 *ì œí•œ ì‚¬í•­
+	 scovilleì˜ ê¸¸ì´ëŠ” 2 ì´ìƒ 1,000,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	 KëŠ” 0 ì´ìƒ 1,000,000,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	 scovilleì˜ ì›ì†ŒëŠ” ê°ê° 0 ì´ìƒ 1,000,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	 ëª¨ë“  ìŒì‹ì˜ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ë¥¼ K ì´ìƒìœ¼ë¡œ ë§Œë“¤ ìˆ˜ ì—†ëŠ” ê²½ìš°ì—ëŠ” -1ì„ return í•©ë‹ˆë‹¤.
 	 */
 	
 	
     public static int solution(int[] scoville, int K) {
         int answer = 0;
         PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
-        for(int i:scoville) pq.add(i); //½ºÄÚºô Áö¼ö pq¿¡ ³Ö±â
+        for(int i:scoville) pq.add(i); //ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ pqì— ë„£ê¸°
         while(!pq.isEmpty()) {
-        	int tmp=pq.poll(); // °¡Àå ÀÛÀº ½ºÄÚºôÁö¼ö
-        	if(tmp<K) { //°¡Àå ÀÛÀº ½ºÄÚºô Áö¼ö°¡ Kº¸´Ù ÀÛÀ¸¸é
-                if(pq.isEmpty()) return -1; //´õÀÌ»ó ³²Àº ½ºÄÚºôÀÌ ¾øÀ¸¸é -1 ¸®ÅÏ
+        	int tmp=pq.poll(); // ê°€ìž¥ ìž‘ì€ ìŠ¤ì½”ë¹Œì§€ìˆ˜
+        	if(tmp<K) { //ê°€ìž¥ ìž‘ì€ ìŠ¤ì½”ë¹Œ ì§€ìˆ˜ê°€ Kë³´ë‹¤ ìž‘ìœ¼ë©´
+                if(pq.isEmpty()) return -1; //ë”ì´ìƒ ë‚¨ì€ ìŠ¤ì½”ë¹Œì´ ì—†ìœ¼ë©´ -1 ë¦¬í„´
                 else{
-        		pq.add(pq.poll()*2 + tmp); //½ºÄÚºô °ø½Ä ´Ù½Ã ³Ö±â
-        		answer++;//È½¼ö Áõ°¡
+        		pq.add(pq.poll()*2 + tmp); //ìŠ¤ì½”ë¹Œ ê³µì‹ ë‹¤ì‹œ ë„£ê¸°
+        		answer++;//íšŸìˆ˜ ì¦ê°€
                 }
         	}//if end
         }//while end

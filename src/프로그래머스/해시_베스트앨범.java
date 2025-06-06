@@ -1,16 +1,16 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.*;
 import java.util.Map.Entry;
 
-public class ÇØ½Ã_º£½ºÆ®¾Ù¹ü {
+public class í•´ì‹œ_ë² ìŠ¤íŠ¸ì•¨ë²” {
 	/*
-	genres[i]´Â °íÀ¯¹øÈ£°¡ iÀÎ ³ë·¡ÀÇ Àå¸£ÀÔ´Ï´Ù.
-	plays[i]´Â °íÀ¯¹øÈ£°¡ iÀÎ ³ë·¡°¡ Àç»ıµÈ È½¼öÀÔ´Ï´Ù.
-	genres¿Í playsÀÇ ±æÀÌ´Â °°À¸¸ç, ÀÌ´Â 1 ÀÌ»ó 10,000 ÀÌÇÏÀÔ´Ï´Ù.
-	Àå¸£ Á¾·ù´Â 100°³ ¹Ì¸¸ÀÔ´Ï´Ù.
-	Àå¸£¿¡ ¼ÓÇÑ °îÀÌ ÇÏ³ª¶ó¸é, ÇÏ³ªÀÇ °î¸¸ ¼±ÅÃÇÕ´Ï´Ù.
-	¸ğµç Àå¸£´Â Àç»ıµÈ È½¼ö°¡ ´Ù¸¨´Ï´Ù.
+	genres[i]ëŠ” ê³ ìœ ë²ˆí˜¸ê°€ iì¸ ë…¸ë˜ì˜ ì¥ë¥´ì…ë‹ˆë‹¤.
+	plays[i]ëŠ” ê³ ìœ ë²ˆí˜¸ê°€ iì¸ ë…¸ë˜ê°€ ì¬ìƒëœ íšŸìˆ˜ì…ë‹ˆë‹¤.
+	genresì™€ playsì˜ ê¸¸ì´ëŠ” ê°™ìœ¼ë©°, ì´ëŠ” 1 ì´ìƒ 10,000 ì´í•˜ì…ë‹ˆë‹¤.
+	ì¥ë¥´ ì¢…ë¥˜ëŠ” 100ê°œ ë¯¸ë§Œì…ë‹ˆë‹¤.
+	ì¥ë¥´ì— ì†í•œ ê³¡ì´ í•˜ë‚˜ë¼ë©´, í•˜ë‚˜ì˜ ê³¡ë§Œ ì„ íƒí•©ë‹ˆë‹¤.
+	ëª¨ë“  ì¥ë¥´ëŠ” ì¬ìƒëœ íšŸìˆ˜ê°€ ë‹¤ë¦…ë‹ˆë‹¤.
 	 * 
 	 */
 			
@@ -21,25 +21,25 @@ public class ÇØ½Ã_º£½ºÆ®¾Ù¹ü {
      	
      	for(int i=0;i<plays.length;i++) {
      		String genre=genres[i];
-     		genreMap.put(genre, genreMap.getOrDefault(genre, 0)+plays[i]); //Àå¸£¿¡ ½ÇÇà È½¼ö ´©Àû
-     		songMap.putIfAbsent(genre, new ArrayList<int[]>()); //songMap¿¡ °ª ¾øÀ¸¸é »ı¼º
-     		songMap.get(genre).add(new int[] {i,plays[i]}); //songMap¿¡ Àå¸£,[idx, È½¼ö] ³Ö±â;
+     		genreMap.put(genre, genreMap.getOrDefault(genre, 0)+plays[i]); //ì¥ë¥´ì— ì‹¤í–‰ íšŸìˆ˜ ëˆ„ì 
+     		songMap.putIfAbsent(genre, new ArrayList<int[]>()); //songMapì— ê°’ ì—†ìœ¼ë©´ ìƒì„±
+     		songMap.get(genre).add(new int[] {i,plays[i]}); //songMapì— ì¥ë¥´,[idx, íšŸìˆ˜] ë„£ê¸°;
      	}
      	
      	List<Entry<String, Integer>> entryList= new ArrayList<>(genreMap.entrySet()); 
-     	Collections.sort(entryList,(o1,o2)->o2.getValue().compareTo(o1.getValue())); //Àå¸£ÀÇ key, value °ª¿¡ µû¸¥ Á¤·Ä
+     	Collections.sort(entryList,(o1,o2)->o2.getValue().compareTo(o1.getValue())); //ì¥ë¥´ì˜ key, value ê°’ì— ë”°ë¥¸ ì •ë ¬
      	
      	List<Integer> answer = new ArrayList<Integer>();
      	for(Entry<String,Integer> entry:entryList) {
-     		List<int[]> list = songMap.get(entry.getKey()); //°¢ Àå¸£ÀÇ list ºÒ·¯¿À±â
-     		Collections.sort(list, (o1,o2)->o2[1]-o1[1]);  //list ³»¸²Â÷¼ø Á¤·Ä
-     		for(int i=0;i<2;i++) { //µÎ°³¸¸ Ãâ·Â
-     			if(i<list.size()) { //¸®½ºÆ® »çÀÌÁîº¸´Ù ÀÛÀ¸¸é ³Ö±â(1°³ÀÏ °æ¿ì 1°³¸¸ ³Ö±â)
-     				answer.add(list.get(i)[0]); //idx ´ä¿¡ ³Ö±â
+     		List<int[]> list = songMap.get(entry.getKey()); //ê° ì¥ë¥´ì˜ list ë¶ˆëŸ¬ì˜¤ê¸°
+     		Collections.sort(list, (o1,o2)->o2[1]-o1[1]);  //list ë‚´ë¦¼ì°¨ìˆœ ì •ë ¬
+     		for(int i=0;i<2;i++) { //ë‘ê°œë§Œ ì¶œë ¥
+     			if(i<list.size()) { //ë¦¬ìŠ¤íŠ¸ ì‚¬ì´ì¦ˆë³´ë‹¤ ì‘ìœ¼ë©´ ë„£ê¸°(1ê°œì¼ ê²½ìš° 1ê°œë§Œ ë„£ê¸°)
+     				answer.add(list.get(i)[0]); //idx ë‹µì— ë„£ê¸°
      			}
      		}
      	}
-         return answer.stream().mapToInt(Integer::intValue).toArray(); //array·Î º¯È¯ÇÏ¿© ¸®ÅÏ
+         return answer.stream().mapToInt(Integer::intValue).toArray(); //arrayë¡œ ë³€í™˜í•˜ì—¬ ë¦¬í„´
     }
 	
 	

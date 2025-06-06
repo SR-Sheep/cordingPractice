@@ -1,22 +1,22 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.Stack;
 
-public class Å½¿å¹ý_Å«¼ö¸¸µé±â {
+public class íƒìš•ë²•_í°ìˆ˜ë§Œë“¤ê¸° {
 	/*
-	¾î¶² ¼ýÀÚ¿¡¼­ k°³ÀÇ ¼ö¸¦ Á¦°ÅÇßÀ» ¶§ ¾òÀ» ¼ö ÀÖ´Â °¡Àå Å« ¼ýÀÚ¸¦ ±¸ÇÏ·Á ÇÕ´Ï´Ù.
+	ì–´ë–¤ ìˆ«ìžì—ì„œ kê°œì˜ ìˆ˜ë¥¼ ì œê±°í–ˆì„ ë•Œ ì–»ì„ ìˆ˜ ìžˆëŠ” ê°€ìž¥ í° ìˆ«ìžë¥¼ êµ¬í•˜ë ¤ í•©ë‹ˆë‹¤.
 
-	¿¹¸¦ µé¾î, ¼ýÀÚ 1924¿¡¼­ ¼ö µÎ °³¸¦ Á¦°ÅÇÏ¸é
-	[19, 12, 14, 92, 94, 24] ¸¦ ¸¸µé ¼ö ÀÖ½À´Ï´Ù.
-	ÀÌ Áß °¡Àå Å« ¼ýÀÚ´Â 94 ÀÔ´Ï´Ù.
+	ì˜ˆë¥¼ ë“¤ì–´, ìˆ«ìž 1924ì—ì„œ ìˆ˜ ë‘ ê°œë¥¼ ì œê±°í•˜ë©´
+	[19, 12, 14, 92, 94, 24] ë¥¼ ë§Œë“¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+	ì´ ì¤‘ ê°€ìž¥ í° ìˆ«ìžëŠ” 94 ìž…ë‹ˆë‹¤.
 
-	¹®ÀÚ¿­ Çü½ÄÀ¸·Î ¼ýÀÚ number¿Í Á¦°ÅÇÒ ¼öÀÇ °³¼ö k°¡ solution ÇÔ¼öÀÇ ¸Å°³º¯¼ö·Î ÁÖ¾îÁý´Ï´Ù.
-	number¿¡¼­ k °³ÀÇ ¼ö¸¦ Á¦°ÅÇßÀ» ¶§ ¸¸µé ¼ö ÀÖ´Â ¼ö Áß
-	°¡Àå Å« ¼ýÀÚ¸¦ ¹®ÀÚ¿­ ÇüÅÂ·Î return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇÏ¼¼¿ä.
+	ë¬¸ìžì—´ í˜•ì‹ìœ¼ë¡œ ìˆ«ìž numberì™€ ì œê±°í•  ìˆ˜ì˜ ê°œìˆ˜ kê°€ solution í•¨ìˆ˜ì˜ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤.
+	numberì—ì„œ k ê°œì˜ ìˆ˜ë¥¼ ì œê±°í–ˆì„ ë•Œ ë§Œë“¤ ìˆ˜ ìžˆëŠ” ìˆ˜ ì¤‘
+	ê°€ìž¥ í° ìˆ«ìžë¥¼ ë¬¸ìžì—´ í˜•íƒœë¡œ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•˜ì„¸ìš”.
 	
-	Á¦ÇÑ Á¶°Ç
-	    number´Â 1ÀÚ¸® ÀÌ»ó, 1,000,000ÀÚ¸® ÀÌÇÏÀÎ ¼ýÀÚÀÔ´Ï´Ù.
-	    k´Â 1 ÀÌ»ó numberÀÇ ÀÚ¸´¼ö ¹Ì¸¸ÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
+	ì œí•œ ì¡°ê±´
+	    numberëŠ” 1ìžë¦¬ ì´ìƒ, 1,000,000ìžë¦¬ ì´í•˜ì¸ ìˆ«ìžìž…ë‹ˆë‹¤.
+	    këŠ” 1 ì´ìƒ numberì˜ ìžë¦¿ìˆ˜ ë¯¸ë§Œì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
 	*/
 	
 	
@@ -39,24 +39,24 @@ public class Å½¿å¹ý_Å«¼ö¸¸µé±â {
 	
 	
     public static String solution(String number, int k) {
-    	//°á°úÀÇ ¹®ÀÚ¿­ ±æÀÌ
+    	//ê²°ê³¼ì˜ ë¬¸ìžì—´ ê¸¸ì´
     	int l =number.length() - k;
-    	//°á°ú °ªÀ» À§ÇÑ ½ºÆ®¸µ ºô´õ ¼±¾ð
+    	//ê²°ê³¼ ê°’ì„ ìœ„í•œ ìŠ¤íŠ¸ë§ ë¹Œë” ì„ ì–¸
     	StringBuilder sb = new StringBuilder();
-        //½ºÅÃ ¼±¾ð(ÀÌÀü °ª)
+        //ìŠ¤íƒ ì„ ì–¸(ì´ì „ ê°’)
     	Stack<Character> stack = new Stack<>();
 
         for(int i=0;i<number.length();i++) {
-            char c = number.charAt(i); //ÇØ´ç ÀÚ¸´¼ö ±ÛÀÚ
-            //½ºÅÃÀÌ ºñ¾îÀÖÁö ¾Ê°Å³ª, ÃÖ±Ù¿¡ µé¾î°£ ¼ö°¡ cº¸´Ù ÀÛ°Å³ª, È½¼ö°¡ ³²À¸¸é
+            char c = number.charAt(i); //í•´ë‹¹ ìžë¦¿ìˆ˜ ê¸€ìž
+            //ìŠ¤íƒì´ ë¹„ì–´ìžˆì§€ ì•Šê±°ë‚˜, ìµœê·¼ì— ë“¤ì–´ê°„ ìˆ˜ê°€ cë³´ë‹¤ ìž‘ê±°ë‚˜, íšŸìˆ˜ê°€ ë‚¨ìœ¼ë©´
             while (!stack.isEmpty() && stack.peek()<c && k-->0) {
-                //½ºÅÃ¿¡¼­ Áö¿ì±â
+                //ìŠ¤íƒì—ì„œ ì§€ìš°ê¸°
             	stack.pop();
             }
-            //½ºÅÃ¿¡ ³Ö±â
+            //ìŠ¤íƒì— ë„£ê¸°
             stack.push(c);
         }
-        //sbÀÇ ±æÀÌ¸¸Å­ stack¿¡¼­ °ª °¡Á®¿À±â
+        //sbì˜ ê¸¸ì´ë§Œí¼ stackì—ì„œ ê°’ ê°€ì ¸ì˜¤ê¸°
         for (int i=0; i<l; i++) {
             sb.append(stack.get(i));
         }

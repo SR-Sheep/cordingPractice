@@ -1,6 +1,6 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ÄÚµåÃ§¸°Áö1_Äõµå¾ĞÃàÈÄ¼¼±â {
+public class ì½”ë“œì±Œë¦°ì§€1_ì¿¼ë“œì••ì¶•í›„ì„¸ê¸° {
 	static int[] Answer;
 	
 	public static void zip(int[][] arr) {

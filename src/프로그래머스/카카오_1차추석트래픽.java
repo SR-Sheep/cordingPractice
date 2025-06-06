@@ -1,9 +1,9 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Ä«Ä«¿À_1Â÷Ãß¼®Æ®·¡ÇÈ {
+public class ì¹´ì¹´ì˜¤_1ì°¨ì¶”ì„íŠ¸ë˜í”½ {
 	//https://programmers.co.kr/learn/courses/30/lessons/17676
 	static class Log{
 		private long start, end;
@@ -29,9 +29,9 @@ public class Ä«Ä«¿À_1Â÷Ãß¼®Æ®·¡ÇÈ {
                 st=new StringTokenizer(line);
                 st.nextToken();
                 Date time =sdf.parse(st.nextToken());
-                long end = time.getTime(); //³¡½Ã°£
-                long duration=(int)(Double.parseDouble(st.nextToken().replace("s", ""))*1000); //Ã³¸®½Ã°£
-                long start = end-duration+1; //½ÃÀÛ½Ã°£
+                long end = time.getTime(); //ëì‹œê°„
+                long duration=(int)(Double.parseDouble(st.nextToken().replace("s", ""))*1000); //ì²˜ë¦¬ì‹œê°„
+                long start = end-duration+1; //ì‹œì‘ì‹œê°„
                 logs.add(new Log(start, end));
             } catch (Exception e) {
                 // TODO: handle exception
@@ -41,7 +41,7 @@ public class Ä«Ä«¿À_1Â÷Ãß¼®Æ®·¡ÇÈ {
         for(int i=0;i<logs.size();i++) {
             int curr = 0;
             long end = logs.get(i).end;
-            long er = end + 1000; //1ÃÊ ¹üÀ§
+            long er = end + 1000; //1ì´ˆ ë²”ìœ„
             for(int j = i; j < logs.size(); j++) {
                 long s = logs.get(j).start;
                 long e = logs.get(j).end;

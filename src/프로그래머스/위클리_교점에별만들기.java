@@ -1,31 +1,31 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class À§Å¬¸®_±³Á¡¿¡º°¸¸µé±â {
+public class ìœ„í´ë¦¬_êµì ì—ë³„ë§Œë“¤ê¸° {
 	/*
-	Ax + By + C = 0À¸·Î Ç¥ÇöÇÒ ¼ö ÀÖ´Â n°³ÀÇ Á÷¼±ÀÌ ÁÖ¾îÁú ¶§,
-	ÀÌ Á÷¼±ÀÇ ±³Á¡ Áß Á¤¼ö ÁÂÇ¥¿¡ º°À» ±×¸®·Á ÇÕ´Ï´Ù.
-	Á÷¼± A, B, C¿¡ ´ëÇÑ Á¤º¸°¡ ´ã±ä ¹è¿­ lineÀÌ ¸Å°³º¯¼ö·Î ÁÖ¾îÁý´Ï´Ù.
-	ÀÌ¶§ ¸ðµç º°À» Æ÷ÇÔÇÏ´Â ÃÖ¼Ò »ç°¢ÇüÀ» return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+	Ax + By + C = 0ìœ¼ë¡œ í‘œí˜„í•  ìˆ˜ ìžˆëŠ” nê°œì˜ ì§ì„ ì´ ì£¼ì–´ì§ˆ ë•Œ,
+	ì´ ì§ì„ ì˜ êµì  ì¤‘ ì •ìˆ˜ ì¢Œí‘œì— ë³„ì„ ê·¸ë¦¬ë ¤ í•©ë‹ˆë‹¤.
+	ì§ì„  A, B, Cì— ëŒ€í•œ ì •ë³´ê°€ ë‹´ê¸´ ë°°ì—´ lineì´ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤.
+	ì´ë•Œ ëª¨ë“  ë³„ì„ í¬í•¨í•˜ëŠ” ìµœì†Œ ì‚¬ê°í˜•ì„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	lineÀÇ ¼¼·Î(Çà) ±æÀÌ´Â 2 ÀÌ»ó 1,000 ÀÌÇÏÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	lineÀÇ °¡·Î(¿­) ±æÀÌ´Â 3ÀÔ´Ï´Ù.
-	lineÀÇ °¢ ¿ø¼Ò´Â [A, B, C] ÇüÅÂÀÔ´Ï´Ù.
-	A, B, C´Â -100,000 ÀÌ»ó 100,000 ÀÌÇÏÀÎ Á¤¼öÀÔ´Ï´Ù.
-	¹«¼öÈ÷ ¸¹Àº ±³Á¡ÀÌ »ý±â´Â Á÷¼± ½ÖÀº ÁÖ¾îÁöÁö ¾Ê½À´Ï´Ù.
-	A = 0ÀÌ¸é¼­ B = 0ÀÎ °æ¿ì´Â ÁÖ¾îÁöÁö ¾Ê½À´Ï´Ù.
-	Á¤´äÀº 1,000 * 1,000 Å©±â ÀÌ³»¿¡¼­ Ç¥ÇöµË´Ï´Ù.
-	º°ÀÌ ÇÑ °³ ÀÌ»ó ±×·ÁÁö´Â ÀÔ·Â¸¸ ÁÖ¾îÁý´Ï´Ù.
+	ì œí•œì‚¬í•­
+	lineì˜ ì„¸ë¡œ(í–‰) ê¸¸ì´ëŠ” 2 ì´ìƒ 1,000 ì´í•˜ì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+	lineì˜ ê°€ë¡œ(ì—´) ê¸¸ì´ëŠ” 3ìž…ë‹ˆë‹¤.
+	lineì˜ ê° ì›ì†ŒëŠ” [A, B, C] í˜•íƒœìž…ë‹ˆë‹¤.
+	A, B, CëŠ” -100,000 ì´ìƒ 100,000 ì´í•˜ì¸ ì •ìˆ˜ìž…ë‹ˆë‹¤.
+	ë¬´ìˆ˜ížˆ ë§Žì€ êµì ì´ ìƒê¸°ëŠ” ì§ì„  ìŒì€ ì£¼ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.
+	A = 0ì´ë©´ì„œ B = 0ì¸ ê²½ìš°ëŠ” ì£¼ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.
+	ì •ë‹µì€ 1,000 * 1,000 í¬ê¸° ì´ë‚´ì—ì„œ í‘œí˜„ë©ë‹ˆë‹¤.
+	ë³„ì´ í•œ ê°œ ì´ìƒ ê·¸ë ¤ì§€ëŠ” ìž…ë ¥ë§Œ ì£¼ì–´ì§‘ë‹ˆë‹¤.
 	*/
-	//´äÀ» ³ÖÀ» list
+	//ë‹µì„ ë„£ì„ list
 	static List<Long[]> Stars;
-	//x yÀÇ ÃÖ¼Ò ÃÖ´ë°ª
+	//x yì˜ ìµœì†Œ ìµœëŒ€ê°’
 	static Long XMin,XMax,YMin,YMax;
 	
-	//±³Á¡ ±¸ÇÏ±â
+	//êµì  êµ¬í•˜ê¸°
 	public static void meetPoint(int[] m, int[] n) {
 		long a=m[0], b=m[1], e=m[2];
 		long c=n[0], d=n[1], f=n[2];
@@ -35,14 +35,14 @@ public class À§Å¬¸®_±³Á¡¿¡º°¸¸µé±â {
 		
 		double x = (b*f-e*d)/gradient;
 		double y = (e*c-a*f)/gradient;
-		//±â¿ï±â°¡ 0ÀÌ¸é ¸®ÅÏ
+		//ê¸°ìš¸ê¸°ê°€ 0ì´ë©´ ë¦¬í„´
 		if(x-(long)x!=0||y-(long)y!=0) return;
-		//x ÃÖ´ë ÃÖ¼Ò, y ÃÖ´ë ÃÖ¼Ò ¼³Á¤
+		//x ìµœëŒ€ ìµœì†Œ, y ìµœëŒ€ ìµœì†Œ ì„¤ì •
 		XMin=Math.min(XMin,(long)x);
 		XMax=Math.max(XMax, (long)x);
 		YMin=Math.min(YMin,(long)y);
 		YMax=Math.max(YMax, (long)y);
-		//¸®½ºÆ®¿¡ ÁÂÇ¥°ª Ãß°¡
+		//ë¦¬ìŠ¤íŠ¸ì— ì¢Œí‘œê°’ ì¶”ê°€
 		Stars.add(new Long[] {(long)x,(long)y});
 	}
 	
@@ -50,33 +50,33 @@ public class À§Å¬¸®_±³Á¡¿¡º°¸¸µé±â {
         Stars=new ArrayList<>();
         XMin=YMin=Long.MAX_VALUE;
         XMax=YMax=Long.MIN_VALUE;
-        //ÁÂÇ¥°ª ³Ö±â
+        //ì¢Œí‘œê°’ ë„£ê¸°
         for(int i=0;i<line.length-1;i++) {
         	for(int j=i+1;j<line.length;j++) {
         		meetPoint(line[i], line[j]);
         	}
         }
-        //yÀÇ ±æÀÌ(row)
+        //yì˜ ê¸¸ì´(row)
         int ylength=(int)(YMax-YMin+1);
-        //xÀÇ ±æÀÌ(col)
+        //xì˜ ê¸¸ì´(col)
         int xlength=(int)(XMax-XMin+1);
-        //°ªÀ» Áý¾î³ÖÀ» ÀÓ½Ã 2Â÷ ¹è¿­ »ý¼º
+        //ê°’ì„ ì§‘ì–´ë„£ì„ ìž„ì‹œ 2ì°¨ ë°°ì—´ ìƒì„±
         String[][] tmp = new String[ylength][xlength];
-        //´äÀ» ³ÖÀ» 1Â÷ ¹è¿­ »ý¼º
+        //ë‹µì„ ë„£ì„ 1ì°¨ ë°°ì—´ ìƒì„±
         String[] answer = new String[ylength];
-        //ÀÓ½Ã ¹è¿­ .À¸·Î Ã¤¿ì±â
+        //ìž„ì‹œ ë°°ì—´ .ìœ¼ë¡œ ì±„ìš°ê¸°
         for(int y=0;y<YMax-YMin+1;y++) {
         	for(int x=0;x<XMax-XMin+1;x++) {
         		tmp[y][x]=".";
         	}
         }
-        //ÇØ´ç ÁÂÇ¥°ª¿¡ * ³Ö±â
+        //í•´ë‹¹ ì¢Œí‘œê°’ì— * ë„£ê¸°
         for(Long[] star:Stars) {
         	int yidx =(int)(-YMin+star[1]);
         	int xidx=(int)(-XMin+star[0]);
         	tmp[yidx][xidx]="*";
         }
-        //ÇØ´ç ÁÂÇ¥°ªÀ» ¿ª¼øÀ¸·Î »ðÀÔ
+        //í•´ë‹¹ ì¢Œí‘œê°’ì„ ì—­ìˆœìœ¼ë¡œ ì‚½ìž…
         for(int i=0;i<YMax-YMin+1;i++) {
         	StringBuilder sb = new StringBuilder();
         	for(String s:tmp[ylength-1-i]) {

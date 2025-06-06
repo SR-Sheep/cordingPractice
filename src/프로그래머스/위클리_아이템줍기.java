@@ -1,57 +1,57 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class À§Å¬¸®_¾ÆÀÌÅÛÁİ±â {
-	//¹æÇâ ÀÌµ¿À» À§ÇÑ µğ·º¼Ç
+public class ìœ„í´ë¦¬_ì•„ì´í…œì¤ê¸° {
+	//ë°©í–¥ ì´ë™ì„ ìœ„í•œ ë””ë ‰ì…˜
 	static int[][] D= {{1,0},{-1,0},{0,1},{0,-1}};
-	//¸ñÀûÁö
+	//ëª©ì ì§€
 	static int ItemR, ItemC;
-	//±æÃ£±â
+	//ê¸¸ì°¾ê¸°
 	public static int findRoute(int col,int row, boolean[][] graph) {
 		int answer=0;
 		Queue<int[]> q = new LinkedList<int[]>();
 		q.add(new int[] {row,col,0}); // row, col, count
-		graph[row][col]=false; //ÀÚ½ÅÀÌ ÀÖ´ø ÀÚ¸®¸¦ Áö¿ò
+		graph[row][col]=false; //ìì‹ ì´ ìˆë˜ ìë¦¬ë¥¼ ì§€ì›€
 		
 		while(!q.isEmpty()) {
 			int[] now=q.poll();
 			int r = now[0], c = now[1], count=now[2];
-			//ÇöÀç À§Ä¡°¡ ¸ñÀûÁö¶ó¸é
+			//í˜„ì¬ ìœ„ì¹˜ê°€ ëª©ì ì§€ë¼ë©´
 			if(r==ItemR&&c==ItemC) {
-				answer=count/2; //2¹è¸¦ °öÇÑ °ªÀ» »ç¿ëÇÏ¿´À½À¸·Î 2·Î ³ª´®
+				answer=count/2; //2ë°°ë¥¼ ê³±í•œ ê°’ì„ ì‚¬ìš©í•˜ì˜€ìŒìœ¼ë¡œ 2ë¡œ ë‚˜ëˆ”
 				break;
 			} 
-			//ÇöÀç À§Ä¡ ±âÁØ ¸ğµç ¹æÇâ Å½»ö
+			//í˜„ì¬ ìœ„ì¹˜ ê¸°ì¤€ ëª¨ë“  ë°©í–¥ íƒìƒ‰
 			for(int i=0;i<4;i++) {
 				int nr = r+D[i][0];
 				int nc = c+D[i][1];
-				//±×·¡ÇÁ¸¦ ¹ş¾î³ª¸é continue;
+				//ê·¸ë˜í”„ë¥¼ ë²—ì–´ë‚˜ë©´ continue;
 				if(nr<0||nr>=graph.length||nc<0||nc>=graph.length) continue;
-				//»õ À§Ä¡°¡ false¸é continue;
+				//ìƒˆ ìœ„ì¹˜ê°€ falseë©´ continue;
 				if(!graph[nr][nc]) continue;
-				//»õ À§Ä¡ ÀÚ¸® Áö¿ì±â
+				//ìƒˆ ìœ„ì¹˜ ìë¦¬ ì§€ìš°ê¸°
 				graph[nr][nc]=false;
-				//»õÀ§Ä¡¿Í È½¼ö+1À» Å¥¿¡ ´Ù½Ã ³ÖÀ½
+				//ìƒˆìœ„ì¹˜ì™€ íšŸìˆ˜+1ì„ íì— ë‹¤ì‹œ ë„£ìŒ
 				q.add(new int[] {nr,nc,count+1});
 			}
 		}
 		return answer;
 		
 	}
-	//³»ºÎ »ç°¢Çü Áö¿ì±â
+	//ë‚´ë¶€ ì‚¬ê°í˜• ì§€ìš°ê¸°
 	public static void erasing(int[] rec, boolean[][] graph) {
 		int c1 = rec[0]*2, c2=rec[2]*2;
 		int r1 = rec[1]*2, r2=rec[3]*2;
-    	//³ªº¸´Ù ÀÛÀº °ÍµéÀº ÃÊ±âÈ­
+    	//ë‚˜ë³´ë‹¤ ì‘ì€ ê²ƒë“¤ì€ ì´ˆê¸°í™”
     	for(int r=r1+1;r<r2;r++) {
     		for(int c=c1+1;c<c2;c++) {
     			graph[r][c]=false;
     		}
     	}
 	}
-	//»ç°¢Çü ±×¸®±â
+	//ì‚¬ê°í˜• ê·¸ë¦¬ê¸°
 	public static void drawing(int[] now, boolean[][] graph) {
     	int c1 = now[0]*2, c2=now[2]*2;
     	int r1 = now[1]*2, r2=now[3]*2;
@@ -62,22 +62,22 @@ public class À§Å¬¸®_¾ÆÀÌÅÛÁİ±â {
     		}
     	}
 	}
-	//È®ÀÎÇÏ±â À§ÇÑ ±×·¡ÇÁ Ãâ·Â
+	//í™•ì¸í•˜ê¸° ìœ„í•œ ê·¸ë˜í”„ ì¶œë ¥
 	public static void printGraph(int r, int c, boolean[][] graph) {
         int ridx=0;
         for(boolean[] g:graph) {
         	int cidx=0;
         	for(boolean b:g) {
-        		String tmp ="¡à"; //ºó°ø°£
+        		String tmp ="â–¡"; //ë¹ˆê³µê°„
         		if(b==true) {
         			if(ridx==r&&cidx==c) {
-        				tmp="¢À";
+        				tmp="â™£";
         			}else if(ridx==ItemR&&cidx==ItemC) {
-        				tmp="¢¾";
+        				tmp="â™¥";
     				}else if(cidx!=0&&cidx%2==0&&ridx%2==0) {
-        				tmp="¡á"; //Á¡
+        				tmp="â– "; //ì 
         			}else {
-        				tmp="¨¬"; //¿¬°á¼±
+        				tmp="Âº"; //ì—°ê²°ì„ 
         			}
         		}		
         		System.out.print(tmp+" ");		
@@ -89,20 +89,20 @@ public class À§Å¬¸®_¾ÆÀÌÅÛÁİ±â {
 	}
 	
 	public static int solution(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
-    	//º¸µå¸¦ Ç¥½ÃÇÏ±â À§ÇÑ ±×·¡ÇÁ, 1~50±îÁö »ç¿ëÇÏ±â¿¡ size°¡ 51ÀÌÁö¸¸ ²ªÀÎ ºÎºĞ ¶§¹®¿¡ 2¹è¸¦ Àû¿ë
+    	//ë³´ë“œë¥¼ í‘œì‹œí•˜ê¸° ìœ„í•œ ê·¸ë˜í”„, 1~50ê¹Œì§€ ì‚¬ìš©í•˜ê¸°ì— sizeê°€ 51ì´ì§€ë§Œ êº¾ì¸ ë¶€ë¶„ ë•Œë¬¸ì— 2ë°°ë¥¼ ì ìš©
     	boolean[][] graph=new boolean[102][102];
-        //²ªÀÎ ºÎºĞÀ» ÇØ°áÇÏ±â À§ÇØ ¸ğµç °ªÀ» 2¹è Àû¿ë
+        //êº¾ì¸ ë¶€ë¶„ì„ í•´ê²°í•˜ê¸° ìœ„í•´ ëª¨ë“  ê°’ì„ 2ë°° ì ìš©
         int c=characterX*2;
         int r=characterY*2;
         ItemC=itemX*2;
         ItemR=itemY*2;
         
         Queue<int[]> q = new LinkedList<int[]>();
-        //»ç°¢Çü Ã¤¿ì±â
+        //ì‚¬ê°í˜• ì±„ìš°ê¸°
         for(int i=0;i<rectangle.length;i++) {
         	drawing(rectangle[i],graph);
         }
-        //»ç°¢Çü ³»ºÎ Áö¿ì±â
+        //ì‚¬ê°í˜• ë‚´ë¶€ ì§€ìš°ê¸°
         for(int i=0;i<rectangle.length;i++) {
         	erasing(rectangle[i], graph);
         }

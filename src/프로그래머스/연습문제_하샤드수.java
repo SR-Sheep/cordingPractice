@@ -1,9 +1,9 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_ÇÏ»şµå¼ö {
+public class ì—°ìŠµë¬¸ì œ_í•˜ìƒ¤ë“œìˆ˜ {
 	
 	//https://programmers.co.kr/learn/courses/30/lessons/12947
-	//ÀÚ¸´¼öÀÇ ¼ıÀÚ¸¦ ¸ğµÎ ´õÇÑ ¼ö·Î ³ª´²Áö¸é ÇÏ»şµå¼ö
+	//ìë¦¿ìˆ˜ì˜ ìˆ«ìë¥¼ ëª¨ë‘ ë”í•œ ìˆ˜ë¡œ ë‚˜ëˆ ì§€ë©´ í•˜ìƒ¤ë“œìˆ˜
 	
     public static boolean solution(int x) {
         int sum = 0;

@@ -1,15 +1,15 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 
-public class Å½¿å¹ý_±¸¸íº¸Æ® {
+public class íƒìš•ë²•_êµ¬ëª…ë³´íŠ¸ {
     public static int solution(int[] people, int limit) {
-        //¿îÇà È½¼ö
+        //ìš´í–‰ íšŸìˆ˜
     	int count=0;
-    	//Á¤·Ä
+    	//ì •ë ¬
     	Arrays.sort(people);
     	int idx=0;
-    	//¿ª¼ø(Å«°ÅºÎÅÍ)
+    	//ì—­ìˆœ(í°ê±°ë¶€í„°)
         for(int i=people.length-1;i>-1;i--) {
         	if(idx==i) {
         		count++;

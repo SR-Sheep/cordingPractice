@@ -1,4 +1,4 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class ±íÀÌ³Êºñ¿ì¼±Å½»ö_¿©Çà°æ·Î {
+public class ê¹Šì´ë„ˆë¹„ìš°ì„ íƒìƒ‰_ì—¬í–‰ê²½ë¡œ {
 	
 	static class Airplane{
 		private String land;
@@ -64,17 +64,17 @@ public class ±íÀÌ³Êºñ¿ì¼±Å½»ö_¿©Çà°æ·Î {
 	
     public static String[] solution(String[][] tickets) {
     	String[] answer= {};
-    	//µµÂøÁö ±âÁØ ¾ËÆÄºª ¼ø Á¤·Ä
+    	//ë„ì°©ì§€ ê¸°ì¤€ ì•ŒíŒŒë²³ ìˆœ ì •ë ¬
         Arrays.sort(tickets,(x,y)->x[1].compareTo(y[1]));
-        //¹æ¹® ¿©ºÎ Ç¥½Ã
+        //ë°©ë¬¸ ì—¬ë¶€ í‘œì‹œ
         boolean[] visited=new boolean[tickets.length];
-        //Å¥ ¼±¾ğ
+        //í ì„ ì–¸
         Queue<Airplane> q = new LinkedList<>();
-        //½ºÅÃ ¼±¾ğ, Airplane Å¬·¡½º¿¡¼­ »ç¿ë
+        //ìŠ¤íƒ ì„ ì–¸, Airplane í´ë˜ìŠ¤ì—ì„œ ì‚¬ìš©
         Stack<String> stack = new Stack<String>();
-        //½ÃÀÛÁ¡À» stack¿¡ ³Ö±â
+        //ì‹œì‘ì ì„ stackì— ë„£ê¸°
         stack.add("ICN");
-        //½ÃÀÛÀÌ ICNÀÌ¸é ³Ö¾îÁÖ±â
+        //ì‹œì‘ì´ ICNì´ë©´ ë„£ì–´ì£¼ê¸°
         for(int i=0;i<tickets.length;i++) {
         	if(tickets[i][0].equals("ICN")) {
         		visited[i]=true;
@@ -89,7 +89,7 @@ public class ±íÀÌ³Êºñ¿ì¼±Å½»ö_¿©Çà°æ·Î {
         	Stack<String> r=airplane.getRoute();
         	String l = airplane.getLand();
         	int c = airplane.getCount();
-        	//¸ğµç Æ¼ÄÏÀ» »ç¿ëÇÑ °æ¿ì break;
+        	//ëª¨ë“  í‹°ì¼“ì„ ì‚¬ìš©í•œ ê²½ìš° break;
         	if(c>=tickets.length) {
         		answer=new String[r.size()];
         		for(int i=r.size()-1;i>=0;i--) {
@@ -99,16 +99,16 @@ public class ±íÀÌ³Êºñ¿ì¼±Å½»ö_¿©Çà°æ·Î {
         	}
         	
         	for(int i=0;i<tickets.length;i++) { 
-        		//µµÂøÁö=Ãâ¹ßÁöÀÌ¸é
+        		//ë„ì°©ì§€=ì¶œë°œì§€ì´ë©´
         		if(tickets[i][0].equals(l)) {
-        			//¹æ¹®½Ã ÆĞ¾²
+        			//ë°©ë¬¸ì‹œ íŒ¨ì“°
         			if(v[i]) continue;
         			v[i]=true;
         			q.add(new Airplane(tickets[i][1], v, r, c+1));
         			v[i]=false;
         		}
         	}
-        	r.clear(); //¸Ş¸ğ¸®¸¦ À§ÇØ ºñ¿ò
+        	r.clear(); //ë©”ëª¨ë¦¬ë¥¼ ìœ„í•´ ë¹„ì›€
         }
         return answer;
     }

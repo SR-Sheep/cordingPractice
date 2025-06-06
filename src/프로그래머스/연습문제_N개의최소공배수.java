@@ -1,7 +1,7 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_N°³ÀÇÃÖ¼Ò°ø¹è¼ö {
-    //ÃÖ´ë°ø¾à¼ö
+public class ì—°ìŠµë¬¸ì œ_Nê°œì˜ìµœì†Œê³µë°°ìˆ˜ {
+    //ìµœëŒ€ê³µì•½ìˆ˜
     public static int gcd(int a, int b){
         int big=0;
         int small=0;
@@ -15,7 +15,7 @@ public class ¿¬½À¹®Á¦_N°³ÀÇÃÖ¼Ò°ø¹è¼ö {
         if(small==0) return big;
         else return gcd(small,big%small);
     }
-    //ÃÖ¼Ò°ø¹è¼ö
+    //ìµœì†Œê³µë°°ìˆ˜
     public static int lcd(int a, int b){
         return a*b/gcd(a,b);
     }

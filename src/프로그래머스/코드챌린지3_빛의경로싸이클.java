@@ -1,34 +1,34 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.*;
 
-public class ÄÚµåÃ§¸°Áö3_ºûÀÇ°æ·Î½ÎÀÌÅ¬ {
+public class ì½”ë“œì±Œë¦°ì§€3_ë¹›ì˜ê²½ë¡œì‹¸ì´í´ {
     //https://programmers.co.kr/learn/courses/30/lessons/86052
 	/*
-	¹®Á¦ ¼³¸í
-	°¢ Ä­¸¶´Ù S, L, ¶Ç´Â R°¡ ½áÁ® ÀÖ´Â °ÝÀÚ°¡ ÀÖ½À´Ï´Ù. ´ç½ÅÀº ÀÌ °ÝÀÚ¿¡¼­ ºûÀ» ½î°íÀÚ ÇÕ´Ï´Ù. ÀÌ °ÝÀÚÀÇ °¢ Ä­¿¡´Â ´ÙÀ½°ú °°Àº Æ¯ÀÌÇÑ ¼ºÁúÀÌ ÀÖ½À´Ï´Ù.
+	ë¬¸ì œ ì„¤ëª…
+	ê° ì¹¸ë§ˆë‹¤ S, L, ë˜ëŠ” Rê°€ ì¨ì ¸ ìžˆëŠ” ê²©ìžê°€ ìžˆìŠµë‹ˆë‹¤. ë‹¹ì‹ ì€ ì´ ê²©ìžì—ì„œ ë¹›ì„ ì˜ê³ ìž í•©ë‹ˆë‹¤. ì´ ê²©ìžì˜ ê° ì¹¸ì—ëŠ” ë‹¤ìŒê³¼ ê°™ì€ íŠ¹ì´í•œ ì„±ì§ˆì´ ìžˆìŠµë‹ˆë‹¤.
 
-	ºûÀÌ "S"°¡ ½áÁø Ä­¿¡ µµ´ÞÇÑ °æ¿ì, Á÷ÁøÇÕ´Ï´Ù.
-	ºûÀÌ "L"ÀÌ ½áÁø Ä­¿¡ µµ´ÞÇÑ °æ¿ì, ÁÂÈ¸ÀüÀ» ÇÕ´Ï´Ù.
-	ºûÀÌ "R"ÀÌ ½áÁø Ä­¿¡ µµ´ÞÇÑ °æ¿ì, ¿ìÈ¸ÀüÀ» ÇÕ´Ï´Ù.
-	ºûÀÌ °ÝÀÚÀÇ ³¡À» ³Ñ¾î°¥ °æ¿ì, ¹Ý´ëÂÊ ³¡À¸·Î ´Ù½Ã µ¹¾Æ¿É´Ï´Ù. ¿¹¸¦ µé¾î, ºûÀÌ 1Çà¿¡¼­ ÇàÀÌ ÁÙ¾îµå´Â ¹æÇâÀ¸·Î ÀÌµ¿ÇÒ °æ¿ì, °°Àº ¿­ÀÇ ¹Ý´ëÂÊ ³¡ ÇàÀ¸·Î ´Ù½Ã µ¹¾Æ¿É´Ï´Ù.
-	´ç½ÅÀº ÀÌ °ÝÀÚ ³»¿¡¼­ ºûÀÌ ÀÌµ¿ÇÒ ¼ö ÀÖ´Â °æ·Î »çÀÌÅ¬ÀÌ ¸î °³ ÀÖ°í, °¢ »çÀÌÅ¬ÀÇ ±æÀÌ°¡ ¾ó¸¶ÀÎÁö ¾Ë°í ½Í½À´Ï´Ù. °æ·Î »çÀÌÅ¬ÀÌ¶õ, ºûÀÌ ÀÌµ¿ÇÏ´Â ¼øÈ¯ °æ·Î¸¦ ÀÇ¹ÌÇÕ´Ï´Ù.
+	ë¹›ì´ "S"ê°€ ì¨ì§„ ì¹¸ì— ë„ë‹¬í•œ ê²½ìš°, ì§ì§„í•©ë‹ˆë‹¤.
+	ë¹›ì´ "L"ì´ ì¨ì§„ ì¹¸ì— ë„ë‹¬í•œ ê²½ìš°, ì¢ŒíšŒì „ì„ í•©ë‹ˆë‹¤.
+	ë¹›ì´ "R"ì´ ì¨ì§„ ì¹¸ì— ë„ë‹¬í•œ ê²½ìš°, ìš°íšŒì „ì„ í•©ë‹ˆë‹¤.
+	ë¹›ì´ ê²©ìžì˜ ëì„ ë„˜ì–´ê°ˆ ê²½ìš°, ë°˜ëŒ€ìª½ ëìœ¼ë¡œ ë‹¤ì‹œ ëŒì•„ì˜µë‹ˆë‹¤. ì˜ˆë¥¼ ë“¤ì–´, ë¹›ì´ 1í–‰ì—ì„œ í–‰ì´ ì¤„ì–´ë“œëŠ” ë°©í–¥ìœ¼ë¡œ ì´ë™í•  ê²½ìš°, ê°™ì€ ì—´ì˜ ë°˜ëŒ€ìª½ ë í–‰ìœ¼ë¡œ ë‹¤ì‹œ ëŒì•„ì˜µë‹ˆë‹¤.
+	ë‹¹ì‹ ì€ ì´ ê²©ìž ë‚´ì—ì„œ ë¹›ì´ ì´ë™í•  ìˆ˜ ìžˆëŠ” ê²½ë¡œ ì‚¬ì´í´ì´ ëª‡ ê°œ ìžˆê³ , ê° ì‚¬ì´í´ì˜ ê¸¸ì´ê°€ ì–¼ë§ˆì¸ì§€ ì•Œê³  ì‹¶ìŠµë‹ˆë‹¤. ê²½ë¡œ ì‚¬ì´í´ì´ëž€, ë¹›ì´ ì´ë™í•˜ëŠ” ìˆœí™˜ ê²½ë¡œë¥¼ ì˜ë¯¸í•©ë‹ˆë‹¤.
 	
-	°ÝÀÚÀÇ Á¤º¸¸¦ ³ªÅ¸³»´Â 1Â÷¿ø ¹®ÀÚ¿­ ¹è¿­ grid°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁý´Ï´Ù.
-	ÁÖ¾îÁø °ÝÀÚ¸¦ ÅëÇØ ¸¸µé¾îÁö´Â ºûÀÇ °æ·Î »çÀÌÅ¬ÀÇ ¸ðµç ±æÀÌµéÀ» ¹è¿­¿¡ ´ã¾Æ ¿À¸§Â÷¼øÀ¸·Î Á¤·ÄÇÏ¿© return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+	ê²©ìžì˜ ì •ë³´ë¥¼ ë‚˜íƒ€ë‚´ëŠ” 1ì°¨ì› ë¬¸ìžì—´ ë°°ì—´ gridê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤.
+	ì£¼ì–´ì§„ ê²©ìžë¥¼ í†µí•´ ë§Œë“¤ì–´ì§€ëŠ” ë¹›ì˜ ê²½ë¡œ ì‚¬ì´í´ì˜ ëª¨ë“  ê¸¸ì´ë“¤ì„ ë°°ì—´ì— ë‹´ì•„ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬í•˜ì—¬ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	1 ¡Â gridÀÇ ±æÀÌ ¡Â 500
-	1 ¡Â gridÀÇ °¢ ¹®ÀÚ¿­ÀÇ ±æÀÌ ¡Â 500
-	gridÀÇ ¸ðµç ¹®ÀÚ¿­ÀÇ ±æÀÌ´Â ¼­·Î °°½À´Ï´Ù.
-	gridÀÇ ¸ðµç ¹®ÀÚ¿­Àº 'L', 'R', 'S'·Î ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
+	ì œí•œì‚¬í•­
+	1 â‰¤ gridì˜ ê¸¸ì´ â‰¤ 500
+	1 â‰¤ gridì˜ ê° ë¬¸ìžì—´ì˜ ê¸¸ì´ â‰¤ 500
+	gridì˜ ëª¨ë“  ë¬¸ìžì—´ì˜ ê¸¸ì´ëŠ” ì„œë¡œ ê°™ìŠµë‹ˆë‹¤.
+	gridì˜ ëª¨ë“  ë¬¸ìžì—´ì€ 'L', 'R', 'S'ë¡œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
 	*/
 	
-    //¾Æ·¡, À§, ¿ÞÂÊ , ¿À¸¥ÂÊ
+    //ì•„ëž˜, ìœ„, ì™¼ìª½ , ì˜¤ë¥¸ìª½
     static int[][] D={{1,0},{-1,0},{0,-1},{0,1}};
-    //¾Æ·¡, À§, ¿ÞÂÊ , ¿À¸¥ÂÊ
+    //ì•„ëž˜, ìœ„, ì™¼ìª½ , ì˜¤ë¥¸ìª½
     static int[][] R={{0,-1},{0,1},{-1,0},{1,0}};
-    //¾Æ·¡, À§, ¿ÞÂÊ , ¿À¸¥ÂÊ           
+    //ì•„ëž˜, ìœ„, ì™¼ìª½ , ì˜¤ë¥¸ìª½           
     static int[][] L={{0,1},{0,-1},{1,0},{-1,0}};
     static Node[][] Board;
     static int Row,Col;
@@ -43,11 +43,11 @@ public class ÄÚµåÃ§¸°Áö3_ºûÀÇ°æ·Î½ÎÀÌÅ¬ {
         
         public int search(int direction,int r, int c){
             int count=0;
-            //ÇöÀç À§Ä¡
+            //í˜„ìž¬ ìœ„ì¹˜
             Node curr=Board[r][c];
             while(!curr.visited[direction]){
                 curr.visited[direction]=true;
-                //´ÙÀ½ ÁÂÇ¥°ª
+                //ë‹¤ìŒ ì¢Œí‘œê°’
                 int nr=0,nc=0;
                 if(curr.type=='R'){
                     nr=r+R[direction][0];
@@ -59,27 +59,27 @@ public class ÄÚµåÃ§¸°Áö3_ºûÀÇ°æ·Î½ÎÀÌÅ¬ {
                     nr=r+D[direction][0];
                     nc=c+D[direction][1];
                 }
-                //¹æÇâ ¼³Á¤
-                //¾Æ·¡
+                //ë°©í–¥ ì„¤ì •
+                //ì•„ëž˜
                 if(r<nr) direction=0;
-                //À§
+                //ìœ„
                 else if(r>nr) direction=1;
-                //¿ÞÂÊ
+                //ì™¼ìª½
                 else if(c>nc) direction=2;
-                //¿À¸¥ÂÊ
+                //ì˜¤ë¥¸ìª½
                 else if(c<nc) direction=3;
                 
-                //³Ñ¾î°¡¸é º¸Á¤
+                //ë„˜ì–´ê°€ë©´ ë³´ì •
                 if(nr<0) nr=Row-1;
                 else if(nr>=Row) nr=0;
                 if(nc<0) nc=Col-1;
                 else if(nc>=Col) nc=0;
                 
-                //ÇöÀç À§Ä¡ ¾÷µ¥ÀÌÆ®
+                //í˜„ìž¬ ìœ„ì¹˜ ì—…ë°ì´íŠ¸
                 r=nr;
                 c=nc;
                 curr=Board[r][c];
-                //È½¼ö Áõ°¡
+                //íšŸìˆ˜ ì¦ê°€
                 count++;
             }
             
@@ -93,14 +93,14 @@ public class ÄÚµåÃ§¸°Áö3_ºûÀÇ°æ·Î½ÎÀÌÅ¬ {
         Row = grid.length;
         Col = grid[0].length();
         Board=new Node[Row][Col];
-        //»ðÀÔ
+        //ì‚½ìž…
         for(int i=0;i<Row;i++){
             for(int j=0;j<Col;j++){
                 Board[i][j]=new Node(grid[i].charAt(j));
             }
         }
         
-        //Å½»ö
+        //íƒìƒ‰
         for(int i=0;i<Row;i++){
             for(int j=0;j<Col;j++){
                 for(int d=0;d<4;d++){
@@ -110,7 +110,7 @@ public class ÄÚµåÃ§¸°Áö3_ºûÀÇ°æ·Î½ÎÀÌÅ¬ {
                 
             }
         }
-        //Á¤·Ä
+        //ì •ë ¬
         Collections.sort(answer);
         return answer;
     }

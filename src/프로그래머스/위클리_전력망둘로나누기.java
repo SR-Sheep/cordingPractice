@@ -1,37 +1,37 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class À§Å¬¸®_Àü·Â¸ÁµÑ·Î³ª´©±â {
+public class ìœ„í´ë¦¬_ì „ë ¥ë§ë‘˜ë¡œë‚˜ëˆ„ê¸° {
 	/*
-	¹®Á¦ ¼³¸í
-	n°³ÀÇ ¼ÛÀüÅ¾ÀÌ Àü¼±À» ÅëÇØ ÇÏ³ªÀÇ Æ®¸® ÇüÅÂ·Î ¿¬°áµÇ¾î ÀÖ½À´Ï´Ù.
-	´ç½ÅÀº ÀÌ Àü¼±µé Áß ÇÏ³ª¸¦ ²÷¾î¼­ ÇöÀçÀÇ Àü·Â¸Á ³×Æ®¿öÅ©¸¦ 2°³·Î ºÐÇÒÇÏ·Á°í ÇÕ´Ï´Ù.
-	ÀÌ¶§, µÎ Àü·Â¸ÁÀÌ °®°Ô µÇ´Â ¼ÛÀüÅ¾ÀÇ °³¼ö¸¦ ÃÖ´ëÇÑ ºñ½ÁÇÏ°Ô ¸ÂÃß°íÀÚ ÇÕ´Ï´Ù.
+	ë¬¸ì œ ì„¤ëª…
+	nê°œì˜ ì†¡ì „íƒ‘ì´ ì „ì„ ì„ í†µí•´ í•˜ë‚˜ì˜ íŠ¸ë¦¬ í˜•íƒœë¡œ ì—°ê²°ë˜ì–´ ìžˆìŠµë‹ˆë‹¤.
+	ë‹¹ì‹ ì€ ì´ ì „ì„ ë“¤ ì¤‘ í•˜ë‚˜ë¥¼ ëŠì–´ì„œ í˜„ìž¬ì˜ ì „ë ¥ë§ ë„¤íŠ¸ì›Œí¬ë¥¼ 2ê°œë¡œ ë¶„í• í•˜ë ¤ê³  í•©ë‹ˆë‹¤.
+	ì´ë•Œ, ë‘ ì „ë ¥ë§ì´ ê°–ê²Œ ë˜ëŠ” ì†¡ì „íƒ‘ì˜ ê°œìˆ˜ë¥¼ ìµœëŒ€í•œ ë¹„ìŠ·í•˜ê²Œ ë§žì¶”ê³ ìž í•©ë‹ˆë‹¤.
 
-	¼ÛÀüÅ¾ÀÇ °³¼ö n, ±×¸®°í Àü¼± Á¤º¸ wires°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁý´Ï´Ù.
-	Àü¼±µé Áß ÇÏ³ª¸¦ ²÷¾î¼­ ¼ÛÀüÅ¾ °³¼ö°¡ °¡´ÉÇÑ ºñ½ÁÇÏµµ·Ï µÎ Àü·Â¸ÁÀ¸·Î ³ª´©¾úÀ» ¶§,
-	µÎ Àü·Â¸ÁÀÌ °¡Áö°í ÀÖ´Â ¼ÛÀüÅ¾ °³¼öÀÇ Â÷ÀÌ(Àý´ë°ª)¸¦ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+	ì†¡ì „íƒ‘ì˜ ê°œìˆ˜ n, ê·¸ë¦¬ê³  ì „ì„  ì •ë³´ wiresê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤.
+	ì „ì„ ë“¤ ì¤‘ í•˜ë‚˜ë¥¼ ëŠì–´ì„œ ì†¡ì „íƒ‘ ê°œìˆ˜ê°€ ê°€ëŠ¥í•œ ë¹„ìŠ·í•˜ë„ë¡ ë‘ ì „ë ¥ë§ìœ¼ë¡œ ë‚˜ëˆ„ì—ˆì„ ë•Œ,
+	ë‘ ì „ë ¥ë§ì´ ê°€ì§€ê³  ìžˆëŠ” ì†¡ì „íƒ‘ ê°œìˆ˜ì˜ ì°¨ì´(ì ˆëŒ€ê°’)ë¥¼ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	nÀº 2 ÀÌ»ó 100 ÀÌÇÏÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	wires´Â ±æÀÌ°¡ n-1ÀÎ Á¤¼öÇü 2Â÷¿ø ¹è¿­ÀÔ´Ï´Ù.
-	wiresÀÇ °¢ ¿ø¼Ò´Â [v1, v2] 2°³ÀÇ ÀÚ¿¬¼ö·Î ÀÌ·ç¾îÁ® ÀÖÀ¸¸ç,
-	ÀÌ´Â Àü·Â¸ÁÀÇ v1¹ø ¼ÛÀüÅ¾°ú v2¹ø ¼ÛÀüÅ¾ÀÌ Àü¼±À¸·Î ¿¬°áµÇ¾î ÀÖ´Ù´Â °ÍÀ» ÀÇ¹ÌÇÕ´Ï´Ù.
-	1 ¡Â v1 < v2 ¡Â n ÀÔ´Ï´Ù.
-	Àü·Â¸Á ³×Æ®¿öÅ©°¡ ÇÏ³ªÀÇ Æ®¸® ÇüÅÂ°¡ ¾Æ´Ñ °æ¿ì´Â ÀÔ·ÂÀ¸·Î ÁÖ¾îÁöÁö ¾Ê½À´Ï´Ù.
+	ì œí•œì‚¬í•­
+	nì€ 2 ì´ìƒ 100 ì´í•˜ì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+	wiresëŠ” ê¸¸ì´ê°€ n-1ì¸ ì •ìˆ˜í˜• 2ì°¨ì› ë°°ì—´ìž…ë‹ˆë‹¤.
+	wiresì˜ ê° ì›ì†ŒëŠ” [v1, v2] 2ê°œì˜ ìžì—°ìˆ˜ë¡œ ì´ë£¨ì–´ì ¸ ìžˆìœ¼ë©°,
+	ì´ëŠ” ì „ë ¥ë§ì˜ v1ë²ˆ ì†¡ì „íƒ‘ê³¼ v2ë²ˆ ì†¡ì „íƒ‘ì´ ì „ì„ ìœ¼ë¡œ ì—°ê²°ë˜ì–´ ìžˆë‹¤ëŠ” ê²ƒì„ ì˜ë¯¸í•©ë‹ˆë‹¤.
+	1 â‰¤ v1 < v2 â‰¤ n ìž…ë‹ˆë‹¤.
+	ì „ë ¥ë§ ë„¤íŠ¸ì›Œí¬ê°€ í•˜ë‚˜ì˜ íŠ¸ë¦¬ í˜•íƒœê°€ ì•„ë‹Œ ê²½ìš°ëŠ” ìž…ë ¥ìœ¼ë¡œ ì£¼ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.
 	*/
 	
 	
-	//ºÎ¸ð°¡Á®¿À±â
+	//ë¶€ëª¨ê°€ì ¸ì˜¤ê¸°
 	public static int getParent(int x,int[] link) {
 		if(link[x]==x) return x;
 		return link[x]= getParent(link[x],link);
 	}
 	
-	//ºÎ¸ð º´ÇÕ
+	//ë¶€ëª¨ ë³‘í•©
 	public static void setParent(int a,int b,int[] link) {
 		a=getParent(a,link);
 		b=getParent(b,link);
@@ -42,73 +42,73 @@ public class À§Å¬¸®_Àü·Â¸ÁµÑ·Î³ª´©±â {
 	public static int countNode(int[] l,List<int[]> list) {
 		int answer=0;
 		int[] link=Arrays.copyOf(l, l.length);
-		int nodes=link.length-1; //0 Á¦¿Ü
+		int nodes=link.length-1; //0 ì œì™¸
 		
-		//listÀÇ ÇüÁ¦¿ä¼Ò ºÎ¸ð ¼¼ÆÃ
+		//listì˜ í˜•ì œìš”ì†Œ ë¶€ëª¨ ì„¸íŒ…
 		for(int[] w:list) setParent(w[0], w[1], link);
 		
-		//ºÎ¸ð°¡ ¸Ç Ã³À½¿ä¼Ò¿Í °°À¸¸é ´ä Áõ°¡
+		//ë¶€ëª¨ê°€ ë§¨ ì²˜ìŒìš”ì†Œì™€ ê°™ìœ¼ë©´ ë‹µ ì¦ê°€
 		for(int i=1;i<link.length;i++) {
 			if(1==getParent(i,link)) answer++;
 		}
-		// ºÎ¸ð1ÀÇ ¼ö - ºÎ¸ð2ÀÇ ¼ö
-		// ºÎ¸ð2ÀÇ ¼ö = (ÀüÃ¼ ¿ä¼Ò ¼ö - ºÎ¸ð 1ÀÇ ¼ö);
-		// ´ä: abs(2*ºÎ¸ð1ÀÇ ¼ö - ÀüÃ¼ ¿ä¼Ò ¼ö)
+		// ë¶€ëª¨1ì˜ ìˆ˜ - ë¶€ëª¨2ì˜ ìˆ˜
+		// ë¶€ëª¨2ì˜ ìˆ˜ = (ì „ì²´ ìš”ì†Œ ìˆ˜ - ë¶€ëª¨ 1ì˜ ìˆ˜);
+		// ë‹µ: abs(2*ë¶€ëª¨1ì˜ ìˆ˜ - ì „ì²´ ìš”ì†Œ ìˆ˜)
 		answer=2*answer-nodes;
-		//À½¼öÀÏ½Ã ¾ç¼ö·Î º¯È¯
+		//ìŒìˆ˜ì¼ì‹œ ì–‘ìˆ˜ë¡œ ë³€í™˜
 		return answer<0?answer*-1:answer;
 	}
 	
     public static int solution(int n, int[][] wires) {
     	final int INF = 987654321;
     	int answer = INF;
-    	//1~n link ¼±¾ð(0 »ç¿ë ¾ÈÇÔ)
+    	//1~n link ì„ ì–¸(0 ì‚¬ìš© ì•ˆí•¨)
     	int[] link=new int[n+1];
-    	//linkÀÇ nodeµé root ÃÊ±âÈ­(ÀÚ±â¹øÈ£)
+    	//linkì˜ nodeë“¤ root ì´ˆê¸°í™”(ìžê¸°ë²ˆí˜¸)
     	for(int i=1;i<n+1;i++) link[i]=i;
         
-    	//ÇÑ°³¾¿ list¿¡ »©¼­ ´ã±â
+    	//í•œê°œì”© listì— ë¹¼ì„œ ë‹´ê¸°
     	for(int i=0;i<n-1;i++) {
     		List<int[]> list = new ArrayList<int[]>();
         	for(int j=0;j<n-1;j++) {
         		if(i==j) continue;
         		list.add(wires[j]);
         	}
-        	//°è»ê°á°ú¿Í ´äÀ» ºñ±³ÇÏ¿© ÃÖ¼Ò°ªÀ» ´äÀ¸·Î ÃëÇÔ
+        	//ê³„ì‚°ê²°ê³¼ì™€ ë‹µì„ ë¹„êµí•˜ì—¬ ìµœì†Œê°’ì„ ë‹µìœ¼ë¡œ ì·¨í•¨
         	answer=Math.min(answer, countNode(link, list));
         }
         return answer;
     }
     
-    //=======================´Ù¸¥»ç¶÷ÀÇ Ç®ÀÌ=======================//
+    //=======================ë‹¤ë¥¸ì‚¬ëžŒì˜ í’€ì´=======================//
     
-    //¸»´Ü¿¡¼­ºÎÅÍ ÀÚ½Ä ³ëµå ÇÕÄ£ °¹¼ö¸¦ ÀÌ¿ëÇÏ¿© Ç®ÀÌ
+    //ë§ë‹¨ì—ì„œë¶€í„° ìžì‹ ë…¸ë“œ í•©ì¹œ ê°¯ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ í’€ì´
     
     static int N;
 	static int min;
 	static int[][] map;
 	static int[] vst;
 	static int dfs(int n){
-		//ÀÚ½Ä¼ö ¼³Á¤, ÀÚ±â ÀÚ½Å Æ÷ÇÔ
+		//ìžì‹ìˆ˜ ì„¤ì •, ìžê¸° ìžì‹  í¬í•¨
         int child = 1;
         for(int i = 1; i <= N; i++) {
-        	//¹æ¹®ÇÏÁö ¾Ê°í, n°ú i°¡ ¿¬°áµÇ¾î ÀÖ´Ù¸é
+        	//ë°©ë¬¸í•˜ì§€ ì•Šê³ , nê³¼ iê°€ ì—°ê²°ë˜ì–´ ìžˆë‹¤ë©´
             if(vst[i] == 0 && map[n][i] == 1) {
-            	//i ¹æ¹® ¿©ºÎ Ç¥½Ã
+            	//i ë°©ë¬¸ ì—¬ë¶€ í‘œì‹œ
                 vst[i] = 1;
-                child += dfs(i); //ÀÚ½Ä°ú ¿¬°áµÈ ÀÚ½Ä ¼ö¸¦ ´õÇÔ
+                child += dfs(i); //ìžì‹ê³¼ ì—°ê²°ëœ ìžì‹ ìˆ˜ë¥¼ ë”í•¨
             }
         }
         System.out.println("n : "+n+" // child : "+child);
         
-        //min°ú Â÷ÀÌ Áß ÀÛÀº °ÍÀ» minÀ¸·Î ÃëÇÔ
+        //minê³¼ ì°¨ì´ ì¤‘ ìž‘ì€ ê²ƒì„ minìœ¼ë¡œ ì·¨í•¨
         min = Math.min(min, Math.abs(child - (N - child)));
         return child;
     }
     public static int solution2(int n, int[][] wires) {
         N = n;
         min = n;
-        map = new int[n+1][n+1]; //ÀÎµ¦½º ±×´ë·Î »ç¿ë ±×·¡ÇÁ
+        map = new int[n+1][n+1]; //ì¸ë±ìŠ¤ ê·¸ëŒ€ë¡œ ì‚¬ìš© ê·¸ëž˜í”„
         vst = new int[n+1];
         for(int[] wire : wires) {
             int a = wire[0], b = wire[1];
@@ -117,7 +117,7 @@ public class À§Å¬¸®_Àü·Â¸ÁµÑ·Î³ª´©±â {
         dfs(1);
         return min;
     }
-    //===================== ´Ù¸¥»ç¶÷ÀÇ Ç®ÀÌ ³¡=====================//
+    //===================== ë‹¤ë¥¸ì‚¬ëžŒì˜ í’€ì´ ë=====================//
     
 	
 	public static void main(String[] args) {

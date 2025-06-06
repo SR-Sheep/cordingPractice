@@ -1,22 +1,22 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-public class ½æ¸ÓÀ©ÅÍ_¹è´Ş {
+public class ì¸ë¨¸ìœˆí„°_ë°°ë‹¬ {
 	//https://programmers.co.kr/learn/courses/30/lessons/12978
 	 public static int solution(int N, int[][] road, int K) {
         int answer = 0;
         final int INF = 500001;
         int[][] graph = new int[N+1][N+1];
-        //ÃÊ±âÈ­
+        //ì´ˆê¸°í™”
         for(int i=1;i<N+1;i++) {
         	for(int j=1;j<N+1;j++) {
         		if(i==j) graph[i][j]=0; 
         		else graph[i][j]=INF;	
         	}
         }
-        //Ã¤¿ì±â
+        //ì±„ìš°ê¸°
         for(int[] r:road){
             int a=r[0];
             int b=r[1];
@@ -24,22 +24,22 @@ public class ½æ¸ÓÀ©ÅÍ_¹è´Ş {
             graph[a][b]=graph[b][a]=Math.min(graph[a][b],cost);
         }
         
-        //´ÙÀÍ½ºÆ®¶ó
+        //ë‹¤ìµìŠ¤íŠ¸ë¼
         PriorityQueue<int[]> pq = new PriorityQueue<int[]>((x,y)->(x[0]-y[0]));
         boolean[] visited = new boolean[N+1];
         int[] dist = new int[N+1];
         Arrays.fill(dist, INF);
         dist[1]=0;
-        pq.add(new int[] {0,1}); //ºñ¿ë, ½ÃÀÛÁ¡
+        pq.add(new int[] {0,1}); //ë¹„ìš©, ì‹œì‘ì 
         while(!pq.isEmpty()){
         	int[] curr=pq.poll();
-        	int cost = curr[0]; //ºñ¿ë
-        	int u = curr[1]; //À§Ä¡
+        	int cost = curr[0]; //ë¹„ìš©
+        	int u = curr[1]; //ìœ„ì¹˜
         	if(visited[u]) continue;
         	visited[u]=true;
-        	//¸ğµç Á¡¿¡ ´ëÇÑ Å½»ö
+        	//ëª¨ë“  ì ì— ëŒ€í•œ íƒìƒ‰
         	for(int v=1;v<N+1;v++) {
-        		//1->v > 1->u + u->v ÀÏ °æ¿ì º¯°æ, pq¿¡ ³Ö±â
+        		//1->v > 1->u + u->v ì¼ ê²½ìš° ë³€ê²½, pqì— ë„£ê¸°
         		if(dist[v]>dist[u]+graph[u][v]) {
         			dist[v]=dist[u]+graph[u][v];
         			pq.add(new int[] {dist[v],v});

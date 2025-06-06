@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.HashMap;
 
-public class Ä«Ä«¿À_1Â÷´º½ºÅ¬·¯½ºÅÍ¸µ {
+public class ì¹´ì¹´ì˜¤_1ì°¨ë‰´ìŠ¤í´ëŸ¬ìŠ¤í„°ë§ {
     public static int solution(String str1, String str2) {
         str1=str1.toLowerCase();
         str2=str2.toLowerCase();
@@ -23,14 +23,14 @@ public class Ä«Ä«¿À_1Â÷´º½ºÅ¬·¯½ºÅÍ¸µ {
         union.putAll(map1);
         
         for(String key:map2.keySet()) {
-        	//map1°ú map2¿¡ Á¸ÀçÇÏ¸é
+        	//map1ê³¼ map2ì— ì¡´ì¬í•˜ë©´
         	if(map1.containsKey(key)) {
-        		//±³ÁıÇÕ(ÀÛÀº ¼ö¸¦ ÃëÇÔ)
+        		//êµì§‘í•©(ì‘ì€ ìˆ˜ë¥¼ ì·¨í•¨)
         		intersection.put(key, Math.min(map1.get(key), map2.get(key)));
-        		//ÇÕÁıÇÕ(Å« ¼ö¸¦ ÃëÇÔ)
+        		//í•©ì§‘í•©(í° ìˆ˜ë¥¼ ì·¨í•¨)
         		union.put(key, Math.max(map1.get(key), map2.get(key)));
         	}else {
-    		//map1¿¡ ¾øÀ¸¸é ÇÕÁıÇÕ¿¡ Ãß°¡
+    		//map1ì— ì—†ìœ¼ë©´ í•©ì§‘í•©ì— ì¶”ê°€
         		union.put(key, map2.get(key));
         	}
         }

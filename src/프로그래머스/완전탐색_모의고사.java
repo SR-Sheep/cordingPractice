@@ -1,9 +1,9 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ¿ÏÀüÅ½»ö_¸ğÀÇ°í»ç {
+public class ì™„ì „íƒìƒ‰_ëª¨ì˜ê³ ì‚¬ {
 	private static class Student{
 		private int[] patten;
 		private int score;

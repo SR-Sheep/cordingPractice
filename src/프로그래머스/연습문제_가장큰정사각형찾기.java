@@ -1,28 +1,28 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_°¡ÀåÅ«Á¤»ç°¢ÇüÃ£±â {
+public class ì—°ìŠµë¬¸ì œ_ê°€ìž¥í°ì •ì‚¬ê°í˜•ì°¾ê¸° {
 	/*
-	¹®Á¦ ¼³¸í
-	1¿Í 0·Î Ã¤¿öÁø Ç¥(board)°¡ ÀÖ½À´Ï´Ù. Ç¥ 1Ä­Àº 1 x 1 ÀÇ Á¤»ç°¢ÇüÀ¸·Î ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
-	Ç¥¿¡¼­ 1·Î ÀÌ·ç¾îÁø °¡Àå Å« Á¤»ç°¢ÇüÀ» Ã£¾Æ ³ÐÀÌ¸¦ return ÇÏ´Â solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØ ÁÖ¼¼¿ä.
-	(´Ü, Á¤»ç°¢ÇüÀÌ¶õ Ãà¿¡ ÆòÇàÇÑ Á¤»ç°¢ÇüÀ» ¸»ÇÕ´Ï´Ù.)
+	ë¬¸ì œ ì„¤ëª…
+	1ì™€ 0ë¡œ ì±„ì›Œì§„ í‘œ(board)ê°€ ìžˆìŠµë‹ˆë‹¤. í‘œ 1ì¹¸ì€ 1 x 1 ì˜ ì •ì‚¬ê°í˜•ìœ¼ë¡œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
+	í‘œì—ì„œ 1ë¡œ ì´ë£¨ì–´ì§„ ê°€ìž¥ í° ì •ì‚¬ê°í˜•ì„ ì°¾ì•„ ë„“ì´ë¥¼ return í•˜ëŠ” solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ ì£¼ì„¸ìš”.
+	(ë‹¨, ì •ì‚¬ê°í˜•ì´ëž€ ì¶•ì— í‰í–‰í•œ ì •ì‚¬ê°í˜•ì„ ë§í•©ë‹ˆë‹¤.)
 	
-	Á¦ÇÑ»çÇ×
-	Ç¥(board)´Â 2Â÷¿ø ¹è¿­·Î ÁÖ¾îÁý´Ï´Ù.
-	Ç¥(board)ÀÇ Çà(row)ÀÇ Å©±â : 1,000 ÀÌÇÏÀÇ ÀÚ¿¬¼ö
-	Ç¥(board)ÀÇ ¿­(column)ÀÇ Å©±â : 1,000 ÀÌÇÏÀÇ ÀÚ¿¬¼ö
-	Ç¥(board)ÀÇ °ªÀº 1¶Ç´Â 0À¸·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
+	ì œí•œì‚¬í•­
+	í‘œ(board)ëŠ” 2ì°¨ì› ë°°ì—´ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤.
+	í‘œ(board)ì˜ í–‰(row)ì˜ í¬ê¸° : 1,000 ì´í•˜ì˜ ìžì—°ìˆ˜
+	í‘œ(board)ì˜ ì—´(column)ì˜ í¬ê¸° : 1,000 ì´í•˜ì˜ ìžì—°ìˆ˜
+	í‘œ(board)ì˜ ê°’ì€ 1ë˜ëŠ” 0ìœ¼ë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
 	*/
 	
     public static int solution(int [][]board) {
     	int answer=0;
     	for(int i=1;i<board.length;i++) {
-    		//ÁÂÃø, »ó´Ü, ´ë°¢¼±°ú ºñ±³ÇÏ¿© °¡Àå ÀÛÀº ¼ö+1(ÀÚ±â ÀÚ½Å)À» º¸µåÀÇ ¼ýÀÚ·Î º¯°æ
+    		//ì¢Œì¸¡, ìƒë‹¨, ëŒ€ê°ì„ ê³¼ ë¹„êµí•˜ì—¬ ê°€ìž¥ ìž‘ì€ ìˆ˜+1(ìžê¸° ìžì‹ )ì„ ë³´ë“œì˜ ìˆ«ìžë¡œ ë³€ê²½
         	for(int j=1;j<board[0].length;j++) {
         		if(board[i][j]!=0) {
         			board[i][j]=Math.min(board[i-1][j-1], Math.min(board[i-1][j], board[i][j-1]))+1;
         		}
-        		//º¸µåÀÇ ÃÖ´ë°ªÀ» ´äÀ¸·Î ÃëÇÔ
+        		//ë³´ë“œì˜ ìµœëŒ€ê°’ì„ ë‹µìœ¼ë¡œ ì·¨í•¨
         		answer=Math.max(answer, board[i][j]);
         	}
     	}

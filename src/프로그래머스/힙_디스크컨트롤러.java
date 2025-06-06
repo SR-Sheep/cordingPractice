@@ -1,58 +1,58 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Èü_µð½ºÅ©ÄÁÆ®·Ñ·¯ {
+public class íž™_ë””ìŠ¤í¬ì»¨íŠ¸ë¡¤ëŸ¬ {
 	/*
-	°¢ ÀÛ¾÷¿¡ ´ëÇØ [ÀÛ¾÷ÀÌ ¿äÃ»µÇ´Â ½ÃÁ¡, ÀÛ¾÷ÀÇ ¼Ò¿ä½Ã°£]À» ´ãÀº 2Â÷¿ø ¹è¿­ jobs°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§,
-	ÀÛ¾÷ÀÇ ¿äÃ»ºÎÅÍ Á¾·á±îÁö °É¸° ½Ã°£ÀÇ Æò±ÕÀ» °¡Àå ÁÙÀÌ´Â ¹æ¹ýÀ¸·Î Ã³¸®ÇÏ¸é
-	Æò±ÕÀÌ ¾ó¸¶°¡ µÇ´ÂÁö return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
-	(´Ü, ¼Ò¼öÁ¡ ÀÌÇÏÀÇ ¼ö´Â ¹ö¸³´Ï´Ù)
+	ê° ìž‘ì—…ì— ëŒ€í•´ [ìž‘ì—…ì´ ìš”ì²­ë˜ëŠ” ì‹œì , ìž‘ì—…ì˜ ì†Œìš”ì‹œê°„]ì„ ë‹´ì€ 2ì°¨ì› ë°°ì—´ jobsê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ,
+	ìž‘ì—…ì˜ ìš”ì²­ë¶€í„° ì¢…ë£Œê¹Œì§€ ê±¸ë¦° ì‹œê°„ì˜ í‰ê· ì„ ê°€ìž¥ ì¤„ì´ëŠ” ë°©ë²•ìœ¼ë¡œ ì²˜ë¦¬í•˜ë©´
+	í‰ê· ì´ ì–¼ë§ˆê°€ ë˜ëŠ”ì§€ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
+	(ë‹¨, ì†Œìˆ˜ì  ì´í•˜ì˜ ìˆ˜ëŠ” ë²„ë¦½ë‹ˆë‹¤)
 
-	*Á¦ÇÑ »çÇ×
-	jobsÀÇ ±æÀÌ´Â 1 ÀÌ»ó 500 ÀÌÇÏÀÔ´Ï´Ù.
-	jobsÀÇ °¢ ÇàÀº ÇÏ³ªÀÇ ÀÛ¾÷¿¡ ´ëÇÑ [ÀÛ¾÷ÀÌ ¿äÃ»µÇ´Â ½ÃÁ¡, ÀÛ¾÷ÀÇ ¼Ò¿ä½Ã°£] ÀÔ´Ï´Ù.
-	°¢ ÀÛ¾÷¿¡ ´ëÇØ ÀÛ¾÷ÀÌ ¿äÃ»µÇ´Â ½Ã°£Àº 0 ÀÌ»ó 1,000 ÀÌÇÏÀÔ´Ï´Ù.
-	°¢ ÀÛ¾÷¿¡ ´ëÇØ ÀÛ¾÷ÀÇ ¼Ò¿ä½Ã°£Àº 1 ÀÌ»ó 1,000 ÀÌÇÏÀÔ´Ï´Ù.
-	ÇÏµåµð½ºÅ©°¡ ÀÛ¾÷À» ¼öÇàÇÏ°í ÀÖÁö ¾ÊÀ» ¶§¿¡´Â ¸ÕÀú ¿äÃ»ÀÌ µé¾î¿Â ÀÛ¾÷ºÎÅÍ Ã³¸®ÇÕ´Ï´Ù.
+	*ì œí•œ ì‚¬í•­
+	jobsì˜ ê¸¸ì´ëŠ” 1 ì´ìƒ 500 ì´í•˜ìž…ë‹ˆë‹¤.
+	jobsì˜ ê° í–‰ì€ í•˜ë‚˜ì˜ ìž‘ì—…ì— ëŒ€í•œ [ìž‘ì—…ì´ ìš”ì²­ë˜ëŠ” ì‹œì , ìž‘ì—…ì˜ ì†Œìš”ì‹œê°„] ìž…ë‹ˆë‹¤.
+	ê° ìž‘ì—…ì— ëŒ€í•´ ìž‘ì—…ì´ ìš”ì²­ë˜ëŠ” ì‹œê°„ì€ 0 ì´ìƒ 1,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	ê° ìž‘ì—…ì— ëŒ€í•´ ìž‘ì—…ì˜ ì†Œìš”ì‹œê°„ì€ 1 ì´ìƒ 1,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	í•˜ë“œë””ìŠ¤í¬ê°€ ìž‘ì—…ì„ ìˆ˜í–‰í•˜ê³  ìžˆì§€ ì•Šì„ ë•Œì—ëŠ” ë¨¼ì € ìš”ì²­ì´ ë“¤ì–´ì˜¨ ìž‘ì—…ë¶€í„° ì²˜ë¦¬í•©ë‹ˆë‹¤.
 	 */
 	
 	/*
-	 * Àü·«
+	 * ì „ëžµ
 	 * 
-	 * ÀÛ¾÷ ¼öÇàÁßÀÌ¸é ¼öÇà ½Ã°£ÀÌ ÂªÀº °É ¸ÕÀú ¼öÇà
-	 * ÀÛ¾÷ ¼öÇàÀÌ ¾Æ´Ï¶ó¸é ¼ø¼­´ë·Î ¼öÇà
+	 * ìž‘ì—… ìˆ˜í–‰ì¤‘ì´ë©´ ìˆ˜í–‰ ì‹œê°„ì´ ì§§ì€ ê±¸ ë¨¼ì € ìˆ˜í–‰
+	 * ìž‘ì—… ìˆ˜í–‰ì´ ì•„ë‹ˆë¼ë©´ ìˆœì„œëŒ€ë¡œ ìˆ˜í–‰
 	 */
     public static int solution(int[][] jobs) {
-    	//½ÃÀÛ ½Ã°£ ºü¸¥ ¼ø Á¤·Ä
+    	//ì‹œìž‘ ì‹œê°„ ë¹ ë¥¸ ìˆœ ì •ë ¬
     	Arrays.sort(jobs,(x,y)->(x[0]-y[0]));
-    	//½ÇÇà½Ã°£ ÀûÀº ¼ø Á¤·Ä
+    	//ì‹¤í–‰ì‹œê°„ ì ì€ ìˆœ ì •ë ¬
     	PriorityQueue<int[]> pq = new PriorityQueue<int[]>((x,y)->(x[1]-y[1]));
-    	//½Ã°£, ÀÎµ¦½º, ´ä ÃÊ±âÈ­
+    	//ì‹œê°„, ì¸ë±ìŠ¤, ë‹µ ì´ˆê¸°í™”
     	int time =0, idx=0, answer=0;
-    	//ÀÎµ¦½º°¡ ¹üÀ§³»¿¡ ÀÖ°Å³ª, pq°¡ ºñ¾îÀÖÁö ¾Ê´Ù¸é whileÁøÇà
+    	//ì¸ë±ìŠ¤ê°€ ë²”ìœ„ë‚´ì— ìžˆê±°ë‚˜, pqê°€ ë¹„ì–´ìžˆì§€ ì•Šë‹¤ë©´ whileì§„í–‰
     	while(idx<jobs.length||!pq.isEmpty()) {
-    		//ÀÎµ¦½º°¡ ¹üÀ§³»¿¡ ÀÖ°í, ½ÃÀÛ½Ã°£ÀÌ ½Ã°£ ÀÌ³»¶ó¸é pq¿¡ Áý¾î³Ö±â
+    		//ì¸ë±ìŠ¤ê°€ ë²”ìœ„ë‚´ì— ìžˆê³ , ì‹œìž‘ì‹œê°„ì´ ì‹œê°„ ì´ë‚´ë¼ë©´ pqì— ì§‘ì–´ë„£ê¸°
     		while(idx<jobs.length&&jobs[idx][0]<=time) {
     			pq.add(jobs[idx++]);
     		}
     		
-    		//pq°¡ ºñ¾îÀÖ´Ù¸é (½Ã°£ ÀÌ³»¿¡ ½ÃÀÛÇÏ´Â task°¡ ¾ø´Ù¸é)
+    		//pqê°€ ë¹„ì–´ìžˆë‹¤ë©´ (ì‹œê°„ ì´ë‚´ì— ì‹œìž‘í•˜ëŠ” taskê°€ ì—†ë‹¤ë©´)
     		if(pq.isEmpty()) {
-    			//ÇØ´ç ½ÃÀÛ ½Ã°£À» timeÀ¸·Î ÁöÁ¤
+    			//í•´ë‹¹ ì‹œìž‘ ì‹œê°„ì„ timeìœ¼ë¡œ ì§€ì •
     			time=jobs[idx][0];
     			continue;
     		}
-    		//pq°¡ ºñ¾îÀÖÁö ¾Ê´Ù¸é
-    		//½Ã°£¿¡ pq¿¡ µé¾î°£ ÀÛÀº ¼öÇà½Ã°£À» ´õÇÔ
+    		//pqê°€ ë¹„ì–´ìžˆì§€ ì•Šë‹¤ë©´
+    		//ì‹œê°„ì— pqì— ë“¤ì–´ê°„ ìž‘ì€ ìˆ˜í–‰ì‹œê°„ì„ ë”í•¨
     		int[] job = pq.poll();
     		time+=job[1];
-    		//Á¾·á ½Ã°£ - ½ÃÀÛ½Ã°£
+    		//ì¢…ë£Œ ì‹œê°„ - ì‹œìž‘ì‹œê°„
     		answer += time-job[0];
     	}
-    	//Æò±Õ½Ã°£ÀÌ¹Ç·Î jobsÀÇ ±æÀÌ·Î ³ª´²ÁÜ
+    	//í‰ê· ì‹œê°„ì´ë¯€ë¡œ jobsì˜ ê¸¸ì´ë¡œ ë‚˜ëˆ ì¤Œ
     	return answer/jobs.length;
     }	
 	

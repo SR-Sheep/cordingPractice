@@ -1,9 +1,9 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_¹®ÀÚ¿­´Ù·ç±â±âº» {
+public class ì—°ìŠµë¬¸ì œ_ë¬¸ìì—´ë‹¤ë£¨ê¸°ê¸°ë³¸ {
 	
 	//https://programmers.co.kr/learn/courses/30/lessons/12918
-	//±æÀÌ°¡ 4 ¶Ç´Â 6ÀÌ¸ç ¼ıÀÚ·Î¸¸ ±¸¼ºµÇ¾îÀÖ´ÂÁö ÆÇº°
+	//ê¸¸ì´ê°€ 4 ë˜ëŠ” 6ì´ë©° ìˆ«ìë¡œë§Œ êµ¬ì„±ë˜ì–´ìˆëŠ”ì§€ íŒë³„
 	public static boolean solution(String s) {
         if(s.length()!=4&&s.length()!=6) return false;
         return s.matches("^[0-9]*$");

@@ -1,6 +1,6 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_°Å½º¸§µ· {
+public class ì—°ìŠµë¬¸ì œ_ê±°ìŠ¤ë¦„ëˆ {
 	//https://programmers.co.kr/learn/courses/30/lessons/12907
 	
     public static int solution(int n, int[] money) {

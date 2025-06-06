@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.*;
 
-public class Å½¿å¹ı_Ã¼À°º¹ {
+public class íƒìš•ë²•_ì²´ìœ¡ë³µ {
 	static class Ex{
 		private int n;
 		private int[] lost, reserve;
@@ -42,36 +42,36 @@ public class Å½¿å¹ı_Ã¼À°º¹ {
 	
     public static int solution(int n, int[] lost, int[] reserve) {
         int answer = n-lost.length;
-        //¿©¹úÀÌ ÀÖ´Â ÇĞ»ıÀ» ÀúÀåÇÒ ¹è¿­, ÃÖ´ë ÇĞ»ı¼ö 30¸í
+        //ì—¬ë²Œì´ ìˆëŠ” í•™ìƒì„ ì €ì¥í•  ë°°ì—´, ìµœëŒ€ í•™ìƒìˆ˜ 30ëª…
         boolean[] student =new boolean[30];
-        Arrays.sort(lost);//ÇĞ»ı ¹øÈ£ Á¤·Ä
-        //¿©¹úÀÌ ÀÖÀ¸¸é true
+        Arrays.sort(lost);//í•™ìƒ ë²ˆí˜¸ ì •ë ¬
+        //ì—¬ë²Œì´ ìˆìœ¼ë©´ true
         for(int r:reserve) {
         	int idx=r-1;
         	student[idx]=true;
         }
-        //ÀÒ¾î¹ö¸° ÇĞ»ıÀ» ´ãÀ» list
+        //ìƒì–´ë²„ë¦° í•™ìƒì„ ë‹´ì„ list
         List<Integer> list = new ArrayList<Integer>();
         
         for(int l:lost) {
         	int idx=l-1;
-        	//ÀÒ¾î¹ö·ÈÀ¸³ª ¿©¹úÀÌ ÀÖÀ¸¸é
-        	//ÀÚ½ÅÀÌ ÀÔ°í ´ä Áõ°¡
+        	//ìƒì–´ë²„ë ¸ìœ¼ë‚˜ ì—¬ë²Œì´ ìˆìœ¼ë©´
+        	//ìì‹ ì´ ì…ê³  ë‹µ ì¦ê°€
         	if(student[idx]) {
         		answer++;
         		student[idx]=false;
         	}else {
-        		//¿©¹ú ¾øÀ» ½Ã ¸®½ºÆ®¿¡ Ãß°¡
+        		//ì—¬ë²Œ ì—†ì„ ì‹œ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
         		list.add(idx);
         	}
         }
         
         for(int idx:list) {
-        	//³» ¾Õ¹øÈ£ Ã¼À°º¹ ÀÖÀ¸¸é ÇØ´ç ¿©¹úÀ» º»ÀÎÀÌ ÀÔÀ½
+        	//ë‚´ ì•ë²ˆí˜¸ ì²´ìœ¡ë³µ ìˆìœ¼ë©´ í•´ë‹¹ ì—¬ë²Œì„ ë³¸ì¸ì´ ì…ìŒ
         	if(idx-1>=0&&student[idx-1]) {
         		student[idx-1]=false;
         		answer++;
-    		//¾Õ»ç¶÷ ¾øÀ¸¸é ³» µŞ¹øÈ£°¡ Ã¼À°º¹ÀÌ ÀÖÀ¸¸é ÇØ´ç ¿©¹úÀ» º»ÀÎÀÌ ÀÔÀ½
+    		//ì•ì‚¬ëŒ ì—†ìœ¼ë©´ ë‚´ ë’·ë²ˆí˜¸ê°€ ì²´ìœ¡ë³µì´ ìˆìœ¼ë©´ í•´ë‹¹ ì—¬ë²Œì„ ë³¸ì¸ì´ ì…ìŒ
         	}else if(idx+1<30&&student[idx+1]) {
         		student[idx+1]=false;
         		answer++;

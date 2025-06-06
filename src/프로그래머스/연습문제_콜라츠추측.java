@@ -1,15 +1,15 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_ÄÝ¶óÃ÷ÃßÃø {
+public class ì—°ìŠµë¬¸ì œ_ì½œë¼ì¸ ì¶”ì¸¡ {
 	/*
 	https://programmers.co.kr/learn/courses/30/lessons/12943
 	
-	¹®Á¦ ¼³¸í
-	1937³â Collatz¶õ »ç¶÷¿¡ ÀÇÇØ Á¦±âµÈ ÀÌ ÃßÃøÀº, ÁÖ¾îÁø ¼ö°¡ 1ÀÌ µÉ¶§±îÁö ´ÙÀ½ ÀÛ¾÷À» ¹Ýº¹ÇÏ¸é, ¸ðµç ¼ö¸¦ 1·Î ¸¸µé ¼ö ÀÖ´Ù´Â ÃßÃøÀÔ´Ï´Ù. ÀÛ¾÷Àº ´ÙÀ½°ú °°½À´Ï´Ù.
+	ë¬¸ì œ ì„¤ëª…
+	1937ë…„ Collatzëž€ ì‚¬ëžŒì— ì˜í•´ ì œê¸°ëœ ì´ ì¶”ì¸¡ì€, ì£¼ì–´ì§„ ìˆ˜ê°€ 1ì´ ë ë•Œê¹Œì§€ ë‹¤ìŒ ìž‘ì—…ì„ ë°˜ë³µí•˜ë©´, ëª¨ë“  ìˆ˜ë¥¼ 1ë¡œ ë§Œë“¤ ìˆ˜ ìžˆë‹¤ëŠ” ì¶”ì¸¡ìž…ë‹ˆë‹¤. ìž‘ì—…ì€ ë‹¤ìŒê³¼ ê°™ìŠµë‹ˆë‹¤.
 
-	1-1. ÀÔ·ÂµÈ ¼ö°¡ Â¦¼ö¶ó¸é 2·Î ³ª´¯´Ï´Ù. 
-	1-2. ÀÔ·ÂµÈ ¼ö°¡ È¦¼ö¶ó¸é 3À» °öÇÏ°í 1À» ´õÇÕ´Ï´Ù.
-	2. °á°ú·Î ³ª¿Â ¼ö¿¡ °°Àº ÀÛ¾÷À» 1ÀÌ µÉ ¶§±îÁö ¹Ýº¹ÇÕ´Ï´Ù.
+	1-1. ìž…ë ¥ëœ ìˆ˜ê°€ ì§ìˆ˜ë¼ë©´ 2ë¡œ ë‚˜ëˆ•ë‹ˆë‹¤. 
+	1-2. ìž…ë ¥ëœ ìˆ˜ê°€ í™€ìˆ˜ë¼ë©´ 3ì„ ê³±í•˜ê³  1ì„ ë”í•©ë‹ˆë‹¤.
+	2. ê²°ê³¼ë¡œ ë‚˜ì˜¨ ìˆ˜ì— ê°™ì€ ìž‘ì—…ì„ 1ì´ ë  ë•Œê¹Œì§€ ë°˜ë³µí•©ë‹ˆë‹¤.
 	*/
 	
     public static int solution(int num) {

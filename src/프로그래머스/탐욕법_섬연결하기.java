@@ -1,48 +1,48 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 
-public class Å½¿å¹ý_¼¶¿¬°áÇÏ±â {
+public class íƒìš•ë²•_ì„¬ì—°ê²°í•˜ê¸° {
 /*	
-	¹®Á¦ ¼³¸í
-	n°³ÀÇ ¼¶ »çÀÌ¿¡ ´Ù¸®¸¦ °Ç¼³ÇÏ´Â ºñ¿ë(costs)ÀÌ ÁÖ¾îÁú ¶§,
-	ÃÖ¼ÒÀÇ ºñ¿ëÀ¸·Î ¸ðµç ¼¶ÀÌ ¼­·Î ÅëÇà °¡´ÉÇÏµµ·Ï ¸¸µé ¶§
-	ÇÊ¿äÇÑ ÃÖ¼Ò ºñ¿ëÀ» return ÇÏµµ·Ï solutionÀ» ¿Ï¼ºÇÏ¼¼¿ä.
+	ë¬¸ì œ ì„¤ëª…
+	nê°œì˜ ì„¬ ì‚¬ì´ì— ë‹¤ë¦¬ë¥¼ ê±´ì„¤í•˜ëŠ” ë¹„ìš©(costs)ì´ ì£¼ì–´ì§ˆ ë•Œ,
+	ìµœì†Œì˜ ë¹„ìš©ìœ¼ë¡œ ëª¨ë“  ì„¬ì´ ì„œë¡œ í†µí–‰ ê°€ëŠ¥í•˜ë„ë¡ ë§Œë“¤ ë•Œ
+	í•„ìš”í•œ ìµœì†Œ ë¹„ìš©ì„ return í•˜ë„ë¡ solutionì„ ì™„ì„±í•˜ì„¸ìš”.
 
-	´Ù¸®¸¦ ¿©·¯ ¹ø °Ç³Ê´õ¶óµµ, µµ´ÞÇÒ ¼ö¸¸ ÀÖÀ¸¸é ÅëÇà °¡´ÉÇÏ´Ù°í º¾´Ï´Ù.
-	¿¹¸¦ µé¾î A ¼¶°ú B ¼¶ »çÀÌ¿¡ ´Ù¸®°¡ ÀÖ°í,
-	B ¼¶°ú C ¼¶ »çÀÌ¿¡ ´Ù¸®°¡ ÀÖÀ¸¸é A ¼¶°ú C ¼¶Àº ¼­·Î ÅëÇà °¡´ÉÇÕ´Ï´Ù.
+	ë‹¤ë¦¬ë¥¼ ì—¬ëŸ¬ ë²ˆ ê±´ë„ˆë”ë¼ë„, ë„ë‹¬í•  ìˆ˜ë§Œ ìžˆìœ¼ë©´ í†µí–‰ ê°€ëŠ¥í•˜ë‹¤ê³  ë´…ë‹ˆë‹¤.
+	ì˜ˆë¥¼ ë“¤ì–´ A ì„¬ê³¼ B ì„¬ ì‚¬ì´ì— ë‹¤ë¦¬ê°€ ìžˆê³ ,
+	B ì„¬ê³¼ C ì„¬ ì‚¬ì´ì— ë‹¤ë¦¬ê°€ ìžˆìœ¼ë©´ A ì„¬ê³¼ C ì„¬ì€ ì„œë¡œ í†µí–‰ ê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-	Á¦ÇÑ»çÇ×
+	ì œí•œì‚¬í•­
 
-	¼¶ÀÇ °³¼ö nÀº 1 ÀÌ»ó 100 ÀÌÇÏÀÔ´Ï´Ù.
-	costsÀÇ ±æÀÌ´Â ((n-1) * n) / 2ÀÌÇÏÀÔ´Ï´Ù.
-	ÀÓÀÇÀÇ i¿¡ ´ëÇØ, costs[i][0] ¿Í costs[i] [1]¿¡´Â
-	´Ù¸®°¡ ¿¬°áµÇ´Â µÎ ¼¶ÀÇ ¹øÈ£°¡ µé¾îÀÖ°í, 
-	costs[i] [2]¿¡´Â ÀÌ µÎ ¼¶À» ¿¬°áÇÏ´Â ´Ù¸®¸¦ °Ç¼³ÇÒ ¶§ µå´Â ºñ¿ëÀÔ´Ï´Ù.
-	°°Àº ¿¬°áÀº µÎ ¹ø ÁÖ¾îÁöÁö ¾Ê½À´Ï´Ù.
-	¶ÇÇÑ ¼ø¼­°¡ ¹Ù²î´õ¶óµµ °°Àº ¿¬°á·Î º¾´Ï´Ù.
-	Áï 0°ú 1 »çÀÌ¸¦ ¿¬°áÇÏ´Â ºñ¿ëÀÌ ÁÖ¾îÁ³À» ¶§, 1°ú 0ÀÇ ºñ¿ëÀÌ ÁÖ¾îÁöÁö ¾Ê½À´Ï´Ù.
-	¸ðµç ¼¶ »çÀÌÀÇ ´Ù¸® °Ç¼³ ºñ¿ëÀÌ ÁÖ¾îÁöÁö ¾Ê½À´Ï´Ù.
-	ÀÌ °æ¿ì, µÎ ¼¶ »çÀÌÀÇ °Ç¼³ÀÌ ºÒ°¡´ÉÇÑ °ÍÀ¸·Î º¾´Ï´Ù.
-	¿¬°áÇÒ ¼ö ¾ø´Â ¼¶Àº ÁÖ¾îÁöÁö ¾Ê½À´Ï´Ù.
+	ì„¬ì˜ ê°œìˆ˜ nì€ 1 ì´ìƒ 100 ì´í•˜ìž…ë‹ˆë‹¤.
+	costsì˜ ê¸¸ì´ëŠ” ((n-1) * n) / 2ì´í•˜ìž…ë‹ˆë‹¤.
+	ìž„ì˜ì˜ iì— ëŒ€í•´, costs[i][0] ì™€ costs[i] [1]ì—ëŠ”
+	ë‹¤ë¦¬ê°€ ì—°ê²°ë˜ëŠ” ë‘ ì„¬ì˜ ë²ˆí˜¸ê°€ ë“¤ì–´ìžˆê³ , 
+	costs[i] [2]ì—ëŠ” ì´ ë‘ ì„¬ì„ ì—°ê²°í•˜ëŠ” ë‹¤ë¦¬ë¥¼ ê±´ì„¤í•  ë•Œ ë“œëŠ” ë¹„ìš©ìž…ë‹ˆë‹¤.
+	ê°™ì€ ì—°ê²°ì€ ë‘ ë²ˆ ì£¼ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.
+	ë˜í•œ ìˆœì„œê°€ ë°”ë€Œë”ë¼ë„ ê°™ì€ ì—°ê²°ë¡œ ë´…ë‹ˆë‹¤.
+	ì¦‰ 0ê³¼ 1 ì‚¬ì´ë¥¼ ì—°ê²°í•˜ëŠ” ë¹„ìš©ì´ ì£¼ì–´ì¡Œì„ ë•Œ, 1ê³¼ 0ì˜ ë¹„ìš©ì´ ì£¼ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.
+	ëª¨ë“  ì„¬ ì‚¬ì´ì˜ ë‹¤ë¦¬ ê±´ì„¤ ë¹„ìš©ì´ ì£¼ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.
+	ì´ ê²½ìš°, ë‘ ì„¬ ì‚¬ì´ì˜ ê±´ì„¤ì´ ë¶ˆê°€ëŠ¥í•œ ê²ƒìœ¼ë¡œ ë´…ë‹ˆë‹¤.
+	ì—°ê²°í•  ìˆ˜ ì—†ëŠ” ì„¬ì€ ì£¼ì–´ì§€ì§€ ì•ŠìŠµë‹ˆë‹¤.
 */	
 	
-	//Àü·« : ºñ¿ë¼ø Á¤·Ä ÈÄ
-	//	    ¼±ÅÃÇÑ °£¼±°£ ¿¬°á ¿©ºÎ È®ÀÎ
-	//		¿¬°á µÇ¾îÀÖÀ¸¸é? ÆÐ¾²
-	//		¿¬°á ¾ÈµÇ¾î ÀÖÀ¸¸é? µî·Ï
+	//ì „ëžµ : ë¹„ìš©ìˆœ ì •ë ¬ í›„
+	//	    ì„ íƒí•œ ê°„ì„ ê°„ ì—°ê²° ì—¬ë¶€ í™•ì¸
+	//		ì—°ê²° ë˜ì–´ìžˆìœ¼ë©´? íŒ¨ì“°
+	//		ì—°ê²° ì•ˆë˜ì–´ ìžˆìœ¼ë©´? ë“±ë¡
 	
 	static int[] Link;
 	
-	//ºÎ¸ð°¡Á®¿À±â
+	//ë¶€ëª¨ê°€ì ¸ì˜¤ê¸°
 	public static int getParent(int x) {
 		if(Link[x]==x) return x;
 		Link[x]= getParent(Link[x]);
 		return Link[x];
 	}
 	
-	//ºÎ¸ð º´ÇÕ
+	//ë¶€ëª¨ ë³‘í•©
 	public static void setParent(int a,int b) {
 		a=getParent(a);
 		b=getParent(b);
@@ -50,7 +50,7 @@ public class Å½¿å¹ý_¼¶¿¬°áÇÏ±â {
 		else Link[a]=b;
 	}
 	
-	//°°Àº ºÎ¸ð ¿©ºÎ È®ÀÎ
+	//ê°™ì€ ë¶€ëª¨ ì—¬ë¶€ í™•ì¸
 	public static boolean isSibling(int a, int b) {
 		a=getParent(a);
 		b=getParent(b);
@@ -61,22 +61,22 @@ public class Å½¿å¹ý_¼¶¿¬°áÇÏ±â {
 	
     public static int solution(int n, int[][] costs) {
         int answer = 0;
-        Link = new int[n]; //ºÎ¸ð¸¦ ¾Ë·ÁÁÖ´Â table;
+        Link = new int[n]; //ë¶€ëª¨ë¥¼ ì•Œë ¤ì£¼ëŠ” table;
         
         for(int i=0;i<n;i++) {
-        	Link[i]=i; //ÀÚ±â ÀÚ½Å = ºÎ¸ð
+        	Link[i]=i; //ìžê¸° ìžì‹  = ë¶€ëª¨
         }
-        //ºñ¿ë ¼ø Á¤·Ä
+        //ë¹„ìš© ìˆœ ì •ë ¬
         Arrays.sort(costs,(x,y)->x[2]-y[2]);
         
         for(int[] cost:costs) {
-        	int a = cost[0]; //³ëµå 1
-        	int b = cost[1]; //³ëµå 2
-        	int c = cost[2]; //ºñ¿ë
-        	//a¿Í b°¡ ¾ÆÁ÷ ¼­·Î ¿¬°áÀÌ ¾ÈµÇ¾î ÀÖ´Ù¸é(ºÎ¸ð°¡ ´Ù¸£´Ù¸é)
+        	int a = cost[0]; //ë…¸ë“œ 1
+        	int b = cost[1]; //ë…¸ë“œ 2
+        	int c = cost[2]; //ë¹„ìš©
+        	//aì™€ bê°€ ì•„ì§ ì„œë¡œ ì—°ê²°ì´ ì•ˆë˜ì–´ ìžˆë‹¤ë©´(ë¶€ëª¨ê°€ ë‹¤ë¥´ë‹¤ë©´)
         	if(!isSibling(a, b)) {
-        		setParent(a, b); //ºÎ¸ð ¼³Á¤
-        		answer+=c; //ºñ¿ëÀ» ´ä¿¡ ´õÇÔ
+        		setParent(a, b); //ë¶€ëª¨ ì„¤ì •
+        		answer+=c; //ë¹„ìš©ì„ ë‹µì— ë”í•¨
         	}
         }
         

@@ -1,30 +1,30 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Á¤·Ä_HIndex {
+public class ì •ë ¬_HIndex {
 	
 	/*
-	H-Index´Â °úÇÐÀÚÀÇ »ý»ê¼º°ú ¿µÇâ·ÂÀ» ³ªÅ¸³»´Â ÁöÇ¥ÀÔ´Ï´Ù. ¾î´À °úÇÐÀÚÀÇ H-Index¸¦ ³ªÅ¸³»´Â °ªÀÎ h¸¦ ±¸ÇÏ·Á°í ÇÕ´Ï´Ù. À§Å°¹é°ú1¿¡ µû¸£¸é, H-Index´Â ´ÙÀ½°ú °°ÀÌ ±¸ÇÕ´Ï´Ù.
+	H-IndexëŠ” ê³¼í•™ìžì˜ ìƒì‚°ì„±ê³¼ ì˜í–¥ë ¥ì„ ë‚˜íƒ€ë‚´ëŠ” ì§€í‘œìž…ë‹ˆë‹¤. ì–´ëŠ ê³¼í•™ìžì˜ H-Indexë¥¼ ë‚˜íƒ€ë‚´ëŠ” ê°’ì¸ hë¥¼ êµ¬í•˜ë ¤ê³  í•©ë‹ˆë‹¤. ìœ„í‚¤ë°±ê³¼1ì— ë”°ë¥´ë©´, H-IndexëŠ” ë‹¤ìŒê³¼ ê°™ì´ êµ¬í•©ë‹ˆë‹¤.
 
-	¾î¶² °úÇÐÀÚ°¡ ¹ßÇ¥ÇÑ ³í¹® nÆí Áß, h¹ø ÀÌ»ó ÀÎ¿ëµÈ ³í¹®ÀÌ hÆí ÀÌ»óÀÌ°í ³ª¸ÓÁö ³í¹®ÀÌ h¹ø ÀÌÇÏ ÀÎ¿ëµÇ¾ú´Ù¸é hÀÇ ÃÖ´ñ°ªÀÌ ÀÌ °úÇÐÀÚÀÇ H-IndexÀÔ´Ï´Ù.
+	ì–´ë–¤ ê³¼í•™ìžê°€ ë°œí‘œí•œ ë…¼ë¬¸ níŽ¸ ì¤‘, hë²ˆ ì´ìƒ ì¸ìš©ëœ ë…¼ë¬¸ì´ híŽ¸ ì´ìƒì´ê³  ë‚˜ë¨¸ì§€ ë…¼ë¬¸ì´ hë²ˆ ì´í•˜ ì¸ìš©ë˜ì—ˆë‹¤ë©´ hì˜ ìµœëŒ“ê°’ì´ ì´ ê³¼í•™ìžì˜ H-Indexìž…ë‹ˆë‹¤.
 	
-	¾î¶² °úÇÐÀÚ°¡ ¹ßÇ¥ÇÑ ³í¹®ÀÇ ÀÎ¿ë È½¼ö¸¦ ´ãÀº ¹è¿­ citations°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, ÀÌ °úÇÐÀÚÀÇ H-Index¸¦ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+	ì–´ë–¤ ê³¼í•™ìžê°€ ë°œí‘œí•œ ë…¼ë¬¸ì˜ ì¸ìš© íšŸìˆ˜ë¥¼ ë‹´ì€ ë°°ì—´ citationsê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, ì´ ê³¼í•™ìžì˜ H-Indexë¥¼ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
 	
-	Á¦ÇÑ»çÇ×
+	ì œí•œì‚¬í•­
 	
-	°úÇÐÀÚ°¡ ¹ßÇ¥ÇÑ ³í¹®ÀÇ ¼ö´Â 1Æí ÀÌ»ó 1,000Æí ÀÌÇÏÀÔ´Ï´Ù.
-	³í¹®º° ÀÎ¿ë È½¼ö´Â 0È¸ ÀÌ»ó 10,000È¸ ÀÌÇÏÀÔ´Ï´Ù.
+	ê³¼í•™ìžê°€ ë°œí‘œí•œ ë…¼ë¬¸ì˜ ìˆ˜ëŠ” 1íŽ¸ ì´ìƒ 1,000íŽ¸ ì´í•˜ìž…ë‹ˆë‹¤.
+	ë…¼ë¬¸ë³„ ì¸ìš© íšŸìˆ˜ëŠ” 0íšŒ ì´ìƒ 10,000íšŒ ì´í•˜ìž…ë‹ˆë‹¤.
 	 */
 	
     public static int solution(int[] citations) {
         int n=citations.length;
-        Arrays.sort(citations); //Á¤·Ä
+        Arrays.sort(citations); //ì •ë ¬
         for(int i=0;i<n;i++) {
-        	//ÀÎ¿ë¼ö°¡ ´õ ¸¹ÀÌ ÀÎ¿ëµÈ ³í¹®ÀÇ ¼öº¸´Ù °°°Å³ª ¸¹´Ù¸é ³²Àº °¹¼ö ¸®ÅÏ
+        	//ì¸ìš©ìˆ˜ê°€ ë” ë§Žì´ ì¸ìš©ëœ ë…¼ë¬¸ì˜ ìˆ˜ë³´ë‹¤ ê°™ê±°ë‚˜ ë§Žë‹¤ë©´ ë‚¨ì€ ê°¯ìˆ˜ ë¦¬í„´
             if(citations[i] >=n-i) return n - i;
         }
         return 0;

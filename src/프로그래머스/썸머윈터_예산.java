@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 
-public class ½æ¸ÓÀ©ÅÍ_¿¹»ê {
+public class ì¸ë¨¸ìœˆí„°_ì˜ˆì‚° {
 	
 	//https://programmers.co.kr/learn/courses/30/lessons/12982?language=java
 	

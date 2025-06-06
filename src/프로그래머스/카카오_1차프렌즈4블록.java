@@ -1,64 +1,64 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.Stack;
 
-public class Ä«Ä«¿À_1Â÷ÇÁ·»Áî4ºí·Ï {
+public class ì¹´ì¹´ì˜¤_1ì°¨í”„ë Œì¦ˆ4ë¸”ë¡ {
 	//https://programmers.co.kr/learn/courses/30/lessons/17679
-	//Àü·« : ÇØ´çÄ­ÀÇ ¹®ÀÚ°¡ ¹Ø, ¿À¸¥ÂÊ, ¿À¸¥ÂÊ ¹Ø°ú °°À¸¸é visited¿¡ 1 ³Ö±â
-	//-> visited °ªÀ» ¸ğµÎ ´õÇÑ µÚ º¯È­°¡ ¾øÀ¸¸é 0 ¸®ÅÏ
-	//-> º¯È­°¡ ÀÖÀ¸¸é stackÀ» ÀÌ¿ëÇÏ¿© ¹®ÀÚ ³»¸®±â, ºó°ø°£Àº * ³Ö±â
-	//-> visited°ªÀ» ¸ğµÎ ´õÇÑ °ª + Àç±Í ¸®ÅÏ
+	//ì „ëµ : í•´ë‹¹ì¹¸ì˜ ë¬¸ìê°€ ë°‘, ì˜¤ë¥¸ìª½, ì˜¤ë¥¸ìª½ ë°‘ê³¼ ê°™ìœ¼ë©´ visitedì— 1 ë„£ê¸°
+	//-> visited ê°’ì„ ëª¨ë‘ ë”í•œ ë’¤ ë³€í™”ê°€ ì—†ìœ¼ë©´ 0 ë¦¬í„´
+	//-> ë³€í™”ê°€ ìˆìœ¼ë©´ stackì„ ì´ìš©í•˜ì—¬ ë¬¸ì ë‚´ë¦¬ê¸°, ë¹ˆê³µê°„ì€ * ë„£ê¸°
+	//-> visitedê°’ì„ ëª¨ë‘ ë”í•œ ê°’ + ì¬ê·€ ë¦¬í„´
 	
 	static int Row,Col;
 	static char[][] Board;
 	
 	public static int pop() {
 		int[][] visited = new int[Row][Col];
-		//°Ë»ö, ¿ŞÂÊ »ó´Ü ±âÁØ 2*2ÀÌ¹Ç·Î Çà°ú ¿­ 1¾¿ »©¼­ µ¹¸²
+		//ê²€ìƒ‰, ì™¼ìª½ ìƒë‹¨ ê¸°ì¤€ 2*2ì´ë¯€ë¡œ í–‰ê³¼ ì—´ 1ì”© ë¹¼ì„œ ëŒë¦¼
 		for(int i=0;i<Row-1;i++) {
 			for(int j=0;j<Col-1;j++) {
 				char c = Board[i][j];
-				if(c=='*') continue; //ºó°ø°£ÀÌ¸é ÄÁÆ¼´º
-				if(c==Board[i+1][j]&&c==Board[i][j+1]&&c==Board[i+1][j+1]) { //¹Ø, ¿À¸¥ÂÊ, ¿À¸¥ÂÊ ¾Æ·¡ ´ë°¢¼±ÀÌ °°´Ù¸é
+				if(c=='*') continue; //ë¹ˆê³µê°„ì´ë©´ ì»¨í‹°ë‰´
+				if(c==Board[i+1][j]&&c==Board[i][j+1]&&c==Board[i+1][j+1]) { //ë°‘, ì˜¤ë¥¸ìª½, ì˜¤ë¥¸ìª½ ì•„ë˜ ëŒ€ê°ì„ ì´ ê°™ë‹¤ë©´
 					visited[i][j]=1;
 					visited[i+1][j]=1;
 					visited[i][j+1]=1;
 					visited[i+1][j+1]=1;
-					//visited¿¡ 2*2 ¸ğµÎ Ã¼Å©
+					//visitedì— 2*2 ëª¨ë‘ ì²´í¬
 				}
 			}
 		}
-		//Ä«¿îÆÃ
+		//ì¹´ìš´íŒ…
 		int count=0;
 		for(int[] v:visited) {
 			for(int i:v) count+=i;
 		}
-		//Ä«¿îÆ¾ °á°ú°¡ 0ÀÌ¸é 0 ¸®ÅÏ
+		//ì¹´ìš´í‹´ ê²°ê³¼ê°€ 0ì´ë©´ 0 ë¦¬í„´
 		if(count==0) return 0;
-		//ºí·Ï ³»¸®±â
+		//ë¸”ë¡ ë‚´ë¦¬ê¸°
 		for(int j=0;j<Col;j++) {
 			Stack<Character> st = new Stack<Character>();
-			//ºñ¾îÀÖÁö ¾ÊÀ¸¸é ½ºÅÃ¿¡ ³Ö±â
+			//ë¹„ì–´ìˆì§€ ì•Šìœ¼ë©´ ìŠ¤íƒì— ë„£ê¸°
 			for(int i=0;i<Row;i++) {
 				if(visited[i][j]!=1) st.push(Board[i][j]);
 			}
-			//¸Ç ¹Ø¿¡¼­ ºÎÅÍ Ã¤¿ì±â
+			//ë§¨ ë°‘ì—ì„œ ë¶€í„° ì±„ìš°ê¸°
 			int idx=Row-1;
 			while(!st.isEmpty()) {
 				Board[idx--][j]=st.pop();
 			}
-			//½ºÅÃÀÌ ºó idxºÎÅÍ * Ã¤¿ì±â
+			//ìŠ¤íƒì´ ë¹ˆ idxë¶€í„° * ì±„ìš°ê¸°
 			for(int i=idx;i>=0;i--) {
 				Board[i][j]='*';
 			}
 		}
-		//Ä«¿îÆÃ È½¼ö + Àç±Í
+		//ì¹´ìš´íŒ… íšŸìˆ˜ + ì¬ê·€
 		return count+pop();
 	}
 	
 	
     public static int solution(int m, int n, String[] board) {
-    	//ÃÊ±â°ª ¼³Á¤
+    	//ì´ˆê¸°ê°’ ì„¤ì •
         Row=m;
         Col=n;
         Board=new char[Row][Col];
@@ -67,7 +67,7 @@ public class Ä«Ä«¿À_1Â÷ÇÁ·»Áî4ºí·Ï {
         		Board[i][j]=board[i].charAt(j);
         	}
         }
-        //°è»ê ½ÇÇà
+        //ê³„ì‚° ì‹¤í–‰
         return pop();
     }
     

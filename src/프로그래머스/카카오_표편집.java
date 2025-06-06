@@ -1,78 +1,78 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.*;
 
-public class Ä«Ä«¿À_Ç¥ÆíÁı {
+public class ì¹´ì¹´ì˜¤_í‘œí¸ì§‘ {
 	
 	//https://programmers.co.kr/learn/courses/30/lessons/81303
 	
 	
-	//ÇØ°á¹ı 1, Á¤È®¼ºÀº Åë°úÇÏ³ª È¿À²¼º¿¡¼­ 50%¸¸ Åë°úÇÔ
+	//í•´ê²°ë²• 1, ì •í™•ì„±ì€ í†µê³¼í•˜ë‚˜ íš¨ìœ¨ì„±ì—ì„œ 50%ë§Œ í†µê³¼í•¨
 	static boolean[] IsDelete;
 	static int Now,N;
 	static Stack<Integer> Undo1 = new Stack<Integer>();
 	static List<Node> Table;
 	
 	public static void cmd(String cmd) {
-		//½ÇÇàÃë¼Ò
+		//ì‹¤í–‰ì·¨ì†Œ
 		if(cmd.charAt(0)=='Z') {
 			IsDelete[Undo1.pop()]=false;
-		//»èÁ¦
+		//ì‚­ì œ
 		}else if(cmd.charAt(0)=='C') {
 			IsDelete[Now]=true;
-			//½ºÅÃ¿¡ Ãß°¡
+			//ìŠ¤íƒì— ì¶”ê°€
 			Undo1.add(Now);
-			//ÇÑÄ­ ¾Æ·¡·Î ÀÌµ¿
+			//í•œì¹¸ ì•„ë˜ë¡œ ì´ë™
 			cmd("D 1");
 		}else {
-			//ÀÌµ¿¼ö
+			//ì´ë™ìˆ˜
 			int num = Integer.parseInt(cmd.split(" ")[1]);
-			//À§·Î ÀÌµ¿
+			//ìœ„ë¡œ ì´ë™
 			if(cmd.charAt(0)=='U') {
-				//Á¸ÀçÇÏ´Â ¸¶Áö¸·°ª
+				//ì¡´ì¬í•˜ëŠ” ë§ˆì§€ë§‰ê°’
 				int last = Now;
 				while(num>0&&Now>0) {
-					//ÇöÀ§Ä¡ °¨¼Ò
+					//í˜„ìœ„ì¹˜ ê°ì†Œ
 					Now--;
-					//0º¸´Ù ÀÛ´Ù¸é
+					//0ë³´ë‹¤ ì‘ë‹¤ë©´
 					if(Now<0) {
-						//¸¶Áö¸· Á¸ÀçÇÏ´Â °ªÀ¸·Î ÀÌµ¿
+						//ë§ˆì§€ë§‰ ì¡´ì¬í•˜ëŠ” ê°’ìœ¼ë¡œ ì´ë™
 						Now=last;
 						break;
 					}
-					//»èÁ¦µÇÁö ¾Ê¾Ò´Ù¸é
+					//ì‚­ì œë˜ì§€ ì•Šì•˜ë‹¤ë©´
 					if(!IsDelete[Now]) {
-						//Áö±İÀ§Ä¡¸¦ ¸¶Áö¸·À¸·Î ÁöÁ¤ÇÏ°í
+						//ì§€ê¸ˆìœ„ì¹˜ë¥¼ ë§ˆì§€ë§‰ìœ¼ë¡œ ì§€ì •í•˜ê³ 
 						last=Now;
-						//È½¼ö °¨¼Ò
+						//íšŸìˆ˜ ê°ì†Œ
 						num--;
 					}
 				}
-			//¾Æ·¡·Î ÀÌµ¿
+			//ì•„ë˜ë¡œ ì´ë™
 			}else if(cmd.charAt(0)=='D'){
-				//¸¶Áö¸· Á¸Àç°ª ±â·Ï
+				//ë§ˆì§€ë§‰ ì¡´ì¬ê°’ ê¸°ë¡
 				int last = Now;
-				//È½¼ö¸¦ ¸ğµÎ ¼Ò¸ğÇÏ°Å³ª ¹üÀ§ ³»¿¡ ÀÖ´Ù¸é
+				//íšŸìˆ˜ë¥¼ ëª¨ë‘ ì†Œëª¨í•˜ê±°ë‚˜ ë²”ìœ„ ë‚´ì— ìˆë‹¤ë©´
 				while(num>0&&Now<N) {
-					//ÇöÀç°ª Áõ°¡
+					//í˜„ì¬ê°’ ì¦ê°€
 					Now++;
-					//¹üÀ§¸¦ ³Ñ¾î¼±´Ù¸é
+					//ë²”ìœ„ë¥¼ ë„˜ì–´ì„ ë‹¤ë©´
 					if(Now>=N) {
-						//ÇöÀç°ªÀ» ¸¶Áö¸·°ªÀ¸·Î ÀÌµ¿
+						//í˜„ì¬ê°’ì„ ë§ˆì§€ë§‰ê°’ìœ¼ë¡œ ì´ë™
 						Now=last;
 						break;
 					}
-					//¸¸¾à Áö¿öÁöÁö ¾ÊÀº °ªÀÌ¶ó¸é
+					//ë§Œì•½ ì§€ì›Œì§€ì§€ ì•Šì€ ê°’ì´ë¼ë©´
 					if(!IsDelete[Now]) {
-						//¸¶Áö¸· Á¸Àç °ª ±â·Ï
+						//ë§ˆì§€ë§‰ ì¡´ì¬ ê°’ ê¸°ë¡
 						last=Now;
-						//È½¼ö °¨¼Ò
+						//íšŸìˆ˜ ê°ì†Œ
 						num--;
 					}
 				}
-				//ÇöÀç À§Ä¡°¡ Áö¿öÁ³´Ù¸é
+				//í˜„ì¬ ìœ„ì¹˜ê°€ ì§€ì›Œì¡Œë‹¤ë©´
 				if(IsDelete[Now]) {
-					//ÇÑÄ­ À§·Î ½ÇÇà
+					//í•œì¹¸ ìœ„ë¡œ ì‹¤í–‰
 					cmd("U 1");
 				}
 			}
@@ -96,12 +96,12 @@ public class Ä«Ä«¿À_Ç¥ÆíÁı {
 		return answer.toString();
 	}
 	
-	//ÇØ°á¹ı 2 ¼­·Î ¿¬°áµÈ node¸¦ ÀÌ¿ëÇÔ
+	//í•´ê²°ë²• 2 ì„œë¡œ ì—°ê²°ëœ nodeë¥¼ ì´ìš©í•¨
 	static Stack<Node> Undo = new Stack<>();
 
 	static class Node{
-		int no; //¹øÈ£
-		Node prev, next; //ÀÌÀü, ´ÙÀ½ °ª
+		int no; //ë²ˆí˜¸
+		Node prev, next; //ì´ì „, ë‹¤ìŒ ê°’
 		public Node(int no) {
 			this.no=no;
 			prev=null;
@@ -110,9 +110,9 @@ public class Ä«Ä«¿À_Ç¥ÆíÁı {
 	}
 	
     public static String solution(int n, int k, String[] cmds) {
-    	//Ã³À½ ³ëµå ¼³Á¤
+    	//ì²˜ìŒ ë…¸ë“œ ì„¤ì •
     	Node root = new Node(0);
-    	//ÇöÀç ³ëµå
+    	//í˜„ì¬ ë…¸ë“œ
     	Node now = root;
     	for(int i=1;i<n;i++) {
     		Node node=new Node(i);
@@ -120,54 +120,54 @@ public class Ä«Ä«¿À_Ç¥ÆíÁı {
     		node.prev=now;
     		now=node;
     	}
-    	//¸¶Áö¸· ³ëµå ¼³Á¤
+    	//ë§ˆì§€ë§‰ ë…¸ë“œ ì„¤ì •
     	Node tail = now;
     	tail.next = root; 
     	root.prev= now;
     	
     	now=root;
     	
-    	//½ÃÀÛ ³ëµå ¼³Á¤
+    	//ì‹œì‘ ë…¸ë“œ ì„¤ì •
     	while(now.no!=k) {
     		now=now.next;
     	}
     	
     	for(String cmd:cmds) {
-    		//½ÇÇà Ãë¼Ò½Ã
+    		//ì‹¤í–‰ ì·¨ì†Œì‹œ
     		if(cmd.charAt(0)=='Z') {
     			Node undo = Undo.pop();
     			undo.prev.next=undo;
     			undo.next.prev=undo;
-    			//·çÆ®, ²¿¸® ¾÷µ¥ÀÌÆ®	
+    			//ë£¨íŠ¸, ê¼¬ë¦¬ ì—…ë°ì´íŠ¸	
     			if(undo.no<root.no) root=undo;
     			else if(undo.no>tail.no) tail=undo;
-    		//»èÁ¦½Ã
+    		//ì‚­ì œì‹œ
     		}else if(cmd.charAt(0)=='C') {
     			now.prev.next=now.next;
     			now.next.prev=now.prev;
     			Undo.add(now);
-    			//·çÆ® »èÁ¦½Ã
+    			//ë£¨íŠ¸ ì‚­ì œì‹œ
     			if(now == root) {
     				root=now.next;
     				now=root;
-				//²¿¸® »èÁ¦½Ã
+				//ê¼¬ë¦¬ ì‚­ì œì‹œ
     			}else if(now==tail) {
     				tail=now.prev;
     				now=tail;
-				//ÀÌ ¿ÜÀÇ °æ¿ì ´ÙÀ½ ³ëµå°¡ Çö³ëµå°¡ µÊ
+				//ì´ ì™¸ì˜ ê²½ìš° ë‹¤ìŒ ë…¸ë“œê°€ í˜„ë…¸ë“œê°€ ë¨
     			}else {
     				now=now.next;
     			}
     		}else {
-    			//ÀÌµ¿ ¼ıÀÚ
+    			//ì´ë™ ìˆ«ì
     			int num = Integer.parseInt(cmd.split(" ")[1]);
-    			//À§·Î ÀÌµ¿½Ã ÀÌÀü
+    			//ìœ„ë¡œ ì´ë™ì‹œ ì´ì „
     			if(cmd.charAt(0)=='U') {
     				while(num-->0) {
     					now=now.prev;
     				}
     				
-    			//¾Æ·¡·Î ÀÌµ¿½Ã ´ÙÀ½	
+    			//ì•„ë˜ë¡œ ì´ë™ì‹œ ë‹¤ìŒ	
     			}else if(cmd.charAt(0)=='D'){
     				while(num-->0) {
     					now=now.next;

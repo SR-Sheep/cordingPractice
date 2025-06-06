@@ -1,19 +1,19 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ½æ¸ÓÀ©ÅÍ_½ºÆ¼Ä¿¸ðÀ¸±â {
+public class ì¸ë¨¸ìœˆí„°_ìŠ¤í‹°ì»¤ëª¨ìœ¼ê¸° {
 	/*
 	https://programmers.co.kr/learn/courses/30/lessons/12971#
 	
-	¿øÇüÀ¸·Î ¿¬°áµÈ ½ºÆ¼Ä¿¿¡¼­ ¸î ÀåÀÇ ½ºÆ¼Ä¿¸¦ ¶â¾î³»¾î ¶â¾î³½ ½ºÆ¼Ä¿¿¡ ÀûÈù ¼ýÀÚÀÇ ÇÕÀÌ ÃÖ´ë°¡ µÇµµ·Ï ÇÏ°í ½Í½À´Ï´Ù.
-	´Ü ½ºÆ¼Ä¿ ÇÑ ÀåÀ» ¶â¾î³»¸é ¾çÂÊÀ¸·Î ÀÎÁ¢ÇØÀÖ´Â ½ºÆ¼Ä¿´Â Âõ¾îÁ®¼­ »ç¿ëÇÒ ¼ö ¾ø°Ô µË´Ï´Ù.
+	ì›í˜•ìœ¼ë¡œ ì—°ê²°ëœ ìŠ¤í‹°ì»¤ì—ì„œ ëª‡ ìž¥ì˜ ìŠ¤í‹°ì»¤ë¥¼ ëœ¯ì–´ë‚´ì–´ ëœ¯ì–´ë‚¸ ìŠ¤í‹°ì»¤ì— ì ížŒ ìˆ«ìžì˜ í•©ì´ ìµœëŒ€ê°€ ë˜ë„ë¡ í•˜ê³  ì‹¶ìŠµë‹ˆë‹¤.
+	ë‹¨ ìŠ¤í‹°ì»¤ í•œ ìž¥ì„ ëœ¯ì–´ë‚´ë©´ ì–‘ìª½ìœ¼ë¡œ ì¸ì ‘í•´ìžˆëŠ” ìŠ¤í‹°ì»¤ëŠ” ì°¢ì–´ì ¸ì„œ ì‚¬ìš©í•  ìˆ˜ ì—†ê²Œ ë©ë‹ˆë‹¤.
 
-	½ºÆ¼Ä¿¿¡ ÀûÈù ¼ýÀÚ°¡ ¹è¿­ ÇüÅÂ·Î ÁÖ¾îÁú ¶§, ½ºÆ¼Ä¿¸¦ ¶â¾î³»¾î ¾òÀ» ¼ö ÀÖ´Â ¼ýÀÚÀÇ ÇÕÀÇ ÃÖ´ñ°ªÀ» return ÇÏ´Â solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØ ÁÖ¼¼¿ä.
-	¿øÇüÀÇ ½ºÆ¼Ä¿ ¸ð¾çÀ» À§ÇØ ¹è¿­ÀÇ Ã¹ ¹øÂ° ¿ø¼Ò¿Í ¸¶Áö¸· ¿ø¼Ò°¡ ¼­·Î ¿¬°áµÇ¾î ÀÖ´Ù°í °£ÁÖÇÕ´Ï´Ù.
+	ìŠ¤í‹°ì»¤ì— ì ížŒ ìˆ«ìžê°€ ë°°ì—´ í˜•íƒœë¡œ ì£¼ì–´ì§ˆ ë•Œ, ìŠ¤í‹°ì»¤ë¥¼ ëœ¯ì–´ë‚´ì–´ ì–»ì„ ìˆ˜ ìžˆëŠ” ìˆ«ìžì˜ í•©ì˜ ìµœëŒ“ê°’ì„ return í•˜ëŠ” solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ ì£¼ì„¸ìš”.
+	ì›í˜•ì˜ ìŠ¤í‹°ì»¤ ëª¨ì–‘ì„ ìœ„í•´ ë°°ì—´ì˜ ì²« ë²ˆì§¸ ì›ì†Œì™€ ë§ˆì§€ë§‰ ì›ì†Œê°€ ì„œë¡œ ì—°ê²°ë˜ì–´ ìžˆë‹¤ê³  ê°„ì£¼í•©ë‹ˆë‹¤.
 
-	Á¦ÇÑ »çÇ×
-	sticker´Â ¿øÇüÀ¸·Î ¿¬°áµÈ ½ºÆ¼Ä¿ÀÇ °¢ Ä­¿¡ ÀûÈù ¼ýÀÚ°¡ ¼ø¼­´ë·Î µé¾îÀÖ´Â ¹è¿­·Î, ±æÀÌ(N)´Â 1 ÀÌ»ó 100,000 ÀÌÇÏÀÔ´Ï´Ù.
-	stickerÀÇ °¢ ¿ø¼Ò´Â ½ºÆ¼Ä¿ÀÇ °¢ Ä­¿¡ ÀûÈù ¼ýÀÚÀÌ¸ç, °¢ Ä­¿¡ ÀûÈù ¼ýÀÚ´Â 1 ÀÌ»ó 100 ÀÌÇÏÀÇ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-	¿øÇüÀÇ ½ºÆ¼Ä¿ ¸ð¾çÀ» À§ÇØ sticker ¹è¿­ÀÇ Ã¹ ¹øÂ° ¿ø¼Ò¿Í ¸¶Áö¸· ¿ø¼Ò°¡ ¼­·Î ¿¬°áµÇ¾îÀÖ´Ù°í °£ÁÖÇÕ´Ï´Ù.
+	ì œí•œ ì‚¬í•­
+	stickerëŠ” ì›í˜•ìœ¼ë¡œ ì—°ê²°ëœ ìŠ¤í‹°ì»¤ì˜ ê° ì¹¸ì— ì ížŒ ìˆ«ìžê°€ ìˆœì„œëŒ€ë¡œ ë“¤ì–´ìžˆëŠ” ë°°ì—´ë¡œ, ê¸¸ì´(N)ëŠ” 1 ì´ìƒ 100,000 ì´í•˜ìž…ë‹ˆë‹¤.
+	stickerì˜ ê° ì›ì†ŒëŠ” ìŠ¤í‹°ì»¤ì˜ ê° ì¹¸ì— ì ížŒ ìˆ«ìžì´ë©°, ê° ì¹¸ì— ì ížŒ ìˆ«ìžëŠ” 1 ì´ìƒ 100 ì´í•˜ì˜ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+	ì›í˜•ì˜ ìŠ¤í‹°ì»¤ ëª¨ì–‘ì„ ìœ„í•´ sticker ë°°ì—´ì˜ ì²« ë²ˆì§¸ ì›ì†Œì™€ ë§ˆì§€ë§‰ ì›ì†Œê°€ ì„œë¡œ ì—°ê²°ë˜ì–´ìžˆë‹¤ê³  ê°„ì£¼í•©ë‹ˆë‹¤.
 	*/
 	public static int solution(int sticker[]) {
         if(sticker.length==1) return sticker[0];
@@ -21,23 +21,23 @@ public class ½æ¸ÓÀ©ÅÍ_½ºÆ¼Ä¿¸ðÀ¸±â {
         
         int answer=0;
         int[] point = new int[sticker.length];
-        //1)Ã¹Â°Ç× Ã¤ÅÃ
+        //1)ì²«ì§¸í•­ ì±„íƒ
         point[0]=point[1]=sticker[0];
         for(int i=2;i<sticker.length-1;i++){
-            //ÀÌÀü°ª, ÀÌÀüÀü °ª + ÇöÀç ½ºÆ¼Ä¿°ª Áß Å«°ªÀ» ÃëÇÔ
+            //ì´ì „ê°’, ì´ì „ì „ ê°’ + í˜„ìž¬ ìŠ¤í‹°ì»¤ê°’ ì¤‘ í°ê°’ì„ ì·¨í•¨
             point[i]=Math.max(point[i-1],point[i-2]+sticker[i]);
         }
-        //¸¶Áö¸· °ªÀº ÃëÇÒ ¼ö ¾øÀ½À¸·Î ¸¶Áö¸· -1 °ªÀ» ÃëÇÔ
+        //ë§ˆì§€ë§‰ ê°’ì€ ì·¨í•  ìˆ˜ ì—†ìŒìœ¼ë¡œ ë§ˆì§€ë§‰ -1 ê°’ì„ ì·¨í•¨
         answer = point[sticker.length-2];    
         
-        //2)Ã¹ Ç× Ã¤ÅÃ ¾ÈÇÔ
+        //2)ì²« í•­ ì±„íƒ ì•ˆí•¨
         point[0]=0;
         point[1]=sticker[1];
         for(int i=2;i<sticker.length;i++){
-            //ÀÌÀü°ª, ÀÌÀüÀü °ª + ÇöÀç ½ºÆ¼Ä¿°ª Áß Å«°ªÀ» ÃëÇÔ
+            //ì´ì „ê°’, ì´ì „ì „ ê°’ + í˜„ìž¬ ìŠ¤í‹°ì»¤ê°’ ì¤‘ í°ê°’ì„ ì·¨í•¨
             point[i]=Math.max(point[i-1],point[i-2]+sticker[i]);
         }
-        //¸¶Áö¸· °ª°ú ÀÌÀü ´ä ºñ±³ÇÏ¿© Å«°ªÀ» ÃëÇÔ
+        //ë§ˆì§€ë§‰ ê°’ê³¼ ì´ì „ ë‹µ ë¹„êµí•˜ì—¬ í°ê°’ì„ ì·¨í•¨
         answer = Math.max(answer,point[sticker.length-1]);
         
         return answer;

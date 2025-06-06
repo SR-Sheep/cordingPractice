@@ -1,28 +1,28 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_´ÙÀ½Å«¼ýÀÚ {
+public class ì—°ìŠµë¬¸ì œ_ë‹¤ìŒí°ìˆ«ìž {
 	/*
 	https://programmers.co.kr/learn/courses/30/lessons/12911
-	¹®Á¦ ¼³¸í
-	ÀÚ¿¬¼ö nÀÌ ÁÖ¾îÁ³À» ¶§, nÀÇ ´ÙÀ½ Å« ¼ýÀÚ´Â ´ÙÀ½°ú °°ÀÌ Á¤ÀÇ ÇÕ´Ï´Ù.
+	ë¬¸ì œ ì„¤ëª…
+	ìžì—°ìˆ˜ nì´ ì£¼ì–´ì¡Œì„ ë•Œ, nì˜ ë‹¤ìŒ í° ìˆ«ìžëŠ” ë‹¤ìŒê³¼ ê°™ì´ ì •ì˜ í•©ë‹ˆë‹¤.
 
-	Á¶°Ç 1. nÀÇ ´ÙÀ½ Å« ¼ýÀÚ´Â nº¸´Ù Å« ÀÚ¿¬¼ö ÀÔ´Ï´Ù.
-	Á¶°Ç 2. nÀÇ ´ÙÀ½ Å« ¼ýÀÚ¿Í nÀº 2Áø¼ö·Î º¯È¯ÇßÀ» ¶§ 1ÀÇ °¹¼ö°¡ °°½À´Ï´Ù.
-	Á¶°Ç 3. nÀÇ ´ÙÀ½ Å« ¼ýÀÚ´Â Á¶°Ç 1, 2¸¦ ¸¸Á·ÇÏ´Â ¼ö Áß °¡Àå ÀÛÀº ¼ö ÀÔ´Ï´Ù.
-	¿¹¸¦ µé¾î¼­ 78(1001110)ÀÇ ´ÙÀ½ Å« ¼ýÀÚ´Â 83(1010011)ÀÔ´Ï´Ù.
+	ì¡°ê±´ 1. nì˜ ë‹¤ìŒ í° ìˆ«ìžëŠ” në³´ë‹¤ í° ìžì—°ìˆ˜ ìž…ë‹ˆë‹¤.
+	ì¡°ê±´ 2. nì˜ ë‹¤ìŒ í° ìˆ«ìžì™€ nì€ 2ì§„ìˆ˜ë¡œ ë³€í™˜í–ˆì„ ë•Œ 1ì˜ ê°¯ìˆ˜ê°€ ê°™ìŠµë‹ˆë‹¤.
+	ì¡°ê±´ 3. nì˜ ë‹¤ìŒ í° ìˆ«ìžëŠ” ì¡°ê±´ 1, 2ë¥¼ ë§Œì¡±í•˜ëŠ” ìˆ˜ ì¤‘ ê°€ìž¥ ìž‘ì€ ìˆ˜ ìž…ë‹ˆë‹¤.
+	ì˜ˆë¥¼ ë“¤ì–´ì„œ 78(1001110)ì˜ ë‹¤ìŒ í° ìˆ«ìžëŠ” 83(1010011)ìž…ë‹ˆë‹¤.
 
-	ÀÚ¿¬¼ö nÀÌ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, nÀÇ ´ÙÀ½ Å« ¼ýÀÚ¸¦ return ÇÏ´Â solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+	ìžì—°ìˆ˜ nì´ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, nì˜ ë‹¤ìŒ í° ìˆ«ìžë¥¼ return í•˜ëŠ” solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ »çÇ×
-	nÀº 1,000,000 ÀÌÇÏÀÇ ÀÚ¿¬¼ö ÀÔ´Ï´Ù.
+	ì œí•œ ì‚¬í•­
+	nì€ 1,000,000 ì´í•˜ì˜ ìžì—°ìˆ˜ ìž…ë‹ˆë‹¤.
 	*/
 	
     public static int solution(int n) {
         int answer = 0;
-        for(int i=n+1;i<1000001;i++){ //Á¶°Ç 1
-            if(Integer.bitCount(n)==Integer.bitCount(i)){ //Á¶°Ç2
+        for(int i=n+1;i<1000001;i++){ //ì¡°ê±´ 1
+            if(Integer.bitCount(n)==Integer.bitCount(i)){ //ì¡°ê±´2
                 answer=i;
-                break; //Á¶°Ç 3
+                break; //ì¡°ê±´ 3
             }
         }
         return answer;

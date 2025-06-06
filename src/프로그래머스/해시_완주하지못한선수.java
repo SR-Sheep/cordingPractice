@@ -1,27 +1,27 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.HashMap;
 
-public class ÇØ½Ã_¿ÏÁÖÇÏÁö¸øÇÑ¼±¼ö {
+public class í•´ì‹œ_ì™„ì£¼í•˜ì§€ëª»í•œì„ ìˆ˜ {
     /*
-     * ¸¶¶óÅä³Ê ¼ö : 1~100,000
-     * completion+1=participant (ÇÑ¸í¸¸ ¿ÏÁÖ ¸øÇÔ)
-     * ÀÌ¸§ = 1~20ÀÚ ¿µ¹® ¼Ò¹®ÀÚ
-     * µ¿¸íÀÌÀÎ °¡´É
+     * ë§ˆë¼í† ë„ˆ ìˆ˜ : 1~100,000
+     * completion+1=participant (í•œëª…ë§Œ ì™„ì£¼ ëª»í•¨)
+     * ì´ë¦„ = 1~20ì ì˜ë¬¸ ì†Œë¬¸ì
+     * ë™ëª…ì´ì¸ ê°€ëŠ¥
      */
 	
 	public static String solution(String[] participant, String[] completion) {
-        //¸Ê »ı¼º
+        //ë§µ ìƒì„±
 		HashMap<String,Integer> map=new HashMap<String,Integer>();
-        //¿ÏÁÖÀÚ ¸ñ·ÏÀ» À§ÇÑ ¸Ê »ı¼º, µ¿¸íÀÌÀÎÀÏ °æ¿ì value°¡ 1 Áõ°¡ÇÕ´Ï´Ù.
+        //ì™„ì£¼ì ëª©ë¡ì„ ìœ„í•œ ë§µ ìƒì„±, ë™ëª…ì´ì¸ì¼ ê²½ìš° valueê°€ 1 ì¦ê°€í•©ë‹ˆë‹¤.
         for(String c:completion) {
         	map.put(c,map.getOrDefault(c, 0)+1);
         }
-        //Âü°¡ÀÚ ¼øÈ¸
+        //ì°¸ê°€ì ìˆœíšŒ
         for(String p:participant) {
-        	//¸Ê¿¡ ¾ø°Å³ª value°¡ 0ÀÎ °æ¿ì ¸®ÅÏÇÕ´Ï´Ù.
+        	//ë§µì— ì—†ê±°ë‚˜ valueê°€ 0ì¸ ê²½ìš° ë¦¬í„´í•©ë‹ˆë‹¤.
         	if(map.get(p)==null||map.get(p)<1) return p;
-        	//Á¸ÀçÇÏ´Â °æ¿ì 1¸í °¨¼Ò½ÃÅµ´Ï´Ù.
+        	//ì¡´ì¬í•˜ëŠ” ê²½ìš° 1ëª… ê°ì†Œì‹œí‚µë‹ˆë‹¤.
         	map.put(p, map.get(p)-1);
         }
         return "";

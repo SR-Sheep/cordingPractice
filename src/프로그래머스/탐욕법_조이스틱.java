@@ -1,28 +1,28 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ëž˜ë¨¸ìŠ¤;
 
-public class Å½¿å¹ý_Á¶ÀÌ½ºÆ½ {
+public class íƒìš•ë²•_ì¡°ì´ìŠ¤í‹± {
     public static int solution(String name) {
     	/*
-    	Á¶ÀÌ½ºÆ½À¸·Î ¾ËÆÄºª ÀÌ¸§À» ¿Ï¼ºÇÏ¼¼¿ä. ¸Ç Ã³À½¿£ A·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
-    	ex) ¿Ï¼ºÇØ¾ß ÇÏ´Â ÀÌ¸§ÀÌ ¼¼ ±ÛÀÚ¸é AAA, ³× ±ÛÀÚ¸é AAAA
+    	ì¡°ì´ìŠ¤í‹±ìœ¼ë¡œ ì•ŒíŒŒë²³ ì´ë¦„ì„ ì™„ì„±í•˜ì„¸ìš”. ë§¨ ì²˜ìŒì—” Aë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
+    	ex) ì™„ì„±í•´ì•¼ í•˜ëŠ” ì´ë¦„ì´ ì„¸ ê¸€ìžë©´ AAA, ë„¤ ê¸€ìžë©´ AAAA
 
-    	Á¶ÀÌ½ºÆ½À» °¢ ¹æÇâÀ¸·Î ¿òÁ÷ÀÌ¸é ¾Æ·¡¿Í °°½À´Ï´Ù.
+    	ì¡°ì´ìŠ¤í‹±ì„ ê° ë°©í–¥ìœ¼ë¡œ ì›€ì§ì´ë©´ ì•„ëž˜ì™€ ê°™ìŠµë‹ˆë‹¤.
 
-    	¡ã - ´ÙÀ½ ¾ËÆÄºª
-    	¡å - ÀÌÀü ¾ËÆÄºª (A¿¡¼­ ¾Æ·¡ÂÊÀ¸·Î ÀÌµ¿ÇÏ¸é Z·Î)
-    	¢¸ - Ä¿¼­¸¦ ¿ÞÂÊÀ¸·Î ÀÌµ¿ (Ã¹ ¹øÂ° À§Ä¡¿¡¼­ ¿ÞÂÊÀ¸·Î ÀÌµ¿ÇÏ¸é ¸¶Áö¸· ¹®ÀÚ¿¡ Ä¿¼­)
-    	¢º - Ä¿¼­¸¦ ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿
-    	¿¹¸¦ µé¾î ¾Æ·¡ÀÇ ¹æ¹ýÀ¸·Î "JAZ"¸¦ ¸¸µé ¼ö ÀÖ½À´Ï´Ù.
+    	â–² - ë‹¤ìŒ ì•ŒíŒŒë²³
+    	â–¼ - ì´ì „ ì•ŒíŒŒë²³ (Aì—ì„œ ì•„ëž˜ìª½ìœ¼ë¡œ ì´ë™í•˜ë©´ Zë¡œ)
+    	â—€ - ì»¤ì„œë¥¼ ì™¼ìª½ìœ¼ë¡œ ì´ë™ (ì²« ë²ˆì§¸ ìœ„ì¹˜ì—ì„œ ì™¼ìª½ìœ¼ë¡œ ì´ë™í•˜ë©´ ë§ˆì§€ë§‰ ë¬¸ìžì— ì»¤ì„œ)
+    	â–¶ - ì»¤ì„œë¥¼ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™
+    	ì˜ˆë¥¼ ë“¤ì–´ ì•„ëž˜ì˜ ë°©ë²•ìœ¼ë¡œ "JAZ"ë¥¼ ë§Œë“¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 
-    	- Ã¹ ¹øÂ° À§Ä¡¿¡¼­ Á¶ÀÌ½ºÆ½À» À§·Î 9¹ø Á¶ÀÛÇÏ¿© J¸¦ ¿Ï¼ºÇÕ´Ï´Ù.
-    	- Á¶ÀÌ½ºÆ½À» ¿ÞÂÊÀ¸·Î 1¹ø Á¶ÀÛÇÏ¿© Ä¿¼­¸¦ ¸¶Áö¸· ¹®ÀÚ À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù.
-    	- ¸¶Áö¸· À§Ä¡¿¡¼­ Á¶ÀÌ½ºÆ½À» ¾Æ·¡·Î 1¹ø Á¶ÀÛÇÏ¿© Z¸¦ ¿Ï¼ºÇÕ´Ï´Ù.
-    	µû¶ó¼­ 11¹ø ÀÌµ¿½ÃÄÑ "JAZ"¸¦ ¸¸µé ¼ö ÀÖ°í, ÀÌ¶§°¡ ÃÖ¼Ò ÀÌµ¿ÀÔ´Ï´Ù.
-    	¸¸µé°íÀÚ ÇÏ´Â ÀÌ¸§ nameÀÌ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, ÀÌ¸§¿¡ ´ëÇØ Á¶ÀÌ½ºÆ½ Á¶ÀÛ È½¼öÀÇ ÃÖ¼Ú°ªÀ» return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¸¸µå¼¼¿ä.
+    	- ì²« ë²ˆì§¸ ìœ„ì¹˜ì—ì„œ ì¡°ì´ìŠ¤í‹±ì„ ìœ„ë¡œ 9ë²ˆ ì¡°ìž‘í•˜ì—¬ Jë¥¼ ì™„ì„±í•©ë‹ˆë‹¤.
+    	- ì¡°ì´ìŠ¤í‹±ì„ ì™¼ìª½ìœ¼ë¡œ 1ë²ˆ ì¡°ìž‘í•˜ì—¬ ì»¤ì„œë¥¼ ë§ˆì§€ë§‰ ë¬¸ìž ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚µë‹ˆë‹¤.
+    	- ë§ˆì§€ë§‰ ìœ„ì¹˜ì—ì„œ ì¡°ì´ìŠ¤í‹±ì„ ì•„ëž˜ë¡œ 1ë²ˆ ì¡°ìž‘í•˜ì—¬ Zë¥¼ ì™„ì„±í•©ë‹ˆë‹¤.
+    	ë”°ë¼ì„œ 11ë²ˆ ì´ë™ì‹œì¼œ "JAZ"ë¥¼ ë§Œë“¤ ìˆ˜ ìžˆê³ , ì´ë•Œê°€ ìµœì†Œ ì´ë™ìž…ë‹ˆë‹¤.
+    	ë§Œë“¤ê³ ìž í•˜ëŠ” ì´ë¦„ nameì´ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, ì´ë¦„ì— ëŒ€í•´ ì¡°ì´ìŠ¤í‹± ì¡°ìž‘ íšŸìˆ˜ì˜ ìµœì†Ÿê°’ì„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ë§Œë“œì„¸ìš”.
     	
-    	Á¦ÇÑ »çÇ×
-		nameÀº ¾ËÆÄºª ´ë¹®ÀÚ·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
-		nameÀÇ ±æÀÌ´Â 1 ÀÌ»ó 20 ÀÌÇÏÀÔ´Ï´Ù.
+    	ì œí•œ ì‚¬í•­
+		nameì€ ì•ŒíŒŒë²³ ëŒ€ë¬¸ìžë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
+		nameì˜ ê¸¸ì´ëŠ” 1 ì´ìƒ 20 ì´í•˜ìž…ë‹ˆë‹¤.
         */
         
         int count=0;
@@ -35,51 +35,51 @@ public class Å½¿å¹ý_Á¶ÀÌ½ºÆ½ {
         final int INF = 987654321;
         
         for(char c:name.toCharArray()) {
-        	//O ÀÌ»óÀÇ ¾ËÆÄºªÀÇ °æ¿ì ¾Æ·¡ ¹æÇâÅ°·Î ÀÌµ¿½Ã ´ú ÀÔ·Â
+        	//O ì´ìƒì˜ ì•ŒíŒŒë²³ì˜ ê²½ìš° ì•„ëž˜ ë°©í–¥í‚¤ë¡œ ì´ë™ì‹œ ëœ ìž…ë ¥
         	if(c>='O') {
         		count+='Z'-c+1;
         	}else {
-        		//³ª¸ÓÁöÀÇ °æ¿ì À§ ¹æÇâÅ°
+        		//ë‚˜ë¨¸ì§€ì˜ ê²½ìš° ìœ„ ë°©í–¥í‚¤
         		count+=c-'A';
         	}
-        	//AÀÏ °æ¿ì
+        	//Aì¼ ê²½ìš°
         	if(c=='A') {
-        		//A°¡ Ã³À½ µîÀå ½Ã idx¸¦ ÀúÀåÇÔ
+        		//Aê°€ ì²˜ìŒ ë“±ìž¥ ì‹œ idxë¥¼ ì €ìž¥í•¨
         		if(streamA==0) tmpIdx=idx;
-        		//¿¬¼ÓµÇ´Â AÀÇ È½¼ö ±â·Ï
+        		//ì—°ì†ë˜ëŠ” Aì˜ íšŸìˆ˜ ê¸°ë¡
         		streamA++;
         	}
-        	//A°¡ ¾Æ´Ï°Å³ª ¸¶Áö¸· ±ÛÀÚÀÏ °æ¿ì
+        	//Aê°€ ì•„ë‹ˆê±°ë‚˜ ë§ˆì§€ë§‰ ê¸€ìžì¼ ê²½ìš°
         	if(c!='A'||idx==name.length()-1){
-        		//¿¬¼ÓµÇ´Â AÀÇ ÃÖ´ëÄ¡ º¸´Ù ÇöÀç ±â·ÏµÈ ¿¬¼ÓµÇ´Â A È½¼ö°¡ Å©´Ù¸é
+        		//ì—°ì†ë˜ëŠ” Aì˜ ìµœëŒ€ì¹˜ ë³´ë‹¤ í˜„ìž¬ ê¸°ë¡ëœ ì—°ì†ë˜ëŠ” A íšŸìˆ˜ê°€ í¬ë‹¤ë©´
         		if(maxStreamA<streamA) {
-        			//¿¬¼ÓÇÏ´Â AÀÇ ÃÖ´ëÄ¡ º¯°æ
+        			//ì—°ì†í•˜ëŠ” Aì˜ ìµœëŒ€ì¹˜ ë³€ê²½
         			maxStreamA=streamA;
-        			//¿¬¼ÓÇÏ´Â idx ±â·Ï
+        			//ì—°ì†í•˜ëŠ” idx ê¸°ë¡
         			streamIdx=tmpIdx;
         		}
-        		//¿¬¼ÓÇÏ´Â A È½¼ö, ÀÎµ¦½º ÃÊ±âÈ­
+        		//ì—°ì†í•˜ëŠ” A íšŸìˆ˜, ì¸ë±ìŠ¤ ì´ˆê¸°í™”
         		streamA=0;
         		tmpIdx=0;
         	}
-        	//ÀÎµ¦½º Áõ°¡
+        	//ì¸ë±ìŠ¤ ì¦ê°€
         	idx++;
         }
-        //¸ðµÎ AÀÏ °æ¿ì 0 ¸®ÅÏ
+        //ëª¨ë‘ Aì¼ ê²½ìš° 0 ë¦¬í„´
         if(maxStreamA==name.length()) return 0;
         
-        //ÁÂ¿ì ¹æÇâÅ° ÃÖ´ëÄ¡
+        //ì¢Œìš° ë°©í–¥í‚¤ ìµœëŒ€ì¹˜
         move=name.length()-1;
         
         int backmove;
-        //¿¬¼ÓÇÏ´Â AÀÇ idx°ªÀÌ ±â·ÏµÇÁö ¾Ê¾Ò´Ù¸é µÚ·Î °¡Áö ¾ÊÀ½ 
+        //ì—°ì†í•˜ëŠ” Aì˜ idxê°’ì´ ê¸°ë¡ë˜ì§€ ì•Šì•˜ë‹¤ë©´ ë’¤ë¡œ ê°€ì§€ ì•ŠìŒ 
         if(streamIdx==-1) backmove=INF;
-        //µÚ·Î µÇµ¹¾Æ °¡±â : ¿¬¼ÓÇÏ´Â idxÀÇ ¾ÕÀÚ¸®·Î ÀÌµ¿ ÈÄ ´Ù½Ã µÇµ¹¾Æ°£ µÚ
-        //¿¬¼ÓÇÏ´Â AÀÇ ¸¶Áö¸· ~ nameÀÇ ³¡
+        //ë’¤ë¡œ ë˜ëŒì•„ ê°€ê¸° : ì—°ì†í•˜ëŠ” idxì˜ ì•žìžë¦¬ë¡œ ì´ë™ í›„ ë‹¤ì‹œ ë˜ëŒì•„ê°„ ë’¤
+        //ì—°ì†í•˜ëŠ” Aì˜ ë§ˆì§€ë§‰ ~ nameì˜ ë
         else backmove=(streamIdx-1)*2 + (name.length()-(streamIdx+maxStreamA));
-        //ÁÂ¿ì ¹æÇâÅ°ÀÇ ÃÖ´ëÄ¡º¸´Ù µÚ·Î µÇµ¹¾Æ °¡´Â ¹æ¹ýÀÌ ÀûÀ¸¸é µÚ·Î µÇµ¹¾Æ°¡±â ¼±ÅÃ
+        //ì¢Œìš° ë°©í–¥í‚¤ì˜ ìµœëŒ€ì¹˜ë³´ë‹¤ ë’¤ë¡œ ë˜ëŒì•„ ê°€ëŠ” ë°©ë²•ì´ ì ìœ¼ë©´ ë’¤ë¡œ ë˜ëŒì•„ê°€ê¸° ì„ íƒ
         move=move>backmove?backmove:move;
-        //À§¾Æ·¡ ¹æÇâÅ° ¼ö + ÁÂ¿ì ¹æÇâÅ° ¼ö ¸®ÅÏ
+        //ìœ„ì•„ëž˜ ë°©í–¥í‚¤ ìˆ˜ + ì¢Œìš° ë°©í–¥í‚¤ ìˆ˜ ë¦¬í„´
         return count+move;
     }
 	

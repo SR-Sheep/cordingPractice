@@ -1,54 +1,54 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Ä«Ä«¿À_±âµÕ°úº¸¼³Ä¡ {
-	static boolean[][] P; //±âµÕ
-	static boolean[][] F; //º¸
+public class ì¹´ì¹´ì˜¤_ê¸°ë‘¥ê³¼ë³´ì„¤ì¹˜ {
+	static boolean[][] P; //ê¸°ë‘¥
+	static boolean[][] F; //ë³´
 	static int N;
 	
 	public static boolean isOK(int r, int c, int kind) {
-		if(kind==0) { //±âµÕÀÌ¶ó¸é
+		if(kind==0) { //ê¸°ë‘¥ì´ë¼ë©´
 			if(r!=0) {
-				//¹Ø¿¡ ±âµÕÀÌ ÀÖÀ»¶§
+				//ë°‘ì— ê¸°ë‘¥ì´ ìˆì„ë•Œ
 				if(P[r-1][c]) return true;
-				//¿ŞÂÊ¿¡ ¹ßÆÇÀÌ ÀÖÀ» ¶§
+				//ì™¼ìª½ì— ë°œíŒì´ ìˆì„ ë•Œ
 				else if(c>0&&F[r][c-1]) return true;
-				//¿À¸¥ÂÊ¿¡ ¹ßÆÇÀÌ ÀÖÀ» ¶§
+				//ì˜¤ë¥¸ìª½ì— ë°œíŒì´ ìˆì„ ë•Œ
 				else if(F[r][c]) return true;
 			}else return true;
-		}else { //º¸ ¶ó¸é
+		}else { //ë³´ ë¼ë©´
 			if(r==0) return false;
-			//¿Ş ¹Ø¿¡ ±âµÕÀÌ ÀÖÀ» ¶§
+			//ì™¼ ë°‘ì— ê¸°ë‘¥ì´ ìˆì„ ë•Œ
 			if(P[r-1][c]) return true;
-			//¿À¸¥ ¹Ø¿¡ ±âµÕÀÌ ÀÖÀ» ¶§
+			//ì˜¤ë¥¸ ë°‘ì— ê¸°ë‘¥ì´ ìˆì„ ë•Œ
 			if(c<N&&P[r-1][c+1]) return true;
-			//¾ç ¿·¿¡ º¸°¡ ÀÖÀ» ¶§
+			//ì–‘ ì˜†ì— ë³´ê°€ ìˆì„ ë•Œ
 			if(c<N&&c>0&&F[r][c-1]&&F[r][c+1]) return true;
 		}
 		return false;
 	}
 	
     public static int[][] solution(int n, int[][] build_frame) {
-        //x,y,(±âµÕ, º¸),(»èÁ¦, ¼³Ä¡)
-    	P=new boolean[n+1][n+1]; //¸Ç À§¿¡´Â ¼¼¿ï ¼ö ¾øÀ½
-    	F=new boolean[n+1][n+1]; //¸Ç ¿À¸¥ÂÊ¿¡´Â ¼¼¿ï ¼ö ¾øÀ½
+        //x,y,(ê¸°ë‘¥, ë³´),(ì‚­ì œ, ì„¤ì¹˜)
+    	P=new boolean[n+1][n+1]; //ë§¨ ìœ„ì—ëŠ” ì„¸ìš¸ ìˆ˜ ì—†ìŒ
+    	F=new boolean[n+1][n+1]; //ë§¨ ì˜¤ë¥¸ìª½ì—ëŠ” ì„¸ìš¸ ìˆ˜ ì—†ìŒ
     	N=n;
     	for(int[] bf:build_frame) {
     		int c = bf[0];
     		int r = bf[1];
     		int kind = bf[2];
     		int action = bf[3];
-    		//±âµÕ
+    		//ê¸°ë‘¥
     		if(kind==0) {
-    			//»èÁ¦
+    			//ì‚­ì œ
     			if(action==0) {
-    				//»èÁ¦
+    				//ì‚­ì œ
     				P[r][c]=false;
-    				//ÀüÃ¼ Å½»ö
+    				//ì „ì²´ íƒìƒ‰
                     boolean pPass=true;
                     boolean fPass=true;
                     for(int i=0;i<n+1;i++){
@@ -60,15 +60,15 @@ public class Ä«Ä«¿À_±âµÕ°úº¸¼³Ä¡ {
                         if(!pPass||!fPass) break;
                     }
                     if(!pPass||!fPass) P[r][c]=true;
-				//¼³Ä¡
+				//ì„¤ì¹˜
     			}else {
     				P[r][c]=isOK(r,c,kind);
     			}
-    		//º¸	
+    		//ë³´	
     		}else {
-    			//¹Ù´Ú¿¡´Â ¼³Ä¡ ºÒ°¡
+    			//ë°”ë‹¥ì—ëŠ” ì„¤ì¹˜ ë¶ˆê°€
     			if(r==0) continue;
-    			//»èÁ¦
+    			//ì‚­ì œ
     			if(action==0) {
     				F[r][c]=false;
                     boolean pPass=true;
@@ -82,7 +82,7 @@ public class Ä«Ä«¿À_±âµÕ°úº¸¼³Ä¡ {
                         if(!pPass||!fPass) break;
                     }
                     if(!pPass||!fPass) F[r][c]=true;
-				//¼³Ä¡
+				//ì„¤ì¹˜
     			}else {
     				F[r][c]=isOK(r, c, kind);
     			}
@@ -121,13 +121,13 @@ public class Ä«Ä«¿À_±âµÕ°úº¸¼³Ä¡ {
     	for(int[] tmp:list) {
     		System.out.print(tmp[0]+" "+tmp[1]+" "+tmp[2] + " // ");
     	}
-    	System.out.println("±âµÕ");
+    	System.out.println("ê¸°ë‘¥");
     	for(boolean[] tmp:P) {
     		for(boolean b:tmp) System.out.print(b?"O ":"X ");
     		System.out.println();
     	}
     	System.out.println();
-    	System.out.println("¹Ù´Ú");
+    	System.out.println("ë°”ë‹¥");
     	for(boolean[] tmp:F) {
     		for(boolean b:tmp) System.out.print(b?"O ":"X ");
     		System.out.println();

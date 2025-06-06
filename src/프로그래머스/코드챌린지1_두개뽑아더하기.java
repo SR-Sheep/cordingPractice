@@ -1,35 +1,35 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ÄÚµåÃ§¸°Áö1_µÎ°³»Ì¾Æ´õÇÏ±â {
+public class ì½”ë“œì±Œë¦°ì§€1_ë‘ê°œë½‘ì•„ë”í•˜ê¸° {
 	/*
-	¹®Á¦ ¼³¸í
-	Á¤¼ö ¹è¿­ numbers°¡ ÁÖ¾îÁı´Ï´Ù. numbers¿¡¼­ ¼­·Î ´Ù¸¥ ÀÎµ¦½º¿¡ ÀÖ´Â µÎ °³ÀÇ ¼ö¸¦ »Ì¾Æ
-	´õÇØ¼­ ¸¸µé ¼ö ÀÖ´Â ¸ğµç ¼ö¸¦ ¹è¿­¿¡ ¿À¸§Â÷¼øÀ¸·Î ´ã¾Æ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¿Ï¼ºÇØÁÖ¼¼¿ä.
+	ë¬¸ì œ ì„¤ëª…
+	ì •ìˆ˜ ë°°ì—´ numbersê°€ ì£¼ì–´ì§‘ë‹ˆë‹¤. numbersì—ì„œ ì„œë¡œ ë‹¤ë¥¸ ì¸ë±ìŠ¤ì— ìˆëŠ” ë‘ ê°œì˜ ìˆ˜ë¥¼ ë½‘ì•„
+	ë”í•´ì„œ ë§Œë“¤ ìˆ˜ ìˆëŠ” ëª¨ë“  ìˆ˜ë¥¼ ë°°ì—´ì— ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë‹´ì•„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ì™„ì„±í•´ì£¼ì„¸ìš”.
 
-	Á¦ÇÑ»çÇ×
-	numbersÀÇ ±æÀÌ´Â 2 ÀÌ»ó 100 ÀÌÇÏÀÔ´Ï´Ù.
-	numbersÀÇ ¸ğµç ¼ö´Â 0 ÀÌ»ó 100 ÀÌÇÏÀÔ´Ï´Ù.
+	ì œí•œì‚¬í•­
+	numbersì˜ ê¸¸ì´ëŠ” 2 ì´ìƒ 100 ì´í•˜ì…ë‹ˆë‹¤.
+	numbersì˜ ëª¨ë“  ìˆ˜ëŠ” 0 ì´ìƒ 100 ì´í•˜ì…ë‹ˆë‹¤.
 	*/
     public static int[] solution(int[] numbers) {
-    	//Áßº¹À» Á¦°ÅÇÏ±â À§ÇÑ set ¼±¾ğ
+    	//ì¤‘ë³µì„ ì œê±°í•˜ê¸° ìœ„í•œ set ì„ ì–¸
         Set<Integer> set = new HashSet<Integer>();
-        //2°³ ¼ö »Ì¾Æ¼­ ´õÇÏ±â
+        //2ê°œ ìˆ˜ ë½‘ì•„ì„œ ë”í•˜ê¸°
         for(int i=0;i<numbers.length-1;i++) {
         	for(int j=i+1;j<numbers.length;j++) {
         		set.add(numbers[i]+numbers[j]);
         	}
         }
-        //´äÀ» Á¦ÃâÇÑ answer ¹è¿­ ¼±¾ğ
+        //ë‹µì„ ì œì¶œí•œ answer ë°°ì—´ ì„ ì–¸
         int[] answer = new int[set.size()];
-        //´ä ÀÎµ¦½º ¼±¾ğ
+        //ë‹µ ì¸ë±ìŠ¤ ì„ ì–¸
         int idx=0;
-        //answer ¹è¿­¿¡ set ÀÔ·Â
+        //answer ë°°ì—´ì— set ì…ë ¥
         for(Integer num:set) answer[idx++]=num;
-        //Á¤·Ä
+        //ì •ë ¬
         Arrays.sort(answer);
         return answer;
     }

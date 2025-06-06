@@ -1,8 +1,8 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
-public class ¿¬½À¹®Á¦_µÎÁ¤¼ö»çÀÌÀÇÇÕ {
+public class ì—°ìŠµë¬¸ì œ_ë‘ì •ìˆ˜ì‚¬ì´ì˜í•© {
 	//https://programmers.co.kr/learn/courses/30/lessons/12912
-	//µÎ ¼ö »çÀÌÀÇ ¸ğµç ¼ö¸¦ ´õÇÑ °ªÀ» ¸®ÅÏ
+	//ë‘ ìˆ˜ ì‚¬ì´ì˜ ëª¨ë“  ìˆ˜ë¥¼ ë”í•œ ê°’ì„ ë¦¬í„´
 	
     public static long solution(int a, int b) {
         long num1 = a;

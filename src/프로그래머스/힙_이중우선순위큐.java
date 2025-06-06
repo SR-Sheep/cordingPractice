@@ -1,66 +1,66 @@
-package ÇÁ·Î±×·¡¸Ó½º;
+package í”„ë¡œê·¸ë˜ë¨¸ìŠ¤;
 
 import java.util.PriorityQueue;
 
-public class Èü_ÀÌÁß¿ì¼±¼øÀ§Å¥ {
+public class í™_ì´ì¤‘ìš°ì„ ìˆœìœ„í {
 	/*
-	ÀÌÁß ¿ì¼±¼øÀ§ Å¥´Â ´ÙÀ½ ¿¬»êÀ» ÇÒ ¼ö ÀÖ´Â ÀÚ·á±¸Á¶¸¦ ¸»ÇÕ´Ï´Ù.
+	ì´ì¤‘ ìš°ì„ ìˆœìœ„ íëŠ” ë‹¤ìŒ ì—°ì‚°ì„ í•  ìˆ˜ ìˆëŠ” ìë£Œêµ¬ì¡°ë¥¼ ë§í•©ë‹ˆë‹¤.
 
-	¸í·É¾î	¼ö½Å Å¾(³ôÀÌ)
-	I ¼ıÀÚ	Å¥¿¡ ÁÖ¾îÁø ¼ıÀÚ¸¦ »ğÀÔÇÕ´Ï´Ù.
-	D 1	Å¥¿¡¼­ ÃÖ´ñ°ªÀ» »èÁ¦ÇÕ´Ï´Ù.
-	D -1	Å¥¿¡¼­ ÃÖ¼Ú°ªÀ» »èÁ¦ÇÕ´Ï´Ù.
-	ÀÌÁß ¿ì¼±¼øÀ§ Å¥°¡ ÇÒ ¿¬»ê operations°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, ¸ğµç ¿¬»êÀ» Ã³¸®ÇÑ ÈÄ Å¥°¡ ºñ¾îÀÖÀ¸¸é [0,0] ºñ¾îÀÖÁö ¾ÊÀ¸¸é [ÃÖ´ñ°ª, ÃÖ¼Ú°ª]À» return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ±¸ÇöÇØÁÖ¼¼¿ä.
+	ëª…ë ¹ì–´	ìˆ˜ì‹  íƒ‘(ë†’ì´)
+	I ìˆ«ì	íì— ì£¼ì–´ì§„ ìˆ«ìë¥¼ ì‚½ì…í•©ë‹ˆë‹¤.
+	D 1	íì—ì„œ ìµœëŒ“ê°’ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+	D -1	íì—ì„œ ìµœì†Ÿê°’ì„ ì‚­ì œí•©ë‹ˆë‹¤.
+	ì´ì¤‘ ìš°ì„ ìˆœìœ„ íê°€ í•  ì—°ì‚° operationsê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, ëª¨ë“  ì—°ì‚°ì„ ì²˜ë¦¬í•œ í›„ íê°€ ë¹„ì–´ìˆìœ¼ë©´ [0,0] ë¹„ì–´ìˆì§€ ì•Šìœ¼ë©´ [ìµœëŒ“ê°’, ìµœì†Ÿê°’]ì„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ êµ¬í˜„í•´ì£¼ì„¸ìš”.
 	
-	Á¦ÇÑ»çÇ×
-	operations´Â ±æÀÌ°¡ 1 ÀÌ»ó 1,000,000 ÀÌÇÏÀÎ ¹®ÀÚ¿­ ¹è¿­ÀÔ´Ï´Ù.
-	operationsÀÇ ¿ø¼Ò´Â Å¥°¡ ¼öÇàÇÒ ¿¬»êÀ» ³ªÅ¸³À´Ï´Ù.
-	¿ø¼Ò´Â ¡°¸í·É¾î µ¥ÀÌÅÍ¡± Çü½ÄÀ¸·Î ÁÖ¾îÁı´Ï´Ù.- ÃÖ´ñ°ª/ÃÖ¼Ú°ªÀ» »èÁ¦ÇÏ´Â ¿¬»ê¿¡¼­ ÃÖ´ñ°ª/ÃÖ¼Ú°ªÀÌ µÑ ÀÌ»óÀÎ °æ¿ì, ÇÏ³ª¸¸ »èÁ¦ÇÕ´Ï´Ù.
-	ºó Å¥¿¡ µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÏ¶ó´Â ¿¬»êÀÌ ÁÖ¾îÁú °æ¿ì, ÇØ´ç ¿¬»êÀº ¹«½ÃÇÕ´Ï´Ù.
+	ì œí•œì‚¬í•­
+	operationsëŠ” ê¸¸ì´ê°€ 1 ì´ìƒ 1,000,000 ì´í•˜ì¸ ë¬¸ìì—´ ë°°ì—´ì…ë‹ˆë‹¤.
+	operationsì˜ ì›ì†ŒëŠ” íê°€ ìˆ˜í–‰í•  ì—°ì‚°ì„ ë‚˜íƒ€ëƒ…ë‹ˆë‹¤.
+	ì›ì†ŒëŠ” â€œëª…ë ¹ì–´ ë°ì´í„°â€ í˜•ì‹ìœ¼ë¡œ ì£¼ì–´ì§‘ë‹ˆë‹¤.- ìµœëŒ“ê°’/ìµœì†Ÿê°’ì„ ì‚­ì œí•˜ëŠ” ì—°ì‚°ì—ì„œ ìµœëŒ“ê°’/ìµœì†Ÿê°’ì´ ë‘˜ ì´ìƒì¸ ê²½ìš°, í•˜ë‚˜ë§Œ ì‚­ì œí•©ë‹ˆë‹¤.
+	ë¹ˆ íì— ë°ì´í„°ë¥¼ ì‚­ì œí•˜ë¼ëŠ” ì—°ì‚°ì´ ì£¼ì–´ì§ˆ ê²½ìš°, í•´ë‹¹ ì—°ì‚°ì€ ë¬´ì‹œí•©ë‹ˆë‹¤.
 	 */
 	static class DoublePQ{
-		private PriorityQueue<Integer> pq; //±âÁ¸ ¿ì¼±¼øÀ§ Å¥(ÀÛÀº ¼ö°¡ ¸ÕÀú)
-		private PriorityQueue<Integer> rpq; //¿ª¼ø ¿ì¼±¼øÀ§ Å¥(Å« ¼ö°¡ ¸ÕÀú)
+		private PriorityQueue<Integer> pq; //ê¸°ì¡´ ìš°ì„ ìˆœìœ„ í(ì‘ì€ ìˆ˜ê°€ ë¨¼ì €)
+		private PriorityQueue<Integer> rpq; //ì—­ìˆœ ìš°ì„ ìˆœìœ„ í(í° ìˆ˜ê°€ ë¨¼ì €)
 		
-		//¼±¾ğ
+		//ì„ ì–¸
 		public DoublePQ() {
 			pq=new PriorityQueue<Integer>();
 			rpq=new PriorityQueue<Integer>((x,y)->y-x);
 		}
 		
-		//¸í·É ÀÔ·Â
+		//ëª…ë ¹ ì…ë ¥
 		public void command(String cmd) {
 			String[] cmdArr=cmd.split(" ");
-			//I¸é insert È£Ãâ
+			//Ië©´ insert í˜¸ì¶œ
 			if(cmdArr[0].equals("I")) {
 				insert(Integer.parseInt(cmdArr[1]));
 			}else {
-				//±× ¿Ü(D)ÀÏ½Ã delete È£Ãâ, 1ÀÌ¸é max,±× ¿Ü(-1) min Á¦°Å
+				//ê·¸ ì™¸(D)ì¼ì‹œ delete í˜¸ì¶œ, 1ì´ë©´ max,ê·¸ ì™¸(-1) min ì œê±°
 				if(cmdArr[1].equals("1")) deleteMax();
 				else deleteMin();
 			}
 		}
-		//numÀ» pq¿Í rpq µÑ´Ù insert
+		//numì„ pqì™€ rpq ë‘˜ë‹¤ insert
 		public void insert(int num) {
 			pq.add(num);
 			rpq.add(num);
 		}
-		//max Áö¿ì±â, rpq¿¡¼­ »ÌÀº °ªÀ» pq¿¡¼­ »èÁ¦
+		//max ì§€ìš°ê¸°, rpqì—ì„œ ë½‘ì€ ê°’ì„ pqì—ì„œ ì‚­ì œ
 		public void deleteMax() {
 			pq.remove(rpq.poll());
 		}
-		//min Áö¿ì±â, pq¿¡¼­ »ÌÀº °ªÀ» rpq¿¡¼­ »èÁ¦
+		//min ì§€ìš°ê¸°, pqì—ì„œ ë½‘ì€ ê°’ì„ rpqì—ì„œ ì‚­ì œ
 		public void deleteMin() {
 			rpq.remove(pq.poll());
 		}
-		//ÃÖ´ë°ª ¾ò±â
+		//ìµœëŒ€ê°’ ì–»ê¸°
 		public int getMax() {
-			if(rpq.isEmpty()) return 0; //ºñ¾îÀÖÀ¸¸é 0
+			if(rpq.isEmpty()) return 0; //ë¹„ì–´ìˆìœ¼ë©´ 0
 			return rpq.peek();
 		}
-		//ÃÖ¼Ò°ª
+		//ìµœì†Œê°’
 		public int getMin() {
-			if(pq.isEmpty()) return 0; //ºñ¾îÀÖÀ¸¸é 0
+			if(pq.isEmpty()) return 0; //ë¹„ì–´ìˆìœ¼ë©´ 0
 			return pq.peek();
 		}
 	}
@@ -68,12 +68,12 @@ public class Èü_ÀÌÁß¿ì¼±¼øÀ§Å¥ {
 	
     public static int[] solution(String[] operations) {
         int[] answer = new int[2];
-        DoublePQ doublePQ = new DoublePQ(); //¼±¾ğ
+        DoublePQ doublePQ = new DoublePQ(); //ì„ ì–¸
         for(String operation:operations) {
-        	doublePQ.command(operation); //¸í·É ¼öÇà
+        	doublePQ.command(operation); //ëª…ë ¹ ìˆ˜í–‰
         }
-        answer[0]=doublePQ.getMax(); //ÃÖ´ë°ª
-        answer[1]=doublePQ.getMin(); //ÃÖ¼Ò°ª
+        answer[0]=doublePQ.getMax(); //ìµœëŒ€ê°’
+        answer[1]=doublePQ.getMin(); //ìµœì†Œê°’
         return answer;
     }
 	
